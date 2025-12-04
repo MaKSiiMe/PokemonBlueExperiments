@@ -1,0 +1,22 @@
+# Émulation
+pyboy
+
+# Data Science & Math
+numpy
+pandas
+matplotlib
+
+# Computer Vision & ML
+opencv-python
+torch
+torchvision
+ultralytics
+
+# Reinforcement Learning
+gymnasium
+stable-baselines3
+shimmy
+
+# Dev Tools
+ipykernel
+tqdm
