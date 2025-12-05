@@ -173,6 +173,11 @@ PokemonBlueExperiments/
 │       └── weights/
 │           └── best.pt
 │
+├── 📁 states/                  # Sauvegardes PyBoy (.state)
+│   ├── palette.state
+│   ├── viridian.state
+│   └── ...
+│
 ├── 📁 src/
 │   ├── 📁 emulator/            # Wrapper PyBoy & Gym Env
 │   ├── 📁 utils/               # Outils (Checkpoints, Audit)

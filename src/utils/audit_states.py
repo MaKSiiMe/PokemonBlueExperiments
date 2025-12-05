@@ -4,9 +4,10 @@ import glob
 from pyboy import PyBoy
 from PIL import ImageDraw
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+)
 
-# --- CONFIG ---
 ROM_PATH = "PokemonBlue.gb"
 OUTPUT_DIR = os.path.join("data", "debug_states")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -14,13 +15,13 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 ADDR_X_POS, ADDR_Y_POS, ADDR_MAP_N = 0xD362, 0xD361, 0xD35E
 SCREEN_W, SCREEN_H = 160, 144
 
-# TES COORDONNÉES DE PORTES (À AJUSTER ICI)
 KNOWN_DOORS = {
-    0:  [(5, 5), (13, 5), (12, 11)],  # Bourg Palette
-    1:  [(23, 25), (29, 19), (32, 7), (21, 15)], # Jadielle
-    2:  [(13, 25), (23, 17), (16, 17), (7, 9)], # Argenta
-    33: [(8, 5)], # Route 22
+    0:  [(5, 5), (13, 5), (12, 11)],
+    1:  [(23, 25), (29, 19), (32, 7), (21, 15)],
+    2:  [(13, 25), (23, 17), (16, 17), (7, 9)],
+    33: [(8, 5)],
 }
+
 
 def draw_debug_info(pyboy, img, filename):
     draw = ImageDraw.Draw(img)
@@ -30,16 +31,19 @@ def draw_debug_info(pyboy, img, filename):
     if map_id in KNOWN_DOORS:
         for door_x, door_y in KNOWN_DOORS[map_id]:
             dx, dy = (door_x - p_x) * 16, (door_y - p_y) * 16
-            screen_x, screen_y = 80 + dx, 72 + dy 
+            screen_x, screen_y = 80 + dx, 72 + dy
 
-            # Dessine la boîte si elle est dans l'écran
             if -16 < screen_x < SCREEN_W and -16 < screen_y < SCREEN_H:
-                draw.rectangle([screen_x, screen_y, screen_x + 16, screen_y + 16], outline="yellow", width=2)
+                draw.rectangle(
+                    [screen_x, screen_y, screen_x + 16, screen_y + 16],
+                    outline="yellow", width=2
+                )
                 draw.text((screen_x, screen_y - 10), "DOOR", fill="yellow")
 
     draw.text((5, 5), f"File: {filename}", fill="white")
     draw.text((5, 15), f"Map: {map_id} | Pos: ({p_x},{p_y})", fill="white")
     return img
+
 
 def main():
     state_files = glob.glob("*.state")
@@ -48,35 +52,29 @@ def main():
         return
 
     print(f"🕵️  Audit de {len(state_files)} fichiers (Mode Stable)...")
-    
-    # --- CONFIGURATION STABLE ---
-    # window="null" : Pas d'affichage (évite bug graphique WSL)
-    # sound=False : On demande gentillement de couper le son
+
     pyboy = PyBoy(ROM_PATH, window="null", sound=False)
-    
-    # CRUCIAL : On reste à vitesse normale (1).
-    # Ça évite le "Buffer Overrun" et le crash.
-    # Pour 50 images, c'est instantané quand même.
+
     pyboy.set_emulation_speed(1)
 
     for state_file in state_files:
         try:
-            with open(state_file, "rb") as f: 
+            with open(state_file, "rb") as f:
                 pyboy.load_state(f)
-            
-            # On laisse le moteur tourner quelques frames pour charger l'image
-            # À vitesse 1, ça prend quelques millisecondes, c'est invisible pour toi.
-            for _ in range(5): pyboy.tick()
-            
+
+            for _ in range(5):
+                pyboy.tick()
+
             screen = pyboy.screen.image
-            if screen.mode == 'RGBA': screen = screen.convert('RGB')
-            
+            if screen.mode == 'RGBA':
+                screen = screen.convert('RGB')
+
             debug_img = draw_debug_info(pyboy, screen, state_file)
-            
+
             save_name = os.path.basename(state_file).replace(".state", ".jpg")
             save_path = os.path.join(OUTPUT_DIR, save_name)
             debug_img.save(save_path)
-            
+
             print(f"✅ {save_name}")
 
         except Exception as e:
@@ -84,6 +82,7 @@ def main():
 
     pyboy.stop()
     print(f"\n📂 Terminée ! Images dans '{OUTPUT_DIR}'")
+
 
 if __name__ == "__main__":
     main()
