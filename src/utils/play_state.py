@@ -1,7 +1,7 @@
 from pyboy import PyBoy
 import os
 
-STATE_TO_LOAD = "50_endgame.state"
+STATE_TO_LOAD = "states/init.state"
 ROM_PATH = "PokemonBlue.gb"
 
 

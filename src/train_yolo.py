@@ -26,7 +26,7 @@ def main():
             print("Corrigez data.yaml pour pointer vers un dossier existant.")
             return
 
-    model = YOLO("yolov8n.pt")
+    model = YOLO("yolo11n.pt")
     results = model.train(
         data="data.yaml",
         epochs=50,
@@ -34,7 +34,7 @@ def main():
         batch=32,
         device=device,
         project="models",
-        name="yolo_pokemon",
+        name="yolo11_pokemon",
         plots=True,
         verbose=True,
         cache="ram",

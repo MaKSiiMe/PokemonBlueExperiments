@@ -9,7 +9,7 @@ sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 )
 
-MODEL_PATH = "models/yolo_pokemon_doors2/weights/best.pt"
+MODEL_PATH = "models/yolo11_pokemon/weights/best.pt"
 ROM_PATH = "PokemonBlue.gb"
 STATE_PATH = "states/init.state"
 

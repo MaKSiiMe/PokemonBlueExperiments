@@ -1,140 +1,121 @@
-# 🧠 RAM Map (Pokémon Blue US/EU)
+# 🧠 RAM Map : Pokémon Blue (US/EU)
 
-Ce document recense les adresses mémoires critiques identifiées pour le fonctionnement de l'agent.
-
-> **Note Importante :** Les adresses correspondent à la version **US/EU (Anglaise)** de la ROM. Le projet a migré depuis la version FR pour garantir la stabilité des adresses mémoires standards.
+Ce document est la reference unique pour l'extraction de donnees via PyBoy. Il permet d'automatiser le dataset YOLO et de piloter les sous-modules de l'IA.
 
 ---
 
-## 📍 Navigation (Positionnement)
+## 🧭 1. Orchestrateur (Contexte Global)
 
-Ces variables permettent de situer le joueur dans le monde global.
+Ces adresses permettent a l'orchestrateur de savoir quel module (Vision, Combat, Nav) doit prendre le controle.
 
-| Variable | Adresse (Hex) | Type | Description |
+| Variable | Adresse | Type | Description |
 | :--- | :--- | :--- | :--- |
-| **X Position** | `0xD362` | `uint8` | Coordonnée X du joueur sur la map actuelle (en cases). |
-| **Y Position** | `0xD361` | `uint8` | Coordonnée Y du joueur sur la map actuelle (en cases). |
-| **Map ID** | `0xD35E` | `uint8` | Identifiant unique de la zone actuelle. |
+| **Battle Status** | `0xD057` | `uint8` | `00` overworld, `01` sauvage, `02` dresseur. |
+| **Menu ID** | `0xD12B` | `uint8` | `00` aucun menu, >`0` menu/sac/stats ouvert. |
+| **Text ID** | `0xD11C` | `uint8` | >`0` boite de dialogue active. |
+| **Fading State** | `0xD13F` | `uint8` | `00` pret, `01-FF` transition (ecran noir). |
+| **In-Game Timer** | `0xDA43` | `uint8` | Secondes de jeu (utile pour horodater le dataset). |
 
-### Map IDs Connus
+---
 
-| ID | Zone | Notes |
+## 👁️ 2. Vision (Dataset YOLO & Calibration)
+
+Utilise pour generer les labels .txt automatiquement pendant tes 2h de jeu.
+
+### A. Objets Dynamiques (Sprites)
+
+Il existe deux manieres de voir les objets. La table C100 est preferable pour YOLO car elle contient l'ID logique de l'objet (ex: "Scientifique").
+
+| Source | Adresse | Description |
+| :--- | :--- | :--- |
+| **WRAM Sprites** | `0xC100 - 0xC2FF` | Table logique (16 octets/sprite). Recommande pour YOLO. |
+| **Hardware OAM** | `0xFE00 - 0xFE9F` | Table materielle (4 octets/sprite). Utile pour la precision pixel. |
+
+Offsets critiques (WRAM `0xC100`) :
+
+| Offset | Champ | Description |
 | :---: | :--- | :--- |
-| 0 | Bourg Palette | Zone de départ |
-| 1 | Jadielle (Viridian City) | Première ville |
-| 2 | Argenta (Pewter City) | Arène de Pierre (Brock) |
-| 12 | Route 1 | Entre Palette et Jadielle |
-| 13 | Route 2 | Vers la Forêt de Jade |
-| 33 | Route 22 | Vers la Ligue Pokémon |
-| 51 | Forêt de Jade | Labyrinthe |
+| `+0x00` | **Picture ID** | Indique si le sprite est actif (`0` = inactif). |
+| `+0x01` | **Movement Status** | Indique si le sprite bouge. |
+| `+0x02` | **Sprite ID** | Classe YOLO. |
+| `+0x04` | **Y Screen** | Position Y a l'ecran (pixels). |
+| `+0x06` | **X Screen** | Position X a l'ecran (pixels). |
+
+### B. Environnement & Camera
+
+| Variable | Adresse | Description |
+| :--- | :--- | :--- |
+| **SCX / SCY** | `0xFF42` / `0xFF43` | Scroll X/Y. Permet de compenser le mouvement de la camera. |
+| **Tile Map Buffer** | `0xC3A0 - 0xC507` | 360 octets (20 col x 18 lignes) representant l'ecran. |
+| **Current Tileset** | `0xD367` | ID du pack de graphismes (ex: `00` overworld, `02` gym). |
 
 ---
 
-## 🎥 Vision & Graphismes (Hardware Registers)
+## 📍 3. Navigation (Overworld)
 
-Ces registres matériels sont utilisés par le module de Computer Vision pour la **calibration dynamique** de la caméra et la détection des sprites.
+Donnees pour l'IA de pathfinding (A*).
 
-| Variable | Adresse (Hex) | Type | Description |
+| Variable | Adresse | Description |
+| :--- | :--- | :--- |
+| **X / Y Pos** | `0xD362` / `0xD361` | Position actuelle en cases (`0-255`). |
+| **Direction** | `0xD35D` | `00` bas, `04` haut, `08` gauche, `0C` droite. |
+| **Map ID** | `0xD35E` | ID de la zone (ex: `02` pour Argenta). |
+| **Map Connection** | `0xD35F` | `uint8` | Permet de savoir si on change de map. |
+
+Points de passage cles (Map IDs) :
+
+`00`: Bourg Palette | `01`: Jadielle | `02`: Argenta (Pierre) | `51`: Foret de Jade.
+
+---
+
+## ⚔️ 4. Combat (Battle Engine)
+
+Donnees pour l'IA de decision tactique.
+
+| Variable | Adresse | Type | Description |
 | :--- | :--- | :--- | :--- |
-| **SCY (Scroll Y)** | `0xFF42` | `uint8` | Position verticale de la caméra (Viewport) en pixels. |
-| **SCX (Scroll X)** | `0xFF43` | `uint8` | Position horizontale de la caméra (Viewport) en pixels. |
-| **OAM (Sprites)** | `0xFE00 - 0xFE9F` | Range | Mémoire vidéo contenant les 40 sprites. |
-
-### Structure OAM (Object Attribute Memory)
-
-Chaque sprite occupe **4 octets** :
-
-| Offset | Donnée | Description |
-| :---: | :--- | :--- |
-| +0 | Y Position | Position Y écran + 16 |
-| +1 | X Position | Position X écran + 8 |
-| +2 | Tile ID | Index de la tuile graphique |
-| +3 | Attributes | Flags (palette, flip, priorité) |
-
-**Exemple de lecture :**
-```python
-OAM_BASE = 0xFE00
-for i in range(40):  # 40 sprites max
-    addr = OAM_BASE + (i * 4)
-    y = pyboy.memory[addr] - 16      # Correction offset Y
-    x = pyboy.memory[addr + 1] - 8   # Correction offset X
-    tile_id = pyboy.memory[addr + 2]
-    attributes = pyboy.memory[addr + 3]
-```
+| **Enemy HP** | `0xCFE6` | `uint16` | PV actuels de l'adversaire (Little Endian). |
+| **Player HP** | `0xD16C` | `uint16` | PV actuels de ton Pokemon actif. |
+| **Player Max HP** | `0xD18D` | `uint16` | PV max. |
+| **Move 1..4** | `0xD173 - 0xD176` | `uint8` | IDs des attaques disponibles. |
+| **PP 1..4** | `0xD188 - 0xD18B` | `uint8` | Points de pouvoir restants. |
+| **Enemy ID** | `0xD011` | `uint8` | ID du Pokemon adverse. |
+| **Enemy Move** | `0xD01C` | `uint8` | ID de l'attaque que l'ennemi va lancer. |
+| **Enemy Max HP** | `0xCFE8` | `uint16` | PV max. |
+| **Enemy Level** | `0xD012` | `uint8` | Niveau de l'adversaire. |
 
 ---
 
-## ⚔️ Combat (Battle State)
+## 🎒 5. Progression & Inventaire
 
-Variables utilisées pour détecter l'état de combat et calculer les récompenses.
-
-| Variable | Adresse (Hex) | Type | Description |
-| :--- | :--- | :--- | :--- |
-| **Battle Status** | `0xD057` | `uint8` | État du jeu (voir tableau ci-dessous). |
-| **Enemy HP** | `0xCFE6` | `uint16` | PV actuels de l'adversaire. |
-| **My HP** | `0xD16C` | `uint16` | PV actuels du Pokémon actif. |
-
-### Valeurs de Battle Status
-
-| Valeur | État | Description |
-| :---: | :--- | :--- |
-| 0 | Overworld | Exploration normale |
-| 1 | Wild Battle | Combat contre un Pokémon sauvage |
-| 2 | Trainer Battle | Combat contre un dresseur |
+| Variable | Adresse | Description |
+| :--- | :--- | :--- |
+| **Money** | `0xD347` | Argent (3 octets, format BCD). |
+| **Badges** | `0xD356` | Bitmask des badges (Pierre = 1er bit). |
+| **Pokedex** | `0xD2F7` | Nombre de Pokemon possedes. |
 
 ---
 
-## 🎒 Inventaire & Progression
+## 🧪 6. Implementation Python (Cheat Sheet)
 
-| Variable | Adresse (Hex) | Type | Description |
-| :--- | :--- | :--- | :--- |
-| **Badges** | `0xD356` | `uint8` | Badges obtenus (Bitmask) |
-| **Money** | `0xD347` | `uint24` | Argent (BCD, 3 octets) |
-| **Pokédex Owned** | `0xD2F7` | `uint8` | Nombre de Pokémon possédés |
-
----
-
-## 🧪 Notes Techniques
-
-### Accès Mémoire
-
-```python
-# Lecture d'un octet
-value = pyboy.memory[0xD362]
-
-# Lecture d'un mot (16 bits, Little Endian)
-low = pyboy.memory[0xCFE6]
-high = pyboy.memory[0xCFE7]
-value_16bit = low + (high << 8)
-```
-
-### Little Endian
-
-La Game Boy stocke les données multi-octets **à l'envers** (octet de poids faible en premier) :
-
-```
-Adresse:  0xCFE6  0xCFE7
-Contenu:  [0x1A]  [0x00]
-Valeur:   0x001A = 26 (décimal)
-```
-
-### Conversion Pixels ↔ Cases
-
-Le jeu utilise des **cases de 16x16 pixels** :
+Lecture securisee des PV (16-bit)
 
 ```python
-# Position en pixels
-pixel_x = case_x * 16
-pixel_y = case_y * 16
-
-# Position en cases
-case_x = pixel_x // 16
-case_y = pixel_y // 16
+def get_enemy_hp(pyboy):
+    # Pokemon stocke les PV sur deux octets (Little Endian)
+    low = pyboy.memory[0xCFE6]
+    high = pyboy.memory[0xCFE7]
+    return low + (high << 8)
 ```
 
----
+Conversion pour YOLO
 
-## 📚 Ressources
+```python
+# Exemple pour le joueur depuis C100 (toujours premier slot)
+y_pixel = pyboy.memory[0xC104]
+x_pixel = pyboy.memory[0xC106]
 
-- [pret/pokered](https://github.com/pret/pokered) - Désassemblage officiel de Pokémon Rouge/Bleu
-- [Data Crystal - Pokemon Red/Blue](https://datacrystal.romhacking.net/wiki/Pok%C3%A9mon_Red/Blue) - Wiki ROM Hacking
+# Normalisation YOLO (0.0 a 1.0)
+y_center = (y_pixel + 8) / 144
+x_center = (x_pixel + 8) / 160
+```

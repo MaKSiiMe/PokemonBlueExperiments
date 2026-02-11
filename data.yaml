@@ -1,5 +1,0 @@
-path: /home/maxime/Holberton/C#25-ML_Portfolio/PokemonBlueExperiments/data/dataset/pokemon
-train: /home/maxime/Holberton/C#25-ML_Portfolio/PokemonBlueExperiments/data/dataset/pokemon/train/images
-val: /home/maxime/Holberton/C#25-ML_Portfolio/PokemonBlueExperiments/data/dataset/pokemon/val/images
-nc: 4
-names: ['player', 'npc', 'door', 'sign']
