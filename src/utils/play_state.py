@@ -1,8 +1,8 @@
 from pyboy import PyBoy
 import os
 
-STATE_TO_LOAD = "states/init.state"
-ROM_PATH = "PokemonBlue.gb"
+STATE_TO_LOAD = "states/03_maison_red.state"
+ROM_PATH = "ROMs/PokemonBlue.gb"
 
 
 def main():
@@ -11,7 +11,7 @@ def main():
         return
 
     print("🎮 Lancement de l'émulateur...")
-    pyboy = PyBoy(ROM_PATH, window="SDL2", sound=True)
+    pyboy = PyBoy(ROM_PATH, window="SDL2", sound=False)
     pyboy.set_emulation_speed(1)
 
     print("⏳ Initialisation du moteur (Warm-up)...")

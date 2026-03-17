@@ -1,0 +1,176 @@
+{
+  "_comment": "Mapping de référence pour le debug visualizer et la génération de dataset. Source : pret/pokered disassembly (https://github.com/pret/pokered)",
+  "_classes": {
+    "0": "Player",
+    "1": "NPC",
+    "2": "Door",
+    "3": "Tall Grass",
+    "4": "Ledge",
+    "5": "Item"
+  },
+
+  "sprites": {
+    "_comment": "IDs lus à 0xC100 + (slot * 16) + 0x00 (Picture ID). Slot 0 = toujours le joueur.",
+    "0x01": { "class": 0, "name": "SPRITE_RED" },
+    "0x02": { "class": 1, "name": "SPRITE_BLUE" },
+    "0x03": { "class": 1, "name": "SPRITE_OAK" },
+    "0x04": { "class": 1, "name": "SPRITE_YOUNGSTER" },
+    "0x05": { "class": 1, "name": "SPRITE_MONSTER" },
+    "0x06": { "class": 1, "name": "SPRITE_SCIENTIST" },
+    "0x07": { "class": 1, "name": "SPRITE_COOLTRAINER_M" },
+    "0x08": { "class": 1, "name": "SPRITE_COOLTRAINER_F" },
+    "0x09": { "class": 1, "name": "SPRITE_MOM" },
+    "0x0A": { "class": 1, "name": "SPRITE_GIRL" },
+    "0x0B": { "class": 1, "name": "SPRITE_FISHER" },
+    "0x0C": { "class": 1, "name": "SPRITE_MIDDLE_AGED_MAN" },
+    "0x0D": { "class": 1, "name": "SPRITE_FAT_MAN" },
+    "0x0E": { "class": 1, "name": "SPRITE_OLD_MAN" },
+    "0x0F": { "class": 1, "name": "SPRITE_OLD_MEDIUM_WOMAN" },
+    "0x10": { "class": 1, "name": "SPRITE_ELDER_PRAYER_WOMAN" },
+    "0x11": { "class": 1, "name": "SPRITE_FOLLOWER_M" },
+    "0x12": { "class": 1, "name": "SPRITE_FOLLOWER_F" },
+    "0x13": { "class": 1, "name": "SPRITE_SWIMMER" },
+    "0x14": { "class": 1, "name": "SPRITE_BIKER" },
+    "0x15": { "class": 1, "name": "SPRITE_ROCKET" },
+    "0x16": { "class": 1, "name": "SPRITE_POKEFAN_M" },
+    "0x17": { "class": 1, "name": "SPRITE_POKEFAN_F" },
+    "0x18": { "class": 1, "name": "SPRITE_FISHER_2" },
+    "0x19": { "class": 1, "name": "SPRITE_GYM_GUIDE" },
+    "0x1A": { "class": 1, "name": "SPRITE_COOK" },
+    "0x1B": { "class": 1, "name": "SPRITE_BIKE_SHOP_GUY" },
+    "0x1C": { "class": 1, "name": "SPRITE_NURSE" },
+    "0x1D": { "class": 1, "name": "SPRITE_CLERK" },
+    "0x1E": { "class": 1, "name": "SPRITE_FISHING_GURU" },
+    "0x1F": { "class": 1, "name": "SPRITE_LAPRAS_GIVER" },
+    "0x20": { "class": 1, "name": "SPRITE_WARDEN" },
+    "0x21": { "class": 1, "name": "SPRITE_FIGHTING_DOJO_GURU" },
+    "0x22": { "class": 1, "name": "SPRITE_SILPH_CO_WORKER" },
+    "0x23": { "class": 1, "name": "SPRITE_MR_FUJI" },
+    "0x24": { "class": 1, "name": "SPRITE_GIOVANNI" },
+    "0x25": { "class": 1, "name": "SPRITE_ROCKET_F" },
+    "0x3C": { "class": 5, "name": "SPRITE_ITEM_BALL" },
+    "0x3D": { "class": 5, "name": "SPRITE_POKEBALL_TABLE" },
+    "0x3F": { "class": 1, "name": "SPRITE_BOOK" }
+  },
+
+  "tilesets": {
+    "_comment": "ID lu à 0xD367. Source : constants/tileset_constants.asm (pret/pokered). ATTENTION: ancien mapping décalé de 1 depuis 0x06 car POKECENTER était manquant.",
+    "0x00": "OVERWORLD",
+    "0x01": "REDS_HOUSE_1",
+    "0x02": "MART",
+    "0x03": "FOREST",
+    "0x04": "REDS_HOUSE_2",
+    "0x05": "DOJO",
+    "0x06": "POKECENTER",
+    "0x07": "GYM",
+    "0x08": "HOUSE",
+    "0x09": "FOREST_GATE",
+    "0x0A": "MUSEUM",
+    "0x0B": "UNDERGROUND",
+    "0x0C": "GATE",
+    "0x0D": "SHIP",
+    "0x0E": "SHIP_PORT",
+    "0x0F": "CEMETERY",
+    "0x10": "INTERIOR",
+    "0x11": "CAVERN",
+    "0x12": "LOBBY",
+    "0x13": "MANSION",
+    "0x14": "LAB",
+    "0x15": "CLUB",
+    "0x16": "FACILITY",
+    "0x17": "PLATEAU"
+  },
+
+  "tiles": {
+    "_comment": "Tile IDs lus depuis le buffer écran 0xC3A0 (20x18 tiles de 8x8px). Source : data/tilesets/ (pret/pokered). Tous vérifiés depuis le code source.",
+
+    "doors": {
+      "_comment": "Tiles déclenchant une transition de zone (warp). Classe YOLO 2. Source : data/tilesets/door_tile_ids.asm",
+      "OVERWORLD": {
+        "0x1B": { "class": 2, "name": "DOOR_STANDARD", "verified": true },
+        "0x58": { "class": 2, "name": "DOOR_GATE", "verified": true }
+      },
+      "FOREST": {
+        "0x3A": { "class": 2, "name": "DOOR_FOREST", "verified": true }
+      },
+      "MART": {
+        "0x5E": { "class": 2, "name": "EXIT_MAT_MART", "verified": true }
+      },
+      "POKECENTER": {
+        "0x5E": { "class": 2, "name": "EXIT_MAT_POKECENTER", "verified": true }
+      },
+      "HOUSE": {
+        "0x54": { "class": 2, "name": "EXIT_MAT_HOUSE", "verified": true }
+      },
+      "FOREST_GATE": {
+        "0x3B": { "class": 2, "name": "DOOR_FOREST_GATE", "verified": true }
+      },
+      "MUSEUM": {
+        "0x3B": { "class": 2, "name": "DOOR_MUSEUM", "verified": true }
+      },
+      "GATE": {
+        "0x3B": { "class": 2, "name": "DOOR_GATE_BUILDING", "verified": true }
+      },
+      "SHIP": {
+        "0x1E": { "class": 2, "name": "DOOR_SHIP", "verified": true }
+      },
+      "LOBBY": {
+        "0x1C": { "class": 2, "name": "DOOR_LOBBY_1", "verified": true },
+        "0x38": { "class": 2, "name": "DOOR_LOBBY_2", "verified": true },
+        "0x1A": { "class": 2, "name": "DOOR_LOBBY_3", "verified": true }
+      },
+      "MANSION": {
+        "0x1A": { "class": 2, "name": "DOOR_MANSION_1", "verified": true },
+        "0x1C": { "class": 2, "name": "DOOR_MANSION_2", "verified": true },
+        "0x53": { "class": 2, "name": "DOOR_MANSION_3", "verified": true }
+      },
+      "LAB": {
+        "0x34": { "class": 2, "name": "DOOR_LAB", "verified": true }
+      },
+      "FACILITY": {
+        "0x43": { "class": 2, "name": "DOOR_FACILITY_1", "verified": true },
+        "0x58": { "class": 2, "name": "DOOR_FACILITY_2", "verified": true },
+        "0x1B": { "class": 2, "name": "DOOR_FACILITY_3", "verified": true }
+      },
+      "PLATEAU": {
+        "0x3B": { "class": 2, "name": "DOOR_PLATEAU_1", "verified": true },
+        "0x1B": { "class": 2, "name": "DOOR_PLATEAU_2", "verified": true }
+      }
+    },
+
+    "tall_grass": {
+      "_comment": "Tile de hautes herbes — déclenche un combat aléatoire. Classe YOLO 3. Source : data/tilesets/tileset_headers.asm champ 'grass tile'.",
+      "_warning": "Dans generate_dataset.py V12, 0x52 était listé comme SIGN (BUG). C'est en réalité le tile GRASS de l'Overworld.",
+      "OVERWORLD": {
+        "0x52": { "class": 3, "name": "TALL_GRASS_OVERWORLD", "verified": true }
+      },
+      "FOREST": {
+        "0x20": { "class": 3, "name": "TALL_GRASS_FOREST", "verified": true }
+      },
+      "PLATEAU": {
+        "0x45": { "class": 3, "name": "TALL_GRASS_PLATEAU", "verified": true }
+      }
+    },
+
+    "ledges": {
+      "_comment": "Tiles de corniches directionnelles. Classe YOLO 4. Source : data/tilesets/ledge_tiles.asm. Format : {direction, tile_joueur_debout, tile_corniche, input}. ATTENTION: anciens IDs 0x24-0x28 étaient complètement faux.",
+      "_warning": "Les IDs 0x24-0x28 dans l'ancien mapping.json ne correspondent à rien dans le jeu.",
+      "OVERWORLD": {
+        "0x37": { "class": 4, "name": "LEDGE_DOWN_A", "direction": "down", "verified": true },
+        "0x36": { "class": 4, "name": "LEDGE_DOWN_B", "direction": "down", "verified": true },
+        "0x27": { "class": 4, "name": "LEDGE_LEFT", "direction": "left", "verified": true },
+        "0x0D": { "class": 4, "name": "LEDGE_RIGHT_A", "direction": "right", "verified": true },
+        "0x1D": { "class": 4, "name": "LEDGE_RIGHT_B", "direction": "right", "verified": true }
+      }
+    },
+
+    "collision": {
+      "_comment": "Tiles impassables (murs, obstacles). Non utilisés pour YOLO mais utiles pour debug. Source : data/tilesets/collision_tile_ids.asm",
+      "OVERWORLD": ["0x00","0x10","0x1B","0x20","0x21","0x23","0x2C","0x2D","0x2E","0x30","0x31","0x33","0x39","0x3C","0x3E","0x52","0x54","0x58","0x5B"],
+      "FOREST": ["0x1E","0x20","0x2E","0x30","0x34","0x37","0x39","0x3A","0x40","0x51","0x52","0x5A","0x5C","0x5E","0x5F"],
+      "LAB": ["0x0C","0x26","0x16","0x1E","0x34","0x37"],
+      "HOUSE": ["0x01","0x12","0x14","0x28","0x32","0x37","0x44","0x54","0x5C"],
+      "GYM": ["0x11","0x16","0x19","0x2B","0x3C","0x3D","0x3F","0x4A","0x4C","0x4D","0x03"]
+    }
+  }
+}

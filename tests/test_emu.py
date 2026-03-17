@@ -1,6 +1,6 @@
 from pyboy import PyBoy
 
-ROM_PATH = "PokemonBlue.gb"
+ROM_PATH = "ROMs/PokemonBlue.gb"
 
 
 def main():

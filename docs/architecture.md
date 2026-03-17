@@ -1,218 +1,164 @@
-# 🏗️ System Architecture
+# 🏗️ Architecture — Pokémon Blue AI
 
-Ce document décrit l'architecture logicielle globale du projet **Pokémon Blue AI**.
-Le système est conçu de manière modulaire pour séparer la perception (Vision), la logique de jeu (Emulator) et la prise de décision (Agent).
+Architecture RAM-only : les observations viennent exclusivement de la mémoire Game Boy.
+Aucune dépendance vision/YOLO.
 
 ---
 
-## 🧩 Diagramme Global
+## 🧩 Vue d'ensemble
 
-```mermaid
-graph TD
-    subgraph Emulator
-        A[PyBoy] -->|Screen Buffer| B[Image RGBA]
-        A -->|Memory Access| C[RAM Values]
-    end
-    
-    subgraph Vision
-        B -->|Convert RGB| D[YOLOv8]
-        D -->|Detections| E[Bounding Boxes]
-    end
-    
-    subgraph State Manager
-        C -->|Read 0xD057| F{Game State}
-        F -->|Overworld| G[Navigation Mode]
-        F -->|Battle| H[Combat Mode]
-    end
-    
-    subgraph Agent
-        E -->|Visual Features| I[Observation Vector]
-        G -->|Context| I
-        I -->|Input| J[RL Policy]
-        J -->|Action| A
-    end
+```
+┌──────────────────────────────────────────────────────────┐
+│                      run_agent.py                        │
+│  (point d'entrée : --train / --train --chain / inférence)│
+└──────────────────────┬───────────────────────────────────┘
+                       │
+          ┌────────────▼────────────┐
+          │      Orchestrator       │  src/agent/orchestrator.py
+          │   (state machine RAM)   │  lit 0xD057, 0xD13F, 0xD11C
+          └──┬──────────┬───────────┘
+             │          │
+    ┌────────▼──┐  ┌────▼──────────┐
+    │Exploration│  │  BattleAgent  │  src/agent/battle_agent.py
+    │  Agent    │  │ (heuristique) │  type advantage, HP threshold
+    │  (PPO)    │  └───────────────┘
+    └────────┬──┘
+             │
+    ┌────────▼──────────────────────┐
+    │      PokemonBlueEnv           │  src/emulator/pokemon_env.py
+    │  Gymnasium + PyBoy            │
+    │  obs: 9 floats (RAM-only)     │
+    │  actions: Discrete(6)         │
+    └───────────────────────────────┘
 ```
 
 ---
 
 ## 📦 Modules
 
-### 1. Emulator Interface (`src/emulator/`)
+### `src/emulator/pokemon_env.py` — Gymnasium Environment
 
-Ce module gère l'interaction bas niveau avec la ROM via **PyBoy**.
+Interface entre PyBoy et Stable Baselines3.
 
-| Composant | Fichier | Description |
-| :--- | :--- | :--- |
-| Core Wrapper | `emulator.py` | Abstraction PyBoy |
-| Gym Environment | `pokemon_env.py` | Interface Gymnasium |
+**Observation** (9 floats, tous en [0, 1]) :
 
-**Fonctionnalités :**
-
-- **Rôle :** Exécuter le jeu, gérer le temps (Tick), et fournir l'accès brut à la mémoire et à l'écran.
-- **Optimisation WSL :** Gestion spécifique des drivers audio (`dummy`) pour éviter les crashs de buffer sous Linux/Windows Subsystem.
-- **Abstraction :** Fournit une API simplifiée :
-
-```python
-class PokemonEnv:
-    def reset(self) -> Observation
-    def step(self, action: int) -> (Observation, Reward, Done, Info)
-    def get_screen(self) -> np.ndarray
-```
-
-### 2. Vision Module (`src/vision/`)
-
-C'est les **"yeux"** de l'IA. Ce module ne dépend pas de la RAM pour l'inférence, uniquement des pixels.
-
-| Composant | Fichier | Description |
-| :--- | :--- | :--- |
-| Dataset Generator | `generate_dataset.py` | Création automatique des données |
-| Data Splitter | `split_data.py` | Organisation train/val |
-| Visualizer | `visualize_dataset.py` | Debug des annotations |
-| Inference | `test_inference.py` | Test temps réel |
-
-**Caractéristiques :**
-
-- **Modèle :** YOLOv8-Nano (Custom trained)
-- **Input :** Frame brute (160x144x3)
-- **Output :** Liste de détections sémantiques :
-
-| Classe | ID | Usage Agent |
-| :--- | :---: | :--- |
-| Player | 0 | Position actuelle |
-| NPC | 1 | Obstacles / Interactions |
-| Door | 2 | Objectifs de navigation |
-| Sign | 3 | Points d'information |
-
-**Utilité :** Permet à l'agent de naviguer vers des objectifs visibles sans connaître la carte mémoire du jeu à l'avance.
-
-📖 *Documentation complète : [Vision Pipeline](vision_pipeline.md)*
-
-### 3. Brain & Decision (`src/agent/` - En développement)
-
-Le cerveau est divisé en sous-systèmes spécialisés gérés par un **Orchestrateur**.
-
-#### A. The Orchestrator (State Machine)
-
-Il lit la RAM (adresse `0xD057`) pour déterminer le contexte actuel et activer l'agent approprié :
-
-```
-┌──────────────────────────────────────────────┐
-│                 ORCHESTRATOR                 │
-│                                              │
-│  ┌─────────┐    ┌─────────┐    ┌─────────┐   │
-│  │Overworld│    │ Battle  │    │  Menu   │   │
-│  │  Agent  │    │  Agent  │    │ Handler │   │
-│  └────▲────┘    └────▲────┘    └────▲────┘   │
-│       │              │              │        │
-│       └──────────────┼──────────────┘        │
-│                      │                       │
-│                [RAM: 0xD057]                 │
-│                                              │
-│  0 = Overworld  │  1 = Wild  │  2 = Trainer  │
-└──────────────────────────────────────────────┘
-```
-
-| État RAM | Mode | Agent Activé |
+| Index | Variable | Source RAM |
 | :---: | :--- | :--- |
-| 0 | Overworld | Navigation Agent |
-| 1 | Wild Battle | Battle Agent |
-| 2 | Trainer Battle | Battle Agent |
-| *autre* | Menu/Dialog | Script Handler |
+| 0 | `player_x` | `0xD362 / 255` |
+| 1 | `player_y` | `0xD361 / 255` |
+| 2 | `map_id` | `0xD35E / 255` |
+| 3 | `direction` | `0xD35D` → {0, 0.33, 0.66, 1} |
+| 4 | `hp_pct` | `0xD16C-D / 0xD18C-D` |
+| 5 | `battle_status` | `0xD057 / 2` |
+| 6 | `waypoint_x` | cible X / 255 (0 si map différente) |
+| 7 | `waypoint_y` | cible Y / 255 (0 si map différente) |
+| 8 | `badges_pct` | `popcount(0xD356) / 8` |
 
-#### B. Navigation Agent (PPO/DQN)
+**Action space** : `Discrete(6)` — up, down, left, right, a, b
 
-- **Objectif :** Atteindre la porte ou la ville suivante.
-- **Observation :** Vecteur construit à partir des sorties YOLO :
-  ```python
-  obs = [
-      player_x, player_y,           # Position joueur
-      nearest_door_dx, nearest_door_dy,  # Vecteur vers porte
-      nearest_npc_dx, nearest_npc_dy,    # Vecteur vers NPC
-      # ...
-  ]
-  ```
-- **Reward Function :** Basée sur la réduction de la distance vers la cible.
+**Reward design** :
 
-#### C. Battle Agent (Heuristic/RL)
-
-- **Objectif :** Gagner le combat.
-- **Observation :** PV Joueur, PV Ennemi, Type de Pokémon.
-- **Action :** Choisir l'attaque la plus efficace (Table des types).
-
----
-
-## 🔄 Flux de Données (Game Loop)
-
-Une itération complète ("Step") se déroule ainsi :
-
-```
-┌───────────────────────────────────────────────────────┐
-│                    GAME LOOP                          │
-│                                                       │
-│  1. TICK          PyBoy avance de N frames            │
-│       │                                               │
-│       ▼           ┌─────────────┬─────────────┐       │
-│  2. SENSING       │ Screen→YOLO │ RAM→State   │       │
-│       │           │ "Door right"│ "Overworld" │       │
-│       │           └─────────────┴─────────────┘       │
-│       ▼                                               │
-│  3. DECISION      Agent reçoit observation            │
-│       │           Policy output: "RIGHT"              │
-│       ▼                                               │
-│  4. ACTUATION     pyboy.button("right")               │
-│       │                                               │
-│       ▼                                               │
-│  5. FEEDBACK      Reward = Δ distance                 │
-│                   Update agent memory                 │
-│                                                       │
-└───────────────────────────────────────────────────────┘
-```
-
-### Détail des étapes :
-
-| Étape | Action | Détail |
+| Signal | Valeur | Condition |
 | :--- | :--- | :--- |
-| **1. Tick** | Émulation | L'émulateur avance de X frames (ex: 4-5 frames par step) |
-| **2. Sensing** | Perception | Capture image → YOLO détecte les objets. Lecture RAM → Détermine l'état |
-| **3. Decision** | Inférence | L'agent RL reçoit le vecteur d'observation et produit une action |
-| **4. Actuation** | Input | L'action est envoyée à PyBoy (`up`, `down`, `left`, `right`, `a`, `b`) |
-| **5. Feedback** | Apprentissage | Calcul de la récompense, mise à jour de la mémoire |
+| Pas de base | `-0.01` | Toujours |
+| Distance shaping | `(prev_dist − curr_dist) × 0.1` | Même map que le waypoint |
+| Nouvelle zone | `+1.0` | Première visite d'une map |
+| Waypoint intermédiaire | `+2.0` | Waypoint chaîné franchi |
+| Stuck penalty | `-0.05` | > 600 visites sur la même case |
+| Death | `-1.0` | HP → 0 pendant un combat |
+| Opponent level | `+opp_lvl × 0.2` | Fin de combat (victoire) |
 
 ---
 
-## 🗂️ Organisation des Fichiers
+### `src/agent/exploration_agent.py` — PPO Navigation
+
+Wraps SB3 PPO avec un curriculum de 13 waypoints (Bourg Palette → Brock).
+
+- **Training** : `ExplorationAgent(env_factory)` + `agent.train()`
+- **Inference** : `ExplorationAgent.from_model(ppo_model, waypoints)` (pas de VecEnv)
+- **Two-phase** : Phase 1 exploration large (`max_steps×5`), Phase 2 fine-tune (budget serré)
+- **Chaining** : Plusieurs waypoints en un seul épisode via `--chain 0 1`
+
+---
+
+### `src/agent/battle_agent.py` — Battle Heuristic
+
+Agent heuristique (pas de RL) pour les combats.
+
+- Lit HP joueur/ennemi, types, PP depuis la RAM
+- Sélectionne le move avec type advantage (table Gen 1)
+- Utilise une Potion si HP < 30%
+- Navigation menus combat Gen 1 (séquence de boutons)
+
+---
+
+### `src/agent/orchestrator.py` — State Machine
+
+Lit la RAM pour router vers le bon agent :
 
 ```
-src/
-├── emulator/
-│   ├── __init__.py
-│   ├── emulator.py          # Wrapper PyBoy bas niveau
-│   └── pokemon_env.py       # Gymnasium Environment
-│
-├── vision/
-│   ├── __init__.py
-│   ├── generate_dataset.py  # Data Engineering
-│   ├── split_data.py        # Train/Val split
-│   ├── visualize_dataset.py # Debug tool
-│   └── test_inference.py    # Real-time demo
-│
-├── agent/                   # (En développement)
-│   ├── __init__.py
-│   ├── orchestrator.py      # State machine
-│   ├── nav_agent.py         # Navigation RL
-│   └── battle_agent.py      # Combat logic
-│
-└── utils/
-    ├── __init__.py
-    └── create_checkpoints.py # Save state generator
+0xD13F != 0  →  Attendre (fade en cours)
+0xD11C != 0  →  Auto-skip dialog (press A)
+0xD057 == 0  →  ExplorationAgent (overworld)
+0xD057 >= 1  →  BattleAgent (combat)
 ```
 
 ---
 
-## 📚 Documents Liés
+### `src/utils/`
+
+| Fichier | Description |
+| :--- | :--- |
+| `create_checkpoints.py` | Génère des save states : `--auto` (recettes headless) ou `--manual` (SDL2) |
+| `debug_visualizer.py` | Overlay RAM en temps réel (sprites, tiles, position, badges) |
+
+---
+
+## 🔄 Game Loop (inférence)
+
+```
+1. env.reset()         → charge le save state, 60 ticks de stabilisation
+2. orchestrator.step() → détecte l'état (fade / dialog / overworld / battle)
+3. agent.act(obs)      → PPO predict (deterministic) ou heuristique battle
+4. env.step(action)    → button_press + 24 ticks + button_release
+5. reward              → distance shaping + signaux RAM
+6. → retour en 2
+```
+
+---
+
+## 🗂️ Organisation des fichiers
+
+```
+PokemonBlueExperiments/
+├── run_agent.py                 # Point d'entrée principal
+├── ROMs/PokemonBlue.gb          # ROM (non versionnée)
+├── states/                      # Save states PyBoy (01_chambre … 46_pewter_gym)
+├── models/rl_checkpoints/       # Modèles PPO entraînés (.zip)
+├── logs/                        # TensorBoard logs
+├── mapping.json                 # Sprites & tiles par tileset
+├── src/
+│   ├── emulator/pokemon_env.py  # Gymnasium environment
+│   ├── agent/
+│   │   ├── exploration_agent.py # PPO + curriculum waypoints
+│   │   ├── battle_agent.py      # Heuristique combat
+│   │   └── orchestrator.py      # State machine
+│   └── utils/
+│       ├── create_checkpoints.py
+│       └── debug_visualizer.py
+├── tests/
+│   └── test_emu.py
+└── docs/
+    ├── architecture.md          # Ce document
+    ├── roadmap.md
+    └── ram_map.md
+```
+
+---
+
+## 📚 Documents liés
 
 | Document | Description |
 | :--- | :--- |
-| [RAM Map](ram_map.md) | Adresses mémoires détaillées |
-| [Vision Pipeline](vision_pipeline.md) | Data Engineering & YOLO |
-
+| [ram_map.md](ram_map.md) | Adresses mémoires détaillées |
+| [roadmap.md](roadmap.md) | Statut d'avancement et plan |

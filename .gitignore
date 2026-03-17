@@ -6,8 +6,8 @@
 *.ram
 
 # --- DONNÉES ET DATASETS ---
-data/
-datasets/
+dataset/
+logs/
 
 # --- MODÈLES ---
 runs/
@@ -21,3 +21,4 @@ __pycache__/
 *.pyc
 .venv/
 .DS_Store
+.claude/
