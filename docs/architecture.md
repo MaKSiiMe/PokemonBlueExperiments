@@ -7,29 +7,21 @@ Aucune dépendance vision/YOLO.
 
 ## 🧩 Vue d'ensemble
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                      run_agent.py                        │
-│  (point d'entrée : --train / --train --chain / inférence)│
-└──────────────────────┬───────────────────────────────────┘
-                       │
-          ┌────────────▼────────────┐
-          │      Orchestrator       │  src/agent/orchestrator.py
-          │   (state machine RAM)   │  lit 0xD057, 0xD13F, 0xD11C
-          └──┬──────────┬───────────┘
-             │          │
-    ┌────────▼──┐  ┌────▼──────────┐
-    │Exploration│  │  BattleAgent  │  src/agent/battle_agent.py
-    │  Agent    │  │ (heuristique) │  type advantage, HP threshold
-    │  (PPO)    │  └───────────────┘
-    └────────┬──┘
-             │
-    ┌────────▼──────────────────────┐
-    │      PokemonBlueEnv           │  src/emulator/pokemon_env.py
-    │  Gymnasium + PyBoy            │
-    │  obs: 9 floats (RAM-only)     │
-    │  actions: Discrete(6)         │
-    └───────────────────────────────┘
+```mermaid
+flowchart TD
+    A["run_agent.py\n─────────────\nPoint d'entrée\n--train / --render"] --> B
+
+    B["Orchestrator\n─────────────\nMachine à états RAM\n0xD057 · 0xD13F"]
+
+    B -->|"0xD057 == 0\noverworld"| C["ExplorationAgent\n─────────────\nPPO · MlpPolicy\nSubprocVecEnv × 12"]
+    B -->|"0xD057 ≥ 1\ncombat"| D["BattleAgent\n─────────────\nHeuristique\ntype advantage + HP"]
+
+    C --> E
+    D --> E
+
+    E["PokemonBlueEnv\n─────────────\nGymnasium + PyBoy\nobs: 9 floats · actions: Discrete(6)"]
+
+    E <-->|"button press\n24 ticks\nlecture RAM"| F["PyBoy Emulator\n─────────────\nPokemonBlue.gb\nstates/*.state"]
 ```
 
 ---
@@ -116,13 +108,34 @@ Lit la RAM pour router vers le bon agent :
 
 ## 🔄 Game Loop (inférence)
 
-```
-1. env.reset()         → charge le save state, 60 ticks de stabilisation
-2. orchestrator.step() → détecte l'état (fade / dialog / overworld / battle)
-3. agent.act(obs)      → PPO predict (deterministic) ou heuristique battle
-4. env.step(action)    → button_press + 24 ticks + button_release
-5. reward              → distance shaping + signaux RAM
-6. → retour en 2
+```mermaid
+sequenceDiagram
+    participant R as run_agent.py
+    participant O as Orchestrator
+    participant Ex as ExplorationAgent
+    participant B as BattleAgent
+    participant E as PokemonBlueEnv
+
+    R->>E: reset()
+    E-->>R: obs initiale (9 floats)
+
+    loop Boucle de jeu
+        R->>O: step()
+        O->>E: lecture RAM (0xD057, 0xD13F)
+
+        alt fade — 0xD13F != 0
+            O->>E: no-op
+        else overworld — 0xD057 == 0
+            O->>Ex: predict(obs)
+            Ex-->>O: action PPO
+        else combat — 0xD057 >= 1
+            O->>B: act(pyboy)
+            B-->>O: action heuristique
+        end
+
+        O->>E: step(action) — 24 ticks
+        E-->>R: obs, reward, done
+    end
 ```
 
 ---

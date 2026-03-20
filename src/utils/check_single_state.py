@@ -5,7 +5,7 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 state_file = sys.argv[1]
-rom_path = "PokemonBlue.gb"
+rom_path = "ROMs/PokemonBlue.gb"
 
 try:
     pyboy = PyBoy(rom_path, window="null", sound=False)

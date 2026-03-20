@@ -94,23 +94,29 @@
 >
 > PPO SB3 `MlpPolicy` en place. Curriculum de 13 waypoints défini. Entraînement two-phase automatisé. **À faire : entraîner tous les waypoints avec la nouvelle obs 9-float.**
 
-### Curriculum — 13 waypoints (Bourg Palette → Badge Pierre)
+### Curriculum — 22 waypoints (Bourg Palette → Badge Pierre)
 
-| # | Label | Map cible | State de départ | Budget/ep |
-| :---: | :--- | :---: | :--- | :---: |
-| 0 | Chambre → escalier | `0x26` | `states/01_chambre.state` | 30 |
-| 1 | Maison 1F → porte sud | `0x25` | `states/02_maison_1f.state` | 50 |
-| 2 | Entrer au Labo Chen | `0x00` | `states/06_pallet_town.state` | 200 |
-| 3 | Prendre la Pokéball | `0x52` | `states/04_lab.state` | 150 |
-| 4 | Sortir du Labo | `0x00` | `states/04_lab.state` | 150 |
-| 5 | Route 1 — vers nord | `0x12` | `states/06_pallet_town.state` | 400 |
-| 6 | Arriver à Jadielle City | `0x01` | `states/07_route1_grass.state` | 600 |
-| 7 | Entrer au Poké Mart | `0x01` | `states/11_viridian_center.state` | 400 |
-| 8 | Retour Labo Chen | `0x00` | `states/11_viridian_center.state` | 800 |
-| 9 | Route 2 | `0x13` | `states/22_route2_down.state` | 800 |
-| 10 | Forêt de Jade | `0x33` | `states/24_viridian_forest_down.state` | 1200 |
-| 11 | Argenta City | `0x02` | `states/35_pewter_center_front.state` | 1200 |
-| 12 | Arène Argenta → Brock | `0x54` | `states/46_pewter_gym_front.state` | 800 |
+> Positions marquées `~` = estimées, à affiner si l'agent ne converge pas.
+
+| # | Label | Map cible | Target (x, y) | State de départ | Budget/ep |
+| :---: | :--- | :---: | :---: | :--- | :---: |
+| 0 | Chambre → escalier | `0x26` | (6, 2) | `01_chambre` | 30 |
+| 1 | Maison 1F → sortir | `0x25` | (3, 7) | `02_maison_1f` | 50 |
+| 2 | Bourg Palette → Route 1 | `0x00` | (11, 1)~ | `06_pallet_town` | 200 |
+| 6 | Route 1 → checkpoint PNJ | `0x0C` | (7, 26) | `07_route1_grass` | 150 |
+| 7 | Route 1 → zone corniches | `0x0C` | (7, 7) | `08_route1_pnj1` | 200 |
+| 8 | Route 1 → Jadielle City | `0x0C` | (7, 1)~ | `09_route1_ledges` | 100 |
+| 9 | Jadielle → Route 2 nord | `0x01` | (19, 1)~ | `14_viridian_up` | 200 |
+| 8 | Route 2 → Forêt de Jade | `0x0D` | (6, 1)~ | `22_route2_down` | 1500 |
+| 9 | Forêt → zone 1 | `0x33` | (26, 41) | `24_viridian_forest_down` | 200 |
+| 10 | Forêt → zone 2 | `0x33` | (26, 25) | `26_viridian_forest_battle1` | 200 |
+| 11 | Forêt → zone 4 | `0x33` | (26, 9) | `27_viridian_forest_grass1` | 200 |
+| 12 | Forêt → zone 5 | `0x33` | (6, 15) | `29_viridian_forest_item2` | 300 |
+| 13 | Forêt → zone 6 | `0x33` | (7, 25) | `30_viridian_forest_grass2` | 150 |
+| 14 | Forêt → zone 7 | `0x33` | (1, 16) | `31_viridian_forest_item3` | 150 |
+| 15 | Forêt → sortie nord | `0x33` | (1, 1)~ | `32_viridian_forest_battle3` | 150 |
+| 16 | Argenta → Arène | `0x02` | (16, 16) | `35_pewter_center_front` | 300 |
+| 17 | Arène → Pierre (Brock) | `0x36` | (5, 5)~ | `47_pewter_gym` | 200 |
 
 ### Plan d'entraînement
 
@@ -180,6 +186,20 @@
 | :--- | :--- |
 | Fév 2025 | Vision/YOLO abandonné — 99% mAP obtenu sur un dataset incorrecte (modèle inutilisable). Passage à une approche RAM-only. |
 | Mars 2025 | Architecture RAM-only validée : env 9-float, orchestrateur state machine, PPO curriculum two-phase. |
+
+---
+
+## ⏳ Phase 7 — Vision (si temps disponible)
+
+> Option conditionnelle — uniquement si le run complet (Phase 5) est validé avant la deadline.
+
+| Approche | Description | Statut |
+| :--- | :--- | :---: |
+| **YOLOv8 feature extractor** | Remplace/enrichit le vecteur RAM — CNN custom avant le PPO | ⏳ |
+| **Dataset** | Régénérer depuis `debug_visualizer.py` avec les nouvelles classes | ⏳ |
+| **CnnPolicy** | Passer de `MlpPolicy` à `CnnPolicy` dans SB3 | ⏳ |
+
+> Note : L'infrastructure de base (debug_visualizer, mapping.json, ram_map section sprites) est déjà en place pour générer un dataset propre.
 
 ---
 
