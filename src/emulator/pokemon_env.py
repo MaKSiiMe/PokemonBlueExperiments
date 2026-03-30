@@ -32,7 +32,7 @@ from src.emulator.ram_map import (
     RAM_PLAYER_X, RAM_PLAYER_Y, RAM_MAP_ID, RAM_DIRECTION,
     RAM_BATTLE, RAM_FADING, RAM_TEXT_ACTIVE,
     RAM_PLAYER_HP_H, RAM_PLAYER_HP_L, RAM_PLAYER_MHP_H, RAM_PLAYER_MHP_L,
-    RAM_BADGES, RAM_ENEMY_LVL, RAM_EVENT_FLAGS, RAM_EVENT_LEN,
+    RAM_BADGES, RAM_ENEMY_LEVEL, RAM_EVENT_FLAGS, RAM_EVENT_LEN,
 )
 
 # Récompense par map (remplace le +1.0 générique pour les maps clés)
@@ -261,7 +261,7 @@ class PokemonBlueEnv(gym.Env):
                 reward += self._max_opp_lvl * 0.2
             self._max_opp_lvl = 0
         elif battle > 0:
-            opp_lvl = self._r(RAM_ENEMY_LVL)
+            opp_lvl = self._r(RAM_ENEMY_LEVEL)
             if opp_lvl > self._max_opp_lvl:
                 self._max_opp_lvl = opp_lvl
 

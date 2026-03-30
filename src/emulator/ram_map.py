@@ -11,13 +11,24 @@ RAM_PLAYER_Y     = 0xD361
 RAM_MAP_ID       = 0xD35E
 RAM_DIRECTION    = 0xD35D   # 0x00=bas  0x04=haut  0x08=gauche  0x0C=droite
 
-# ── Combat ────────────────────────────────────────────────────────────────────
-RAM_BATTLE       = 0xD057   # 0=overworld  1=sauvage  2=dresseur
-RAM_ENEMY_LVL    = 0xD018
-RAM_ENEMY_TYPE1  = 0xD01F
-RAM_ENEMY_TYPE2  = 0xD020
-RAM_MOVE_IDS     = (0xD173, 0xD174, 0xD175, 0xD176)
-RAM_MOVE_PP      = (0xD188, 0xD189, 0xD18A, 0xD18B)
+# ── Combat — état ─────────────────────────────────────────────────────────────
+RAM_BATTLE            = 0xD057   # 0=overworld  1=sauvage  2=dresseur
+
+# Pokémon joueur (en combat)
+RAM_PLAYER_STATUS     = 0xD018   # statut du Pokémon actif du joueur (PAR/SLP/PSN…)
+RAM_MOVE_IDS          = (0xD173, 0xD174, 0xD175, 0xD176)
+RAM_MOVE_PP           = (0xD188, 0xD189, 0xD18A, 0xD18B)
+
+# Pokémon ennemi (en combat)
+# Structure wEnemyMon commence à 0xCFDE (source : pret/pokered)
+RAM_ENEMY_LEVEL       = 0xCFE3   # niveau ennemi
+RAM_ENEMY_HP_H        = 0xCFE7   # HP actuels ennemi (octet fort)
+RAM_ENEMY_HP_L        = 0xCFE8   # HP actuels ennemi (octet faible)
+RAM_ENEMY_STATUS      = 0xCFE9   # statut ennemi (PAR/SLP/PSN…)
+RAM_ENEMY_TYPE1       = 0xD01F
+RAM_ENEMY_TYPE2       = 0xD020
+RAM_ENEMY_MHP_H       = 0xCFF4   # HP max ennemi (octet fort)
+RAM_ENEMY_MHP_L       = 0xCFF5   # HP max ennemi (octet faible)
 
 # ── HP joueur ─────────────────────────────────────────────────────────────────
 RAM_PLAYER_HP_H  = 0xD16C
