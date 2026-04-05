@@ -9,6 +9,18 @@
 dataset/
 logs/
 
+# --- KNOWLEDGE GRAPH (régénérable) ---
+src/knowledge/cache/
+src/knowledge/pokemon_knowledge_graph.json
+pokemon_graph.html
+
+# --- PYVIS (assets JS générés automatiquement) ---
+lib/
+
+# --- VISUALISATION GRAPHE ---
+pokemon_graph.html
+!docs/pokemon_graph.html
+
 # --- MODÈLES ---
 runs/
 models/
