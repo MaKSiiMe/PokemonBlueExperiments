@@ -12,7 +12,8 @@ Usage :
 from __future__ import annotations
 import os
 import numpy as np
-from stable_baselines3 import PPO
+from sb3_contrib import MaskablePPO
+from sb3_contrib.common.maskable.callbacks import MaskableEvalCallback
 from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv
 from stable_baselines3.common.callbacks import CheckpointCallback
 
@@ -42,10 +43,10 @@ class ExplorationAgent:
 
         if model_path and os.path.exists(model_path):
             print(f"[Exploration] Loading model: {model_path}")
-            self.model = PPO.load(model_path, env=self.vec_env, device=device)
+            self.model = MaskablePPO.load(model_path, env=self.vec_env, device=device)
         else:
-            print("[Exploration] Creating new PPO model")
-            self.model = PPO(
+            print("[Exploration] Creating new MaskablePPO model")
+            self.model = MaskablePPO(
                 policy          = 'MlpPolicy',
                 env             = self.vec_env,
                 learning_rate   = 3e-4,
@@ -109,8 +110,8 @@ class ExplorationAgent:
 
     # ── Inférence ─────────────────────────────────────────────────────────────
 
-    def act(self, obs: np.ndarray) -> int:
-        action, _ = self.model.predict(obs, deterministic=True)
+    def act(self, obs: np.ndarray, action_masks: np.ndarray | None = None) -> int:
+        action, _ = self.model.predict(obs, deterministic=True, action_masks=action_masks)
         return int(action)
 
     # ── Curriculum ────────────────────────────────────────────────────────────

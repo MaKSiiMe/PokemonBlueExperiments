@@ -337,6 +337,40 @@ class PokemonKnowledgeGraph:
             "speed":   node.get("base_speed", 0),
         }
 
+    # ── Navigation ───────────────────────────────────────────────────────────
+
+    def zone_path(self, from_map_id: int, to_map_id: int) -> list[int]:
+        """Retourne le chemin optimal (map IDs) entre deux zones via shortest_path.
+
+        Utilise les arêtes LEADS_TO du graphe.
+
+        Args:
+            from_map_id: Map ID de départ (RAM 0xD35E).
+            to_map_id:   Map ID d'arrivée.
+
+        Returns:
+            Liste ordonnée de map IDs, from inclus, to inclus.
+            Liste vide si aucun chemin n'existe.
+
+        Exemple:
+            kg.zone_path(0x00, 0x36)
+            # → [0x00, 0x0c, 0x01, 0x0d, 0x0e, 0x33, 0x02, 0x36]
+        """
+        import networkx as nx
+        src = f"zone:{from_map_id:#04x}"
+        dst = f"zone:{to_map_id:#04x}"
+        if not self._G.has_node(src) or not self._G.has_node(dst):
+            return []
+        try:
+            path_nodes = nx.shortest_path(self._G, src, dst)
+        except nx.NetworkXNoPath:
+            return []
+        return [
+            self._G.nodes[n]["map_id"]
+            for n in path_nodes
+            if self._G.nodes[n].get("kind") == "zone"
+        ]
+
     # ── Debug ─────────────────────────────────────────────────────────────────
 
     def summary(self) -> str:

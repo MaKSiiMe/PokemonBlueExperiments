@@ -3,16 +3,27 @@ PokemonBlueEnv — Environnement Gymnasium wrappant PyBoy.
 
 Observations et récompenses dérivées exclusivement de la RAM (pas de vision).
 
-Observation vector (9 floats, tous dans [0, 1]) :
-  0  player_x      — position X en tiles  (0xD362 / 255)
-  1  player_y      — position Y en tiles  (0xD361 / 255)
-  2  map_id        — ID de la map courante (0xD35E / 255)
-  3  direction     — orientation          (0=bas 0.33=haut 0.66=gauche 1=droite)
-  4  hp_pct        — HP joueur / max HP   (clampé [0, 1])
-  5  battle_status — 0=overworld 0.5=sauvage 1.0=dresseur
-  6  waypoint_x    — X cible si même map  (0 sinon)
-  7  waypoint_y    — Y cible si même map  (0 sinon)
-  8  badges_pct    — badges obtenus / 8
+Observation vector (12 floats, tous dans [0, 1]) :
+  ── RAM brute (9 floats) ──────────────────────────────────────────────────────
+  0  player_x          — position X en tiles  (0xD362 / 255)
+  1  player_y          — position Y en tiles  (0xD361 / 255)
+  2  map_id            — ID de la map courante (0xD35E / 255)
+  3  direction         — orientation          (0=bas 0.33=haut 0.66=gauche 1=droite)
+  4  hp_pct            — HP joueur / max HP   (clampé [0, 1])
+  5  battle_status     — 0=overworld 0.5=sauvage 1.0=dresseur
+  6  waypoint_x        — X cible si même map  (0 sinon)
+  7  waypoint_y        — Y cible si même map  (0 sinon)
+  8  badges_pct        — badges obtenus / 8
+
+  ── Vecteur KG — dérivé du graphe de connaissances (3 floats) ────────────────
+  9  type_advantage    — meilleur multiplicateur dispo / 4.0
+                         0.0=immunisé · 0.25=résisté · 0.5=neutre · 1.0=4× SE
+                         En overworld : 0.5 (neutre par défaut)
+  10 enemy_can_evolve  — 1.0 si l'espèce ennemie a une évolution, 0.0 sinon
+                         Indique un danger "caché" (force future de l'adversaire)
+                         En overworld : 0.0
+  11 zone_density      — nombre de Pokémon rencontrables dans la zone / 8.0
+                         Proxy de la dangerosité de la zone courante
 
 Action space (Discrete 6) :
   0=haut  1=bas  2=gauche  3=droite  4=a  5=b
@@ -33,7 +44,14 @@ from src.emulator.ram_map import (
     RAM_BATTLE, RAM_FADING, RAM_TEXT_ACTIVE,
     RAM_PLAYER_HP_H, RAM_PLAYER_HP_L, RAM_PLAYER_MHP_H, RAM_PLAYER_MHP_L,
     RAM_BADGES, RAM_ENEMY_LEVEL, RAM_EVENT_FLAGS, RAM_EVENT_LEN,
+    RAM_ENEMY_TYPE1, RAM_ENEMY_TYPE2, RAM_ENEMY_SPECIES,
+    RAM_MOVE_IDS, RAM_MOVE_PP,
 )
+from src.knowledge.gen1_data import (
+    RAM_TYPE_BYTE_TO_NAME, TYPE_CHART,
+    GEN1_INTERNAL_TO_DEX, MOVE_TYPES, STATUS_MOVES,
+)
+from src.knowledge import PokemonKnowledgeGraph
 
 # Récompense par map (remplace le +1.0 générique pour les maps clés)
 MAP_BONUSES: dict[int, float] = {
@@ -64,6 +82,7 @@ class PokemonBlueEnv(gym.Env):
         max_steps: int = 10_000,
         waypoint:  tuple[int, int, int] | None = None,
         waypoints: list[tuple[int, int, int]] | None = None,
+        kg: PokemonKnowledgeGraph | None = None,
     ):
         super().__init__()
 
@@ -79,12 +98,28 @@ class PokemonBlueEnv(gym.Env):
             self._waypoints = []
         self._wp_idx = 0
 
+        # Graphe de connaissances — partagé entre envs parallèles pour éviter
+        # de charger N fois le même fichier JSON.
+        self._kg: PokemonKnowledgeGraph = kg or PokemonKnowledgeGraph()
+
+        # Cache dex → can_evolve pour un lookup O(1) à chaque step
+        self._dex_can_evolve: dict[int, bool] = {
+            data["dex"]: bool(self._kg.evolutions(data["name"]))
+            for _, data in self._kg._G.nodes(data=True)
+            if data.get("kind") == "pokemon"
+        }
+
+        # Chemin optimal Bourg Palette → Arène de Pierre (carte une fois pour toutes)
+        # Utilisé pour le bonus de navigation dans _reward().
+        _path = self._kg.zone_path(0x00, 0x36)
+        self._optimal_path_zones: frozenset[int] = frozenset(_path)
+
         window = 'null' if headless else 'SDL2'
         self.pyboy = PyBoy(rom_path, window=window, sound=False)
         self.pyboy.set_emulation_speed(speed)
 
         self.action_space      = spaces.Discrete(len(ACTIONS))
-        self.observation_space = spaces.Box(low=0.0, high=1.0, shape=(9,), dtype=np.float32)
+        self.observation_space = spaces.Box(low=0.0, high=1.0, shape=(12,), dtype=np.float32)
 
         self._step_count   = 0
         self._steps_stuck  = 0
@@ -127,6 +162,7 @@ class PokemonBlueEnv(gym.Env):
         self._visited_maps = {self._prev_map_id}
         self._tile_visits  = {}
         self._seen_tiles   = set()
+        self._prev_move_pp = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
 
         return self._observe(), {}
 
@@ -212,21 +248,76 @@ class PokemonBlueEnv(gym.Env):
 
         wp_x_norm = wp_y_norm = 0.0
         wp = self._waypoint
-        if wp and self._r(RAM_MAP_ID) == wp[0]:
+        map_id = self._r(RAM_MAP_ID)
+        if wp and map_id == wp[0]:
             wp_x_norm = wp[1] / 255.0
             wp_y_norm = wp[2] / 255.0
 
+        # ── Vecteur KG ────────────────────────────────────────────────────────
+        type_advantage, enemy_can_evolve = self._kg_battle_signals()
+        zone_density = min(len(self._kg.encounters_in_zone(map_id)) / 8.0, 1.0)
+
         return np.array([
+            # RAM brute (9 floats)
             self._r(RAM_PLAYER_X)  / 255.0,
             self._r(RAM_PLAYER_Y)  / 255.0,
-            self._r(RAM_MAP_ID)    / 255.0,
+            map_id                 / 255.0,
             _DIRECTION_MAP.get(self._r(RAM_DIRECTION), 0.0),
             hp_pct,
             self._r(RAM_BATTLE) / 2.0,
             wp_x_norm,
             wp_y_norm,
             bin(self._r(RAM_BADGES)).count('1') / 8.0,
+            # Vecteur KG (3 floats)
+            type_advantage,
+            enemy_can_evolve,
+            zone_density,
         ], dtype=np.float32)
+
+    def _kg_battle_signals(self) -> tuple[float, float]:
+        """Calcule les signaux KG liés au combat (indices 9 et 10).
+
+        Returns:
+            type_advantage   : meilleur multiplicateur dispo / 4.0  → [0, 1]
+            enemy_can_evolve : 1.0 si l'ennemi a une évolution, 0.0 sinon
+
+        En overworld (RAM_BATTLE == 0) : retourne (0.5, 0.0).
+        """
+        if self._r(RAM_BATTLE) == 0:
+            return 0.5, 0.0
+
+        enemy_type1 = self._r(RAM_ENEMY_TYPE1)
+        enemy_type2 = self._r(RAM_ENEMY_TYPE2)
+        enemy_types = [
+            RAM_TYPE_BYTE_TO_NAME.get(enemy_type1, "normal"),
+            RAM_TYPE_BYTE_TO_NAME.get(enemy_type2, "normal"),
+        ]
+
+        # Meilleur multiplicateur parmi les moves disponibles
+        best_mult = 0.0
+        for i in range(4):
+            pp      = self._r(RAM_MOVE_PP[i])
+            move_id = self._r(RAM_MOVE_IDS[i])
+            if pp == 0 or move_id == 0:
+                continue
+            if move_id in STATUS_MOVES:
+                continue
+            move_type_byte = MOVE_TYPES.get(move_id, 0x00)
+            move_type_name = RAM_TYPE_BYTE_TO_NAME.get(move_type_byte, "normal")
+            mult = 1.0
+            for def_type in enemy_types:
+                mult *= TYPE_CHART.get(move_type_name, {}).get(def_type, 1.0)
+            if mult > best_mult:
+                best_mult = mult
+
+        type_advantage = min(best_mult / 4.0, 1.0)
+
+        # L'ennemi peut-il évoluer ? (lookup O(1) via cache)
+        internal_id      = self._r(RAM_ENEMY_SPECIES)
+        dex_number       = GEN1_INTERNAL_TO_DEX.get(internal_id)
+        enemy_can_evolve = 1.0 if self._dex_can_evolve.get(dex_number, False) else 0.0
+
+        return type_advantage, enemy_can_evolve
 
     def _reward(self, x: int, y: int, map_id: int) -> float:
         reward = -0.01
@@ -237,6 +328,9 @@ class PokemonBlueEnv(gym.Env):
         if map_id != self._prev_map_id:
             if map_id not in self._visited_maps:
                 reward += MAP_BONUSES.get(map_id, 1.0)
+                # Bonus KG navigation : zone sur le chemin optimal → intention récompensée
+                if map_id in self._optimal_path_zones:
+                    reward += 0.5
             self._visited_maps.add(map_id)
 
         # Nouvelle tile
@@ -254,6 +348,11 @@ class PokemonBlueEnv(gym.Env):
         # Mort en combat
         if hp == 0 and self._prev_hp > 0 and battle > 0:
             reward -= 1.0
+
+        # Bonus KG type : récompense l'intention d'utiliser un move Super Efficace
+        # Détecte une baisse de PP → un move a été utilisé ce step.
+        if battle > 0:
+            reward += self._type_intent_bonus()
 
         # Récompense fin de combat (niveau ennemi)
         if self._prev_battle > 0 and battle == 0:
@@ -290,6 +389,42 @@ class PokemonBlueEnv(gym.Env):
 
         return reward
 
+    def _type_intent_bonus(self) -> float:
+        """Bonus si le move utilisé ce step est Super Efficace (×2.0 ou ×4.0).
+
+        Détecte quel slot a perdu un PP depuis le step précédent → move joué.
+        Récompense l'intention stratégique, indépendamment du résultat du combat.
+
+        Returns:
+            +0.1 si SE · +0.2 si double SE · 0.0 sinon ou si move de statut.
+        """
+        enemy_type1 = self._r(RAM_ENEMY_TYPE1)
+        enemy_type2 = self._r(RAM_ENEMY_TYPE2)
+        enemy_types = [
+            RAM_TYPE_BYTE_TO_NAME.get(enemy_type1, "normal"),
+            RAM_TYPE_BYTE_TO_NAME.get(enemy_type2, "normal"),
+        ]
+
+        bonus = 0.0
+        for i in range(4):
+            curr_pp = self._r(RAM_MOVE_PP[i])
+            if curr_pp < self._prev_move_pp[i]:
+                # Ce slot a été utilisé
+                move_id = self._r(RAM_MOVE_IDS[i])
+                if move_id and move_id not in STATUS_MOVES:
+                    move_type_byte = MOVE_TYPES.get(move_id, 0x00)
+                    move_type_name = RAM_TYPE_BYTE_TO_NAME.get(move_type_byte, "normal")
+                    mult = 1.0
+                    for def_type in enemy_types:
+                        mult *= TYPE_CHART.get(move_type_name, {}).get(def_type, 1.0)
+                    if mult >= 4.0:
+                        bonus = 0.2   # double super effectif
+                    elif mult >= 2.0:
+                        bonus = 0.1   # super effectif
+            self._prev_move_pp[i] = curr_pp
+
+        return bonus
+
     def _count_event_flags(self) -> int:
         """Nombre de bits à 1 dans la zone event flags (0xD747, 32 octets)."""
         return sum(bin(self._r(RAM_EVENT_FLAGS + i)).count('1') for i in range(RAM_EVENT_LEN))
@@ -305,3 +440,78 @@ class PokemonBlueEnv(gym.Env):
         return (map_id == wp[0]
                 and abs(x - wp[1]) <= WAYPOINT_REACH_RADIUS
                 and abs(y - wp[2]) <= WAYPOINT_REACH_RADIUS)
+
+    # ── Action Masking (requis par MaskablePPO / sb3-contrib) ────────────────
+
+    def action_masks(self) -> np.ndarray:
+        """Masque binaire sur l'espace d'action Discrete(6).
+
+        Règles par état de jeu :
+
+          Overworld normal  → toutes les actions autorisées.
+
+          Transition (fade) → mouvement bloqué (inputs perdus pendant le fondu).
+                              Seuls 'a' et 'b' restent actifs.
+
+          En combat         → mouvement désactivé.
+                              Pour chaque slot de move (0-3), 'a' est autorisé
+                              seulement si le move a des PP et n'est pas immunisé
+                              (multiplicateur > 0.0) contre les types ennemis.
+                              En pratique le BattleAgent heuristique prend la main,
+                              mais le masque limite les inputs parasites du PPO.
+
+        Layout ACTIONS = ['up', 'down', 'left', 'right', 'a', 'b']
+                          idx 0    1      2       3       4    5
+        """
+        mask = np.ones(len(ACTIONS), dtype=bool)
+        battle = self._r(RAM_BATTLE)
+        fading = self._r(RAM_FADING)
+
+        if fading:
+            # Transition d'écran — le mouvement est perdu, inutile de naviguer
+            mask[0] = False  # up
+            mask[1] = False  # down
+            mask[2] = False  # left
+            mask[3] = False  # right
+
+        elif battle > 0:
+            # En combat — désactiver le mouvement directionnel
+            mask[0] = False  # up
+            mask[1] = False  # down
+            mask[2] = False  # left
+            mask[3] = False  # right
+            mask[5] = False  # b (pas utile pour sélectionner une attaque)
+
+            # Masquer 'a' si tous les moves sont immunisés ou sans PP
+            # (fondation pour quand le PPO gérera aussi le combat)
+            enemy_type1 = self._r(RAM_ENEMY_TYPE1)
+            enemy_type2 = self._r(RAM_ENEMY_TYPE2)
+            enemy_type_names = [
+                RAM_TYPE_BYTE_TO_NAME.get(enemy_type1, "normal"),
+                RAM_TYPE_BYTE_TO_NAME.get(enemy_type2, "normal"),
+            ]
+            has_usable_move = False
+            for i in range(4):
+                pp      = self._r(RAM_MOVE_PP[i])
+                move_id = self._r(RAM_MOVE_IDS[i])
+                if pp == 0 or move_id == 0:
+                    continue
+                # move_id → octet de type → nom de type → multiplicateur
+                if move_id in STATUS_MOVES:
+                    continue
+                move_type_byte = MOVE_TYPES.get(move_id, 0x00)
+                move_type_name = RAM_TYPE_BYTE_TO_NAME.get(move_type_byte, "normal")
+                mult = 1.0
+                for def_type in enemy_type_names:
+                    mult *= TYPE_CHART.get(move_type_name, {}).get(def_type, 1.0)
+                if mult > 0.0:
+                    has_usable_move = True
+                    break
+            if not has_usable_move:
+                mask[4] = False  # 'a' — garder au moins True si aucun move dispo
+
+            # Garantie : au moins une action toujours disponible
+            if not mask.any():
+                mask[4] = True
+
+        return mask

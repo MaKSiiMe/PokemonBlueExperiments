@@ -15,7 +15,7 @@ import argparse
 import os
 from functools import partial
 
-from stable_baselines3 import PPO
+from sb3_contrib import MaskablePPO
 from stable_baselines3.common.monitor import Monitor
 
 from src.agent.waypoints import WAYPOINTS
@@ -42,7 +42,7 @@ def parse_args():
 
 
 def make_env(state: str, waypoint=None, waypoints=None, headless: bool = True,
-             speed: int = 0, max_steps: int = 2000, monitor: bool = True):
+             speed: int = 0, max_steps: int = 2000, monitor: bool = True, kg=None):
     from src.emulator.pokemon_env import PokemonBlueEnv
     env = PokemonBlueEnv(
         rom_path   = ROM_PATH,
@@ -52,6 +52,7 @@ def make_env(state: str, waypoint=None, waypoints=None, headless: bool = True,
         max_steps  = max_steps,
         waypoint   = tuple(waypoint[:3]) if waypoint else None,
         waypoints  = [tuple(w) for w in waypoints] if waypoints else None,
+        kg         = kg,   # None → chaque worker charge son propre KG (SubprocVecEnv)
     )
     return Monitor(env) if monitor else env
 
@@ -154,10 +155,10 @@ def run_inference(args):
 
     if args.model and os.path.exists(args.model):
         print(f"[Run] Loading model: {args.model}")
-        ppo_model = PPO.load(args.model, env=env)
+        ppo_model = MaskablePPO.load(args.model, env=env)
     else:
-        print("[Run] Aucun modèle — PPO aléatoire")
-        ppo_model = PPO('MlpPolicy', env=env, verbose=0)
+        print("[Run] Aucun modèle — MaskablePPO aléatoire")
+        ppo_model = MaskablePPO('MlpPolicy', env=env, verbose=0)
 
     explore_agent = ExplorationAgent.from_model(ppo_model, WAYPOINTS[wp_start:])
     battle_agent  = BattleAgent()

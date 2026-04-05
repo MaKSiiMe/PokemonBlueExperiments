@@ -21,6 +21,7 @@ RAM_MOVE_PP           = (0xD188, 0xD189, 0xD18A, 0xD18B)
 
 # Pokémon ennemi (en combat)
 # Structure wEnemyMon commence à 0xCFDE (source : pret/pokered)
+RAM_ENEMY_SPECIES     = 0xCFDE   # ID interne Gen 1 de l'espèce ennemie
 RAM_ENEMY_LEVEL       = 0xCFE3   # niveau ennemi
 RAM_ENEMY_HP_H        = 0xCFE7   # HP actuels ennemi (octet fort)
 RAM_ENEMY_HP_L        = 0xCFE8   # HP actuels ennemi (octet faible)

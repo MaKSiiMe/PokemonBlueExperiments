@@ -155,6 +155,76 @@
 
 ---
 
+## 🔄 Phase 4.5 — Knowledge Graph & Intelligence Tactique
+
+> **Fichiers :** `src/knowledge/` — graphe NetworkX construit depuis PokéAPI, mis en cache sur disque.
+>
+> Base de données relationnelle de 337 nœuds (151 Pokémon, 163 moves, 15 types, 8 zones) et 4 397 arêtes. Sert de couche de connaissance partagée entre tous les agents.
+
+### Réalisé
+
+| Composant | Fichier | Statut |
+| :--- | :--- | :---: |
+| Type chart Gen 1 hardcodé (quirks : Ghost→Psy=0, Bug→Psy=2x…) | `gen1_data.py` | ✅ |
+| Builder PokéAPI avec cache disque | `builder.py` | ✅ |
+| Interface de requête (type_multiplier, encounters, evolutions…) | `graph.py` | ✅ |
+| Intégration BattleAgent (remplace TYPE_CHART binaire) | `battle_agent.py` | ✅ |
+| Visualisation interactive (GitHub Pages) | `docs/pokemon_graph.html` | ✅ |
+
+### Chantiers prioritaires suivants
+
+#### 1. Action Masking — accélérateur d'entraînement RL
+
+> L'IA RL passe 90% de son temps à tester des actions inutiles. Le masque les élimine avant le choix du réseau.
+
+Avant que le modèle PPO choisisse une action, appliquer un masque binaire généré par le graphe :
+- Si l'adversaire est un Fantominus → attaques Normales masquées (multiplicateur = 0.0)
+- Si un slot n'a plus de PP → désactivé
+
+Résultat attendu : **temps d'entraînement divisé par ~10** sur les combats.
+
+| Tâche | Statut |
+| :--- | :---: |
+| Générer le masque d'actions depuis `type_multiplier_from_ram()` | ✅ |
+| Brancher le masque dans `MaskablePPO` (sb3-contrib) | ✅ |
+| Valider que l'entropie de la policy diminue plus vite | ⏳ |
+
+#### 2. Augmentation de l'Observation — vecteur d'état enrichi
+
+Enrichir le vecteur d'observation 9-float avec un `[Vecteur_KG]` :
+
+$$S = [RAM_{brute}] + [Vecteur_{KG}]$$
+
+Le `Vecteur_KG` cible (3 floats supplémentaires) :
+
+| Index | Valeur | Source |
+| :---: | :--- | :--- |
+| 9 | Avantage de type actuel (-1 / 0 / 1) | `type_multiplier_from_ram()` |
+| 10 | L'ennemi peut-il évoluer ? (0 ou 1) | `evolutions()` |
+| 11 | Dangerosité de la zone courante | `zone_type_threat()` |
+
+| Tâche | Statut |
+| :--- | :---: |
+| Ajouter les 3 floats KG dans `pokemon_env.py::_get_obs()` | ✅ |
+| Mettre à jour `observation_space` (9 → 12 floats) | ✅ |
+| Ré-entraîner et comparer les courbes de reward | ⏳ |
+
+#### 3. Navigation Stratégique — pathfinding via ZoneNodes
+
+Remplacer la "marche aléatoire" par un itinéraire calculé sur le graphe :
+
+- `nx.shortest_path(G, "zone:0x00", "zone:0x36")` → séquence de zones optimale
+- Pré-combat : si l'agent va affronter Brock (Roche), le graphe identifie la zone la plus proche avec des Pokémon Eau/Plante
+
+| Tâche | Statut |
+| :--- | :---: |
+| Exposer `shortest_path()` dans `graph.py` | ✅ |
+| Bonus navigation (+0.5) dans `_reward()` si zone sur chemin optimal | ✅ |
+| Bonus type intent (+0.1/+0.2) dans `_reward()` si move SE utilisé | ✅ |
+| Utiliser le chemin pour orienter les waypoints dynamiquement | ⏳ |
+
+---
+
 ## ⏳ Phase 5 — Run complet end-to-end
 
 > **Point d'entrée :** `run_agent.py` (existe, code complet)

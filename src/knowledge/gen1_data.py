@@ -310,6 +310,134 @@ ZONE_MAP_ID: dict[int, dict[str, str]] = {
     0x36: {"name": "Arène d'Argenta",  "pokeapi_slug": None},           # pas de sauvages
 }
 
+# ── ID move Gen 1 (hex) → octet RAM du type ──────────────────────────────────
+# Source : pret/pokered (IDs 1-indexés).
+# Note Gen 1 : Karate Chop, Gust, Bite sont Normal (pas Fighting/Flying/Dark).
+MOVE_TYPES: dict[int, int] = {
+    0x01: 0x00,  # Pound          → Normal
+    0x02: 0x00,  # Karate Chop    → Normal (Gen 1 !)
+    0x03: 0x00,  # Double Slap    → Normal
+    0x04: 0x00,  # Comet Punch    → Normal
+    0x05: 0x00,  # Mega Punch     → Normal
+    0x06: 0x00,  # Pay Day        → Normal
+    0x07: 0x14,  # Fire Punch     → Fire
+    0x08: 0x19,  # Ice Punch      → Ice
+    0x09: 0x17,  # ThunderPunch   → Electric
+    0x0A: 0x00,  # Scratch        → Normal
+    0x0B: 0x00,  # ViceGrip       → Normal
+    0x0C: 0x00,  # Guillotine     → Normal
+    0x0D: 0x00,  # Razor Wind     → Normal
+    0x0F: 0x00,  # Cut            → Normal
+    0x10: 0x00,  # Gust           → Normal (Gen 1 !)
+    0x11: 0x02,  # Wing Attack    → Flying
+    0x13: 0x02,  # Fly            → Flying
+    0x14: 0x00,  # Bind           → Normal
+    0x15: 0x00,  # Slam           → Normal
+    0x16: 0x16,  # Vine Whip      → Grass
+    0x17: 0x00,  # Stomp          → Normal
+    0x18: 0x01,  # Double Kick    → Fighting
+    0x19: 0x00,  # Mega Kick      → Normal
+    0x1A: 0x01,  # Jump Kick      → Fighting
+    0x1B: 0x01,  # Rolling Kick   → Fighting
+    0x1D: 0x00,  # Headbutt       → Normal
+    0x1E: 0x00,  # Horn Attack    → Normal
+    0x1F: 0x00,  # Fury Attack    → Normal
+    0x20: 0x00,  # Horn Drill     → Normal
+    0x21: 0x00,  # Tackle         → Normal
+    0x22: 0x00,  # Body Slam      → Normal
+    0x23: 0x00,  # Wrap           → Normal
+    0x24: 0x00,  # Take Down      → Normal
+    0x25: 0x00,  # Thrash         → Normal
+    0x26: 0x00,  # Double-Edge    → Normal
+    0x28: 0x03,  # Poison Sting   → Poison
+    0x29: 0x07,  # Twineedle      → Bug
+    0x2A: 0x07,  # Pin Missile    → Bug
+    0x2C: 0x00,  # Bite           → Normal (Gen 1 !)
+    0x31: 0x00,  # SonicBoom      → Normal
+    0x33: 0x03,  # Acid           → Poison
+    0x34: 0x14,  # Ember          → Fire
+    0x35: 0x14,  # Flamethrower   → Fire
+    0x37: 0x15,  # Water Gun      → Water
+    0x38: 0x15,  # Hydro Pump     → Water
+    0x39: 0x15,  # Surf           → Water
+    0x3A: 0x19,  # Ice Beam       → Ice
+    0x3B: 0x19,  # Blizzard       → Ice
+    0x3C: 0x18,  # Psybeam        → Psychic
+    0x3D: 0x15,  # BubbleBeam     → Water
+    0x3E: 0x19,  # Aurora Beam    → Ice
+    0x3F: 0x00,  # Hyper Beam     → Normal
+    0x40: 0x02,  # Peck           → Flying
+    0x41: 0x02,  # Drill Peck     → Flying
+    0x42: 0x01,  # Submission     → Fighting
+    0x43: 0x01,  # Low Kick       → Fighting
+    0x44: 0x01,  # Counter        → Fighting
+    0x45: 0x01,  # Seismic Toss   → Fighting
+    0x46: 0x00,  # Strength       → Normal
+    0x47: 0x16,  # Absorb         → Grass
+    0x48: 0x16,  # Mega Drain     → Grass
+    0x4B: 0x16,  # Razor Leaf     → Grass
+    0x4C: 0x16,  # SolarBeam      → Grass
+    0x50: 0x16,  # Petal Dance    → Grass
+    0x51: 0x07,  # String Shot    → Bug
+    0x52: 0x1A,  # Dragon Rage    → Dragon
+    0x53: 0x14,  # Fire Spin      → Fire
+    0x54: 0x17,  # ThunderShock   → Electric
+    0x55: 0x17,  # Thunderbolt    → Electric
+    0x57: 0x17,  # Thunder        → Electric
+    0x58: 0x05,  # Rock Throw     → Rock
+    0x59: 0x04,  # Earthquake     → Ground
+    0x5A: 0x04,  # Fissure        → Ground
+    0x5B: 0x04,  # Dig            → Ground
+    0x5D: 0x18,  # Confusion      → Psychic
+    0x5E: 0x18,  # Psychic        → Psychic
+    0x62: 0x00,  # Quick Attack   → Normal (priorité +1)
+    0x63: 0x00,  # Rage           → Normal
+    0x65: 0x08,  # Night Shade    → Ghost
+    0x6A: 0x08,  # Confuse Ray    → Ghost
+    0x75: 0x00,  # Bide           → Normal
+    0x76: 0x00,  # Metronome      → Normal
+    0x77: 0x02,  # Mirror Move    → Flying
+    0x78: 0x00,  # Self-Destruct  → Normal
+    0x79: 0x00,  # Egg Bomb       → Normal
+    0x7A: 0x08,  # Lick           → Ghost
+    0x7B: 0x03,  # Smog           → Poison
+    0x7C: 0x03,  # Sludge         → Poison
+    0x7D: 0x04,  # Bone Club      → Ground
+    0x7E: 0x14,  # Fire Blast     → Fire
+    0x7F: 0x15,  # Waterfall      → Water
+    0x80: 0x15,  # Clamp          → Water
+    0x81: 0x00,  # Swift          → Normal
+    0x82: 0x00,  # Skull Bash     → Normal
+    0x83: 0x00,  # Spike Cannon   → Normal
+    0x84: 0x00,  # Constrict      → Normal
+    0x88: 0x01,  # Hi Jump Kick   → Fighting
+    0x8A: 0x18,  # Dream Eater    → Psychic
+    0x8D: 0x07,  # Leech Life     → Bug
+    0x8F: 0x02,  # Sky Attack     → Flying
+    0x91: 0x15,  # Bubble         → Water
+    0x95: 0x18,  # Psywave        → Psychic
+    0x98: 0x15,  # Crabhammer     → Water
+    0x99: 0x00,  # Explosion      → Normal
+    0x9A: 0x00,  # Fury Swipes    → Normal
+    0x9B: 0x04,  # Bonemerang     → Ground
+    0x9D: 0x05,  # Rock Slide     → Rock
+    0x9E: 0x00,  # Hyper Fang     → Normal
+    0xA1: 0x00,  # Tri Attack     → Normal
+    0xA2: 0x00,  # Super Fang     → Normal
+    0xA3: 0x00,  # Slash          → Normal
+    0xA5: 0x00,  # Struggle       → Normal
+}
+
+# Moves sans dégâts directs — à éviter si un move offensif existe.
+STATUS_MOVES: frozenset[int] = frozenset({
+    0x0E, 0x12, 0x1C, 0x27, 0x2B, 0x2D, 0x2E, 0x2F, 0x30, 0x32,
+    0x36, 0x49, 0x4A, 0x4D, 0x4E, 0x4F, 0x56, 0x5C, 0x5F, 0x60,
+    0x61, 0x64, 0x66, 0x67, 0x68, 0x69, 0x6B, 0x6C, 0x6D, 0x6E,
+    0x6F, 0x70, 0x71, 0x72, 0x73, 0x74, 0x85, 0x86, 0x87, 0x89,
+    0x8B, 0x8E, 0x90, 0x93, 0x94, 0x96, 0x97, 0x9C, 0x9F, 0xA0,
+    0xA4,
+})
+
 # ── Moves avec priorité > 0 en Gen 1 ─────────────────────────────────────────
 # En Gen 1, la priorité agit avant la vitesse → utile pour finir un ennemi bas PV.
 # Source : pret/pokered engine/battle/
