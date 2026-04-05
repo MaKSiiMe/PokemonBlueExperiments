@@ -117,6 +117,7 @@ class PokemonBlueEnv(gym.Env):
         window = 'null' if headless else 'SDL2'
         self.pyboy = PyBoy(rom_path, window=window, sound=False)
         self.pyboy.set_emulation_speed(speed)
+        # En PyBoy 2.x, window='null' + tick(N, render=False) suffisent.
 
         self.action_space      = spaces.Discrete(len(ACTIONS))
         self.observation_space = spaces.Box(low=0.0, high=1.0, shape=(12,), dtype=np.float32)
@@ -131,9 +132,10 @@ class PokemonBlueEnv(gym.Env):
         self._max_opp_lvl  = 0
         self._prev_badges  = 0
         self._prev_events  = 0
-        self._visited_maps: set[int]         = set()
-        self._tile_visits:  dict[tuple, int] = {}
-        self._seen_tiles:   set[tuple]       = set()
+        self._visited_maps:    set[int]         = set()
+        self._tile_visits:     dict[tuple, int] = {}
+        self._seen_tiles:      set[tuple]       = set()   # persiste entre épisodes
+        self._zone_density_cache: dict[int, float] = {}   # cache encounters_in_zone
 
     # ── Gymnasium API ─────────────────────────────────────────────────────────
 
@@ -161,7 +163,8 @@ class PokemonBlueEnv(gym.Env):
         self._prev_events  = self._count_event_flags()
         self._visited_maps = {self._prev_map_id}
         self._tile_visits  = {}
-        self._seen_tiles   = set()
+        # _seen_tiles intentionnellement NON resetté : persiste entre épisodes
+        # comme PWhiddy — force l'agent à explorer de nouvelles zones à chaque épisode
         self._prev_move_pp = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
 
         return self._observe(), {}
@@ -170,13 +173,11 @@ class PokemonBlueEnv(gym.Env):
         action = ACTIONS[action_idx]
         if action in ('up', 'down', 'left', 'right'):
             self.pyboy.button_press(action)
-            for _ in range(TICKS_PER_ACTION):
-                self.pyboy.tick()
+            self.pyboy.tick(TICKS_PER_ACTION, render=False)
             self.pyboy.button_release(action)
         else:
             self.pyboy.button(action)
-            for _ in range(TICKS_PER_ACTION):
-                self.pyboy.tick()
+            self.pyboy.tick(TICKS_PER_ACTION, render=False)
 
         x   = self._r(RAM_PLAYER_X)
         y   = self._r(RAM_PLAYER_Y)
@@ -231,8 +232,7 @@ class PokemonBlueEnv(gym.Env):
         if self.init_state and os.path.exists(self.init_state):
             with open(self.init_state, 'rb') as f:
                 self.pyboy.load_state(f)
-            for _ in range(60):
-                self.pyboy.tick()
+            self.pyboy.tick(60, render=False)
         else:
             print(f"[Env] State introuvable : {self.init_state}")
 
@@ -255,7 +255,11 @@ class PokemonBlueEnv(gym.Env):
 
         # ── Vecteur KG ────────────────────────────────────────────────────────
         type_advantage, enemy_can_evolve = self._kg_battle_signals()
-        zone_density = min(len(self._kg.encounters_in_zone(map_id)) / 8.0, 1.0)
+        if map_id not in self._zone_density_cache:
+            self._zone_density_cache[map_id] = min(
+                len(self._kg.encounters_in_zone(map_id)) / 8.0, 1.0
+            )
+        zone_density = self._zone_density_cache[map_id]
 
         return np.array([
             # RAM brute (9 floats)
@@ -427,7 +431,7 @@ class PokemonBlueEnv(gym.Env):
 
     def _count_event_flags(self) -> int:
         """Nombre de bits à 1 dans la zone event flags (0xD747, 32 octets)."""
-        return sum(bin(self._r(RAM_EVENT_FLAGS + i)).count('1') for i in range(RAM_EVENT_LEN))
+        return sum(self._r(RAM_EVENT_FLAGS + i).bit_count() for i in range(RAM_EVENT_LEN))
 
     def _blacked_out(self) -> bool:
         max_hp = self._r16(RAM_PLAYER_MHP_H)

@@ -33,6 +33,7 @@ def parse_args():
     p.add_argument('--waypoint',    type=int, default=0, help='Index waypoint (défaut: 0)')
     p.add_argument('--steps',       type=int, default=500_000, help='Steps total (phases 1+2)')
     p.add_argument('--no-finetune', action='store_true', help='Sauter la phase 2')
+    p.add_argument('--no-waypoint', action='store_true', help='Entraîner sans waypoint (exploration pure)')
     p.add_argument('--chain',       type=int, nargs='+', metavar='WP',
                    help='Enchaîner plusieurs waypoints (ex: --chain 0 1 2)')
     p.add_argument('--n-envs',      type=int, default=12, help='Environnements parallèles')
@@ -94,6 +95,40 @@ def run_train(args):
                          max_steps=wp_max_steps)
     agent2 = ExplorationAgent(factory_p2, model_path=p1_path, n_envs=args.n_envs)
     agent2.train(total_timesteps=steps_p2, waypoint_idx=args.waypoint)
+    agent2.close()
+
+
+def run_train_free(args):
+    """Entraîne sans waypoint — exploration pure guidée par map discovery + badge reward."""
+    from src.agent.exploration_agent import ExplorationAgent
+
+    state    = args.state or INIT_STATE
+    save_dir = 'models/rl_checkpoints/'
+    os.makedirs(save_dir, exist_ok=True)
+
+    max_ep   = 4000   # budget généreux : l'agent doit traverser plusieurs maps
+    steps_p1 = int(args.steps * 0.6)
+
+    print(f"[Free] Exploration pure depuis : {state}")
+    print(f"[Free] Reward : map_discovery (+1) + badge (+50) + opp_lvl bonus")
+    print(f"[Free] Phase 1 : {steps_p1} steps  max/ep={max_ep}  n_envs={args.n_envs}")
+
+    factory = partial(make_env, state, waypoint=None, waypoints=None, max_steps=max_ep)
+    agent   = ExplorationAgent(factory, model_path=args.model, n_envs=args.n_envs)
+    p1_path = os.path.join(save_dir, 'free_phase1.zip')
+    agent.train(total_timesteps=steps_p1, save_path=p1_path)
+    agent.close()
+    del agent
+
+    if args.no_finetune:
+        return
+
+    steps_p2 = args.steps - steps_p1
+    max_ep2  = 2000
+    print(f"\n[Free] Phase 2 : {steps_p2} steps  max/ep={max_ep2}")
+    factory2 = partial(make_env, state, waypoint=None, waypoints=None, max_steps=max_ep2)
+    agent2   = ExplorationAgent(factory2, model_path=p1_path, n_envs=args.n_envs)
+    agent2.train(total_timesteps=steps_p2, save_path=os.path.join(save_dir, 'free_final.zip'))
     agent2.close()
 
 
@@ -208,6 +243,8 @@ if __name__ == '__main__':
     args = parse_args()
     if args.train and args.chain:
         run_train_chain(args)
+    elif args.train and args.no_waypoint:
+        run_train_free(args)
     elif args.train:
         run_train(args)
     else:

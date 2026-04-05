@@ -34,8 +34,8 @@ RAM_ENEMY_MHP_L       = 0xCFF5   # HP max ennemi (octet faible)
 # ── HP joueur ─────────────────────────────────────────────────────────────────
 RAM_PLAYER_HP_H  = 0xD16C
 RAM_PLAYER_HP_L  = 0xD16D
-RAM_PLAYER_MHP_H = 0xD18C
-RAM_PLAYER_MHP_L = 0xD18D
+RAM_PLAYER_MHP_H = 0xD18D   # D18C = level byte; D18D-D18E = max HP (big-endian)
+RAM_PLAYER_MHP_L = 0xD18E
 
 # ── Interface / transitions ───────────────────────────────────────────────────
 RAM_FADING       = 0xD13F   # transition d'écran (non-zero = en cours)
