@@ -1,0 +1,349 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script>function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+            
+            
+            
+            
+            
+
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 100vh;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"base_power": null, "color": "#97c2fc", "damage_class": "status", "font": {"color": "white"}, "id": "move:leech-seed", "kind": "move", "label": "move:leech-seed", "move_id": 73, "name": "leech-seed", "pp": 10, "priority": 0, "shape": "dot", "size": 10, "type_name": "grass"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:grass", "kind": "type", "label": "type:grass", "name": "grass", "shape": "dot", "size": 10}, {"base_power": 100, "color": "#97c2fc", "damage_class": "physical", "font": {"color": "white"}, "id": "move:earthquake", "kind": "move", "label": "move:earthquake", "move_id": 89, "name": "earthquake", "pp": 10, "priority": 0, "shape": "dot", "size": 10, "type_name": "ground"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:ground", "kind": "type", "label": "type:ground", "name": "ground", "shape": "dot", "size": 10}, {"base_power": 40, "color": "#97c2fc", "damage_class": "special", "font": {"color": "white"}, "id": "move:water-gun", "kind": "move", "label": "move:water-gun", "move_id": 55, "name": "water-gun", "pp": 25, "priority": 0, "shape": "dot", "size": 10, "type_name": "water"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:water", "kind": "type", "label": "type:water", "name": "water", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "zone:0x33", "kind": "zone", "label": "zone:0x33", "map_id": 51, "name": "For\u00eat de Jade", "pokeapi_slug": "viridian-forest-area", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "zone:0x02", "kind": "zone", "label": "zone:0x02", "map_id": 2, "name": "Argenta City", "pokeapi_slug": null, "shape": "dot", "size": 10}, {"base_attack": 35, "base_defense": 30, "base_hp": 40, "base_speed": 50, "color": "#97c2fc", "dex": 13, "font": {"color": "white"}, "id": "pokemon:weedle", "kind": "pokemon", "label": "pokemon:weedle", "name": "weedle", "shape": "dot", "size": 10, "types": ["bug", "poison"]}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:bug", "kind": "type", "label": "type:bug", "name": "bug", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:poison", "kind": "type", "label": "type:poison", "name": "poison", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "zone:0x0d", "kind": "zone", "label": "zone:0x0d", "map_id": 13, "name": "Route 2", "pokeapi_slug": "kanto-route-2-south-towards-viridian-city", "shape": "dot", "size": 10}, {"base_attack": 25, "base_defense": 50, "base_hp": 45, "base_speed": 35, "color": "#97c2fc", "dex": 14, "font": {"color": "white"}, "id": "pokemon:kakuna", "kind": "pokemon", "label": "pokemon:kakuna", "name": "kakuna", "shape": "dot", "size": 10, "types": ["bug", "poison"]}, {"base_power": 45, "color": "#97c2fc", "damage_class": "physical", "font": {"color": "white"}, "id": "move:vine-whip", "kind": "move", "label": "move:vine-whip", "move_id": 22, "name": "vine-whip", "pp": 25, "priority": 0, "shape": "dot", "size": 10, "type_name": "grass"}, {"base_power": 55, "color": "#97c2fc", "damage_class": "physical", "font": {"color": "white"}, "id": "move:razor-leaf", "kind": "move", "label": "move:razor-leaf", "move_id": 75, "name": "razor-leaf", "pp": 25, "priority": 0, "shape": "dot", "size": 10, "type_name": "grass"}, {"base_power": null, "color": "#97c2fc", "damage_class": "status", "font": {"color": "white"}, "id": "move:withdraw", "kind": "move", "label": "move:withdraw", "move_id": 110, "name": "withdraw", "pp": 40, "priority": 0, "shape": "dot", "size": 10, "type_name": "water"}, {"base_power": 80, "color": "#97c2fc", "damage_class": "physical", "font": {"color": "white"}, "id": "move:submission", "kind": "move", "label": "move:submission", "move_id": 66, "name": "submission", "pp": 20, "priority": 0, "shape": "dot", "size": 10, "type_name": "fighting"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:fighting", "kind": "type", "label": "type:fighting", "name": "fighting", "shape": "dot", "size": 10}, {"base_power": null, "color": "#97c2fc", "damage_class": "status", "font": {"color": "white"}, "id": "move:growl", "kind": "move", "label": "move:growl", "move_id": 45, "name": "growl", "pp": 40, "priority": 0, "shape": "dot", "size": 10, "type_name": "normal"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:normal", "kind": "type", "label": "type:normal", "name": "normal", "shape": "dot", "size": 10}, {"base_power": 120, "color": "#97c2fc", "damage_class": "special", "font": {"color": "white"}, "id": "move:solar-beam", "kind": "move", "label": "move:solar-beam", "move_id": 76, "name": "solar-beam", "pp": 10, "priority": 0, "shape": "dot", "size": 10, "type_name": "grass"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:rock", "kind": "type", "label": "type:rock", "name": "rock", "shape": "dot", "size": 10}, {"base_attack": 45, "base_defense": 40, "base_hp": 40, "base_speed": 56, "color": "#97c2fc", "dex": 16, "font": {"color": "white"}, "id": "pokemon:pidgey", "kind": "pokemon", "label": "pokemon:pidgey", "name": "pidgey", "shape": "dot", "size": 10, "types": ["normal", "flying"]}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:flying", "kind": "type", "label": "type:flying", "name": "flying", "shape": "dot", "size": 10}, {"base_power": null, "color": "#97c2fc", "damage_class": "status", "font": {"color": "white"}, "id": "move:sand-attack", "kind": "move", "label": "move:sand-attack", "move_id": 28, "name": "sand-attack", "pp": 15, "priority": 0, "shape": "dot", "size": 10, "type_name": "ground"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "zone:0x0c", "kind": "zone", "label": "zone:0x0c", "map_id": 12, "name": "Route 1", "pokeapi_slug": "kanto-route-1-area", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "zone:0x0e", "kind": "zone", "label": "zone:0x0e", "map_id": 14, "name": "Route 2 Nord", "pokeapi_slug": "kanto-route-2-north-towards-pewter-city", "shape": "dot", "size": 10}, {"base_power": null, "color": "#97c2fc", "damage_class": "status", "font": {"color": "white"}, "id": "move:sleep-powder", "kind": "move", "label": "move:sleep-powder", "move_id": 79, "name": "sleep-powder", "pp": 15, "priority": 0, "shape": "dot", "size": 10, "type_name": "grass"}, {"base_attack": 80, "base_defense": 100, "base_hp": 40, "base_speed": 20, "color": "#97c2fc", "dex": 74, "font": {"color": "white"}, "id": "pokemon:geodude", "kind": "pokemon", "label": "pokemon:geodude", "name": "geodude", "shape": "dot", "size": 10, "types": ["rock", "ground"]}, {"base_power": null, "color": "#97c2fc", "damage_class": "physical", "font": {"color": "white"}, "id": "move:counter", "kind": "move", "label": "move:counter", "move_id": 68, "name": "counter", "pp": 20, "priority": -5, "shape": "dot", "size": 10, "type_name": "fighting"}, {"base_power": null, "color": "#97c2fc", "damage_class": "physical", "font": {"color": "white"}, "id": "move:seismic-toss", "kind": "move", "label": "move:seismic-toss", "move_id": 69, "name": "seismic-toss", "pp": 20, "priority": 0, "shape": "dot", "size": 10, "type_name": "fighting"}, {"base_power": null, "color": "#97c2fc", "damage_class": "physical", "font": {"color": "white"}, "id": "move:fissure", "kind": "move", "label": "move:fissure", "move_id": 90, "name": "fissure", "pp": 5, "priority": 0, "shape": "dot", "size": 10, "type_name": "ground"}, {"base_power": 80, "color": "#97c2fc", "damage_class": "physical", "font": {"color": "white"}, "id": "move:dig", "kind": "move", "label": "move:dig", "move_id": 91, "name": "dig", "pp": 10, "priority": 0, "shape": "dot", "size": 10, "type_name": "ground"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "zone:0x01", "kind": "zone", "label": "zone:0x01", "map_id": 1, "name": "Jadielle City", "pokeapi_slug": null, "shape": "dot", "size": 10}, {"base_attack": 48, "base_defense": 65, "base_hp": 44, "base_speed": 43, "color": "#97c2fc", "dex": 7, "font": {"color": "white"}, "id": "pokemon:squirtle", "kind": "pokemon", "label": "pokemon:squirtle", "name": "squirtle", "shape": "dot", "size": 10, "types": ["water"]}, {"base_power": null, "color": "#97c2fc", "damage_class": "status", "font": {"color": "white"}, "id": "move:tail-whip", "kind": "move", "label": "move:tail-whip", "move_id": 39, "name": "tail-whip", "pp": 30, "priority": 0, "shape": "dot", "size": 10, "type_name": "normal"}, {"base_power": 110, "color": "#97c2fc", "damage_class": "special", "font": {"color": "white"}, "id": "move:hydro-pump", "kind": "move", "label": "move:hydro-pump", "move_id": 56, "name": "hydro-pump", "pp": 5, "priority": 0, "shape": "dot", "size": 10, "type_name": "water"}, {"base_power": 90, "color": "#97c2fc", "damage_class": "special", "font": {"color": "white"}, "id": "move:surf", "kind": "move", "label": "move:surf", "move_id": 57, "name": "surf", "pp": 15, "priority": 0, "shape": "dot", "size": 10, "type_name": "water"}, {"base_power": 65, "color": "#97c2fc", "damage_class": "special", "font": {"color": "white"}, "id": "move:bubble-beam", "kind": "move", "label": "move:bubble-beam", "move_id": 61, "name": "bubble-beam", "pp": 20, "priority": 0, "shape": "dot", "size": 10, "type_name": "water"}, {"base_power": 40, "color": "#97c2fc", "damage_class": "special", "font": {"color": "white"}, "id": "move:bubble", "kind": "move", "label": "move:bubble", "move_id": 145, "name": "bubble", "pp": 30, "priority": 0, "shape": "dot", "size": 10, "type_name": "water"}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "zone:0x36", "kind": "zone", "label": "zone:0x36", "map_id": 54, "name": "Ar\u00e8ne d\u0027Argenta", "pokeapi_slug": null, "shape": "dot", "size": 10}, {"base_attack": 45, "base_defense": 65, "base_hp": 40, "base_speed": 90, "color": "#97c2fc", "dex": 122, "font": {"color": "white"}, "id": "pokemon:mr-mime", "kind": "pokemon", "label": "pokemon:mr-mime", "name": "mr-mime", "shape": "dot", "size": 10, "types": ["psychic"]}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:psychic", "kind": "type", "label": "type:psychic", "name": "psychic", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:fire", "kind": "type", "label": "type:fire", "name": "fire", "shape": "dot", "size": 10}, {"base_attack": 49, "base_defense": 49, "base_hp": 45, "base_speed": 45, "color": "#97c2fc", "dex": 1, "font": {"color": "white"}, "id": "pokemon:bulbasaur", "kind": "pokemon", "label": "pokemon:bulbasaur", "name": "bulbasaur", "shape": "dot", "size": 10, "types": ["grass", "poison"]}, {"base_power": 40, "color": "#97c2fc", "damage_class": "special", "font": {"color": "white"}, "id": "move:mega-drain", "kind": "move", "label": "move:mega-drain", "move_id": 72, "name": "mega-drain", "pp": 15, "priority": 0, "shape": "dot", "size": 10, "type_name": "grass"}, {"base_power": null, "color": "#97c2fc", "damage_class": "status", "font": {"color": "white"}, "id": "move:poison-powder", "kind": "move", "label": "move:poison-powder", "move_id": 77, "name": "poison-powder", "pp": 35, "priority": 0, "shape": "dot", "size": 10, "type_name": "poison"}, {"base_attack": 30, "base_defense": 35, "base_hp": 45, "base_speed": 45, "color": "#97c2fc", "dex": 10, "font": {"color": "white"}, "id": "pokemon:caterpie", "kind": "pokemon", "label": "pokemon:caterpie", "name": "caterpie", "shape": "dot", "size": 10, "types": ["bug"]}, {"base_attack": 20, "base_defense": 55, "base_hp": 50, "base_speed": 30, "color": "#97c2fc", "dex": 11, "font": {"color": "white"}, "id": "pokemon:metapod", "kind": "pokemon", "label": "pokemon:metapod", "name": "metapod", "shape": "dot", "size": 10, "types": ["bug"]}, {"base_attack": 45, "base_defense": 160, "base_hp": 35, "base_speed": 70, "color": "#97c2fc", "dex": 95, "font": {"color": "white"}, "id": "pokemon:onix", "kind": "pokemon", "label": "pokemon:onix", "name": "onix", "shape": "dot", "size": 10, "types": ["rock", "ground"]}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "zone:0x00", "kind": "zone", "label": "zone:0x00", "map_id": 0, "name": "Bourg Palette", "pokeapi_slug": null, "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "type:electric", "kind": "type", "label": "type:electric", "name": "electric", "shape": "dot", "size": 10}, {"base_attack": 56, "base_defense": 35, "base_hp": 30, "base_speed": 72, "color": "#97c2fc", "dex": 19, "font": {"color": "white"}, "id": "pokemon:rattata", "kind": "pokemon", "label": "pokemon:rattata", "name": "rattata", "shape": "dot", "size": 10, "types": ["normal"]}, {"base_attack": 52, "base_defense": 43, "base_hp": 39, "base_speed": 65, "color": "#97c2fc", "dex": 4, "font": {"color": "white"}, "id": "pokemon:charmander", "kind": "pokemon", "label": "pokemon:charmander", "name": "charmander", "shape": "dot", "size": 10, "types": ["fire"]}, {"base_attack": 55, "base_defense": 40, "base_hp": 35, "base_speed": 90, "color": "#97c2fc", "dex": 25, "font": {"color": "white"}, "id": "pokemon:pikachu", "kind": "pokemon", "label": "pokemon:pikachu", "name": "pikachu", "shape": "dot", "size": 10, "types": ["electric"]}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "move:leech-seed", "relation": "IS_TYPE", "to": "type:grass", "width": 1}, {"arrows": "to", "from": "move:earthquake", "relation": "IS_TYPE", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "move:water-gun", "relation": "IS_TYPE", "to": "type:water", "width": 1}, {"arrows": "to", "from": "zone:0x33", "relation": "LEADS_TO", "to": "zone:0x02", "width": 1}, {"arrows": "to", "from": "pokemon:weedle", "relation": "HAS_TYPE", "to": "type:bug", "width": 1}, {"arrows": "to", "from": "pokemon:weedle", "relation": "HAS_TYPE", "to": "type:poison", "width": 1}, {"arrows": "to", "from": "pokemon:weedle", "relation": "FOUND_IN", "to": "zone:0x0d", "width": 1}, {"arrows": "to", "from": "pokemon:weedle", "relation": "FOUND_IN", "to": "zone:0x33", "width": 1}, {"arrows": "to", "from": "pokemon:weedle", "relation": "EVOLVES_INTO", "to": "pokemon:kakuna", "width": 1}, {"arrows": "to", "from": "move:vine-whip", "relation": "IS_TYPE", "to": "type:grass", "width": 1}, {"arrows": "to", "from": "move:razor-leaf", "relation": "IS_TYPE", "to": "type:grass", "width": 1}, {"arrows": "to", "from": "move:withdraw", "relation": "IS_TYPE", "to": "type:water", "width": 1}, {"arrows": "to", "from": "move:submission", "relation": "IS_TYPE", "to": "type:fighting", "width": 1}, {"arrows": "to", "from": "move:growl", "relation": "IS_TYPE", "to": "type:normal", "width": 1}, {"arrows": "to", "from": "move:solar-beam", "relation": "IS_TYPE", "to": "type:grass", "width": 1}, {"arrows": "to", "from": "type:rock", "multiplier": 0.5, "relation": "NOT_EFFECTIVE_AGAINST", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "type:poison", "multiplier": 0.5, "relation": "NOT_EFFECTIVE_AGAINST", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "type:poison", "multiplier": 0.5, "relation": "NOT_EFFECTIVE_AGAINST", "to": "type:rock", "width": 1}, {"arrows": "to", "from": "pokemon:pidgey", "relation": "HAS_TYPE", "to": "type:normal", "width": 1}, {"arrows": "to", "from": "pokemon:pidgey", "relation": "HAS_TYPE", "to": "type:flying", "width": 1}, {"arrows": "to", "from": "pokemon:pidgey", "relation": "LEARNS", "to": "move:sand-attack", "width": 1}, {"arrows": "to", "from": "pokemon:pidgey", "relation": "FOUND_IN", "to": "zone:0x0c", "width": 1}, {"arrows": "to", "from": "pokemon:pidgey", "relation": "FOUND_IN", "to": "zone:0x0d", "width": 1}, {"arrows": "to", "from": "zone:0x0d", "relation": "LEADS_TO", "to": "zone:0x0e", "width": 1}, {"arrows": "to", "from": "type:normal", "multiplier": 0.5, "relation": "NOT_EFFECTIVE_AGAINST", "to": "type:rock", "width": 1}, {"arrows": "to", "from": "move:sleep-powder", "relation": "IS_TYPE", "to": "type:grass", "width": 1}, {"arrows": "to", "from": "pokemon:geodude", "relation": "HAS_TYPE", "to": "type:rock", "width": 1}, {"arrows": "to", "from": "pokemon:geodude", "relation": "HAS_TYPE", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "pokemon:geodude", "relation": "LEARNS", "to": "move:submission", "width": 1}, {"arrows": "to", "from": "pokemon:geodude", "relation": "LEARNS", "to": "move:counter", "width": 1}, {"arrows": "to", "from": "pokemon:geodude", "relation": "LEARNS", "to": "move:seismic-toss", "width": 1}, {"arrows": "to", "from": "pokemon:geodude", "relation": "LEARNS", "to": "move:earthquake", "width": 1}, {"arrows": "to", "from": "pokemon:geodude", "relation": "LEARNS", "to": "move:fissure", "width": 1}, {"arrows": "to", "from": "pokemon:geodude", "relation": "LEARNS", "to": "move:dig", "width": 1}, {"arrows": "to", "from": "type:water", "multiplier": 2.0, "relation": "SUPER_EFFECTIVE_AGAINST", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "type:water", "multiplier": 2.0, "relation": "SUPER_EFFECTIVE_AGAINST", "to": "type:rock", "width": 1}, {"arrows": "to", "from": "zone:0x01", "relation": "LEADS_TO", "to": "zone:0x0d", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "HAS_TYPE", "to": "type:water", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:tail-whip", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:water-gun", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:hydro-pump", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:surf", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:bubble-beam", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:submission", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:counter", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:seismic-toss", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:dig", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:withdraw", "width": 1}, {"arrows": "to", "from": "pokemon:squirtle", "relation": "LEARNS", "to": "move:bubble", "width": 1}, {"arrows": "to", "from": "zone:0x02", "relation": "LEADS_TO", "to": "zone:0x36", "width": 1}, {"arrows": "to", "from": "pokemon:mr-mime", "relation": "HAS_TYPE", "to": "type:psychic", "width": 1}, {"arrows": "to", "from": "pokemon:mr-mime", "relation": "LEARNS", "to": "move:submission", "width": 1}, {"arrows": "to", "from": "pokemon:mr-mime", "relation": "LEARNS", "to": "move:counter", "width": 1}, {"arrows": "to", "from": "pokemon:mr-mime", "relation": "LEARNS", "to": "move:seismic-toss", "width": 1}, {"arrows": "to", "from": "pokemon:mr-mime", "relation": "LEARNS", "to": "move:solar-beam", "width": 1}, {"arrows": "to", "from": "pokemon:mr-mime", "relation": "FOUND_IN", "to": "zone:0x0e", "width": 1}, {"arrows": "to", "from": "move:sand-attack", "relation": "IS_TYPE", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "move:counter", "relation": "IS_TYPE", "to": "type:fighting", "width": 1}, {"arrows": "to", "from": "move:seismic-toss", "relation": "IS_TYPE", "to": "type:fighting", "width": 1}, {"arrows": "to", "from": "zone:0x0e", "relation": "LEADS_TO", "to": "zone:0x33", "width": 1}, {"arrows": "to", "from": "move:dig", "relation": "IS_TYPE", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "pokemon:kakuna", "relation": "HAS_TYPE", "to": "type:bug", "width": 1}, {"arrows": "to", "from": "pokemon:kakuna", "relation": "HAS_TYPE", "to": "type:poison", "width": 1}, {"arrows": "to", "from": "pokemon:kakuna", "relation": "FOUND_IN", "to": "zone:0x33", "width": 1}, {"arrows": "to", "from": "move:fissure", "relation": "IS_TYPE", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "zone:0x0c", "relation": "LEADS_TO", "to": "zone:0x01", "width": 1}, {"arrows": "to", "from": "type:fire", "multiplier": 0.5, "relation": "NOT_EFFECTIVE_AGAINST", "to": "type:rock", "width": 1}, {"arrows": "to", "from": "move:bubble-beam", "relation": "IS_TYPE", "to": "type:water", "width": 1}, {"arrows": "to", "from": "move:hydro-pump", "relation": "IS_TYPE", "to": "type:water", "width": 1}, {"arrows": "to", "from": "pokemon:bulbasaur", "relation": "HAS_TYPE", "to": "type:grass", "width": 1}, {"arrows": "to", "from": "pokemon:bulbasaur", "relation": "HAS_TYPE", "to": "type:poison", "width": 1}, {"arrows": "to", "from": "pokemon:bulbasaur", "relation": "LEARNS", "to": "move:vine-whip", "width": 1}, {"arrows": "to", "from": "pokemon:bulbasaur", "relation": "LEARNS", "to": "move:growl", "width": 1}, {"arrows": "to", "from": "pokemon:bulbasaur", "relation": "LEARNS", "to": "move:mega-drain", "width": 1}, {"arrows": "to", "from": "pokemon:bulbasaur", "relation": "LEARNS", "to": "move:leech-seed", "width": 1}, {"arrows": "to", "from": "pokemon:bulbasaur", "relation": "LEARNS", "to": "move:razor-leaf", "width": 1}, {"arrows": "to", "from": "pokemon:bulbasaur", "relation": "LEARNS", "to": "move:solar-beam", "width": 1}, {"arrows": "to", "from": "pokemon:bulbasaur", "relation": "LEARNS", "to": "move:poison-powder", "width": 1}, {"arrows": "to", "from": "pokemon:bulbasaur", "relation": "LEARNS", "to": "move:sleep-powder", "width": 1}, {"arrows": "to", "from": "pokemon:caterpie", "relation": "HAS_TYPE", "to": "type:bug", "width": 1}, {"arrows": "to", "from": "pokemon:caterpie", "relation": "FOUND_IN", "to": "zone:0x0d", "width": 1}, {"arrows": "to", "from": "pokemon:caterpie", "relation": "FOUND_IN", "to": "zone:0x33", "width": 1}, {"arrows": "to", "from": "pokemon:caterpie", "relation": "EVOLVES_INTO", "to": "pokemon:metapod", "width": 1}, {"arrows": "to", "from": "pokemon:onix", "relation": "HAS_TYPE", "to": "type:rock", "width": 1}, {"arrows": "to", "from": "pokemon:onix", "relation": "HAS_TYPE", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "pokemon:onix", "relation": "LEARNS", "to": "move:earthquake", "width": 1}, {"arrows": "to", "from": "pokemon:onix", "relation": "LEARNS", "to": "move:fissure", "width": 1}, {"arrows": "to", "from": "pokemon:onix", "relation": "LEARNS", "to": "move:dig", "width": 1}, {"arrows": "to", "from": "type:ground", "multiplier": 2.0, "relation": "SUPER_EFFECTIVE_AGAINST", "to": "type:rock", "width": 1}, {"arrows": "to", "from": "zone:0x00", "relation": "LEADS_TO", "to": "zone:0x0c", "width": 1}, {"arrows": "to", "from": "move:surf", "relation": "IS_TYPE", "to": "type:water", "width": 1}, {"arrows": "to", "from": "type:electric", "multiplier": 0.0, "relation": "NO_EFFECT_AGAINST", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "move:bubble", "relation": "IS_TYPE", "to": "type:water", "width": 1}, {"arrows": "to", "from": "type:grass", "multiplier": 2.0, "relation": "SUPER_EFFECTIVE_AGAINST", "to": "type:ground", "width": 1}, {"arrows": "to", "from": "type:grass", "multiplier": 2.0, "relation": "SUPER_EFFECTIVE_AGAINST", "to": "type:rock", "width": 1}, {"arrows": "to", "from": "move:mega-drain", "relation": "IS_TYPE", "to": "type:grass", "width": 1}, {"arrows": "to", "from": "move:tail-whip", "relation": "IS_TYPE", "to": "type:normal", "width": 1}, {"arrows": "to", "from": "pokemon:rattata", "relation": "HAS_TYPE", "to": "type:normal", "width": 1}, {"arrows": "to", "from": "pokemon:rattata", "relation": "LEARNS", "to": "move:tail-whip", "width": 1}, {"arrows": "to", "from": "pokemon:rattata", "relation": "LEARNS", "to": "move:water-gun", "width": 1}, {"arrows": "to", "from": "pokemon:rattata", "relation": "LEARNS", "to": "move:bubble-beam", "width": 1}, {"arrows": "to", "from": "pokemon:rattata", "relation": "LEARNS", "to": "move:dig", "width": 1}, {"arrows": "to", "from": "pokemon:rattata", "relation": "FOUND_IN", "to": "zone:0x0c", "width": 1}, {"arrows": "to", "from": "pokemon:rattata", "relation": "FOUND_IN", "to": "zone:0x0d", "width": 1}, {"arrows": "to", "from": "pokemon:charmander", "relation": "HAS_TYPE", "to": "type:fire", "width": 1}, {"arrows": "to", "from": "pokemon:charmander", "relation": "LEARNS", "to": "move:growl", "width": 1}, {"arrows": "to", "from": "pokemon:charmander", "relation": "LEARNS", "to": "move:submission", "width": 1}, {"arrows": "to", "from": "pokemon:charmander", "relation": "LEARNS", "to": "move:counter", "width": 1}, {"arrows": "to", "from": "pokemon:charmander", "relation": "LEARNS", "to": "move:seismic-toss", "width": 1}, {"arrows": "to", "from": "pokemon:charmander", "relation": "LEARNS", "to": "move:dig", "width": 1}, {"arrows": "to", "from": "type:fighting", "multiplier": 2.0, "relation": "SUPER_EFFECTIVE_AGAINST", "to": "type:rock", "width": 1}, {"arrows": "to", "from": "move:poison-powder", "relation": "IS_TYPE", "to": "type:poison", "width": 1}, {"arrows": "to", "from": "pokemon:metapod", "relation": "HAS_TYPE", "to": "type:bug", "width": 1}, {"arrows": "to", "from": "pokemon:metapod", "relation": "FOUND_IN", "to": "zone:0x33", "width": 1}, {"arrows": "to", "from": "type:flying", "multiplier": 0.5, "relation": "NOT_EFFECTIVE_AGAINST", "to": "type:rock", "width": 1}, {"arrows": "to", "from": "pokemon:pikachu", "relation": "HAS_TYPE", "to": "type:electric", "width": 1}, {"arrows": "to", "from": "pokemon:pikachu", "relation": "LEARNS", "to": "move:growl", "width": 1}, {"arrows": "to", "from": "pokemon:pikachu", "relation": "LEARNS", "to": "move:surf", "width": 1}, {"arrows": "to", "from": "pokemon:pikachu", "relation": "LEARNS", "to": "move:submission", "width": 1}, {"arrows": "to", "from": "pokemon:pikachu", "relation": "LEARNS", "to": "move:seismic-toss", "width": 1}, {"arrows": "to", "from": "pokemon:pikachu", "relation": "FOUND_IN", "to": "zone:0x33", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
