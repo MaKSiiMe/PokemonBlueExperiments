@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pokemon Blue - Guide Premier Badge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js"></script>
+  <style>
+    :root {
+      --bg: #081c15;
+      --panel: #1b4332;
+      --panel-2: #2d6a4f;
+      --text: #f1faee;
+      --muted: #b7e4c7;
+      --accent: #ffb703;
+      --danger: #e63946;
+      --ok: #2ecc71;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      background:
+        radial-gradient(1000px 500px at 90% -10%, #52b78844, transparent 60%),
+        radial-gradient(700px 500px at 10% 110%, #95d5b244, transparent 60%),
+        linear-gradient(140deg, #081c15, #1b4332 40%, #2d6a4f);
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 28px 20px 12px;
+      border-bottom: 1px solid #ffffff33;
+      backdrop-filter: blur(4px);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+      letter-spacing: 0.8px;
+      color: #ffd166;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      max-width: 980px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, #1b4332dd, #2d6a4fcc);
+      border: 1px solid #ffffff26;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px #00000033;
+    }
+
+    .panel h2 {
+      margin: 0;
+      padding: 14px 16px;
+      font-size: 1rem;
+      font-family: 'Chakra Petch', sans-serif;
+      background: #00000022;
+      border-bottom: 1px solid #ffffff22;
+    }
+
+    .guide {
+      padding: 12px 14px 18px;
+      max-height: calc(100vh - 140px);
+      overflow: auto;
+    }
+
+    .step {
+      margin: 10px 0;
+      padding: 10px;
+      background: #00000026;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+    }
+
+    .step strong { color: #ffe8a1; }
+
+    .tips {
+      margin-top: 14px;
+      padding: 10px;
+      background: #0000002b;
+      border: 1px solid #ffffff2a;
+      border-radius: 8px;
+    }
+
+    .tips ul { margin: 8px 0 0; padding-left: 18px; }
+
+    .graph-wrap {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: calc(100vh - 140px);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      border-bottom: 1px solid #ffffff24;
+      background: #00000020;
+    }
+
+    button {
+      border: 1px solid #ffffff33;
+      background: #ffffff12;
+      color: var(--text);
+      padding: 7px 10px;
+      border-radius: 7px;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    button:hover { background: #ffffff24; }
+
+    #network { width: 100%; height: 100%; min-height: 560px; }
+
+    .legend {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 8px 10px 0;
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 999px; display: inline-block; margin-right: 5px; }
+
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      .guide { max-height: none; }
+      .graph-wrap { min-height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Road to Brock: Graphe utile pour le 1er badge</h1>
+    <p class="subtitle">Cette vue est filtree sur le parcours obligatoire uniquement: Bourg Palette -> Route 1 -> Jadielle -> Route 2 -> Foret de Jade -> Argenta -> Arene. Elle conserve seulement les informations utiles pour battre Pierre (Brock).</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Guide rapide (complet, 1er badge)</h2>
+      <div class="guide">
+        <div class="step"><strong>1. Bourg Palette</strong><br>Prends ton starter et gagne le premier combat contre le Rival.</div>
+        <div class="step"><strong>2. Route 1</strong><br>Monte quelques niveaux, recupere la Potion au sol, stabilise ton equipe.</div>
+        <div class="step"><strong>3. Jadielle -> Route 2</strong><br>Passe au Centre Pokemon et commence a capturer de quoi couvrir Brock.</div>
+        <div class="step"><strong>4. Foret de Jade</strong><br>Combats dresseurs obligatoires, capture Caterpie/Weedle/Pikachu selon besoin.</div>
+        <div class="step"><strong>5. Route 2 Nord -> Argenta</strong><br>Grind jusqu'a ~Lv12-14 pour ton main damage dealer.</div>
+        <div class="step"><strong>6. Arene d'Argenta</strong><br>Pierre: Geodude (Lv12) puis Onix (Lv14).</div>
+
+        <div class="tips">
+          <strong>Plan anti-Brock</strong>
+          <ul>
+            <li><strong>Bulbizarre:</strong> Fouet Lianes suffit souvent pour sweep.</li>
+            <li><strong>Carapuce:</strong> Pistolet a O et bonne defense = tres solide.</li>
+            <li><strong>Salameche:</strong> capture un support (Chenipan/Paras/Nidoran/Mankey selon version) et joue status + chip.</li>
+            <li><strong>Types efficaces:</strong> Eau, Plante, Combat, Sol.</li>
+            <li><strong>A eviter:</strong> Normal/Feu contre Roche.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel graph-wrap">
+      <h2>Graphe cible: zones, Pokemon, moves, types utiles</h2>
+      <div class="toolbar">
+        <button onclick="focusGroup('zone')">Voir zones</button>
+        <button onclick="focusGroup('pokemon')">Voir Pokemon</button>
+        <button onclick="focusGroup('move')">Voir moves</button>
+        <button onclick="focusBrock()">Focus Brock</button>
+        <button onclick="resetView()">Reinitialiser</button>
+      </div>
+      <div class="legend">
+        <span><i class="dot" style="background:#f4a261"></i>Zone</span>
+        <span><i class="dot" style="background:#2a9d8f"></i>Pokemon</span>
+        <span><i class="dot" style="background:#457b9d"></i>Move</span>
+        <span><i class="dot" style="background:#e9c46a"></i>Type</span>
+      </div>
+      <div id="network"></div>
+    </section>
+  </main>
+
+<script>
+const nodes = new vis.DataSet([{"id": "move:bubble", "label": "bubble", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: bubble<br>Type: water<br>Power: 40", "size": 13}, {"id": "move:bubble-beam", "label": "bubble-beam", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: bubble-beam<br>Type: water<br>Power: 65", "size": 13}, {"id": "move:counter", "label": "counter", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: counter<br>Type: fighting<br>Power: None", "size": 13}, {"id": "move:dig", "label": "dig", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: dig<br>Type: ground<br>Power: 80", "size": 13}, {"id": "move:earthquake", "label": "earthquake", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: earthquake<br>Type: ground<br>Power: 100", "size": 13}, {"id": "move:fissure", "label": "fissure", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: fissure<br>Type: ground<br>Power: None", "size": 13}, {"id": "move:growl", "label": "growl", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: growl<br>Type: normal<br>Power: None", "size": 13}, {"id": "move:hydro-pump", "label": "hydro-pump", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: hydro-pump<br>Type: water<br>Power: 110", "size": 13}, {"id": "move:leech-seed", "label": "leech-seed", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: leech-seed<br>Type: grass<br>Power: None", "size": 13}, {"id": "move:mega-drain", "label": "mega-drain", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: mega-drain<br>Type: grass<br>Power: 40", "size": 13}, {"id": "move:poison-powder", "label": "poison-powder", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: poison-powder<br>Type: poison<br>Power: None", "size": 13}, {"id": "move:razor-leaf", "label": "razor-leaf", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: razor-leaf<br>Type: grass<br>Power: 55", "size": 13}, {"id": "move:sand-attack", "label": "sand-attack", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: sand-attack<br>Type: ground<br>Power: None", "size": 13}, {"id": "move:seismic-toss", "label": "seismic-toss", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: seismic-toss<br>Type: fighting<br>Power: None", "size": 13}, {"id": "move:sleep-powder", "label": "sleep-powder", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: sleep-powder<br>Type: grass<br>Power: None", "size": 13}, {"id": "move:solar-beam", "label": "solar-beam", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: solar-beam<br>Type: grass<br>Power: 120", "size": 13}, {"id": "move:submission", "label": "submission", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: submission<br>Type: fighting<br>Power: 80", "size": 13}, {"id": "move:surf", "label": "surf", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: surf<br>Type: water<br>Power: 90", "size": 13}, {"id": "move:tail-whip", "label": "tail-whip", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: tail-whip<br>Type: normal<br>Power: None", "size": 13}, {"id": "move:vine-whip", "label": "vine-whip", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: vine-whip<br>Type: grass<br>Power: 45", "size": 13}, {"id": "move:water-gun", "label": "water-gun", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: water-gun<br>Type: water<br>Power: 40", "size": 13}, {"id": "move:withdraw", "label": "withdraw", "group": "move", "kind": "move", "shape": "diamond", "color": "#457b9d", "font": {"color": "#ffffff"}, "title": "Move: withdraw<br>Type: water<br>Power: None", "size": 13}, {"id": "pokemon:bulbasaur", "label": "bulbasaur", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: bulbasaur<br>Dex: 1<br>Types: grass, poison", "size": 13}, {"id": "pokemon:caterpie", "label": "caterpie", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: caterpie<br>Dex: 10<br>Types: bug", "size": 13}, {"id": "pokemon:charmander", "label": "charmander", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: charmander<br>Dex: 4<br>Types: fire", "size": 13}, {"id": "pokemon:geodude", "label": "geodude", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: geodude<br>Dex: 74<br>Types: rock, ground", "size": 13}, {"id": "pokemon:kakuna", "label": "kakuna", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: kakuna<br>Dex: 14<br>Types: bug, poison", "size": 13}, {"id": "pokemon:metapod", "label": "metapod", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: metapod<br>Dex: 11<br>Types: bug", "size": 13}, {"id": "pokemon:mr-mime", "label": "mr-mime", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: mr-mime<br>Dex: 122<br>Types: psychic", "size": 13}, {"id": "pokemon:onix", "label": "onix", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: onix<br>Dex: 95<br>Types: rock, ground", "size": 13}, {"id": "pokemon:pidgey", "label": "pidgey", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: pidgey<br>Dex: 16<br>Types: normal, flying", "size": 13}, {"id": "pokemon:pikachu", "label": "pikachu", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: pikachu<br>Dex: 25<br>Types: electric", "size": 13}, {"id": "pokemon:rattata", "label": "rattata", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: rattata<br>Dex: 19<br>Types: normal", "size": 13}, {"id": "pokemon:squirtle", "label": "squirtle", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: squirtle<br>Dex: 7<br>Types: water", "size": 13}, {"id": "pokemon:weedle", "label": "weedle", "group": "pokemon", "kind": "pokemon", "shape": "dot", "color": "#2a9d8f", "font": {"color": "#ffffff"}, "title": "Pokemon: weedle<br>Dex: 13<br>Types: bug, poison", "size": 13}, {"id": "type:bug", "label": "bug", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: bug", "size": 13}, {"id": "type:electric", "label": "electric", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: electric", "size": 13}, {"id": "type:fighting", "label": "fighting", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: fighting", "size": 13}, {"id": "type:fire", "label": "fire", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: fire", "size": 13}, {"id": "type:flying", "label": "flying", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: flying", "size": 13}, {"id": "type:grass", "label": "grass", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: grass", "size": 13}, {"id": "type:ground", "label": "ground", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: ground", "size": 13}, {"id": "type:normal", "label": "normal", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: normal", "size": 13}, {"id": "type:poison", "label": "poison", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: poison", "size": 13}, {"id": "type:psychic", "label": "psychic", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: psychic", "size": 13}, {"id": "type:rock", "label": "rock", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: rock", "size": 13}, {"id": "type:water", "label": "water", "group": "type", "kind": "type", "shape": "ellipse", "color": "#e9c46a", "font": {"color": "#ffffff"}, "title": "Type: water", "size": 13}, {"id": "zone:0x02", "label": "Argenta City", "group": "zone", "kind": "zone", "shape": "box", "color": "#f4a261", "font": {"color": "#ffffff"}, "title": "Zone: Argenta City", "size": 18}, {"id": "zone:0x36", "label": "Arène d'Argenta", "group": "zone", "kind": "zone", "shape": "box", "color": "#f4a261", "font": {"color": "#ffffff"}, "title": "Zone: Arène d'Argenta", "size": 18}, {"id": "zone:0x00", "label": "Bourg Palette", "group": "zone", "kind": "zone", "shape": "box", "color": "#f4a261", "font": {"color": "#ffffff"}, "title": "Zone: Bourg Palette", "size": 18}, {"id": "zone:0x33", "label": "Forêt de Jade", "group": "zone", "kind": "zone", "shape": "box", "color": "#f4a261", "font": {"color": "#ffffff"}, "title": "Zone: Forêt de Jade", "size": 18}, {"id": "zone:0x01", "label": "Jadielle City", "group": "zone", "kind": "zone", "shape": "box", "color": "#f4a261", "font": {"color": "#ffffff"}, "title": "Zone: Jadielle City", "size": 18}, {"id": "zone:0x0c", "label": "Route 1", "group": "zone", "kind": "zone", "shape": "box", "color": "#f4a261", "font": {"color": "#ffffff"}, "title": "Zone: Route 1", "size": 18}, {"id": "zone:0x0d", "label": "Route 2", "group": "zone", "kind": "zone", "shape": "box", "color": "#f4a261", "font": {"color": "#ffffff"}, "title": "Zone: Route 2", "size": 18}, {"id": "zone:0x0e", "label": "Route 2 Nord", "group": "zone", "kind": "zone", "shape": "box", "color": "#f4a261", "font": {"color": "#ffffff"}, "title": "Zone: Route 2 Nord", "size": 18}]);
+const edges = new vis.DataSet([{"from": "type:grass", "to": "type:ground", "relation": "SUPER_EFFECTIVE_AGAINST", "multiplier": 2.0, "color": {"color": "#2ecc71"}, "dashes": false}, {"from": "type:grass", "to": "type:rock", "relation": "SUPER_EFFECTIVE_AGAINST", "multiplier": 2.0, "color": {"color": "#2ecc71"}, "dashes": false}, {"from": "type:normal", "to": "type:rock", "relation": "NOT_EFFECTIVE_AGAINST", "multiplier": 0.5, "color": {"color": "#e63946"}, "dashes": true}, {"from": "type:fire", "to": "type:rock", "relation": "NOT_EFFECTIVE_AGAINST", "multiplier": 0.5, "color": {"color": "#e63946"}, "dashes": true}, {"from": "type:flying", "to": "type:rock", "relation": "NOT_EFFECTIVE_AGAINST", "multiplier": 0.5, "color": {"color": "#e63946"}, "dashes": true}, {"from": "type:water", "to": "type:ground", "relation": "SUPER_EFFECTIVE_AGAINST", "multiplier": 2.0, "color": {"color": "#2ecc71"}, "dashes": false}, {"from": "type:water", "to": "type:rock", "relation": "SUPER_EFFECTIVE_AGAINST", "multiplier": 2.0, "color": {"color": "#2ecc71"}, "dashes": false}, {"from": "type:fighting", "to": "type:rock", "relation": "SUPER_EFFECTIVE_AGAINST", "multiplier": 2.0, "color": {"color": "#2ecc71"}, "dashes": false}, {"from": "type:rock", "to": "type:ground", "relation": "NOT_EFFECTIVE_AGAINST", "multiplier": 0.5, "color": {"color": "#e63946"}, "dashes": true}, {"from": "type:poison", "to": "type:ground", "relation": "NOT_EFFECTIVE_AGAINST", "multiplier": 0.5, "color": {"color": "#e63946"}, "dashes": true}, {"from": "type:poison", "to": "type:rock", "relation": "NOT_EFFECTIVE_AGAINST", "multiplier": 0.5, "color": {"color": "#e63946"}, "dashes": true}, {"from": "type:electric", "to": "type:ground", "relation": "NO_EFFECT_AGAINST", "multiplier": 0.0, "color": {"color": "#e63946"}, "dashes": true}, {"from": "type:ground", "to": "type:rock", "relation": "SUPER_EFFECTIVE_AGAINST", "multiplier": 2.0, "color": {"color": "#2ecc71"}, "dashes": false}, {"from": "zone:0x00", "to": "zone:0x0c", "relation": "LEADS_TO", "multiplier": null, "color": {"color": "#f4a261"}}, {"from": "zone:0x01", "to": "zone:0x0d", "relation": "LEADS_TO", "multiplier": null, "color": {"color": "#f4a261"}}, {"from": "zone:0x02", "to": "zone:0x36", "relation": "LEADS_TO", "multiplier": null, "color": {"color": "#f4a261"}}, {"from": "zone:0x0c", "to": "zone:0x01", "relation": "LEADS_TO", "multiplier": null, "color": {"color": "#f4a261"}}, {"from": "zone:0x0d", "to": "zone:0x0e", "relation": "LEADS_TO", "multiplier": null, "color": {"color": "#f4a261"}}, {"from": "zone:0x0e", "to": "zone:0x33", "relation": "LEADS_TO", "multiplier": null, "color": {"color": "#f4a261"}}, {"from": "zone:0x33", "to": "zone:0x02", "relation": "LEADS_TO", "multiplier": null, "color": {"color": "#f4a261"}}, {"from": "pokemon:bulbasaur", "to": "type:grass", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:bulbasaur", "to": "type:poison", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:bulbasaur", "to": "move:vine-whip", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:bulbasaur", "to": "move:growl", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:bulbasaur", "to": "move:mega-drain", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:bulbasaur", "to": "move:leech-seed", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:bulbasaur", "to": "move:razor-leaf", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:bulbasaur", "to": "move:solar-beam", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:bulbasaur", "to": "move:poison-powder", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:bulbasaur", "to": "move:sleep-powder", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:vine-whip", "to": "type:grass", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:growl", "to": "type:normal", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:mega-drain", "to": "type:grass", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:leech-seed", "to": "type:grass", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:razor-leaf", "to": "type:grass", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:solar-beam", "to": "type:grass", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:poison-powder", "to": "type:poison", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:sleep-powder", "to": "type:grass", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:charmander", "to": "type:fire", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:charmander", "to": "move:growl", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:charmander", "to": "move:submission", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:charmander", "to": "move:counter", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:charmander", "to": "move:seismic-toss", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:charmander", "to": "move:dig", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:submission", "to": "type:fighting", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:counter", "to": "type:fighting", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:seismic-toss", "to": "type:fighting", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:dig", "to": "type:ground", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:earthquake", "to": "type:ground", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:fissure", "to": "type:ground", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "type:water", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:tail-whip", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:water-gun", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:hydro-pump", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:surf", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:bubble-beam", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:submission", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:counter", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:seismic-toss", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:dig", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:withdraw", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:squirtle", "to": "move:bubble", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:tail-whip", "to": "type:normal", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:water-gun", "to": "type:water", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:hydro-pump", "to": "type:water", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:surf", "to": "type:water", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:bubble-beam", "to": "type:water", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:withdraw", "to": "type:water", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:bubble", "to": "type:water", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:caterpie", "to": "type:bug", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:caterpie", "to": "zone:0x0d", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:caterpie", "to": "zone:0x33", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:caterpie", "to": "pokemon:metapod", "relation": "EVOLVES_INTO", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:metapod", "to": "type:bug", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:metapod", "to": "zone:0x33", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:weedle", "to": "type:bug", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:weedle", "to": "type:poison", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:weedle", "to": "zone:0x0d", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:weedle", "to": "zone:0x33", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:weedle", "to": "pokemon:kakuna", "relation": "EVOLVES_INTO", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:kakuna", "to": "type:bug", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:kakuna", "to": "type:poison", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:kakuna", "to": "zone:0x33", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pidgey", "to": "type:normal", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pidgey", "to": "type:flying", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pidgey", "to": "move:sand-attack", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pidgey", "to": "zone:0x0c", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pidgey", "to": "zone:0x0d", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "move:sand-attack", "to": "type:ground", "relation": "IS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:rattata", "to": "type:normal", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:rattata", "to": "move:tail-whip", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:rattata", "to": "move:water-gun", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:rattata", "to": "move:bubble-beam", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:rattata", "to": "move:dig", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:rattata", "to": "zone:0x0c", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:rattata", "to": "zone:0x0d", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pikachu", "to": "type:electric", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pikachu", "to": "move:growl", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pikachu", "to": "move:surf", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pikachu", "to": "move:submission", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pikachu", "to": "move:seismic-toss", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:pikachu", "to": "zone:0x33", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:geodude", "to": "type:rock", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:geodude", "to": "type:ground", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:geodude", "to": "move:submission", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:geodude", "to": "move:counter", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:geodude", "to": "move:seismic-toss", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:geodude", "to": "move:earthquake", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:geodude", "to": "move:fissure", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:geodude", "to": "move:dig", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:onix", "to": "type:rock", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:onix", "to": "type:ground", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:onix", "to": "move:earthquake", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:onix", "to": "move:fissure", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:onix", "to": "move:dig", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:mr-mime", "to": "type:psychic", "relation": "HAS_TYPE", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:mr-mime", "to": "move:submission", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:mr-mime", "to": "move:counter", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:mr-mime", "to": "move:seismic-toss", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:mr-mime", "to": "move:solar-beam", "relation": "LEARNS", "multiplier": null, "color": {"color": "#8d99ae"}}, {"from": "pokemon:mr-mime", "to": "zone:0x0e", "relation": "FOUND_IN", "multiplier": null, "color": {"color": "#8d99ae"}}]);
+
+const container = document.getElementById('network');
+const network = new vis.Network(container, { nodes, edges }, {
+  physics: {
+    enabled: true,
+    stabilization: { iterations: 220, updateInterval: 25 },
+    barnesHut: { gravitationalConstant: -6000, springLength: 130, springConstant: 0.03 }
+  },
+  interaction: { hover: true, navigationButtons: true, keyboard: true },
+  edges: {
+    arrows: { to: { enabled: true, scaleFactor: 0.6 } },
+    smooth: { type: 'dynamic' },
+    width: 1.2,
+    font: { color: '#d8f3dc', size: 11, strokeWidth: 0 }
+  },
+  nodes: { borderWidth: 1, borderWidthSelected: 2 },
+  layout: { improvedLayout: true }
+});
+
+function focusGroup(group) {
+  const all = nodes.get();
+  const selected = all.filter(n => n.group === group).map(n => n.id);
+  network.selectNodes(selected);
+  if (selected.length) network.fit({ nodes: selected, animation: true });
+}
+
+function focusBrock() {
+  const ids = ['pokemon:geodude','pokemon:onix','type:rock','type:ground','move:vine-whip','move:water-gun'];
+  const present = ids.filter(id => nodes.get(id));
+  network.selectNodes(present);
+  if (present.length) network.fit({ nodes: present, animation: true });
+}
+
+function resetView() {
+  network.unselectAll();
+  network.fit({ animation: true });
+}
+
+network.once('stabilizationIterationsDone', () => network.fit({ animation: true }));
+</script>
+</body>
+</html>

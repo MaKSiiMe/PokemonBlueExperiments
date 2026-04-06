@@ -20,6 +20,23 @@
 
 > **Note :** « codé » = le code existe. « validé » = tourné et comportement confirmé en jeu.
 
+### Calibration matérielle cible (Ryzen 5 5600H + RTX 3060 6 Go)
+
+Objectif: maximiser le débit sans instabilité thermique/VRAM.
+
+| Palier | `n_envs` | Observation | Précision modèle | Cible SPS | Critère de validation |
+| :--- | :---: | :--- | :--- | :---: | :--- |
+| P1 (stabilité) | 8 | RAM-only (9/12 floats) | fp32 | 1 500+ | 60 min sans crash/OOM |
+| P2 (production locale) | 12 | RAM-only (9/12 floats) | fp32 | 2 500+ | reward moyen en hausse sur 3 runs |
+| P3 (limite CPU portable) | 16-24 | RAM-only | fp32 | 3 500+ | throttling acceptable, variance stable |
+| P4 (branche hybride vision) | 8-12 | Dict (pixels+RAM) | fp16 mixte | 800+ | VRAM < 5.5 Go et pas de NaN |
+
+Règles pratiques:
+
+- démarrer toujours en P1, ne monter de palier que si 3 runs consécutifs sont stables,
+- pour la branche vision, conserver les buffers images en `uint8` côté CPU et convertir au dernier moment,
+- si OOM GPU: réduire d'abord `n_steps`, puis `n_envs`, puis résolution/frames.
+
 ---
 
 ## ✅ Phase 0 — Infrastructure (complète)
@@ -132,7 +149,10 @@
 
 | Tâche | Statut | Notes |
 | :--- | :---: | :--- |
-| Passer à `n_envs=4` (SubprocVecEnv) pour paralléliser | ⏳ | Après validation sur 1 env |
+| Monter progressivement `n_envs`: 1 -> 8 -> 12 -> 16 | 🔄 | Valider 60 min de stabilité à chaque palier |
+| Mesurer SPS + temp CPU/GPU + RAM/VRAM à chaque palier | ⏳ | Logguer dans TensorBoard/W&B |
+| Fixer le palier "prod" local à `n_envs=12` si variance faible | ⏳ | Cible recommandée sur 5600H |
+| Tester `n_steps` 1024 vs 2048 pour compromis débit/stabilité | ⏳ | Conserver la config la plus robuste |
 
 ---
 
@@ -209,6 +229,11 @@ Le `Vecteur_KG` cible (3 floats supplémentaires) :
 | Mettre à jour `observation_space` (9 → 12 floats) | ✅ |
 | Ré-entraîner et comparer les courbes de reward | ⏳ |
 
+Note de cohérence architecture:
+
+- garder le chemin 9-floats comme baseline officielle MVP,
+- traiter le 12-floats (KG) comme branche experimentale tant que les benchmarks n'ont pas confirme un gain robuste.
+
 #### 3. Navigation Stratégique — pathfinding via ZoneNodes
 
 Remplacer la "marche aléatoire" par un itinéraire calculé sur le graphe :
@@ -237,6 +262,16 @@ Remplacer la "marche aléatoire" par un itinéraire calculé sur le graphe :
 | L'agent traverse la Forêt de Jade | ⏳ | Waypoint 9 validé |
 | L'agent gagne contre Pierre (Brock) | ⏳ | Waypoint 11 + BattleAgent validé |
 | **Run complet : Bourg Palette → Badge Pierre** | ⏳ | **Objectif final du projet** |
+
+### Critères de passage en Phase 5 (gates quantifiés)
+
+| Gate | Seuil minimum |
+| :--- | :--- |
+| Stabilité entraînement | 3 runs de 60 min sans crash |
+| Débit local | >= 2 500 SPS au palier retenu |
+| Navigation | >= 80% de réussite sur waypoints critiques (Route 1, Forêt) |
+| Combat | >= 70% de victoires sur combats de routine testés |
+| Régression | aucune chute majeure après ajout d'un nouveau shaping |
 
 ---
 
@@ -270,6 +305,8 @@ Remplacer la "marche aléatoire" par un itinéraire calculé sur le graphe :
 | **CnnPolicy** | Passer de `MlpPolicy` à `CnnPolicy` dans SB3 | ⏳ |
 
 > Note : L'infrastructure de base (debug_visualizer, mapping.json, ram_map section sprites) est déjà en place pour générer un dataset propre.
+
+> Contrainte matérielle: sur RTX 3060 6 Go, cette phase reste secondaire et ne doit pas bloquer le MVP RAM-only.
 
 ---
 
