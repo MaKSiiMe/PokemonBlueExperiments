@@ -12,7 +12,7 @@
 
 | Name | GitHub | Focus |
 | :--- | :--- | :--- |
-| Maxime Truel | [@MaKSiiMe](https://github.com/MaKSiiMe) | Full project — RL environment, navigation agent (PPO), battle heuristics, curriculum learning, infrastructure |
+| Maxime Truel | [@MaKSiiMe](https://github.com/MaKSiiMe) | Full project — RL environment, navigation agent (PPO), battle heuristics, infrastructure |
 
 *Solo project.*
 
@@ -22,53 +22,60 @@
 
 Pokémon Blue AI is an autonomous agent trained to play *Pokémon Blue* (Game Boy, 1996) from scratch using Reinforcement Learning. The goal is concrete and measurable: **start from the player's bedroom and defeat Brock**, the first gym leader, earning the Boulder Badge.
 
-What makes this project technically interesting is the observation design. Instead of giving the agent a raw pixel image of the screen, it reads **9 values directly from the Game Boy's RAM** — player position, map ID, HP, battle status, and badges. This compact representation makes training fast, interpretable, and robust.
+The agent reads its game state directly from the Game Boy's RAM — player position, map ID, HP, battle status, badges — giving it a compact, interpretable representation that makes training fast and reward signals meaningful. A second observation channel using a CNN on game screen pixels is planned to complement the RAM vector and improve generalization.
 
-The project combines two complementary approaches: a **learned navigation agent** (PPO) guided by a curriculum of 17 waypoints, and a **rule-based battle agent** that uses type-advantage logic read from RAM. It explores the practical boundary between what should be learned and what can be hard-coded — a question central to applied RL.
-
-The project started with a vision-based approach (YOLOv8 trained on Game Boy screenshots). After reaching 99% mAP, the model failed to generalize because the training dataset used incorrect tile data. That experience informed the pivot to RAM-only observations for the MVP. A vision module remains a planned future enhancement.
+The project combines two complementary approaches: a **learned navigation agent** (PPO) and a **rule-based battle agent** that exploits type-advantage logic decoded from RAM. It also relies on a **knowledge graph** built from PokéAPI and RAM data, encoding all game knowledge relevant to the first badge run.
 
 ---
 
 ## Description
 
-A recruiter or viewer launching the demo will see:
+### For a non-technical user
 
-1. **The Pokémon Blue game running live** in a Game Boy emulator window — no setup, no account required.
-2. **The agent navigating autonomously** — leaving the player's bedroom, crossing Pallet Town, walking Route 1, passing through Viridian Forest, and arriving at Pewter City.
-3. **Random wild Pokémon encounters handled automatically** — the battle agent reads HP and move types from RAM, picks the best move, uses a potion if HP drops below 30%.
-4. **The agent entering Pewter Gym and defeating Brock** — the first gym leader (Geodude + Onix).
-5. **A live overlay** displaying the RAM values the agent uses: coordinates, map ID, HP, current waypoint target, badges earned.
-6. **TensorBoard learning curves** showing reward progression across all curriculum waypoints.
-
-The entire demo runs with a single command:
+Running the agent requires a single command:
 
 ```bash
 python run_agent.py --render --model models/final.zip
 ```
 
-No user account. No internet connection. No configuration.
+The user will see:
+- The Pokémon Blue game running live in a Game Boy emulator window.
+- The agent navigating autonomously — leaving the bedroom, crossing Pallet Town, walking Route 1, passing through Viridian Forest, and arriving at Pewter City.
+- Wild Pokémon encounters handled automatically — the battle agent picks moves based on type advantages and uses potions when HP drops below 30%.
+- The agent entering Pewter Gym and defeating Brock (Geodude + Onix).
+- A live overlay displaying the values the agent uses: coordinates, map ID, HP, badges earned.
+
+No account. No internet. No configuration beyond installing dependencies and providing the ROM.
+
+### For a technical user
+
+Training the agent from scratch:
+
+```bash
+python run_agent.py --train
+```
+
+The PPO policy is trained to navigate from Pallet Town to Pewter Gym using reward shaping over distance, zone exploration, and event flags. Training logs are written to `logs/` and visualized in TensorBoard. Model checkpoints are saved to `models/rl_checkpoints/` at regular intervals.
 
 ---
 
 ## Data
 
-### What data is used
-
 | Type | Description | Source |
 | :--- | :--- | :--- |
-| **Game RAM** | 9 normalized floats per step: position (x, y), map ID, direction, HP%, battle status, waypoint target (x, y), badges | PyBoy emulator — read from Game Boy memory at runtime |
-| **Save states** | 17 binary `.state` files — one per curriculum waypoint | Manually recorded using `create_checkpoints.py --manual` |
+| **Game RAM** | Normalized floats per step: position, map ID, direction, HP%, battle status, badges | PyBoy emulator — read from Game Boy memory at runtime |
+| **Knowledge graph** | Structured game knowledge: type matchups, move data, Pokémon stats, gym progression | Built from PokéAPI + RAM decoding |
+| **Save states** | Binary `.state` files used to initialize training episodes | Manually recorded using `create_checkpoints.py --manual` |
 | **Training logs** | Episode reward, episode length, explained variance | Generated by Stable Baselines3 + TensorBoard during training |
-| **Model weights** | PPO policy network parameters | Saved as `.zip` checkpoints every N steps via SB3 `CheckpointCallback` |
+| **Model weights** | PPO policy network parameters | Saved as `.zip` checkpoints via SB3 `CheckpointCallback` |
 
 ### Collection and storage
 
 - **No user data is collected.** All data originates from the emulator running entirely offline.
 - Save states are binary files (< 100 KB each), versioned in the repository.
-- Model checkpoints are stored in `models/rl_checkpoints/` — excluded from git (large binary files).
+- Model checkpoints are stored in `models/rl_checkpoints/` — excluded from git.
 - Training logs are stored in `logs/` — excluded from git.
-- All data is stored locally on the developer's machine. Nothing is sent to any server.
+- All data is stored locally. Nothing is sent to any server.
 
 ### ROM note
 
@@ -84,8 +91,8 @@ The project requires a legally obtained Pokémon Blue ROM (`.gb` file). **The RO
 | **ROM usage** | A legally obtained ROM is required. The project neither provides, links to, nor encourages piracy. |
 | **User data** | No personal data is collected, stored, or transmitted. The agent runs fully offline. |
 | **Fairness** | No user-facing decisions, rankings, or recommendations are made. There is no potential for discrimination or bias affecting people. |
-| **Misuse risk** | Minimal — the agent is specific to a 1996 Game Boy game and has no real-world applications that could cause harm. The RAM addresses and heuristics are game-specific and not transferable to harmful uses. |
-| **Energy** | A full training run takes a few hours on a standard laptop (CPU). The environmental impact is negligible. |
+| **Misuse risk** | Minimal — the agent is specific to a 1996 Game Boy game and has no real-world applications that could cause harm. |
+| **Energy** | A full training run takes a few hours on a standard laptop. The environmental impact is negligible. |
 
 ---
 
@@ -93,64 +100,58 @@ The project requires a legally obtained Pokémon Blue ROM (`.gb` file). **The RO
 
 | Target | Details |
 | :--- | :--- |
-| **OS** | Linux (primary), Windows via WSL2 (tested), macOS (supported) |
-| **Hardware** | Standard laptop or desktop — no GPU required for training |
+| **OS** | Linux (primary), Windows via WSL2, macOS |
+| **Hardware** | Standard laptop or desktop — no GPU required for the RAM-based agent |
 | **Display** | SDL2 window for real-time rendering (optional — headless mode available for training) |
 | **Python** | 3.11 |
 | **Key dependencies** | PyBoy 2.6.1, Stable Baselines3, Gymnasium, PyTorch, TensorBoard |
-
-The demo is designed to run without any configuration — just install dependencies, provide the ROM, and run.
 
 ---
 
 ## Schedule
 
-> One-month timeline. The project management tool used is the GitHub repository itself (commits, roadmap.md, stage4_mvp.md).
+> One-month timeline. Project managed via the GitHub repository (commits, [roadmap.md](roadmap.md)).
 
-### Week 1 — Environment & Infrastructure ✅
+### Week 1 — Environment & Infrastructure
 
-| Task | Priority | Status |
-| :--- | :---: | :---: |
-| PyBoy emulator wrapper (Gymnasium-compatible) | Must | ✅ |
-| 9-float RAM observation vector | Must | ✅ |
-| Reward function (distance shaping, zone bonus, stuck penalty, death, badges) | Must | ✅ |
-| Orchestrator state machine (overworld / battle / fading) | Must | ✅ |
-| Save state utility (`create_checkpoints.py --manual`) | Must | ✅ |
-| `ram_map.py` — single source of truth for all RAM addresses | Should | ✅ |
-| `waypoints.py` — single source of truth for curriculum | Should | ✅ |
-| Debug visualizer (live RAM overlay) | Should | ✅ |
-| Bypass tutorial via manually recorded save state | Must | ✅ |
+| Task | Priority |
+| :--- | :---: |
+| PyBoy emulator wrapper (Gymnasium-compatible) | Must |
+| RAM observation vector | Must |
+| Reward function (distance shaping, zone bonus, stuck penalty, death, badges) | Must |
+| Orchestrator state machine (overworld / battle / fading) | Must |
+| Save state utility (`create_checkpoints.py --manual`) | Must |
+| `ram_map.py` — single source of truth for all RAM addresses | Should |
+| Debug visualizer (live RAM overlay) | Should |
+| Bypass tutorial via manually recorded save state | Must |
 
-### Week 2 — Navigation Agent: First Waypoints 🔄
+### Week 2 — Navigation Agent
 
-| Task | Priority | Status |
-| :--- | :---: | :---: |
-| Train WP0 — exit starting room | Must | ✅ |
-| Train WP1 — exit house | Must | ✅ |
-| Validate two-phase training (exploration → fine-tune) | Must | ✅ |
-| Validate chained waypoint episodes | Must | ✅ |
-| Record save states for WP2–WP16 | Must | ⏳ |
-| Train WP2–WP8 (Pallet Town → Route 1 → Viridian City) | Must | ⏳ |
+| Task | Priority |
+| :--- | :---: |
+| Train navigation from Pallet Town start | Must |
+| Validate exploration and reward shaping | Must |
+| Train full route: Pallet Town → Route 1 → Viridian City | Must |
 
-### Week 3 — Full Curriculum + Battle Validation ⏳
+### Week 3 — Full Route + Battle Validation
 
-| Task | Priority | Status |
-| :--- | :---: | :---: |
-| Train WP9–WP16 (Route 2 → Viridian Forest → Pewter → Gym) | Must | ⏳ |
-| Validate battle agent — wild encounters (Route 1) | Must | ⏳ |
-| Validate battle agent — trainer battles | Should | ⏳ |
-| Validate battle agent — Brock (Geodude + Onix) | Must | ⏳ |
-| End-to-end run: Pallet Town → Badge Pierre | Must | ⏳ |
+| Task | Priority |
+| :--- | :---: |
+| Train full route: Viridian Forest → Pewter City → Gym | Must |
+| Validate battle agent — wild encounters (Route 1) | Must |
+| Validate battle agent — trainer battles | Should |
+| Validate battle agent — Brock (Geodude + Onix) | Must |
+| End-to-end run: Pallet Town → Boulder Badge | Must |
 
-### Week 4 — Polish, Demo & Documentation ⏳
+### Week 4 — Polish, Demo & Documentation
 
-| Task | Priority | Status |
-| :--- | :---: | :---: |
-| Record demo video (full run with debug overlay) | Must | ⏳ |
-| Export TensorBoard learning curves | Should | ⏳ |
-| Write blog post | Should | ⏳ |
-| Prepare presentation | Must | ⏳ |
-| *(If time)* Vision module — YOLOv8 + CnnPolicy (Phase 7) | Could | ⏳ |
+| Task | Priority |
+| :--- | :---: |
+| Record demo video (full run with debug overlay) | Must |
+| Export TensorBoard learning curves | Should |
+| Write blog post | Should |
+| Prepare presentation | Must |
+| *(If time)* CNN vision module — screen observations + CnnPolicy | Could |
 
 ---
 
@@ -160,8 +161,7 @@ The demo is designed to run without any configuration — just install dependenc
 | :--- | :--- | :--- |
 | Battle agent is rule-based (not RL) | Training RL for battle adds complexity without clear benefit at MVP stage | Could be replaced by RL later if time permits |
 | Tutorial bypassed via save state | The game's opening tutorial requires player choices that cannot be automated | Save states replace the tutorial — no plan to automate it |
-| 17 waypoints instead of direct reward | Direct Pallet-to-Brock reward is too sparse for RL to learn | Curriculum is the intended design, not a shortcut |
-| No vision input for MVP | Vision pipeline (YOLOv8) was explored but dataset was incorrect — rebuilt from scratch would take too long | Planned as Phase 7 future enhancement |
+| No vision input for MVP | CNN observation channel adds training complexity | Planned as a future enhancement after the RAM baseline is validated |
 
 ---
 
@@ -172,4 +172,4 @@ The demo is designed to run without any configuration — just install dependenc
 
 ---
 
-*Related documents: [roadmap.md](roadmap.md) · [architecture.md](architecture.md) · [stage3_technical.md](stage3_technical.md)*
+*Related documents: [roadmap.md](roadmap.md) · [architecture.md](architecture.md)
