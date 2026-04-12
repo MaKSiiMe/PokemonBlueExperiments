@@ -8,6 +8,7 @@
 # --- DONNÉES ET DATASETS ---
 dataset/
 logs/
+resources/
 
 # --- KNOWLEDGE GRAPH (régénérable) ---
 src/knowledge/cache/

@@ -39,6 +39,7 @@ dependencies = [
     "networkx>=3.0",
     "requests>=2.28.0",
     "sb3-contrib>=2.0.0",
+    "pufferlib>=0.9",
 ]
 
 [project.optional-dependencies]
