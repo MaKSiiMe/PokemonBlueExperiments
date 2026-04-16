@@ -68,7 +68,7 @@ from src.knowledge import PokemonKnowledgeGraph
 SCREEN_H     = 72    # hauteur après sous-échantillonnage ×2 (144 → 72)
 SCREEN_W     = 80    # largeur après sous-échantillonnage ×2 (160 → 80)
 N_STACK      = 3     # nombre de frames empilées (frame stacking)
-FRAME_SKIP   = 4     # répétitions de l'action avant d'observer (×4 SPS)
+FRAME_SKIP   = 1     # répétitions de l'action avant d'observer (×1 SPS)
 MASK_SIZE    = 48    # taille du masque de visite centré sur le joueur (48×48)
 RAM_VEC_SIZE = 16    # taille du vecteur scalaire RAM
 
@@ -115,6 +115,8 @@ class PokemonBlueEnv(gym.Env):
             for _, data in self._kg._G.nodes(data=True)
             if data.get("kind") == "pokemon"
         }
+
+        self._escaped_lab = False
 
         # Chemin optimal Bourg Palette → Arène de Pierre (carte une fois pour toutes)
         _path = self._kg.zone_path(0x00, 0x36)
@@ -191,6 +193,7 @@ class PokemonBlueEnv(gym.Env):
         self._prev_total_hp     = self._total_party_hp()
         self._visited_maps = {self._prev_map_id}
         self._tile_visits  = {}
+        self._escaped_lab  = False
         # _seen_tiles intentionnellement NON resetté : persiste entre épisodes
         self._prev_move_pp = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
 
@@ -199,40 +202,23 @@ class PokemonBlueEnv(gym.Env):
     def step(self, action_idx: int):
         action = ACTIONS[action_idx]
 
-        # Frame skip : répète l'action FRAME_SKIP fois.
-        # Seule la dernière répétition render=True pour mettre à jour l'écran PyBoy.
-        # Les répétitions intermédiaires tournent en render=False (×4 plus rapide).
-        reward_acc = 0.0
-        for skip_i in range(FRAME_SKIP):
-            render = (skip_i == FRAME_SKIP - 1)
-            if action in ('up', 'down', 'left', 'right'):
-                self.pyboy.button_press(action)
-                self.pyboy.tick(TICKS_PER_ACTION - 1, render=False)
-                self.pyboy.tick(1, render=render)
-                self.pyboy.button_release(action)
-            else:
-                self.pyboy.button(action)
-                self.pyboy.tick(TICKS_PER_ACTION - 1, render=False)
-                self.pyboy.tick(1, render=render)
+        if action in ('up', 'down', 'left', 'right'):
+            self.pyboy.button_press(action)
+            self.pyboy.tick(TICKS_PER_ACTION - 1, render=False)
+            self.pyboy.tick(1, render=True)
+            self.pyboy.button_release(action)
+        else:
+            self.pyboy.button(action)
+            self.pyboy.tick(TICKS_PER_ACTION - 1, render=False)
+            self.pyboy.tick(1, render=True)
 
-            # Accumule la récompense sur les répétitions intermédiaires
-            if skip_i < FRAME_SKIP - 1:
-                _x   = self._r(RAM_PLAYER_X)
-                _y   = self._r(RAM_PLAYER_Y)
-                _mid = self._r(RAM_MAP_ID)
-                reward_acc += self._reward(_x, _y, _mid)
-                # Arrêt anticipé si blackout entre deux frames
-                if self._blacked_out():
-                    break
-
-        # Mise à jour du buffer de frames après la dernière répétition
         self._frame_buffer.append(self._get_screen())
 
         x   = self._r(RAM_PLAYER_X)
         y   = self._r(RAM_PLAYER_Y)
         mid = self._r(RAM_MAP_ID)
 
-        reward = reward_acc + self._reward(x, y, mid)
+        reward = self._reward(x, y, mid)
 
         if self._blacked_out():
             terminated = True
@@ -307,6 +293,7 @@ class PokemonBlueEnv(gym.Env):
         self._prev_total_hp     = self._total_party_hp()
         self._prev_move_pp      = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
         self._tile_visits       = {}
+        self._escaped_lab       = False
         # _visited_maps et _seen_tiles conservés intentionnellement
 
         return self._observe(), {}
@@ -543,20 +530,31 @@ class PokemonBlueEnv(gym.Env):
             'ms_pewter':    int(0x02 in self._visited_maps),
             'ms_badge1':    int(bool(badges & 0x01)),
             'ms_mt_moon':   int(0x59 in self._visited_maps),
+            # Composantes de reward (step courant)
+            **getattr(self, '_r_components', {}),
         }
 
     def _reward(self, x: int, y: int, map_id: int) -> float:
-        reward = -0.01
-        battle = self._r(RAM_BATTLE)
-        hp     = self._r16(RAM_PLAYER_HP_H)
+        reward  = 0.0
+        r_map   = 0.0
+        r_tile  = 0.0
+        r_heal  = 0.0
+        r_type  = 0.0
+        battle  = self._r(RAM_BATTLE)
+        hp      = self._r16(RAM_PLAYER_HP_H)
 
         # Nouvelle map
         if map_id != self._prev_map_id:
             if map_id not in self._visited_maps:
-                reward += MAP_BONUSES.get(map_id, 1.0)
+                r_map += MAP_BONUSES.get(map_id, 1.0)
                 if map_id in self._optimal_path_zones:
-                    reward += 0.5
+                    r_map += 0.5
             self._visited_maps.add(map_id)
+
+        # Bonus one-shot : première sortie du labo dans l'épisode
+        if not self._escaped_lab and map_id != 0x28:
+            r_map += 5.0
+            self._escaped_lab = True
 
         # Nouvelle tile
         tile = (map_id, x, y)
@@ -565,60 +563,60 @@ class PokemonBlueEnv(gym.Env):
             if map_id not in self._seen_arrays:
                 self._seen_arrays[map_id] = np.zeros((256, 256), dtype=bool)
             self._seen_arrays[map_id][x, y] = True
-            reward += 0.5
+            r_tile += 0.5
 
         # Pénalité boucle (même tile > 600 fois)
         visits = self._tile_visits.get(tile, 0) + 1
         self._tile_visits[tile] = visits
         if visits > 600:
-            reward -= 0.05
+            r_tile -= 0.05
 
         # Mort en combat
         if hp == 0 and self._prev_hp > 0 and battle > 0:
-            reward -= 1.0
+            r_heal -= 1.0
 
-        # R_heal — récompense de soin (uniquement en overworld)
-        # Détecte une augmentation des HP totaux de l'équipe entre deux steps.
-        # Proportionnel aux HP récupérés / HP max total → au plus +2.0 pour un
-        # soin complet au Centre Pokémon.
-        # Restreint à l'overworld pour éviter les faux positifs liés aux gains
-        # de HP max lors des montées de niveau en combat.
+        # R_heal — soin en overworld (augmentation HP équipe / HP max total)
         if battle == 0:
             curr_total_hp = self._total_party_hp()
             hp_gained = curr_total_hp - self._prev_total_hp
             if hp_gained > 0:
                 total_max_hp = max(self._total_party_max_hp(), 1)
-                reward += (hp_gained / total_max_hp) * 2.0
+                r_heal += (hp_gained / total_max_hp) * 2.0
             self._prev_total_hp = curr_total_hp
 
         # Bonus KG type : récompense l'intention d'utiliser un move Super Efficace
         if battle > 0:
-            reward += self._type_intent_bonus()
+            r_type = self._type_intent_bonus()
 
         # R_level — formule affine par morceaux (seuil à 15)
-        # Récompense le delta de progression de niveau entre deux steps.
-        # En dessous de ∑levels=15 : rendement unitaire (incite à monter le starter).
-        # Au-delà : rendement divisé par 4 (prévient le grinding infini sur Route 1).
-        r_level = self._r_level()
-        reward += r_level - self._prev_level_reward
-        self._prev_level_reward = r_level
+        r_level_val = self._r_level()
+        r_level     = r_level_val - self._prev_level_reward
+        self._prev_level_reward = r_level_val
 
         # Nouveau badge (+50 par badge)
-        badges = self._r(RAM_BADGES)
+        badges     = self._r(RAM_BADGES)
         new_badges = bin(badges).count('1') - bin(self._prev_badges).count('1')
-        if new_badges > 0:
-            reward += 50.0 * new_badges
+        r_event    = 50.0 * new_badges if new_badges > 0 else 0.0
         self._prev_badges = badges
 
         # Nouveau event flag (+2 par flag)
         events = getattr(self, '_cached_events', self._count_event_flags())
         if events > self._prev_events:
-            reward += 2.0 * (events - self._prev_events)
+            r_event += 2.0 * (events - self._prev_events)
         self._prev_events = events
 
         self._prev_hp     = hp
         self._prev_battle = battle
 
+        reward = r_map + r_tile + r_heal + r_type + r_level + r_event
+        self._r_components = {
+            'r_map':   r_map,
+            'r_tile':  r_tile,
+            'r_heal':  r_heal,
+            'r_type':  r_type,
+            'r_level': r_level,
+            'r_event': r_event,
+        }
         return reward
 
     def _type_intent_bonus(self) -> float:

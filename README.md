@@ -1,29 +1,28 @@
 # Pokémon Blue AI — Autonomous RL Agent
 
-An autonomous AI agent that learns to play Pokémon Blue (Game Boy, 1996) and earn the first gym badge, using Reinforcement Learning with raw Game Boy RAM as its sole perception of the world.
+An autonomous AI agent that learns to play Pokémon Blue (Game Boy, 1996) and earn the first gym badge (Brock, Pewter City), using Reinforcement Learning with a hybrid observation space: raw screen pixels + a visit map + structured RAM values.
 
 ---
 
 ## Overview
 
-The agent receives no visual input. It perceives the game exclusively through **9 RAM values** extracted from the emulator at each step, and learns to navigate from Pallet Town to Pewter Gym using **Proximal Policy Optimization (PPO)** with curriculum learning.
+The agent perceives the game through a **Dict observation space** combining three modalities:
 
-Battles are handled by a separate **rule-based heuristic agent** that reads type data and HP directly from RAM — no RL required for combat decisions.
+- **Screen** — 3 stacked grayscale frames (72×80) processed by a NatureDQN CNN
+- **Visited mask** — binary 48×48 grid of tiles visited this episode
+- **RAM vector** — 16 normalized scalars extracted directly from Game Boy memory
 
-> **Final objective:** Start from the player's room and defeat Brock, Pewter City's Gym Leader.
+It acts over a **Discrete(7) action space** and is trained end-to-end with **MaskablePPO** (sb3-contrib) using a custom recurrent policy (`PokemonGRUPolicy`). Action masking prevents illegal inputs during battles and transitions.
+
+> **Final objective:** Start from Prof. Oak's lab and defeat Brock (Stone Badge).
 
 ---
 
-## Why RAM, not Vision?
+## Why hybrid obs, not pure RAM?
 
-The original approach was **vision-based** — a YOLOv8 model trained on Game Boy screenshots to detect sprites (player, NPCs, doors, signs). That model reached **mAP50 > 99%**, but the dataset was built from a tileset that didn't match real gameplay renders. The model didn't generalize.
+The original approach was vision-based (YOLOv8 trained on Game Boy screenshots, mAP50 > 99%), but the dataset was built from tilesets that didn't match real gameplay renders and didn't generalize. A pure RAM approach was the MVP pivot.
 
-Rather than rebuild the dataset, I pivoted to a **RAM-only approach** for the MVP:
-- Observations are exact (no noise from image processing)
-- Training is drastically faster (9 floats vs. convolutional processing)
-- Every value is directly interpretable and debuggable
-
-A vision module (YOLOv8 feature extractor feeding into PPO) is planned as a future enhancement once the end-to-end RAM-only run is complete.
+The current architecture combines both: **CNN on raw screen pixels** (spatial reasoning, sprite detection without annotation) + **RAM scalars** (exact HP, battle status, map ID, badges) + **visit mask** (cross-episode memory of explored tiles).
 
 ---
 
@@ -31,24 +30,42 @@ A vision module (YOLOv8 feature extractor feeding into PPO) is planned as a futu
 
 ```mermaid
 flowchart TD
-    A["run_agent.py\n─────────────\n--train / --render"] --> B
+    A["run_agent.py\n─────────────\n--train / --render / --steps"] --> B
 
-    B["Orchestrator\n─────────────\nRAM state machine\n0xD057 · 0xD13F"]
+    B["ExplorationAgent\n─────────────\nMaskablePPO\nSubprocVecEnv × 12"]
 
-    B -->|"0xD057 == 0\noverworld"| C["ExplorationAgent\n─────────────\nPPO · MlpPolicy\nSubprocVecEnv × 12"]
-    B -->|"0xD057 ≥ 1\nbattle"| D["BattleAgent\n─────────────\nHeuristic\ntype advantage + HP"]
+    B --> C["PokemonGRUPolicy\n─────────────\nPokemonFeaturesExtractor\n+ GRU(512) + Actor/Critic heads"]
+
+    B --> E
 
     C --> E
-    D --> E
 
-    E["PokemonBlueEnv\n─────────────\nGymnasium wrapper\n9-float obs · Discrete(6)"]
+    E["PokemonBlueEnv\n─────────────\nGymnasium Dict wrapper\nscreen(3,72,80) · mask(1,48,48) · ram(16,)\nDiscrete(7) · action masking"]
 
-    E <--> F["PyBoy Emulator\n─────────────\nPokemonBlue.gb\nstates/*.state"]
+    E <--> F["PyBoy Emulator\n─────────────\nPokemonBlue.gb\nstates/00_pallet_town.state"]
+```
+
+### Policy architecture
+
+```
+screen (3, 72, 80)      → NatureDQN CNN (3 conv) → 512
+visited_mask (1, 48, 48)→ LightCNN    (2 conv)   → 256   → concat (1024) → GRU(512) → Actor head (7)
+ram (16,)               → MLP 2×256              → 256                              → Critic head (1)
 ```
 
 ---
 
 ## Observation Space
+
+### `screen` — (3, 72, 80) float32 [0, 1]
+
+3 grayscale frames stacked temporally. Each frame is the Game Boy screen (144×160) downsampled ×2 → 72×80, converted to luminance, normalized to [0, 1].
+
+### `visited_mask` — (1, 48, 48) float32 {0, 1}
+
+Binary 48×48 grid centered on the player. `1` = tile `(map_id, x, y)` visited in the current or a previous episode. Persists across episode resets for cross-episode memory.
+
+### `ram` — (16,) float32 [0, 1]
 
 | Index | Variable | RAM Address | Normalization |
 | :---: | :--- | :--- | :--- |
@@ -57,24 +74,72 @@ flowchart TD
 | 2 | Map ID | `0xD35E` | `/ 255` |
 | 3 | Direction | `0xD35D` | `{0, 0.33, 0.66, 1}` |
 | 4 | HP % | `0xD16C-D / 0xD18C-D` | ratio |
-| 5 | Battle status | `0xD057` | `/ 2` |
-| 6 | Waypoint X | current target | `/ 255` |
-| 7 | Waypoint Y | current target | `/ 255` |
+| 5 | Battle status | `0xD057` | `/ 2` (0=overworld, 0.5=wild, 1=trainer) |
+| 6 | Event flags % | `0xD747` (32 bytes) | set bits / total |
+| 7 | Steps stuck | internal counter | `/ 100`, clipped [0,1] |
 | 8 | Badges | `popcount(0xD356)` | `/ 8` |
+| 9 | Type advantage | best SE multiplier available | `/ 4` |
+| 10 | Enemy can evolve | KG lookup | 0 or 1 |
+| 11 | Zone Pokémon density | KG encounters | `/ 8` |
+| 12 | Active battle mon HP % | `0xD015 / 0xD023` | ratio |
+| 13 | Pokédex owned % | `0xD2F7` bitmask | `/ 151` |
+| 14 | Money | BCD `0xD347-D349` | `/ 999999` |
+| 15 | Bag items | `0xCF7B` | `/ 20` |
 
 ---
 
-## Curriculum Learning
+## Action Space
 
-Training is split across **17 waypoints** from the starting room to Brock's gym. Each waypoint has a pre-recorded save state so training can start from any point in the game.
+`Discrete(7)` — actions are held for 24 ticks (~0.4 s game time, one full movement animation):
 
-Each waypoint uses **two-phase training:**
-1. **Exploration phase** (`max_steps × 5`) — agent discovers the target area
-2. **Fine-tune phase** (`max_steps`) — agent optimizes the path
+| Index | Action |
+| :---: | :--- |
+| 0 | Up |
+| 1 | Down |
+| 2 | Left |
+| 3 | Right |
+| 4 | A |
+| 5 | B |
+| 6 | Start |
 
-```
-Pallet Town → Route 1 → Viridian City → Route 2 → Viridian Forest → Pewter City → Pewter Gym (Brock)
-```
+Action masking disables movement and Start during battles; disables A if all moves are immunized against the enemy.
+
+---
+
+## Reward Signal
+
+Six independently tracked components (logged in TensorBoard under `reward/`):
+
+| Component | Signal |
+| :--- | :--- |
+| `r_map` | +1.0 per new map, ×2 bonus for optimal-path zones, +5.0 one-shot for leaving the lab |
+| `r_tile` | +0.5 per new tile globally, −0.05 after 600 visits to the same tile |
+| `r_level` | delta of piecewise-linear level sum (full rate < 15, ÷4 above) |
+| `r_event` | +2.0 per new event flag, +50.0 per badge |
+| `r_heal` | proportional HP gained / max HP × 2.0 (overworld only), −1.0 on death |
+| `r_type` | +0.1 / +0.2 for SE / double-SE move used in battle |
+
+---
+
+## Training
+
+### Two-phase schedule
+
+| Phase | `max_steps/ep` | Purpose |
+| :--- | :--- | :--- |
+| Phase 1 (exploration) | 8 000 | Wide exploration from Pallet Town |
+| Phase 2 (fine-tune) | 2 000 | Shorter episodes, sharper policy |
+
+### Key hyperparameters
+
+| Parameter | Value | Rationale |
+| :--- | :--- | :--- |
+| `n_envs` | 12 | Calibrated for 12 GB WSL2 RAM (12 × ~400 MB PyBoy) |
+| `n_steps` | 2048 | Rollout buffer per env |
+| `n_epochs` | 3 | Avoids KL explosion on large rollouts |
+| `gamma` | 0.997 | Longer horizon for sparse RPG rewards |
+| `ent_coef` | 0.02 | Maintains exploration longer |
+| `TICKS_PER_ACTION` | 24 | One full movement animation at 60 fps |
 
 ---
 
@@ -82,7 +147,7 @@ Pallet Town → Route 1 → Viridian City → Route 2 → Viridian Forest → Pe
 
 ### Prerequisites
 
-- Python 3.11
+- Python 3.12
 - A legally obtained Pokémon Blue ROM (`ROMs/PokemonBlue.gb`) — **not distributed with this repo**
 
 ### Install
@@ -98,20 +163,29 @@ pip install -r requirements.txt
 ### Train
 
 ```bash
-# Train a single waypoint
-python run_agent.py --train --wp 0
+# Default: 500k steps, 12 envs, headless
+python run_agent.py --train
 
-# Train with chained waypoints (single episode)
-python run_agent.py --train --chain 0 1
+# Quick validation run (10k steps, single env)
+python run_agent.py --train --steps 10000 --n-envs 1
 
-# Chain-train the full curriculum from WP0
-python run_agent.py --train --chain-all
+# With SDL2 window
+python run_agent.py --train --steps 500000 --render
+
+# Load a checkpoint and continue
+python run_agent.py --train --model models/rl_checkpoints/checkpoint_250000.zip
 ```
 
-### Run Inference (with visual overlay)
+### Inference
 
 ```bash
-python run_agent.py --render --model models/final.zip
+python run_agent.py --render --model models/rl_checkpoints/final.zip
+```
+
+### Monitor
+
+```bash
+tensorboard --logdir logs/exploration/
 ```
 
 ---
@@ -120,14 +194,14 @@ python run_agent.py --render --model models/final.zip
 
 | Phase | Description | Status |
 | :--- | :--- | :---: |
-| 0 | Environment & infrastructure (Gym wrapper, RAM map, save states, debug overlay) | ✅ |
-| 1 | Reward shaping (distance, zone, stuck, death, badges, events) | ✅ |
-| 2 | Orchestrator state machine | ✅ coded / ⏳ validated |
-| 3 | Navigation agent — full curriculum (17 waypoints) | 🔄 WP0–1 done |
-| 4 | Battle heuristic agent | ✅ coded / ⏳ validated |
-| 5 | End-to-end run: Pallet Town → Badge Brock | ⏳ |
-| 6 | Documentation & portfolio | 🔄 |
-| 7 | *(Future)* Vision module — YOLOv8 + CnnPolicy | ⏳ |
+| 0 | Environment & infrastructure (Gym wrapper, RAM map, save states) | ✅ |
+| 1 | Hybrid obs space: screen CNN + visited mask + RAM vector | ✅ |
+| 2 | Reward shaping (6 components, action masking) | ✅ |
+| 3 | MaskablePPO + PokemonGRUPolicy (CNN+GRU actor-critic) | ✅ |
+| 4 | Knowledge graph (type chart, Pokédex, zone encounters) | ✅ |
+| 5 | Monitoring (TensorBoard, GIF recorder, reward breakdown) | ✅ |
+| 6 | End-to-end run: Pallet Town → Stone Badge | ⏳ training |
+| 7 | *(Future)* Go-Explore archive for hard exploration | ⏳ |
 
 ---
 
@@ -137,45 +211,40 @@ python run_agent.py --render --model models/final.zip
 PokemonBlueExperiments/
 ├── run_agent.py                  # Main entry point
 ├── ROMs/PokemonBlue.gb           # ROM (not versioned)
-├── states/                       # PyBoy save states (curriculum waypoints)
-├── models/rl_checkpoints/        # Trained PPO models (.zip)
-├── logs/                         # TensorBoard logs
+├── states/
+│   └── 00_pallet_town.state      # Start: starter received, Pokédex obtained
+├── models/rl_checkpoints/        # Trained MaskablePPO models (.zip)
+├── logs/
+│   ├── exploration/              # TensorBoard logs
+│   └── videos/                   # GIF recordings (VideoRecorderCallback)
 ├── src/
 │   ├── emulator/
-│   │   ├── pokemon_env.py        # Gymnasium environment
-│   │   └── ram_map.py            # All RAM addresses (single source of truth)
+│   │   ├── pokemon_env.py        # Gymnasium Dict environment
+│   │   └── ram_map.py            # RAM addresses (single source of truth)
 │   ├── agent/
-│   │   ├── exploration_agent.py  # PPO + curriculum
-│   │   ├── battle_agent.py       # Heuristic combat agent
-│   │   ├── orchestrator.py       # State machine
-│   │   └── waypoints.py          # Curriculum definition (single source of truth)
+│   │   ├── exploration_agent.py  # MaskablePPO training orchestration
+│   │   ├── custom_policy.py      # PokemonGRUPolicy + PokemonFeaturesExtractor
+│   │   ├── monitoring.py         # GameMetricsCallback (TensorBoard)
+│   │   ├── video_callback.py     # VideoRecorderCallback (GIF)
+│   │   ├── battle_agent.py       # Heuristic combat agent (future integration)
+│   │   ├── go_explore.py         # Go-Explore archive (future)
+│   │   ├── orchestrator.py       # RAM state machine
+│   │   └── vectorization.py      # SubprocVecEnv helpers
+│   ├── knowledge/
+│   │   ├── graph.py              # PokemonKnowledgeGraph
+│   │   ├── builder.py            # Graph construction from gen1_data
+│   │   └── gen1_data.py          # Type chart, move types, Pokédex
 │   └── utils/
-│       ├── create_checkpoints.py # Save state tool (--auto / --manual)
+│       ├── create_checkpoints.py # Save state tool
 │       └── debug_visualizer.py   # Live RAM overlay
 ├── test_battle.py                # Battle agent integration test
 └── docs/
-    ├── stage1_report.md          # Team formation & idea development
-    ├── stage2_charter.md         # Project charter
-    ├── stage3_technical.md       # Technical documentation
-    ├── stage4_mvp.md             # Sprint plan & progress
-    ├── architecture.md           # Architecture detail
-    ├── roadmap.md                # Task tracking
-    └── ram_map.md                # RAM address reference
+    ├── stage1_report.md
+    ├── stage2_charter.md
+    ├── stage3_technical.md
+    ├── stage4_mvp.md
+    └── ram_map.md
 ```
-
----
-
-## Documentation
-
-| Document | Description |
-| :--- | :--- |
-| [Stage 1 — Team & Idea](docs/stage1_report.md) | Ideas explored, MVP concept, decision rationale |
-| [Stage 2 — Project Charter](docs/stage2_charter.md) | Objectives, scope, risks, timeline |
-| [Stage 3 — Technical Docs](docs/stage3_technical.md) | Architecture, components, sequence diagrams, APIs |
-| [Stage 4 — MVP Development](docs/stage4_mvp.md) | Sprint plans, progress, bug tracker |
-| [Architecture](docs/architecture.md) | System architecture detail |
-| [RAM Map](docs/ram_map.md) | All Game Boy RAM addresses used |
-| [Roadmap](docs/roadmap.md) | Phase-by-phase task tracking |
 
 ---
 
@@ -183,11 +252,13 @@ PokemonBlueExperiments/
 
 | Technology | Role |
 | :--- | :--- |
-| [PyBoy 2.6.1](https://github.com/Baekalfen/PyBoy) | Game Boy emulator — runs the ROM, exposes RAM |
-| [Stable Baselines3](https://stable-baselines3.readthedocs.io/) | PPO implementation, SubprocVecEnv, CheckpointCallback |
-| [Gymnasium](https://gymnasium.farama.org/) | Standard RL environment interface |
-| [PyTorch](https://pytorch.org/) | Neural network backend |
+| [PyBoy 2.6.1](https://github.com/Baekalfen/PyBoy) | Game Boy emulator — runs the ROM, exposes RAM and screen |
+| [Stable Baselines3](https://stable-baselines3.readthedocs.io/) | PPO base, SubprocVecEnv, CheckpointCallback |
+| [sb3-contrib](https://sb3-contrib.readthedocs.io/) | MaskablePPO, MaskableActorCriticPolicy |
+| [Gymnasium](https://gymnasium.farama.org/) | Standard RL environment interface (Dict obs) |
+| [PyTorch](https://pytorch.org/) | CNN + GRU neural network backend |
 | [TensorBoard](https://www.tensorflow.org/tensorboard) | Training curve visualization |
+| [imageio](https://imageio.readthedocs.io/) | GIF recording for visual debugging |
 
 ---
 

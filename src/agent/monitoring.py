@@ -28,6 +28,19 @@ Métriques loguées dans TensorBoard à chaque intervalle de log :
   milestones/badge1      — fraction des envs ayant obtenu le Badge Pierre
   milestones/mt_moon     — fraction des envs ayant visité Mont Sélénite
 
+  ── Métriques rollout supplémentaires ────────────────────────────────────────
+  rollout/max_unique_maps_ever — max de unique_maps atteint depuis le début
+  rollout/max_map_id_reached   — map_id max visité depuis le début
+  rollout/stuck_ratio          — fraction des steps avec steps_stuck > 50
+
+  ── Composantes de reward ────────────────────────────────────────────────────
+  reward/r_map    — bonus de découverte de map (+ lab escape)
+  reward/r_tile   — bonus de nouvelle tile (- pénalité boucle)
+  reward/r_heal   — soin en overworld (- mort en combat)
+  reward/r_type   — bonus type Super Efficace
+  reward/r_level  — delta de progression de niveau
+  reward/r_event  — badges (+50) et event flags (+2)
+
 Usage :
     from src.agent.monitoring import GameMetricsCallback
 
@@ -86,8 +99,19 @@ class GameMetricsCallback(BaseCallback):
             'max_level':     deque(maxlen=window),
             'n_badges':      deque(maxlen=window),
             'pokedex_owned': deque(maxlen=window),
+            'stuck_over_50': deque(maxlen=window),
+            'r_map':         deque(maxlen=window),
+            'r_tile':        deque(maxlen=window),
+            'r_heal':        deque(maxlen=window),
+            'r_type':        deque(maxlen=window),
+            'r_level':       deque(maxlen=window),
+            'r_event':       deque(maxlen=window),
             **{k: deque(maxlen=window) for k in MILESTONE_KEYS},
         }
+
+        # Compteurs persistants (max ever, indépendants de la fenêtre glissante)
+        self._max_unique_maps_ever: int = 0
+        self._max_map_id_reached:   int = 0
 
         # SPS (Steps Per Second)
         self._t_last:     float = 0.0
@@ -104,6 +128,15 @@ class GameMetricsCallback(BaseCallback):
 
         `self.locals['infos']` est une liste de dicts, un par env parallèle.
         """
+        # Reset du hidden state GRU pour les envs dont l'épisode vient de finir.
+        # MaskablePPO.collect_rollouts() ne notifie pas la politique des dones,
+        # donc on le fait ici depuis dones/episode_starts disponibles dans locals.
+        dones = self.locals.get('dones')
+        if dones is not None and hasattr(self.model.policy, 'reset_hidden_for_envs'):
+            done_indices = [i for i, d in enumerate(dones) if d]
+            if done_indices:
+                self.model.policy.reset_hidden_for_envs(done_indices)
+
         infos = self.locals.get('infos', [])
         if not infos:
             return True
@@ -116,6 +149,19 @@ class GameMetricsCallback(BaseCallback):
                 val = info.get(key)
                 if val is not None:
                     self._windows[key].append(float(val))
+
+            # stuck_ratio : 1 si steps_stuck > 50, 0 sinon
+            stuck = info.get('steps_stuck')
+            if stuck is not None:
+                self._windows['stuck_over_50'].append(float(stuck > 50))
+
+            # Compteurs persistants
+            unique_maps = info.get('unique_maps')
+            if unique_maps is not None:
+                self._max_unique_maps_ever = max(self._max_unique_maps_ever, int(unique_maps))
+            map_id = info.get('map_id')
+            if map_id is not None:
+                self._max_map_id_reached = max(self._max_map_id_reached, int(map_id))
 
         # Log à la fréquence définie
         if self.num_timesteps % self.log_freq == 0:
@@ -149,9 +195,17 @@ class GameMetricsCallback(BaseCallback):
         self._record_window('game/pokedex_mean',    'pokedex_owned', 'mean')
 
         # ── Milestones ────────────────────────────────────────────────────────
-        # Taux = fraction des envs qui ont atteint ce jalon (fenêtre glissante)
         for key, label in MILESTONE_LABELS.items():
             self._record_window(f'milestones/{label}', key, 'mean')
+
+        # ── Rollout persistants ───────────────────────────────────────────────
+        self.logger.record('rollout/max_unique_maps_ever', self._max_unique_maps_ever)
+        self.logger.record('rollout/max_map_id_reached',   self._max_map_id_reached)
+        self._record_window('rollout/stuck_ratio', 'stuck_over_50', 'mean')
+
+        # ── Composantes de reward ─────────────────────────────────────────────
+        for key in ('r_map', 'r_tile', 'r_heal', 'r_type', 'r_level', 'r_event'):
+            self._record_window(f'reward/{key}', key, 'mean')
 
         self.logger.dump(step=steps)
 

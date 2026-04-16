@@ -31,8 +31,8 @@ def parse_args():
     p.add_argument('--train',    action='store_true', help="Entraîner l'agent")
     p.add_argument('--steps',    type=int, default=500_000, help='Steps total (phases 1+2)')
     p.add_argument('--no-finetune', action='store_true', help='Sauter la phase 2')
-    p.add_argument('--n-envs',   type=int, default=16,
-                   help='Environnements parallèles (défaut: 16 — calibré 12GB WSL2 + FRAME_SKIP=4)')
+    p.add_argument('--n-envs',   type=int, default=12,
+                   help='Environnements parallèles (défaut: 12 — calibré 12GB WSL2 + FRAME_SKIP=1)')
     p.add_argument('--backend',  default='subproc',
                    choices=['dummy', 'subproc'],
                    help='Backend de vectorisation (défaut: subproc)')
@@ -91,7 +91,7 @@ def run_train(args):
     os.makedirs(save_dir, exist_ok=True)
 
     # Phase 1 — exploration large (budget 60%, épisodes longs)
-    max_ep_p1 = 4000
+    max_ep_p1 = 8000
     steps_p1  = int(args.steps * 0.6)
     print(f"[Train] Objectif : battre Brock (Badge Pierre)")
     print(f"[Train] State    : {state}")

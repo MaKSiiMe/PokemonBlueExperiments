@@ -36,4 +36,9 @@ __pycache__/
 .DS_Store
 .claude/
 
+# --- TESTS & COUVERTURE ---
+.coverage
+.pytest_cache/
+htmlcov/
+
 stage*.md
