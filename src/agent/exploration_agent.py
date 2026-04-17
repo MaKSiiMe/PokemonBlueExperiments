@@ -20,6 +20,7 @@ from stable_baselines3.common.callbacks import CheckpointCallback
 from src.agent.custom_policy import PokemonGRUPolicy
 from src.agent.vectorization import VecBackend, make_vec_env
 from src.agent.monitoring import GameMetricsCallback
+from src.agent.video_callback import VideoRecorderCallback
 
 
 class ExplorationAgent:
@@ -67,8 +68,8 @@ class ExplorationAgent:
                 n_epochs        = 3,
                 gamma           = 0.997,
                 gae_lambda      = 0.95,
-                clip_range      = 0.2,
-                ent_coef        = 0.02,
+                clip_range      = 0.1,
+                ent_coef        = 0.05,
                 verbose         = 1,
                 device          = device,
                 tensorboard_log = './logs/exploration/',
@@ -97,12 +98,14 @@ class ExplorationAgent:
 
     def train(
         self,
-        total_timesteps: int = 500_000,
-        save_dir:        str = 'models/rl_checkpoints/',
-        save_path:       str | None = None,
-        reset_timesteps: bool = True,
-        log_freq:        int = 1_000,
-        monitor_verbose: int = 1,
+        total_timesteps:  int = 500_000,
+        save_dir:         str = 'models/rl_checkpoints/',
+        save_path:        str | None = None,
+        reset_timesteps:  bool = True,
+        log_freq:         int = 1_000,
+        monitor_verbose:  int = 1,
+        env_factory_video = None,
+        video_freq:       int = 200_000,
     ) -> str:
         """Lance l'entraînement PPO avec checkpoint et monitoring.
 
@@ -120,10 +123,19 @@ class ExplorationAgent:
             log_freq = log_freq,
             verbose  = monitor_verbose,
         )
+        callbacks = [checkpoint_cb, metrics_cb]
+
+        if env_factory_video is not None:
+            video_cb = VideoRecorderCallback(
+                env_factory = env_factory_video,
+                record_freq = video_freq,
+                n_steps     = 500,
+            )
+            callbacks.append(video_cb)
 
         self.model.learn(
             total_timesteps     = total_timesteps,
-            callback            = [checkpoint_cb, metrics_cb],
+            callback            = callbacks,
             reset_num_timesteps = reset_timesteps,
         )
 

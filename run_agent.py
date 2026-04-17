@@ -97,7 +97,10 @@ def run_train(args):
     print(f"[Train] State    : {state}")
     print(f"[Train] Phase 1  : {steps_p1} steps  max/ep={max_ep_p1}  n_envs={args.n_envs}")
 
-    factory_p1 = partial(make_env, state, max_steps=max_ep_p1)
+    factory_p1      = partial(make_env, state, max_steps=max_ep_p1)
+    factory_p1_vid  = partial(make_env, state, max_steps=500, monitor=False)
+    # Au moins 2 GIFs dans le run : un à 1/3, un à 2/3 de la phase 1
+    video_freq_p1   = max(steps_p1 // 3, 10_000)
     agent = ExplorationAgent(
         factory_p1,
         model_path    = args.model,
@@ -106,7 +109,12 @@ def run_train(args):
         compile_model = args.compile,
     )
     p1_path = os.path.join(save_dir, 'phase1.zip')
-    agent.train(total_timesteps=steps_p1, save_path=p1_path)
+    agent.train(
+        total_timesteps   = steps_p1,
+        save_path         = p1_path,
+        env_factory_video = factory_p1_vid,
+        video_freq        = video_freq_p1,
+    )
     agent.close()
     del agent
 

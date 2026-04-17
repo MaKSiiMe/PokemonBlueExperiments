@@ -358,6 +358,20 @@ class PokemonGRUPolicy(MaskableActorCriticPolicy):
         gru_out, _ = self._gru_step(features, hidden)
         return self.value_net(gru_out)
 
+    def _predict(
+        self,
+        observation: torch.Tensor,
+        deterministic: bool = False,
+        action_masks: Optional[np.ndarray] = None,
+    ) -> torch.Tensor:
+        """Override : force le passage par forward() (GRU) au lieu du chemin SB3 par défaut.
+
+        Le chemin SB3 standard (_predict → get_distribution → mlp_extractor)
+        bypasse le GRU et envoie 1024 dims à action_net(512, 7) → RuntimeError.
+        """
+        actions, _, _ = self.forward(observation, deterministic=deterministic, action_masks=action_masks)
+        return actions
+
     def _get_action_dist_from_latent(self, latent: torch.Tensor):
         """Construit la distribution d'actions depuis le vecteur latent."""
         mean_actions = self.action_net(latent)

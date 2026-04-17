@@ -109,9 +109,10 @@ class GameMetricsCallback(BaseCallback):
             **{k: deque(maxlen=window) for k in MILESTONE_KEYS},
         }
 
-        # Compteurs persistants (max ever, indépendants de la fenêtre glissante)
+        # Compteurs persistants (indépendants de la fenêtre glissante)
         self._max_unique_maps_ever: int = 0
-        self._max_map_id_reached:   int = 0
+        self._visited_maps_ever:    set = set()   # union de tous les map_ids vus
+        self._latest_map_id:        int = 0
 
         # SPS (Steps Per Second)
         self._t_last:     float = 0.0
@@ -161,7 +162,8 @@ class GameMetricsCallback(BaseCallback):
                 self._max_unique_maps_ever = max(self._max_unique_maps_ever, int(unique_maps))
             map_id = info.get('map_id')
             if map_id is not None:
-                self._max_map_id_reached = max(self._max_map_id_reached, int(map_id))
+                self._visited_maps_ever.add(int(map_id))
+                self._latest_map_id = int(map_id)
 
         # Log à la fréquence définie
         if self.num_timesteps % self.log_freq == 0:
@@ -199,8 +201,9 @@ class GameMetricsCallback(BaseCallback):
             self._record_window(f'milestones/{label}', key, 'mean')
 
         # ── Rollout persistants ───────────────────────────────────────────────
-        self.logger.record('rollout/max_unique_maps_ever', self._max_unique_maps_ever)
-        self.logger.record('rollout/max_map_id_reached',   self._max_map_id_reached)
+        self.logger.record('rollout/max_unique_maps_ever',  self._max_unique_maps_ever)
+        self.logger.record('rollout/unique_maps_ever_total', len(self._visited_maps_ever))
+        self.logger.record('rollout/latest_map_id',          self._latest_map_id)
         self._record_window('rollout/stuck_ratio', 'stuck_over_50', 'mean')
 
         # ── Composantes de reward ─────────────────────────────────────────────

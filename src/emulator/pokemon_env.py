@@ -72,11 +72,16 @@ FRAME_SKIP   = 1     # répétitions de l'action avant d'observer (×1 SPS)
 MASK_SIZE    = 48    # taille du masque de visite centré sur le joueur (48×48)
 RAM_VEC_SIZE = 16    # taille du vecteur scalaire RAM
 
-# Récompense par map (remplace le +1.0 générique pour les maps clés)
+# Récompense par map (remplace le +3.0 générique pour les maps clés)
 MAP_BONUSES: dict[int, float] = {
     0x28: 3.0,   # Labo Prof Chen
-    0x36: 3.0,   # Arène de Brock
-    0x25: 0.3,   # Maison 1F (peu d'intérêt d'y revenir)
+    0x25: 0.3,   # Maison 1F Bourg Palette (peu d'intérêt)
+    0x0C: 5.0,   # Route 1 — transition critique vers Bourg des Eaux
+    0x01: 8.0,   # Bourg des Eaux — premier vrai jalon
+    0x0D: 5.0,   # Route 2
+    0x33: 6.0,   # Forêt Viridian
+    0x02: 8.0,   # Argenta — ville de Brock
+    0x36: 10.0,  # Arène de Brock — objectif final
 }
 
 ACTIONS          = ['up', 'down', 'left', 'right', 'a', 'b', 'start']
@@ -116,7 +121,8 @@ class PokemonBlueEnv(gym.Env):
             if data.get("kind") == "pokemon"
         }
 
-        self._escaped_lab = False
+        self._escaped_lab    = False
+        self._min_y_pallet   = 255   # suivi de la progression nord sur Bourg Palette
 
         # Chemin optimal Bourg Palette → Arène de Pierre (carte une fois pour toutes)
         _path = self._kg.zone_path(0x00, 0x36)
@@ -194,6 +200,7 @@ class PokemonBlueEnv(gym.Env):
         self._visited_maps = {self._prev_map_id}
         self._tile_visits  = {}
         self._escaped_lab  = False
+        self._min_y_pallet = 255
         # _seen_tiles intentionnellement NON resetté : persiste entre épisodes
         self._prev_move_pp = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
 
@@ -294,6 +301,7 @@ class PokemonBlueEnv(gym.Env):
         self._prev_move_pp      = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
         self._tile_visits       = {}
         self._escaped_lab       = False
+        self._min_y_pallet      = 255
         # _visited_maps et _seen_tiles conservés intentionnellement
 
         return self._observe(), {}
@@ -546,7 +554,7 @@ class PokemonBlueEnv(gym.Env):
         # Nouvelle map
         if map_id != self._prev_map_id:
             if map_id not in self._visited_maps:
-                r_map += MAP_BONUSES.get(map_id, 1.0)
+                r_map += MAP_BONUSES.get(map_id, 3.0)
                 if map_id in self._optimal_path_zones:
                     r_map += 0.5
             self._visited_maps.add(map_id)
@@ -557,19 +565,25 @@ class PokemonBlueEnv(gym.Env):
             self._escaped_lab = True
 
         # Nouvelle tile
-        tile = (map_id, x, y)
+        tile    = (map_id, x, y)
+        visited_this_ep = self._tile_visits.get(tile, 0) > 0
+
         if tile not in self._seen_tiles:
+            # Tile jamais vue de toute la vie de l'agent → gros bonus
+            r_tile += 2.0
             self._seen_tiles.add(tile)
             if map_id not in self._seen_arrays:
                 self._seen_arrays[map_id] = np.zeros((256, 256), dtype=bool)
             self._seen_arrays[map_id][x, y] = True
-            r_tile += 0.5
+        elif not visited_this_ep:
+            # Tile connue (épisode précédent) mais première visite dans cet épisode
+            r_tile += 1.0
 
-        # Pénalité boucle (même tile > 600 fois)
+        # Pénalité boucle — désactivée tant que l'agent explore < 3 maps
         visits = self._tile_visits.get(tile, 0) + 1
         self._tile_visits[tile] = visits
-        if visits > 600:
-            r_tile -= 0.05
+        if visits > 2000 and len(self._visited_maps) >= 3:
+            r_tile -= 0.01
 
         # Mort en combat
         if hp == 0 and self._prev_hp > 0 and battle > 0:
@@ -608,7 +622,15 @@ class PokemonBlueEnv(gym.Env):
         self._prev_hp     = hp
         self._prev_battle = battle
 
-        reward = r_map + r_tile + r_heal + r_type + r_level + r_event
+        # Nudge directionnel nord — béquille d'amorçage pour traverser Bourg Palette
+        # Actif uniquement sur map 0x00, désactivé dès que l'agent a vu ≥ 3 maps.
+        r_north = 0.0
+        if battle == 0 and map_id == 0x00 and len(self._visited_maps) < 3:
+            if y < self._min_y_pallet:
+                r_north = 0.1
+                self._min_y_pallet = y
+
+        reward = r_map + r_tile + r_heal + r_type + r_level + r_event + r_north
         self._r_components = {
             'r_map':   r_map,
             'r_tile':  r_tile,

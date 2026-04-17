@@ -19,12 +19,13 @@ def _call_reward(env):
 
 
 def test_r_tile_new_tile(env):
-    """Première visite d'une tile doit donner r_tile = +0.5."""
+    """Première visite d'une tile jamais vue (inter-épisodes) doit donner r_tile = +2.0."""
     env._seen_tiles.clear()
     env._seen_arrays.clear()
+    env._tile_visits.clear()
     _, comps = _call_reward(env)
-    assert comps['r_tile'] == pytest.approx(0.5), (
-        f"r_tile attendu 0.5, obtenu {comps['r_tile']}"
+    assert comps['r_tile'] == pytest.approx(2.0), (
+        f"r_tile attendu 2.0, obtenu {comps['r_tile']}"
     )
 
 
