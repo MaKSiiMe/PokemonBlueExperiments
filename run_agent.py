@@ -91,7 +91,7 @@ def run_train(args):
     os.makedirs(save_dir, exist_ok=True)
 
     # Phase 1 — exploration large (budget 60%, épisodes longs)
-    max_ep_p1 = 8000
+    max_ep_p1 = 3000
     steps_p1  = int(args.steps * 0.6)
     print(f"[Train] Objectif : battre Brock (Badge Pierre)")
     print(f"[Train] State    : {state}")

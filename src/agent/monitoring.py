@@ -51,7 +51,7 @@ Usage :
 from __future__ import annotations
 
 import time
-from collections import deque
+from collections import Counter, deque
 from typing import Optional
 
 import numpy as np
@@ -85,34 +85,43 @@ class GameMetricsCallback(BaseCallback):
 
     def __init__(
         self,
-        log_freq: int = 1_000,
-        window:   int = 200,
-        verbose:  int = 0,
+        log_freq:   int = 1_000,
+        print_freq: int = 10_000,
+        window:     int = 200,
+        verbose:    int = 0,
     ):
         super().__init__(verbose=verbose)
-        self.log_freq = log_freq
-        self.window   = window
+        self.log_freq   = log_freq
+        self.print_freq = print_freq
+        self.window     = window
 
         # Fenêtres glissantes pour toutes les métriques scalaires
         self._windows: dict[str, deque] = {
-            'unique_maps':   deque(maxlen=window),
-            'max_level':     deque(maxlen=window),
-            'n_badges':      deque(maxlen=window),
-            'pokedex_owned': deque(maxlen=window),
-            'stuck_over_50': deque(maxlen=window),
-            'r_map':         deque(maxlen=window),
-            'r_tile':        deque(maxlen=window),
-            'r_heal':        deque(maxlen=window),
-            'r_type':        deque(maxlen=window),
-            'r_level':       deque(maxlen=window),
-            'r_event':       deque(maxlen=window),
+            'unique_maps':          deque(maxlen=window),
+            'max_level':            deque(maxlen=window),
+            'n_badges':             deque(maxlen=window),
+            'pokedex_owned':        deque(maxlen=window),
+            'stuck_over_50':        deque(maxlen=window),
+            'steps_on_current_map': deque(maxlen=window),
+            'r_map':                deque(maxlen=window),
+            'r_tile':               deque(maxlen=window),
+            'r_heal':               deque(maxlen=window),
+            'r_type':               deque(maxlen=window),
+            'r_level':              deque(maxlen=window),
+            'r_event':              deque(maxlen=window),
+            'r_north':              deque(maxlen=window),
+            'r_building':           deque(maxlen=window),
             **{k: deque(maxlen=window) for k in MILESTONE_KEYS},
         }
 
         # Compteurs persistants (indépendants de la fenêtre glissante)
         self._max_unique_maps_ever: int = 0
-        self._visited_maps_ever:    set = set()   # union de tous les map_ids vus
+        self._visited_maps_ever:    set = set()
         self._latest_map_id:        int = 0
+        self._min_y_progress_ever:  int = 255   # record global de progression nord
+
+        # Fenêtre glissante des map_ids récents (pour calculer le mode = où l'agent traîne)
+        self._recent_map_ids: deque[int] = deque(maxlen=window)
 
         # SPS (Steps Per Second)
         self._t_last:     float = 0.0
@@ -162,8 +171,13 @@ class GameMetricsCallback(BaseCallback):
                 self._max_unique_maps_ever = max(self._max_unique_maps_ever, int(unique_maps))
             map_id = info.get('map_id')
             if map_id is not None:
-                self._visited_maps_ever.add(int(map_id))
-                self._latest_map_id = int(map_id)
+                mid = int(map_id)
+                self._visited_maps_ever.add(mid)
+                self._latest_map_id = mid
+                self._recent_map_ids.append(mid)
+            min_y = info.get('min_y_progress')
+            if min_y is not None:
+                self._min_y_progress_ever = min(self._min_y_progress_ever, int(min_y))
 
         # Log à la fréquence définie
         if self.num_timesteps % self.log_freq == 0:
@@ -201,28 +215,38 @@ class GameMetricsCallback(BaseCallback):
             self._record_window(f'milestones/{label}', key, 'mean')
 
         # ── Rollout persistants ───────────────────────────────────────────────
-        self.logger.record('rollout/max_unique_maps_ever',  self._max_unique_maps_ever)
+        self.logger.record('rollout/max_unique_maps_ever',   self._max_unique_maps_ever)
         self.logger.record('rollout/unique_maps_ever_total', len(self._visited_maps_ever))
-        self.logger.record('rollout/latest_map_id',          self._latest_map_id)
-        self._record_window('rollout/stuck_ratio', 'stuck_over_50', 'mean')
+        self.logger.record('rollout/latest_map_id',           self._latest_map_id)
+        self.logger.record('rollout/min_y_progress_ever',     self._min_y_progress_ever)
+        self._record_window('rollout/stuck_ratio',            'stuck_over_50',        'mean')
+        self._record_window('rollout/steps_on_map_mean',      'steps_on_current_map', 'mean')
+        self._record_window('rollout/steps_on_map_max',       'steps_on_current_map', 'max')
+        if self._recent_map_ids:
+            mode_map_id = Counter(self._recent_map_ids).most_common(1)[0][0]
+            self.logger.record('rollout/map_id_mode', mode_map_id)
 
         # ── Composantes de reward ─────────────────────────────────────────────
-        for key in ('r_map', 'r_tile', 'r_heal', 'r_type', 'r_level', 'r_event'):
+        for key in ('r_map', 'r_tile', 'r_heal', 'r_type', 'r_level', 'r_event', 'r_north', 'r_building'):
             self._record_window(f'reward/{key}', key, 'mean')
 
         self.logger.dump(step=steps)
 
-        if self.verbose >= 1:
-            maps   = self._window_stat('unique_maps', 'mean')
-            levels = self._window_stat('max_level', 'max')
-            badges = self._window_stat('n_badges', 'mean')
-            ms_b1  = self._window_stat('ms_badge1', 'mean')
+        if self.verbose >= 1 and steps % self.print_freq == 0:
+            maps    = self._window_stat('unique_maps', 'mean')
+            levels  = self._window_stat('max_level', 'max')
+            badges  = self._window_stat('n_badges', 'mean')
+            ms_b1   = self._window_stat('ms_badge1', 'mean')
+            r_north = self._window_stat('r_north', 'mean')
+            mode    = Counter(self._recent_map_ids).most_common(1)[0][0] if self._recent_map_ids else -1
             print(
                 f"[Monitor] step={steps:>9,} | "
                 f"maps={maps:.1f} | "
                 f"max_lvl={levels:.0f} | "
                 f"badges={badges:.2f} | "
-                f"badge1_rate={ms_b1:.2%}"
+                f"badge1={ms_b1:.2%} | "
+                f"r_north={r_north:.3f} | "
+                f"map_mode=0x{mode:02X}"
             )
 
     def _record_window(self, tag: str, key: str, stat: str) -> None:

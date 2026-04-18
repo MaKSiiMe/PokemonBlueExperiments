@@ -121,8 +121,10 @@ class PokemonBlueEnv(gym.Env):
             if data.get("kind") == "pokemon"
         }
 
-        self._escaped_lab    = False
-        self._min_y_pallet   = 255   # suivi de la progression nord sur Bourg Palette
+        self._escaped_lab        = False
+        self._min_y_progress     = 255
+        self._entered_building   = False
+        self._steps_on_current_map = 0
 
         # Chemin optimal Bourg Palette → Arène de Pierre (carte une fois pour toutes)
         _path = self._kg.zone_path(0x00, 0x36)
@@ -198,9 +200,11 @@ class PokemonBlueEnv(gym.Env):
         self._prev_level_reward = self._r_level()
         self._prev_total_hp     = self._total_party_hp()
         self._visited_maps = {self._prev_map_id}
-        self._tile_visits  = {}
-        self._escaped_lab  = False
-        self._min_y_pallet = 255
+        self._tile_visits        = {}
+        self._escaped_lab        = False
+        self._min_y_progress     = 255
+        self._entered_building   = False
+        self._steps_on_current_map = 0
         # _seen_tiles intentionnellement NON resetté : persiste entre épisodes
         self._prev_move_pp = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
 
@@ -299,9 +303,11 @@ class PokemonBlueEnv(gym.Env):
         self._prev_level_reward = self._r_level()
         self._prev_total_hp     = self._total_party_hp()
         self._prev_move_pp      = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
-        self._tile_visits       = {}
-        self._escaped_lab       = False
-        self._min_y_pallet      = 255
+        self._tile_visits          = {}
+        self._escaped_lab          = False
+        self._min_y_progress       = 255
+        self._entered_building     = False
+        self._steps_on_current_map = 0
         # _visited_maps et _seen_tiles conservés intentionnellement
 
         return self._observe(), {}
@@ -538,6 +544,9 @@ class PokemonBlueEnv(gym.Env):
             'ms_pewter':    int(0x02 in self._visited_maps),
             'ms_badge1':    int(bool(badges & 0x01)),
             'ms_mt_moon':   int(0x59 in self._visited_maps),
+            # Progression géographique (pour diagnostic)
+            'min_y_progress':         self._min_y_progress,
+            'steps_on_current_map':   self._steps_on_current_map,
             # Composantes de reward (step courant)
             **getattr(self, '_r_components', {}),
         }
@@ -553,11 +562,14 @@ class PokemonBlueEnv(gym.Env):
 
         # Nouvelle map
         if map_id != self._prev_map_id:
+            self._steps_on_current_map = 0
             if map_id not in self._visited_maps:
-                r_map += MAP_BONUSES.get(map_id, 3.0)
+                r_map += MAP_BONUSES.get(map_id, 10.0)   # Fix C : défaut 3→10
                 if map_id in self._optimal_path_zones:
                     r_map += 0.5
             self._visited_maps.add(map_id)
+        else:
+            self._steps_on_current_map += 1
 
         # Bonus one-shot : première sortie du labo dans l'épisode
         if not self._escaped_lab and map_id != 0x28:
@@ -577,7 +589,7 @@ class PokemonBlueEnv(gym.Env):
             self._seen_arrays[map_id][x, y] = True
         elif not visited_this_ep:
             # Tile connue (épisode précédent) mais première visite dans cet épisode
-            r_tile += 1.0
+            r_tile += 0.2   # Fix D : 1.0→0.2 pour ne pas récompenser le farm de tiles connues
 
         # Pénalité boucle — désactivée tant que l'agent explore < 3 maps
         visits = self._tile_visits.get(tile, 0) + 1
@@ -585,9 +597,14 @@ class PokemonBlueEnv(gym.Env):
         if visits > 2000 and len(self._visited_maps) >= 3:
             r_tile -= 0.01
 
-        # Mort en combat
+        # Pénalité de stagnation — si l'agent reste trop longtemps sur la même map,
+        # pénalise indépendamment du r_tile (sinon un revisit à 0.2 bloque la pénalité).
+        if self._steps_on_current_map > 500:
+            r_tile -= 0.005 * min((self._steps_on_current_map - 500) / 1000.0, 1.0)
+
+        # Mort en combat — pénalité faible (Whidden : -0.1) pour ne pas faire fuir les combats
         if hp == 0 and self._prev_hp > 0 and battle > 0:
-            r_heal -= 1.0
+            r_heal -= 0.1
 
         # R_heal — soin en overworld (augmentation HP équipe / HP max total)
         if battle == 0:
@@ -607,37 +624,46 @@ class PokemonBlueEnv(gym.Env):
         r_level     = r_level_val - self._prev_level_reward
         self._prev_level_reward = r_level_val
 
-        # Nouveau badge (+50 par badge)
+        # Nouveau badge — Whidden : ×10 (évite le KL spike d'un jackpot ×50)
         badges     = self._r(RAM_BADGES)
         new_badges = bin(badges).count('1') - bin(self._prev_badges).count('1')
-        r_event    = 50.0 * new_badges if new_badges > 0 else 0.0
+        r_event    = 10.0 * new_badges if new_badges > 0 else 0.0
         self._prev_badges = badges
 
-        # Nouveau event flag (+2 par flag)
+        # Nouveau event flag — Whidden : ×4 (signal narratif dominant)
         events = getattr(self, '_cached_events', self._count_event_flags())
         if events > self._prev_events:
-            r_event += 2.0 * (events - self._prev_events)
+            r_event += 4.0 * (events - self._prev_events)
         self._prev_events = events
 
         self._prev_hp     = hp
         self._prev_battle = battle
 
-        # Nudge directionnel nord — béquille d'amorçage pour traverser Bourg Palette
-        # Actif uniquement sur map 0x00, désactivé dès que l'agent a vu ≥ 3 maps.
+        # Béquille de progression nord — Bourg Palette / Route 1 / Bourg des Eaux.
+        # Active tant que Route 1 (0x0C) n'a jamais été visitée : désactivation sémantique
+        # (objectif atteint) plutôt que comptage arbitraire de maps.
         r_north = 0.0
-        if battle == 0 and map_id == 0x00 and len(self._visited_maps) < 3:
-            if y < self._min_y_pallet:
-                r_north = 0.1
-                self._min_y_pallet = y
+        if battle == 0 and map_id in (0x00, 0x0C, 0x01) and 0x0C not in self._visited_maps:
+            if y < self._min_y_progress:
+                r_north = 1.0
+                self._min_y_progress = y
 
-        reward = r_map + r_tile + r_heal + r_type + r_level + r_event + r_north
+        # Bonus one-shot : entrer dans un bâtiment de Bourg Palette (event flags potentiels)
+        r_building = 0.0
+        if not self._entered_building and map_id in (0x25, 0x26, 0x27):
+            r_building = 2.0
+            self._entered_building = True
+
+        reward = r_map + r_tile + r_heal + r_type + r_level + r_event + r_north + r_building
         self._r_components = {
-            'r_map':   r_map,
-            'r_tile':  r_tile,
-            'r_heal':  r_heal,
-            'r_type':  r_type,
-            'r_level': r_level,
-            'r_event': r_event,
+            'r_map':      r_map,
+            'r_tile':     r_tile,
+            'r_heal':     r_heal,
+            'r_type':     r_type,
+            'r_level':    r_level,
+            'r_event':    r_event,
+            'r_north':    r_north,
+            'r_building': r_building,
         }
         return reward
 
