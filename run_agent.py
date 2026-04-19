@@ -40,6 +40,10 @@ def parse_args():
                    help='Active torch.compile sur la politique (CUDA requis)')
     p.add_argument('--render',   action='store_true', help='Afficher la fenêtre SDL2')
     p.add_argument('--speed',    type=int, default=0, help='Vitesse émulateur (0=max)')
+    p.add_argument('--no-go-explore', action='store_true',
+                   help='Désactive Go-Explore (exploration standard depuis init_state uniquement)')
+    p.add_argument('--archive-prob', type=float, default=0.3,
+                   help='Probabilité de téléportation Go-Explore au reset (défaut: 0.3)')
     return p.parse_args()
 
 
@@ -85,19 +89,31 @@ def make_env(
 
 def run_train(args):
     from src.agent.exploration_agent import ExplorationAgent
+    from src.agent.go_explore import CellArchive
 
     state    = args.state or INIT_STATE
     save_dir = 'models/rl_checkpoints/'
     os.makedirs(save_dir, exist_ok=True)
 
     # Phase 1 — exploration large (budget 60%, épisodes longs)
-    max_ep_p1 = 3000
-    steps_p1  = int(args.steps * 0.6)
-    print(f"[Train] Objectif : battre Brock (Badge Pierre)")
-    print(f"[Train] State    : {state}")
-    print(f"[Train] Phase 1  : {steps_p1} steps  max/ep={max_ep_p1}  n_envs={args.n_envs}")
+    max_ep_p1   = 3000
+    steps_p1    = int(args.steps * 0.6)
+    use_go_explore = not args.no_go_explore
+    print(f"[Train] Objectif    : battre Brock (Badge Pierre)")
+    print(f"[Train] State       : {state}")
+    print(f"[Train] Go-Explore  : {'ON  (archive_prob=' + str(args.archive_prob) + ')' if use_go_explore else 'OFF'}")
+    print(f"[Train] Phase 1     : {steps_p1} steps  max/ep={max_ep_p1}  n_envs={args.n_envs}")
 
-    factory_p1      = partial(make_env, state, max_steps=max_ep_p1)
+    # Chaque worker SubprocVecEnv reçoit une copie sérialisée de l'archive →
+    # N archives indépendantes, une par env. Elles construisent leurs frontières
+    # localement et téléportent l'agent sur ses meilleures positions au reset.
+    go_kwargs = dict(
+        archive          = CellArchive(),
+        use_archive_prob = args.archive_prob,
+        capture_every    = 50,
+    ) if use_go_explore else {}
+
+    factory_p1      = partial(make_env, state, max_steps=max_ep_p1, **go_kwargs)
     factory_p1_vid  = partial(make_env, state, max_steps=500, monitor=False)
     # Au moins 2 GIFs dans le run : un à 1/3, un à 2/3 de la phase 1
     video_freq_p1   = max(steps_p1 // 3, 10_000)
@@ -126,7 +142,7 @@ def run_train(args):
     steps_p2  = args.steps - steps_p1
     print(f"\n[Train] Phase 2  : {steps_p2} steps  max/ep={max_ep_p2}  n_envs={args.n_envs}")
 
-    factory_p2 = partial(make_env, state, max_steps=max_ep_p2)
+    factory_p2 = partial(make_env, state, max_steps=max_ep_p2, **go_kwargs)
     agent2 = ExplorationAgent(
         factory_p2,
         model_path    = p1_path,
@@ -153,25 +169,30 @@ def run_inference(args):
     base_env = env.unwrapped
     obs, _   = env.reset()
 
-    if args.model and os.path.exists(args.model):
+    use_random = not (args.model and os.path.exists(args.model))
+    if not use_random:
         print(f"[Run] Loading model: {args.model}")
         ppo_model = MaskablePPO.load(args.model, env=env)
+        agent = ExplorationAgent.from_model(ppo_model, env=env)
     else:
-        print("[Run] Aucun modèle — MaskablePPO aléatoire")
-        ppo_model = MaskablePPO('MlpPolicy', env=env, verbose=0)
-
-    agent = ExplorationAgent.from_model(ppo_model, env=env)
+        print("[Run] Aucun modèle — actions uniformément aléatoires (test de praticabilité)")
+        agent = None
 
     print(f"[Run] State : {state}  |  max steps : {MAX_STEPS}")
     print("[Run] Ctrl+C pour arrêter.\n")
 
     from src.emulator.ram_map import RAM_MAP_ID, RAM_PLAYER_X, RAM_PLAYER_Y, RAM_BADGES
+    import random as _random
 
     step = 0
     try:
         while step < MAX_STEPS:
-            masks  = base_env.action_masks()
-            action = agent.act(obs, action_masks=masks)
+            masks = base_env.action_masks()
+            if use_random:
+                valid = [i for i, m in enumerate(masks) if m]
+                action = _random.choice(valid)
+            else:
+                action = agent.act(obs, action_masks=masks)
             obs, reward, terminated, truncated, info = env.step(action)
             step += 1
 

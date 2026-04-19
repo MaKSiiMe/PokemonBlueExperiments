@@ -308,7 +308,8 @@ class PokemonBlueEnv(gym.Env):
         self._min_y_progress       = 255
         self._entered_building     = False
         self._steps_on_current_map = 0
-        # _visited_maps et _seen_tiles conservés intentionnellement
+        self._visited_maps         = {self._prev_map_id}   # reset : chaque épisode redécouvre les maps
+        # _seen_tiles conservé intentionnellement (connaissance globale persistante)
 
         return self._observe(), {}
 

@@ -69,7 +69,7 @@ class ExplorationAgent:
                 gamma           = 0.997,
                 gae_lambda      = 0.95,
                 clip_range      = 0.1,
-                ent_coef        = 0.05,
+                ent_coef        = 0.02,
                 verbose         = 1,
                 device          = device,
                 tensorboard_log = './logs/exploration/',
