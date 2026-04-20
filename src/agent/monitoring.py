@@ -103,14 +103,9 @@ class GameMetricsCallback(BaseCallback):
             'pokedex_owned':        deque(maxlen=window),
             'stuck_over_50':        deque(maxlen=window),
             'steps_on_current_map': deque(maxlen=window),
-            'r_map':                deque(maxlen=window),
-            'r_tile':               deque(maxlen=window),
-            'r_heal':               deque(maxlen=window),
-            'r_type':               deque(maxlen=window),
-            'r_level':              deque(maxlen=window),
-            'r_event':              deque(maxlen=window),
-            'r_north':              deque(maxlen=window),
-            'r_building':           deque(maxlen=window),
+            'r_map':   deque(maxlen=window),
+            'r_tile':  deque(maxlen=window),
+            'r_event': deque(maxlen=window),
             **{k: deque(maxlen=window) for k in MILESTONE_KEYS},
         }
 
@@ -227,25 +222,25 @@ class GameMetricsCallback(BaseCallback):
             self.logger.record('rollout/map_id_mode', mode_map_id)
 
         # ── Composantes de reward ─────────────────────────────────────────────
-        for key in ('r_map', 'r_tile', 'r_heal', 'r_type', 'r_level', 'r_event', 'r_north', 'r_building'):
+        for key in ('r_map', 'r_tile', 'r_event'):
             self._record_window(f'reward/{key}', key, 'mean')
 
         self.logger.dump(step=steps)
 
         if self.verbose >= 1 and steps % self.print_freq == 0:
-            maps    = self._window_stat('unique_maps', 'mean')
-            levels  = self._window_stat('max_level', 'max')
-            badges  = self._window_stat('n_badges', 'mean')
-            ms_b1   = self._window_stat('ms_badge1', 'mean')
-            r_north = self._window_stat('r_north', 'mean')
-            mode    = Counter(self._recent_map_ids).most_common(1)[0][0] if self._recent_map_ids else -1
+            maps   = self._window_stat('unique_maps', 'mean') or 0.0
+            levels = self._window_stat('max_level', 'max') or 0.0
+            badges = self._window_stat('n_badges', 'mean') or 0.0
+            ms_b1  = self._window_stat('ms_badge1', 'mean') or 0.0
+            r_map  = self._window_stat('r_map', 'mean') or 0.0
+            mode   = Counter(self._recent_map_ids).most_common(1)[0][0] if self._recent_map_ids else -1
             print(
                 f"[Monitor] step={steps:>9,} | "
                 f"maps={maps:.1f} | "
                 f"max_lvl={levels:.0f} | "
                 f"badges={badges:.2f} | "
                 f"badge1={ms_b1:.2%} | "
-                f"r_north={r_north:.3f} | "
+                f"r_map={r_map:.3f} | "
                 f"map_mode=0x{mode:02X}"
             )
 

@@ -17,7 +17,7 @@ INFO_KEYS = {
     'unique_maps', 'max_level', 'n_badges', 'pokedex_owned', 'episode_steps',
     'ms_viridian', 'ms_forest', 'ms_pewter', 'ms_badge1', 'ms_mt_moon',
 }
-REWARD_KEYS = {'r_map', 'r_tile', 'r_heal', 'r_type', 'r_level', 'r_event'}
+REWARD_KEYS = {'r_map', 'r_tile', 'r_event'}
 
 
 def test_obs_at_reset(env):

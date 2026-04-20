@@ -74,14 +74,14 @@ RAM_VEC_SIZE = 16    # taille du vecteur scalaire RAM
 
 # Récompense par map (remplace le +3.0 générique pour les maps clés)
 MAP_BONUSES: dict[int, float] = {
-    0x28: 3.0,   # Labo Prof Chen
-    0x25: 0.3,   # Maison 1F Bourg Palette (peu d'intérêt)
-    0x0C: 5.0,   # Route 1 — transition critique vers Bourg des Eaux
-    0x01: 8.0,   # Bourg des Eaux — premier vrai jalon
-    0x0D: 5.0,   # Route 2
-    0x33: 6.0,   # Forêt Viridian
-    0x02: 8.0,   # Argenta — ville de Brock
-    0x36: 10.0,  # Arène de Brock — objectif final
+    0x28: 3.0,    # Labo Prof Chen
+    0x25: 0.3,    # Maison 1F Bourg Palette (peu d'intérêt)
+    0x0C: 20.0,   # Route 1 — frontière critique (×4)
+    0x01: 30.0,   # Bourg des Eaux — premier vrai jalon (×4)
+    0x0D: 20.0,   # Route 2
+    0x33: 20.0,   # Forêt Viridian
+    0x02: 30.0,   # Argenta — ville de Brock
+    0x36: 50.0,   # Arène Brock — objectif final
 }
 
 ACTIONS          = ['up', 'down', 'left', 'right', 'a', 'b', 'start']
@@ -553,118 +553,51 @@ class PokemonBlueEnv(gym.Env):
         }
 
     def _reward(self, x: int, y: int, map_id: int) -> float:
-        reward  = 0.0
-        r_map   = 0.0
-        r_tile  = 0.0
-        r_heal  = 0.0
-        r_type  = 0.0
-        battle  = self._r(RAM_BATTLE)
-        hp      = self._r16(RAM_PLAYER_HP_H)
+        """Reward minimaliste — Test 1 : 4 signaux uniquement.
 
-        # Nouvelle map
+        Objectif : vérifier si la policy peut apprendre à progresser
+        sans shaping complexe. Si unique_maps_ever_total > 6 à 500k steps
+        avec cette version, les itérations de reward précédentes créaient
+        des artéfacts bloquants. Sinon, le problème est dans l'architecture.
+        """
+        reward = 0.0
+        r_map  = 0.0
+        r_tile = 0.0
+        r_event = 0.0
+
+        # Nouvelle map jamais visitée dans cet épisode
         if map_id != self._prev_map_id:
-            self._steps_on_current_map = 0
             if map_id not in self._visited_maps:
-                r_map += MAP_BONUSES.get(map_id, 10.0)   # Fix C : défaut 3→10
-                if map_id in self._optimal_path_zones:
-                    r_map += 0.5
+                r_map = MAP_BONUSES.get(map_id, 10.0)
             self._visited_maps.add(map_id)
-        else:
-            self._steps_on_current_map += 1
 
-        # Bonus one-shot : première sortie du labo dans l'épisode
-        if not self._escaped_lab and map_id != 0x28:
-            r_map += 5.0
-            self._escaped_lab = True
-
-        # Nouvelle tile
-        tile    = (map_id, x, y)
-        visited_this_ep = self._tile_visits.get(tile, 0) > 0
-
+        # Nouvelle tile jamais vue dans toute la vie de l'agent
+        tile = (map_id, x, y)
         if tile not in self._seen_tiles:
-            # Tile jamais vue de toute la vie de l'agent → gros bonus
-            r_tile += 2.0
+            r_tile = 1.0
             self._seen_tiles.add(tile)
             if map_id not in self._seen_arrays:
                 self._seen_arrays[map_id] = np.zeros((256, 256), dtype=bool)
             self._seen_arrays[map_id][x, y] = True
-        elif not visited_this_ep:
-            # Tile connue (épisode précédent) mais première visite dans cet épisode
-            r_tile += 0.2   # Fix D : 1.0→0.2 pour ne pas récompenser le farm de tiles connues
 
-        # Pénalité boucle — désactivée tant que l'agent explore < 3 maps
-        visits = self._tile_visits.get(tile, 0) + 1
-        self._tile_visits[tile] = visits
-        if visits > 2000 and len(self._visited_maps) >= 3:
-            r_tile -= 0.01
-
-        # Pénalité de stagnation — si l'agent reste trop longtemps sur la même map,
-        # pénalise indépendamment du r_tile (sinon un revisit à 0.2 bloque la pénalité).
-        if self._steps_on_current_map > 500:
-            r_tile -= 0.005 * min((self._steps_on_current_map - 500) / 1000.0, 1.0)
-
-        # Mort en combat — pénalité faible (Whidden : -0.1) pour ne pas faire fuir les combats
-        if hp == 0 and self._prev_hp > 0 and battle > 0:
-            r_heal -= 0.1
-
-        # R_heal — soin en overworld (augmentation HP équipe / HP max total)
-        if battle == 0:
-            curr_total_hp = self._total_party_hp()
-            hp_gained = curr_total_hp - self._prev_total_hp
-            if hp_gained > 0:
-                total_max_hp = max(self._total_party_max_hp(), 1)
-                r_heal += (hp_gained / total_max_hp) * 2.0
-            self._prev_total_hp = curr_total_hp
-
-        # Bonus KG type : récompense l'intention d'utiliser un move Super Efficace
-        if battle > 0:
-            r_type = self._type_intent_bonus()
-
-        # R_level — formule affine par morceaux (seuil à 15)
-        r_level_val = self._r_level()
-        r_level     = r_level_val - self._prev_level_reward
-        self._prev_level_reward = r_level_val
-
-        # Nouveau badge — Whidden : ×10 (évite le KL spike d'un jackpot ×50)
+        # Nouveau badge
         badges     = self._r(RAM_BADGES)
         new_badges = bin(badges).count('1') - bin(self._prev_badges).count('1')
-        r_event    = 10.0 * new_badges if new_badges > 0 else 0.0
+        if new_badges > 0:
+            r_event += 50.0 * new_badges
         self._prev_badges = badges
 
-        # Nouveau event flag — Whidden : ×4 (signal narratif dominant)
+        # Nouveau event flag
         events = getattr(self, '_cached_events', self._count_event_flags())
         if events > self._prev_events:
-            r_event += 4.0 * (events - self._prev_events)
+            r_event += 2.0 * (events - self._prev_events)
         self._prev_events = events
 
-        self._prev_hp     = hp
-        self._prev_battle = battle
-
-        # Béquille de progression nord — Bourg Palette / Route 1 / Bourg des Eaux.
-        # Active tant que Route 1 (0x0C) n'a jamais été visitée : désactivation sémantique
-        # (objectif atteint) plutôt que comptage arbitraire de maps.
-        r_north = 0.0
-        if battle == 0 and map_id in (0x00, 0x0C, 0x01) and 0x0C not in self._visited_maps:
-            if y < self._min_y_progress:
-                r_north = 1.0
-                self._min_y_progress = y
-
-        # Bonus one-shot : entrer dans un bâtiment de Bourg Palette (event flags potentiels)
-        r_building = 0.0
-        if not self._entered_building and map_id in (0x25, 0x26, 0x27):
-            r_building = 2.0
-            self._entered_building = True
-
-        reward = r_map + r_tile + r_heal + r_type + r_level + r_event + r_north + r_building
+        reward = r_map + r_tile + r_event
         self._r_components = {
-            'r_map':      r_map,
-            'r_tile':     r_tile,
-            'r_heal':     r_heal,
-            'r_type':     r_type,
-            'r_level':    r_level,
-            'r_event':    r_event,
-            'r_north':    r_north,
-            'r_building': r_building,
+            'r_map':   r_map,
+            'r_tile':  r_tile,
+            'r_event': r_event,
         }
         return reward
 
