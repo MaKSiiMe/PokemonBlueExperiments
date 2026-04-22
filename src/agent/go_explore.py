@@ -248,32 +248,47 @@ class GoExploreWrapper(gym.Wrapper):
         self.use_archive_prob = use_archive_prob
         self.capture_every    = capture_every
         self._step_counter    = 0
+        self._prev_map_id     = -1   # détection des transitions de map
 
     # ── Gymnasium API ─────────────────────────────────────────────────────────
 
     def reset(self, seed=None, options=None) -> Tuple:
-        """Reset avec téléportation Go-Explore si l'archive n'est pas vide."""
-        if (
-            self.archive.size > 0
-            and random.random() < self.use_archive_prob
-        ):
-            _, savestate_bytes = self.archive.sample()
-            return self.env.reset_from_state(savestate_bytes)
+        """Reset avec téléportation Go-Explore si l'archive n'est pas vide.
 
-        return self.env.reset(seed=seed, options=options)
+        Stratégie mixte :
+          70 % → sample_frontier (cellules de frontière peu visitées)
+          30 % → sample pondéré  (exploration équilibrée)
+        """
+        if self.archive.size > 0 and random.random() < self.use_archive_prob:
+            if random.random() < 0.7:
+                _, savestate_bytes = self.archive.sample_frontier(n=20)
+            else:
+                _, savestate_bytes = self.archive.sample()
+            obs, info = self.env.reset_from_state(savestate_bytes)
+            self._prev_map_id = info.get('map_id', -1)
+            return obs, info
+
+        obs, info = self.env.reset(seed=seed, options=options)
+        self._prev_map_id = info.get('map_id', -1)
+        return obs, info
 
     def step(self, action) -> Tuple:
         obs, reward, terminated, truncated, info = self.env.step(action)
 
-        # Mise à jour de l'archive à la fréquence définie
+        map_id     = info['map_id']
+        map_change = map_id != self._prev_map_id
+
+        # Capture systématique sur transition de map (ne jamais rater un état frontière)
+        # + capture périodique normale
         self._step_counter += 1
-        if self._step_counter % self.capture_every == 0:
+        if map_change or self._step_counter % self.capture_every == 0:
             state_bytes = self.env.capture_state()
             self.archive.update(
-                map_id=info['map_id'],
+                map_id=map_id,
                 x=info['player_x'],
                 y=info['player_y'],
                 savestate_bytes=state_bytes,
             )
 
+        self._prev_map_id = map_id
         return obs, reward, terminated, truncated, info

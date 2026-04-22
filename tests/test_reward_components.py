@@ -1,7 +1,5 @@
 """
 test_reward_components.py — Vérifie chaque composante de reward isolément.
-
-Version minimaliste : r_map, r_tile, r_event uniquement (Test 1 diagnostic).
 """
 
 import pytest
@@ -58,6 +56,9 @@ def test_reward_is_sum_of_components(env):
 
 
 def test_r_components_keys(env):
-    """_r_components doit contenir exactement les 3 clés attendues."""
+    """_r_components doit contenir exactement les 8 clés attendues."""
     _call_reward(env)
-    assert set(env._r_components.keys()) == {'r_map', 'r_tile', 'r_event'}
+    assert set(env._r_components.keys()) == {
+        'r_map', 'r_tile', 'r_event', 'r_type', 'r_victory',
+        'r_level', 'r_stuck', 'r_progress',
+    }

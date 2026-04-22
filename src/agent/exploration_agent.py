@@ -34,6 +34,7 @@ class ExplorationAgent:
         device:        str = 'auto',
         backend:       VecBackend | str = VecBackend.SUBPROC,
         compile_model: bool = False,
+        ram_only:      bool = False,
     ):
         """
         Args:
@@ -43,33 +44,46 @@ class ExplorationAgent:
             device        : 'auto' sélectionne CUDA si disponible, sinon CPU.
             backend       : VecBackend.SUBPROC (recommandé) ou VecBackend.DUMMY.
             compile_model : active torch.compile sur la politique (CUDA requis).
+            ram_only      : si True, utilise une MLP sur le vecteur RAM (16,) au lieu
+                            de la CNN+GRU — ~10× plus rapide, idéal pour explorer la
+                            fonction de récompense rapidement.
         """
-        self.vec_env = make_vec_env(
-            env_fns=[env_factory] * n_envs,
-            backend=backend,
-        )
+        self.vec_env  = make_vec_env(env_fns=[env_factory] * n_envs, backend=backend)
+        self.ram_only = ram_only
+
+        # Sélection de la politique selon le mode
+        if ram_only:
+            policy        = 'MlpPolicy'
+            policy_kwargs = {'net_arch': [256, 256, 256]}
+            mode_label    = 'RAM-only MLP'
+        else:
+            policy        = PokemonGRUPolicy
+            policy_kwargs = None
+            mode_label    = 'CNN+GRU'
 
         if model_path and os.path.exists(model_path):
             print(f"[Exploration] Loading model: {model_path}")
+            custom = {} if ram_only else {'policy_class': PokemonGRUPolicy}
             self.model = MaskablePPO.load(
                 model_path,
                 env=self.vec_env,
                 device=device,
-                custom_objects={'policy_class': PokemonGRUPolicy},
+                custom_objects=custom,
             )
         else:
-            print(f"[Exploration] New MaskablePPO — CNN+GRU | n_envs={n_envs} | backend={backend}")
+            print(f"[Exploration] New MaskablePPO — {mode_label} | n_envs={n_envs} | backend={backend}")
             self.model = MaskablePPO(
-                policy          = PokemonGRUPolicy,
+                policy          = policy,
+                policy_kwargs   = policy_kwargs,
                 env             = self.vec_env,
                 learning_rate   = 3e-4,
-                n_steps         = 2048,
-                batch_size      = 64,
-                n_epochs        = 3,
-                gamma           = 0.997,
+                n_steps         = 4096,
+                batch_size      = 256,
+                n_epochs        = 4,
+                gamma           = 0.999,
                 gae_lambda      = 0.95,
                 clip_range      = 0.1,
-                ent_coef        = 0.02,
+                ent_coef        = 0.05,
                 verbose         = 1,
                 device          = device,
                 tensorboard_log = './logs/exploration/',

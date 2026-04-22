@@ -103,9 +103,14 @@ class GameMetricsCallback(BaseCallback):
             'pokedex_owned':        deque(maxlen=window),
             'stuck_over_50':        deque(maxlen=window),
             'steps_on_current_map': deque(maxlen=window),
-            'r_map':   deque(maxlen=window),
-            'r_tile':  deque(maxlen=window),
-            'r_event': deque(maxlen=window),
+            'r_map':      deque(maxlen=window),
+            'r_tile':     deque(maxlen=window),
+            'r_event':    deque(maxlen=window),
+            'r_type':     deque(maxlen=window),
+            'r_victory':  deque(maxlen=window),
+            'r_level':    deque(maxlen=window),
+            'r_stuck':    deque(maxlen=window),
+            'r_progress': deque(maxlen=window),
             **{k: deque(maxlen=window) for k in MILESTONE_KEYS},
         }
 
@@ -222,7 +227,8 @@ class GameMetricsCallback(BaseCallback):
             self.logger.record('rollout/map_id_mode', mode_map_id)
 
         # ── Composantes de reward ─────────────────────────────────────────────
-        for key in ('r_map', 'r_tile', 'r_event'):
+        for key in ('r_map', 'r_tile', 'r_event', 'r_type', 'r_victory',
+                    'r_level', 'r_stuck', 'r_progress'):
             self._record_window(f'reward/{key}', key, 'mean')
 
         self.logger.dump(step=steps)

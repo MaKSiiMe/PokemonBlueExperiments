@@ -41,7 +41,7 @@ def test_battle_movement_disabled(env):
     assert not mask[1], "battle: down masqué"
     assert not mask[2], "battle: left masqué"
     assert not mask[3], "battle: right masqué"
-    assert not mask[5], "battle: B masqué"
+    assert mask[5],     "battle: B doit rester autorisé (switch/fuite)"
     assert not mask[6], "battle: start masqué"
     _set_ram(env, RAM_BATTLE, 0)
 

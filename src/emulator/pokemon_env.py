@@ -54,6 +54,7 @@ from src.emulator.ram_map import (
     RAM_MOVE_IDS, RAM_MOVE_PP,
     RAM_PARTY_COUNT, RAM_PARTY_LEVELS, RAM_PARTY_HP, RAM_PARTY_MAX_HP,
     RAM_BATTLE_MON_HP_H, RAM_BATTLE_MON_MAX_HP_H,
+    RAM_ENEMY_HP_H,
     RAM_ITEM_COUNT,
     RAM_MONEY,
     RAM_POKEDEX_OWNED, RAM_POKEDEX_LEN, RAM_POKEDEX_MAX,
@@ -73,6 +74,9 @@ MASK_SIZE    = 48    # taille du masque de visite centré sur le joueur (48×48)
 RAM_VEC_SIZE = 16    # taille du vecteur scalaire RAM
 
 # Récompense par map (remplace le +3.0 générique pour les maps clés)
+# Maps du chemin critique où avancer vers le nord (Y décroissant) doit être récompensé
+_PROGRESS_MAPS: frozenset[int] = frozenset({0x00, 0x0C, 0x01, 0x0D, 0x33, 0x02})
+
 MAP_BONUSES: dict[int, float] = {
     0x28: 3.0,    # Labo Prof Chen
     0x25: 0.3,    # Maison 1F Bourg Palette (peu d'intérêt)
@@ -103,12 +107,14 @@ class PokemonBlueEnv(gym.Env):
         speed: int = 0,
         max_steps: int = 10_000,
         kg: PokemonKnowledgeGraph | None = None,
+        ram_only: bool = False,
     ):
         super().__init__()
 
         self.rom_path   = rom_path
         self.init_state = init_state
         self.max_steps  = max_steps
+        self.ram_only   = ram_only
 
         # Graphe de connaissances — partagé entre envs parallèles pour éviter
         # de charger N fois le même fichier JSON.
@@ -134,24 +140,32 @@ class PokemonBlueEnv(gym.Env):
         self.pyboy = PyBoy(rom_path, window=window, sound=False)
         self.pyboy.set_emulation_speed(speed)
 
-        # ── Espace d'observation hybride Dict ─────────────────────────────────
-        self.observation_space = spaces.Dict({
-            'screen': spaces.Box(
-                low=0.0, high=1.0,
-                shape=(N_STACK, SCREEN_H, SCREEN_W),
-                dtype=np.float32,
-            ),
-            'visited_mask': spaces.Box(
-                low=0.0, high=1.0,
-                shape=(1, MASK_SIZE, MASK_SIZE),
-                dtype=np.float32,
-            ),
-            'ram': spaces.Box(
+        # ── Espace d'observation ───────────────────────────────────────────────
+        if ram_only:
+            # Mode RAM-only : observation plate (16,) — 10× plus rapide à traiter
+            self.observation_space = spaces.Box(
                 low=0.0, high=1.0,
                 shape=(RAM_VEC_SIZE,),
                 dtype=np.float32,
-            ),
-        })
+            )
+        else:
+            self.observation_space = spaces.Dict({
+                'screen': spaces.Box(
+                    low=0.0, high=1.0,
+                    shape=(N_STACK, SCREEN_H, SCREEN_W),
+                    dtype=np.float32,
+                ),
+                'visited_mask': spaces.Box(
+                    low=0.0, high=1.0,
+                    shape=(1, MASK_SIZE, MASK_SIZE),
+                    dtype=np.float32,
+                ),
+                'ram': spaces.Box(
+                    low=0.0, high=1.0,
+                    shape=(RAM_VEC_SIZE,),
+                    dtype=np.float32,
+                ),
+            })
 
         self.action_space = spaces.Discrete(len(ACTIONS))
 
@@ -175,6 +189,8 @@ class PokemonBlueEnv(gym.Env):
         # Grilles numpy par map (256×256 bool) pour _get_visited_mask() vectorisé
         self._seen_arrays:     dict[int, np.ndarray] = {}
         self._zone_density_cache: dict[int, float] = {}
+        # Y minimal atteint par map (pour r_progress) — réinitialisé à chaque épisode
+        self._map_min_y: dict[int, int] = {}
 
     # ── Gymnasium API ─────────────────────────────────────────────────────────
 
@@ -199,12 +215,14 @@ class PokemonBlueEnv(gym.Env):
         self._prev_events       = self._count_event_flags()
         self._prev_level_reward = self._r_level()
         self._prev_total_hp     = self._total_party_hp()
+        self._prev_enemy_hp     = 0
         self._visited_maps = {self._prev_map_id}
         self._tile_visits        = {}
         self._escaped_lab        = False
         self._min_y_progress     = 255
         self._entered_building   = False
         self._steps_on_current_map = 0
+        self._map_min_y          = {}
         # _seen_tiles intentionnellement NON resetté : persiste entre épisodes
         self._prev_move_pp = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
 
@@ -302,12 +320,14 @@ class PokemonBlueEnv(gym.Env):
         self._prev_events       = self._count_event_flags()
         self._prev_level_reward = self._r_level()
         self._prev_total_hp     = self._total_party_hp()
+        self._prev_enemy_hp     = 0
         self._prev_move_pp      = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
         self._tile_visits          = {}
         self._escaped_lab          = False
         self._min_y_progress       = 255
         self._entered_building     = False
         self._steps_on_current_map = 0
+        self._map_min_y            = {}
         self._visited_maps         = {self._prev_map_id}   # reset : chaque épisode redécouvre les maps
         # _seen_tiles conservé intentionnellement (connaissance globale persistante)
 
@@ -363,27 +383,19 @@ class PokemonBlueEnv(gym.Env):
         mask[mx0:mx0 + patch.shape[0], my0:my0 + patch.shape[1]] = patch
         return mask.reshape(1, MASK_SIZE, MASK_SIZE)
 
-    def _observe(self) -> dict:
-        """Construit l'observation hybride Dict à partir de l'état courant.
+    def _build_ram_vec(self) -> np.ndarray:
+        """Construit le vecteur RAM normalisé (RAM_VEC_SIZE,).
 
-        Returns:
-            dict avec les clés 'screen', 'visited_mask', 'ram'.
+        Extrait depuis l'état courant du jeu. Appelé par _observe() et
+        peut être utilisé directement en mode ram_only.
         """
         x      = self._r(RAM_PLAYER_X)
         y      = self._r(RAM_PLAYER_Y)
         map_id = self._r(RAM_MAP_ID)
 
-        # ── screen : empilement des N_STACK frames (3, 72, 80) ────────────────
-        screen_stack = np.stack(list(self._frame_buffer), axis=0)  # (3, 72, 80)
-
-        # ── visited_mask : grille binaire 48×48 ───────────────────────────────
-        visited_mask = self._get_visited_mask(map_id, x, y)        # (1, 48, 48)
-
-        # ── ram : vecteur scalaire normalisé (12,) ────────────────────────────
         hp_max = max(self._r16(RAM_PLAYER_MHP_H), 1)
         hp_pct = min(self._r16(RAM_PLAYER_HP_H) / hp_max, 1.0)
 
-        # Progression globale via event flags (remplace waypoint_x/y)
         self._cached_events = self._count_event_flags()
         event_flags_pct  = self._cached_events / max(RAM_EVENT_LEN * 8, 1)
         steps_stuck_norm = min(self._steps_stuck / 100.0, 1.0)
@@ -395,31 +407,26 @@ class PokemonBlueEnv(gym.Env):
             )
         zone_density = self._zone_density_cache[map_id]
 
-        # ── Nouveaux signaux RAM ──────────────────────────────────────────────
-        # HP du Pokémon actif en combat (D015/D023) — 0.0 en overworld
         battle_mon_hp_pct = 0.0
         if self._r(RAM_BATTLE) > 0:
             bm_max = max(self._r16(RAM_BATTLE_MON_MAX_HP_H), 1)
             battle_mon_hp_pct = min(self._r16(RAM_BATTLE_MON_HP_H) / bm_max, 1.0)
 
-        # Pokédex : proportion d'espèces capturées / 151
         owned_count = sum(
             self._r(RAM_POKEDEX_OWNED + i).bit_count()
             for i in range(RAM_POKEDEX_LEN)
         )
         pokedex_pct = min(owned_count / RAM_POKEDEX_MAX, 1.0)
 
-        # Argent BCD (D347-D349) normalisé sur 999 999
         money_norm = self._decode_bcd(
             self._r(RAM_MONEY[0]),
             self._r(RAM_MONEY[1]),
             self._r(RAM_MONEY[2]),
         ) / 999_999.0
 
-        # Nombre d'objets uniques dans le sac (max 20)
         items_norm = min(self._r(RAM_ITEM_COUNT) / 20.0, 1.0)
 
-        ram_vec = np.array([
+        return np.array([
             x                  / 255.0,
             y                  / 255.0,
             map_id             / 255.0,
@@ -437,6 +444,24 @@ class PokemonBlueEnv(gym.Env):
             money_norm,
             items_norm,
         ], dtype=np.float32)
+
+    def _observe(self):
+        """Construit l'observation à partir de l'état courant.
+
+        ram_only=True  → ndarray (RAM_VEC_SIZE,)
+        ram_only=False → dict {'screen', 'visited_mask', 'ram'}
+        """
+        ram_vec = self._build_ram_vec()
+
+        if self.ram_only:
+            return ram_vec
+
+        x      = self._r(RAM_PLAYER_X)
+        y      = self._r(RAM_PLAYER_Y)
+        map_id = self._r(RAM_MAP_ID)
+
+        screen_stack = np.stack(list(self._frame_buffer), axis=0)
+        visited_mask = self._get_visited_mask(map_id, x, y)
 
         return {
             'screen':       screen_stack,
@@ -553,17 +578,15 @@ class PokemonBlueEnv(gym.Env):
         }
 
     def _reward(self, x: int, y: int, map_id: int) -> float:
-        """Reward minimaliste — Test 1 : 4 signaux uniquement.
-
-        Objectif : vérifier si la policy peut apprendre à progresser
-        sans shaping complexe. Si unique_maps_ever_total > 6 à 500k steps
-        avec cette version, les itérations de reward précédentes créaient
-        des artéfacts bloquants. Sinon, le problème est dans l'architecture.
-        """
-        reward = 0.0
-        r_map  = 0.0
-        r_tile = 0.0
-        r_event = 0.0
+        """Calcule la récompense du step courant à partir de 8 signaux complémentaires."""
+        r_map      = 0.0
+        r_tile     = 0.0
+        r_event    = 0.0
+        r_type     = 0.0
+        r_victory  = 0.0
+        r_level    = 0.0
+        r_stuck    = 0.0
+        r_progress = 0.0
 
         # Nouvelle map jamais visitée dans cet épisode
         if map_id != self._prev_map_id:
@@ -580,26 +603,61 @@ class PokemonBlueEnv(gym.Env):
                 self._seen_arrays[map_id] = np.zeros((256, 256), dtype=bool)
             self._seen_arrays[map_id][x, y] = True
 
-        # Nouveau badge
+        # Nouveau badge et event flags
         badges     = self._r(RAM_BADGES)
         new_badges = bin(badges).count('1') - bin(self._prev_badges).count('1')
         if new_badges > 0:
             r_event += 50.0 * new_badges
         self._prev_badges = badges
 
-        # Nouveau event flag
         events = getattr(self, '_cached_events', self._count_event_flags())
         if events > self._prev_events:
             r_event += 2.0 * (events - self._prev_events)
         self._prev_events = events
 
-        reward = r_map + r_tile + r_event
+        # Signaux de combat
+        if self._r(RAM_BATTLE) > 0:
+            r_type = self._type_intent_bonus()
+
+            enemy_hp = self._r16(RAM_ENEMY_HP_H)
+            if enemy_hp == 0 and self._prev_enemy_hp > 0:
+                party_hp_ratio = self._total_party_hp() / max(self._total_party_max_hp(), 1)
+                r_victory = 5.0 + party_hp_ratio * 10.0
+            self._prev_enemy_hp = enemy_hp
+        else:
+            self._prev_enemy_hp = 0
+
+        # Delta de progression de niveau (rendement marginal décroissant via _r_level)
+        current_level_reward    = self._r_level()
+        r_level                 = current_level_reward - self._prev_level_reward
+        self._prev_level_reward = current_level_reward
+
+        # Pénalité progressive de stagnation (activée au-delà de 50 steps immobiles)
+        if self._steps_stuck > 50:
+            r_stuck = max(-0.01 * (self._steps_stuck - 50), -1.0)
+
+        # Signal directionnel : bonus quand le joueur atteint un nouveau Y minimal sur
+        # les maps du chemin critique (Y décroissant = avancer vers le nord = vers Brock).
+        # Donne un gradient continu là où r_map ne peut intervenir qu'une fois.
+        if not self._r(RAM_BATTLE) and map_id in _PROGRESS_MAPS:
+            prev_min = self._map_min_y.get(map_id, 255)
+            if y < prev_min:
+                r_progress = (prev_min - y) * 0.2
+                self._map_min_y[map_id] = y
+                if y < self._min_y_progress:
+                    self._min_y_progress = y
+
         self._r_components = {
-            'r_map':   r_map,
-            'r_tile':  r_tile,
-            'r_event': r_event,
+            'r_map':      r_map,
+            'r_tile':     r_tile,
+            'r_event':    r_event,
+            'r_type':     r_type,
+            'r_victory':  r_victory,
+            'r_level':    r_level,
+            'r_stuck':    r_stuck,
+            'r_progress': r_progress,
         }
-        return reward
+        return r_map + r_tile + r_event + r_type + r_victory + r_level + r_stuck + r_progress
 
     def _type_intent_bonus(self) -> float:
         """Bonus si le move utilisé ce step est Super Efficace (×2.0 ou ×4.0).
@@ -728,7 +786,6 @@ class PokemonBlueEnv(gym.Env):
             mask[1] = False  # down
             mask[2] = False  # left
             mask[3] = False  # right
-            mask[5] = False  # b
             mask[6] = False  # start (sans effet en combat Gen 1)
 
             enemy_type1 = self._r(RAM_ENEMY_TYPE1)
