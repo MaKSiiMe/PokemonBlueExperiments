@@ -21,19 +21,15 @@ Usage rapide :
 from __future__ import annotations
 
 import logging
-from functools import lru_cache
 from pathlib import Path
-from typing import Optional
-
-from pyvis.network import Network
 
 import networkx as nx
+from pyvis.network import Network
 
 from src.knowledge.builder import GRAPH_PATH, KnowledgeGraphBuilder
 from src.knowledge.gen1_data import (
     RAM_TYPE_BYTE_TO_NAME,
-    TYPE_CHART,
-    ZONE_MAP_ID,
+    type_multiplier,
 )
 
 logger = logging.getLogger(__name__)
@@ -86,7 +82,7 @@ class PokemonKnowledgeGraph:
         contre un ou plusieurs types défenseurs.
 
         Gen 1 : les multiplicateurs se combinent par multiplication
-        (ex: Water vs Fire/Rock = 2.0 × 2.0 = 4.0).
+        (ex: Water vs Fire/Rock = 2.0 × 2.0 = 4.0) ; un type répété ne compte qu'une fois.
 
         Args:
             atk_type:  Nom du type attaquant ("water", "fire", etc.)
@@ -95,15 +91,13 @@ class PokemonKnowledgeGraph:
         Returns:
             Multiplicateur final (0.0 / 0.25 / 0.5 / 1.0 / 2.0 / 4.0).
         """
-        mult = 1.0
-        for def_type in def_types:
-            mult *= TYPE_CHART.get(atk_type, {}).get(def_type, 1.0)
-        return mult
+        return type_multiplier(atk_type, def_types)
 
     def type_multiplier_from_ram(self, atk_type_byte: int, def_type_bytes: list[int]) -> float:
         """Variante qui accepte directement les octets RAM de types.
 
-        Pratique dans BattleAgent qui lit 0xD01F/0xD020 depuis PyBoy.
+        Pratique dans BattleAgent qui lit wEnemyMonType1/2 depuis PyBoy. Un mono-type
+        y est stocké deux fois (ex. Feu/Feu) : il n'est compté qu'une fois.
         """
         atk_name = RAM_TYPE_BYTE_TO_NAME.get(atk_type_byte, "normal")
         def_names = [RAM_TYPE_BYTE_TO_NAME.get(b, "normal") for b in def_type_bytes]
@@ -144,8 +138,8 @@ class PokemonKnowledgeGraph:
             # Les moves de statut sont inutiles si l'ennemi est presque KO
             return -1.0 if enemy_hp_pct < 0.25 else 0.0
 
-        type_name: Optional[str] = data.get("type_name")
-        base_power: Optional[int] = data.get("base_power") or 0
+        type_name: str | None = data.get("type_name")
+        base_power: int | None = data.get("base_power") or 0
         priority: int = data.get("priority", 0)
 
         # Score de base : multiplicateur de type × puissance normalisée
@@ -160,14 +154,14 @@ class PokemonKnowledgeGraph:
 
     def best_move_index(
         self,
-        move_names: list[Optional[str]],
+        move_names: list[str | None],
         enemy_type_bytes: list[int],
         enemy_hp_pct: float = 1.0,
     ) -> int:
         """Retourne l'index (0-3) du meilleur move parmi les 4 slots.
 
         Remplace la logique hardcodée de BattleAgent._best_move_index().
-        Utilise les octets RAM de types directement (0xD01F / 0xD020).
+        Utilise les octets RAM de types directement (wEnemyMonType1/2).
 
         Args:
             move_names:        4 noms de moves (None ou "" = slot vide).
@@ -345,7 +339,7 @@ class PokemonKnowledgeGraph:
         Utilise les arêtes LEADS_TO du graphe.
 
         Args:
-            from_map_id: Map ID de départ (RAM 0xD35E).
+            from_map_id: Map ID de départ (wCurMap).
             to_map_id:   Map ID d'arrivée.
 
         Returns:

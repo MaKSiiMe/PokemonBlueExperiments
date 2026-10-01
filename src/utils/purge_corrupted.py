@@ -1,5 +1,5 @@
-import os
 import glob
+import os
 import subprocess
 import sys
 
@@ -43,7 +43,7 @@ def main():
             print(f"⚠️ Erreur script: {e}")
 
     print("-" * 30)
-    print(f"🏁 Terminé.")
+    print("🏁 Terminé.")
     print(f"Survivants : {good_count}")
     print(f"Éliminés   : {bad_count}")
 

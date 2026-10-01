@@ -156,7 +156,7 @@ def run_train(args):
     # ── Phase 1 — exploration large ───────────────────────────────────────────
     max_ep_p1 = 3000
     steps_p1  = int(args.steps * 0.6)
-    print(f"[Train] Objectif    : battre Brock (Badge Pierre)")
+    print("[Train] Objectif    : battre Brock (Badge Pierre)")
     print(f"[Train] Mode        : {'RAM-only MLP' if args.ram_only else 'CNN+GRU'}")
     print(f"[Train] Go-Explore  : {'ON  (prob=' + str(args.archive_prob) + ')' if use_go_explore else 'OFF'}")
     print(f"[Train] Curriculum  : {'ON  (' + str(len(curriculum_states or [])) + ' états)' if curriculum_states else 'OFF'}")
@@ -322,7 +322,7 @@ if __name__ == '__main__':
 
     if not os.path.exists(INIT_STATE):
         print(f"State introuvable : {INIT_STATE}")
-        import sys; sys.exit(1)
+        raise SystemExit(1)
 
     if args.train:
         run_train(args)

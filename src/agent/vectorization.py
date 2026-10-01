@@ -28,13 +28,13 @@ Usage :
 
 from __future__ import annotations
 
-from enum import Enum
-from typing import Callable, List
+from collections.abc import Callable
+from enum import StrEnum
 
 import gymnasium as gym
 
 
-class VecBackend(str, Enum):
+class VecBackend(StrEnum):
     """Backend de vectorisation des environnements."""
     DUMMY      = 'dummy'       # un seul processus (debug)
     SUBPROC    = 'subproc'     # SubprocVecEnv SB3
@@ -42,7 +42,7 @@ class VecBackend(str, Enum):
 
 
 def make_vec_env(
-    env_fns: List[Callable[[], gym.Env]],
+    env_fns: list[Callable[[], gym.Env]],
     backend: VecBackend | str = VecBackend.SUBPROC,
 ) -> gym.Env:
     """Crée un environnement vectorisé avec le backend spécifié.
@@ -78,7 +78,7 @@ def make_vec_env(
     raise ValueError(f"Backend inconnu : {backend}")
 
 
-def _make_pufferlib_vec_env(env_fns: List[Callable[[], gym.Env]]) -> gym.Env:
+def _make_pufferlib_vec_env(env_fns: list[Callable[[], gym.Env]]) -> gym.Env:
     """Crée un VecEnv PufferLib compatible SB3.
 
     PufferLib utilise la mémoire partagée pour transférer les observations

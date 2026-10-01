@@ -1,4 +1,5 @@
 import sys
+
 from pyboy import PyBoy
 
 if len(sys.argv) < 2:

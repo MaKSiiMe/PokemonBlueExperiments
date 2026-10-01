@@ -18,6 +18,8 @@ import numpy as np
 os.environ.setdefault('SDL_AUDIODRIVER', 'dummy')
 from pyboy import PyBoy
 
+from pokeblue.state import ram_symbols as sym
+
 # ---------------------------------------------------------------------------
 # CONFIGURATION
 # ---------------------------------------------------------------------------
@@ -83,7 +85,7 @@ def get_oam_tiles(pyboy):
     return occupied
 
 # ---------------------------------------------------------------------------
-# SCAN SPRITES  (table WRAM 0xC100)
+# SCAN SPRITES  (table wSpriteStateData1)
 # ---------------------------------------------------------------------------
 
 OVERWORLD_BLOCK_TILES = {
@@ -93,13 +95,13 @@ OVERWORLD_BLOCK_TILES = {
 
 
 def scan_sprites(dashboard, pyboy, mapping):
-    """Dessine les sprites actifs lus depuis WRAM 0xC100. Retourne un dict de comptages."""
+    """Dessine les sprites actifs lus depuis wSpriteStateData1. Retourne un dict de comptages."""
     counts  = {}
     sprites = mapping.get('sprites', {})
     oam_tiles = get_oam_tiles(pyboy)
 
     for slot in range(16):
-        base   = 0xC100 + slot * 16
+        base   = sym.W_SPRITE_STATE_DATA1 + slot * 16
         pic_id = pyboy.memory[base + 0x00]
         mov_st = pyboy.memory[base + 0x01]
 
@@ -142,12 +144,12 @@ def scan_sprites(dashboard, pyboy, mapping):
 
 
 def scan_tiles(dashboard, pyboy, tile_lookup):
-    """Dessine les tiles actifs lus depuis WRAM 0xC3A0. Retourne un dict de comptages."""
+    """Dessine les tiles actifs lus depuis wTileMap. Retourne un dict de comptages."""
     counts = {}
 
     for row in range(18):
         for col in range(20):
-            tid    = pyboy.memory[0xC3A0 + row * 20 + col]
+            tid    = pyboy.memory[sym.W_TILE_MAP + row * 20 + col]
             hex_id = f"0x{tid:02X}"
             info   = tile_lookup.get(hex_id)
             if not info:
@@ -158,13 +160,13 @@ def scan_tiles(dashboard, pyboy, tile_lookup):
 
             if cls == 4:  # Ledge — filtre mur de montagne
                 if hex_id in {'0x36', '0x37'}:
-                    if row > 0 and pyboy.memory[0xC3A0 + (row - 1) * 20 + col] in OVERWORLD_BLOCK_TILES:
+                    if row > 0 and pyboy.memory[sym.W_TILE_MAP + (row - 1) * 20 + col] in OVERWORLD_BLOCK_TILES:
                         continue
                 elif hex_id == '0x27':
-                    if col < 19 and pyboy.memory[0xC3A0 + row * 20 + (col + 1)] in OVERWORLD_BLOCK_TILES:
+                    if col < 19 and pyboy.memory[sym.W_TILE_MAP + row * 20 + (col + 1)] in OVERWORLD_BLOCK_TILES:
                         continue
-                elif hex_id in {'0x0D', '0x1D'}:
-                    if col > 0 and pyboy.memory[0xC3A0 + row * 20 + (col - 1)] in OVERWORLD_BLOCK_TILES:
+                elif hex_id in {'0x0D', '0x1D'}:  # noqa: SIM102 — symétrie avec les branches ci-dessus
+                    if col > 0 and pyboy.memory[sym.W_TILE_MAP + row * 20 + (col - 1)] in OVERWORLD_BLOCK_TILES:
                         continue
 
             if cls == 2:  # Door — box 16×16 décalée vers le haut
@@ -192,12 +194,15 @@ def draw_panel(dashboard, pyboy, mapping, m_id, t_id, px, py, counts, frame):
     lh = 14
 
     tileset_name = mapping.get('tilesets', {}).get(f"0x{t_id:02X}", f"?({t_id})")
-    battle       = pyboy.memory[0xD057]
-    grass_flag   = pyboy.memory[0xC207]
-    direction    = pyboy.memory[0xD35D]
-    dir_name     = {0x00: 'DOWN', 0x04: 'UP', 0x08: 'LEFT', 0x0C: 'RIGHT'}.get(direction, f"0x{direction:02X}")
-    badges       = pyboy.memory[0xD356]
-    tile_under   = pyboy.memory[0xC3A0 + 9 * 20 + 9]
+    battle       = pyboy.memory[sym.W_IS_IN_BATTLE]
+    grass_flag   = pyboy.memory[sym.W_SPRITE_PLAYER_STATE_DATA2_GRASS_PRIORITY]
+    direction    = pyboy.memory[sym.W_SPRITE_PLAYER_STATE_DATA1_FACING_DIRECTION]
+    dir_name     = {
+        sym.SPRITE_FACING_DOWN: 'DOWN', sym.SPRITE_FACING_UP: 'UP',
+        sym.SPRITE_FACING_LEFT: 'LEFT', sym.SPRITE_FACING_RIGHT: 'RIGHT',
+    }.get(direction, f"0x{direction:02X}")
+    badges       = pyboy.memory[sym.W_OBTAINED_BADGES]
+    tile_under   = pyboy.memory[sym.W_TILE_MAP + 9 * 20 + 9]
 
     lines = [
         (f"frame  {frame}", (200, 200, 200)),
@@ -261,9 +266,8 @@ def main():
 
     try:
         while True:
-            if not paused:
-                if not pyboy.tick():
-                    break
+            if not paused and not pyboy.tick():
+                break
 
             screen = pyboy.screen.image
             if getattr(screen, 'mode', None) == 'RGBA':
@@ -274,10 +278,10 @@ def main():
                 raw.copy(), 0, 0, 0, 160, cv2.BORDER_CONSTANT, value=(30, 30, 30)
             )
 
-            m_id = pyboy.memory[0xD35E]
-            t_id = pyboy.memory[0xD367]
-            px   = pyboy.memory[0xD362]
-            py   = pyboy.memory[0xD361]
+            m_id = pyboy.memory[sym.W_CUR_MAP]
+            t_id = pyboy.memory[sym.W_CUR_MAP_TILESET]
+            px   = pyboy.memory[sym.W_X_COORD]
+            py   = pyboy.memory[sym.W_Y_COORD]
 
             tileset_name = mapping.get('tilesets', {}).get(f"0x{t_id:02X}", 'OVERWORLD')
             tile_lookup  = build_tile_lookup(mapping, tileset_name)
@@ -312,18 +316,18 @@ def main():
                     'tileset':     t_id,
                     'tileset_name': tileset_name,
                     'pos':         {'x': px, 'y': py},
-                    'battle':      pyboy.memory[0xD057],
-                    'badges':      pyboy.memory[0xD356],
-                    'grass':       hex(pyboy.memory[0xC207]),
+                    'battle':      pyboy.memory[sym.W_IS_IN_BATTLE],
+                    'badges':      pyboy.memory[sym.W_OBTAINED_BADGES],
+                    'grass':       hex(pyboy.memory[sym.W_SPRITE_PLAYER_STATE_DATA2_GRASS_PRIORITY]),
                     'wram_sprites': {
                         slot: {
-                            'pic_id':   hex(pyboy.memory[0xC100 + slot * 16]),
-                            'mov_stat': pyboy.memory[0xC100 + slot * 16 + 0x01],
-                            'sy':       pyboy.memory[0xC100 + slot * 16 + 0x04],
-                            'sx':       pyboy.memory[0xC100 + slot * 16 + 0x06],
+                            'pic_id':   hex(pyboy.memory[sym.W_SPRITE_STATE_DATA1 + slot * 16]),
+                            'mov_stat': pyboy.memory[sym.W_SPRITE_STATE_DATA1 + slot * 16 + 0x01],
+                            'sy':       pyboy.memory[sym.W_SPRITE_STATE_DATA1 + slot * 16 + 0x04],
+                            'sx':       pyboy.memory[sym.W_SPRITE_STATE_DATA1 + slot * 16 + 0x06],
                         }
                         for slot in range(16)
-                        if pyboy.memory[0xC100 + slot * 16] != 0
+                        if pyboy.memory[sym.W_SPRITE_STATE_DATA1 + slot * 16] != 0
                     },
                 }
                 path = os.path.join(DEBUG_DIR, f"dump_{frame_count:05d}.json")
@@ -331,7 +335,7 @@ def main():
                     json.dump(dump, f, indent=2)
                 print(f"Dump RAM : {path}")
 
-    except Exception as e:
+    except Exception:
         import traceback
         traceback.print_exc()
     finally:

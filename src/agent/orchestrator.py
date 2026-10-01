@@ -1,23 +1,25 @@
 """
 Orchestrator — Route vers le bon sous-agent selon l'état RAM.
 
-Routing (0xD057) :
-  0  → ExplorationAgent  (overworld)
-  1  → BattleAgent       (combat sauvage)
-  2  → BattleAgent       (combat dresseur)
-  *  → press A           (dialogs, menus)
+Routing (wIsInBattle) :
+  0               → ExplorationAgent  (overworld, dialogues et menus compris)
+  WILD_BATTLE     → BattleAgent       (combat sauvage)
+  TRAINER_BATTLE  → BattleAgent       (combat dresseur)
+  autre           → press B
 
-Transitions (0xD13F != 0) → tick sans action.
+Les états FADING et DIALOG reposaient sur des adresses fausses (wPrize3,
+wCapturedMonSpecies, wLinkState) et ont été retirés : la détection de mode,
+validée sur savestates étiquetés, arrive en Phase 1 avec un orchestrateur réécrit.
 """
 
 from pyboy import PyBoy
-from src.emulator.ram_map import RAM_BATTLE, RAM_FADING, RAM_TEXT_ACTIVE, RAM_MENU
-from src.emulator.pokemon_env import TICKS_PER_ACTION, ACTIONS
+
+from pokeblue.state import ram_symbols as sym
+from src.emulator.pokemon_env import ACTIONS, TICKS_PER_ACTION
+from src.emulator.ram_map import RAM_BATTLE
 
 
 class GameState:
-    FADING         = 'fading'
-    DIALOG         = 'dialog'
     OVERWORLD      = 'overworld'
     BATTLE_WILD    = 'battle_wild'
     BATTLE_TRAINER = 'battle_trainer'
@@ -41,31 +43,19 @@ class Orchestrator:
         self._prev_state = None
 
     def get_game_state(self) -> str:
-        if self.pyboy.memory[RAM_FADING] != 0:
-            return GameState.FADING
-
         battle = self.pyboy.memory[RAM_BATTLE]
-        if battle == 1:
+        if battle == 0:
+            return GameState.OVERWORLD
+        if battle == sym.WILD_BATTLE:
             return GameState.BATTLE_WILD
-        if battle == 2:
+        if battle == sym.TRAINER_BATTLE:
             return GameState.BATTLE_TRAINER
-        if self.pyboy.memory[RAM_TEXT_ACTIVE] != 0 or self.pyboy.memory[RAM_MENU] != 0:
-            return GameState.DIALOG
-        return GameState.OVERWORLD
+        return GameState.UNKNOWN
 
     def step(self, obs) -> str:
         state = self.get_game_state()
 
-        if state == GameState.FADING:
-            for _ in range(TICKS_PER_ACTION):
-                self.pyboy.tick()
-
-        elif state == GameState.DIALOG:
-            self.pyboy.button('a')
-            for _ in range(TICKS_PER_ACTION):
-                self.pyboy.tick()
-
-        elif state in (GameState.BATTLE_WILD, GameState.BATTLE_TRAINER):
+        if state in (GameState.BATTLE_WILD, GameState.BATTLE_TRAINER):
             btn = self.battle.act(self.pyboy)
             if btn:
                 self.pyboy.button(btn)

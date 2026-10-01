@@ -9,6 +9,10 @@
 dataset/
 logs/
 resources/
+/resources
+
+# --- SOURCES pret/pokered TÉLÉCHARGÉES (scripts/gen_*.py) ---
+.cache/
 
 # --- KNOWLEDGE GRAPH (régénérable) ---
 src/knowledge/cache/

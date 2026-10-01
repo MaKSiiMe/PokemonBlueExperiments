@@ -95,7 +95,7 @@ def main():
         print(f"\n[OK] État sauvegardé : {out_path}  ({size_kb:.0f} KB)")
         print()
         print("  Pour utiliser le curriculum, lance :")
-        print(f"  python run_agent.py --train --curriculum")
+        print("  python run_agent.py --train --curriculum")
         pyboy.stop()
         sys.exit(0)
 

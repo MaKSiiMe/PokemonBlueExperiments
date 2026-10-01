@@ -8,21 +8,24 @@ Usage :
     python src/utils/extract_map_data.py
 """
 
-import os
 import glob
+import os
+
 from pyboy import PyBoy
+
+from pokeblue.state import ram_symbols as sym
 
 ROM_PATH  = 'ROMs/PokemonBlue.gb'
 STATE_DIR = 'states'
 
 # RAM addresses (voir src/emulator/ram_map.py)
-RAM_MAP_ID    = 0xD35E
-RAM_PLAYER_X  = 0xD362
-RAM_PLAYER_Y  = 0xD361
-RAM_WARP_COUNT = 0xD3AE
-RAM_WARP_DATA  = 0xD3AF
-RAM_SIGN_COUNT = 0xD4B0
-RAM_SIGN_DATA  = 0xD4B1
+RAM_MAP_ID    = sym.W_CUR_MAP
+RAM_PLAYER_X  = sym.W_X_COORD
+RAM_PLAYER_Y  = sym.W_Y_COORD
+RAM_WARP_COUNT = sym.W_NUMBER_OF_WARPS
+RAM_WARP_DATA  = sym.W_WARP_ENTRIES
+RAM_SIGN_COUNT = sym.W_NUM_SIGNS
+RAM_SIGN_DATA  = sym.W_SIGN_COORDS
 
 
 def scan_state(pyboy: PyBoy, path: str):

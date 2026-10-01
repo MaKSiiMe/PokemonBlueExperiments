@@ -9,8 +9,6 @@ Vérifie que :
 """
 
 import numpy as np
-import pytest
-
 
 INFO_KEYS = {
     'map_id', 'player_x', 'player_y', 'steps_stuck',

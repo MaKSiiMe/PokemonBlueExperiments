@@ -16,9 +16,9 @@ Espace d'observation hybride (Dict) :
       0 = inconnue.
 
   ── ram          (16,)        float32 [0, 1] ─────────────────────────────────
-      0  player_x          — position X en tiles  (0xD362 / 255)
-      1  player_y          — position Y en tiles  (0xD361 / 255)
-      2  map_id            — ID de la map courante (0xD35E / 255)
+      0  player_x          — position X en tiles  (wXCoord / 255)
+      1  player_y          — position Y en tiles  (wYCoord / 255)
+      2  map_id            — ID de la map courante (wCurMap / 255)
       3  direction         — orientation          (0=bas 0.33=haut 0.66=gauche 1=droite)
       4  hp_pct            — HP joueur / max HP   (clampé [0, 1])
       5  battle_status     — 0=overworld 0.5=sauvage 1.0=dresseur
@@ -28,10 +28,10 @@ Espace d'observation hybride (Dict) :
       9  type_advantage    — meilleur multiplicateur dispo / 4.0
       10 enemy_can_evolve  — 1.0 si l'ennemi a une évolution, 0.0 sinon
       11 zone_density      — Pokémon rencontrables dans la zone / 8.0
-      12 battle_mon_hp_pct — HP du Pokémon actif en combat / HP max (D015/D023)
-      13 pokedex_pct       — espèces capturées / 151 (D2F7, masque de bits)
-      14 money_norm        — argent BCD décodé / 999999 (D347-D349)
-      15 items_norm        — objets uniques dans le sac / 20 (CF7B)
+      12 battle_mon_hp_pct — HP du Pokémon actif en combat / HP max (wBattleMonHP/MaxHP)
+      13 pokedex_pct       — espèces capturées / 151 (wPokedexOwned, masque de bits)
+      14 money_norm        — argent BCD décodé / 999999 (wPlayerMoney)
+      15 items_norm        — objets uniques dans le sac / 20 (wNumBagItems)
 
 Action space (Discrete 7) :
   0=haut  1=bas  2=gauche  3=droite  4=a  5=b  6=start
@@ -41,29 +41,49 @@ import os
 from collections import deque
 
 import gymnasium as gym
-from gymnasium import spaces
 import numpy as np
+from gymnasium import spaces
 from pyboy import PyBoy
 
+from pokeblue.knowledge.gen1_data import MAP_IDS, type_multiplier
+from pokeblue.state import ram_symbols as sym
 from src.emulator.ram_map import (
-    RAM_PLAYER_X, RAM_PLAYER_Y, RAM_MAP_ID, RAM_DIRECTION,
-    RAM_BATTLE, RAM_FADING, RAM_TEXT_ACTIVE,
-    RAM_PLAYER_HP_H, RAM_PLAYER_HP_L, RAM_PLAYER_MHP_H, RAM_PLAYER_MHP_L,
-    RAM_BADGES, RAM_ENEMY_LEVEL, RAM_EVENT_FLAGS, RAM_EVENT_LEN,
-    RAM_ENEMY_TYPE1, RAM_ENEMY_TYPE2, RAM_ENEMY_SPECIES,
-    RAM_MOVE_IDS, RAM_MOVE_PP,
-    RAM_PARTY_COUNT, RAM_PARTY_LEVELS, RAM_PARTY_HP, RAM_PARTY_MAX_HP,
-    RAM_BATTLE_MON_HP_H, RAM_BATTLE_MON_MAX_HP_H,
+    RAM_BADGES,
+    RAM_BATTLE,
+    RAM_BATTLE_MON_HP_H,
+    RAM_BATTLE_MON_MAX_HP_H,
+    RAM_DIRECTION,
     RAM_ENEMY_HP_H,
+    RAM_ENEMY_SPECIES,
+    RAM_ENEMY_TYPE1,
+    RAM_ENEMY_TYPE2,
+    RAM_EVENT_FLAGS,
+    RAM_EVENT_LEN,
+    RAM_ITEM_CAPACITY,
     RAM_ITEM_COUNT,
+    RAM_MAP_ID,
     RAM_MONEY,
-    RAM_POKEDEX_OWNED, RAM_POKEDEX_LEN, RAM_POKEDEX_MAX,
-)
-from src.knowledge.gen1_data import (
-    RAM_TYPE_BYTE_TO_NAME, TYPE_CHART,
-    GEN1_INTERNAL_TO_DEX, MOVE_TYPES, STATUS_MOVES,
+    RAM_MOVE_IDS,
+    RAM_MOVE_PP,
+    RAM_PARTY_COUNT,
+    RAM_PARTY_HP,
+    RAM_PARTY_LEVELS,
+    RAM_PARTY_MAX_HP,
+    RAM_PLAYER_HP_H,
+    RAM_PLAYER_MHP_H,
+    RAM_PLAYER_X,
+    RAM_PLAYER_Y,
+    RAM_POKEDEX_LEN,
+    RAM_POKEDEX_MAX,
+    RAM_POKEDEX_OWNED,
+    RAM_PP_MASK,
 )
 from src.knowledge import PokemonKnowledgeGraph
+from src.knowledge.gen1_data import (
+    GEN1_INTERNAL_TO_DEX,
+    MOVE_TYPES,
+    STATUS_MOVES,
+)
 
 # ── Constantes d'observation ──────────────────────────────────────────────────
 SCREEN_H     = 72    # hauteur après sous-échantillonnage ×2 (144 → 72)
@@ -75,23 +95,39 @@ RAM_VEC_SIZE = 16    # taille du vecteur scalaire RAM
 
 # Récompense par map (remplace le +3.0 générique pour les maps clés)
 # Maps du chemin critique où avancer vers le nord (Y décroissant) doit être récompensé
-_PROGRESS_MAPS: frozenset[int] = frozenset({0x00, 0x0C, 0x01, 0x0D, 0x33, 0x02})
+_PROGRESS_MAPS: frozenset[int] = frozenset(MAP_IDS[m] for m in (
+    "PALLET_TOWN", "ROUTE_1", "VIRIDIAN_CITY", "ROUTE_2", "VIRIDIAN_FOREST", "PEWTER_CITY",
+))
 
 MAP_BONUSES: dict[int, float] = {
-    0x28: 3.0,    # Labo Prof Chen
-    0x25: 0.3,    # Maison 1F Bourg Palette (peu d'intérêt)
-    0x0C: 20.0,   # Route 1 — frontière critique (×4)
-    0x01: 30.0,   # Bourg des Eaux — premier vrai jalon (×4)
-    0x0D: 20.0,   # Route 2
-    0x33: 20.0,   # Forêt Viridian
-    0x02: 30.0,   # Argenta — ville de Brock
-    0x36: 50.0,   # Arène Brock — objectif final
+    MAP_IDS["OAKS_LAB"]:        3.0,    # Labo Prof Chen
+    MAP_IDS["REDS_HOUSE_1F"]:   0.3,    # Maison 1F Bourg Palette (peu d'intérêt)
+    MAP_IDS["ROUTE_1"]:         20.0,   # Route 1 — frontière critique (×4)
+    MAP_IDS["VIRIDIAN_CITY"]:   30.0,   # Jadielle — premier vrai jalon (×4)
+    MAP_IDS["ROUTE_2"]:         20.0,   # Route 2
+    MAP_IDS["VIRIDIAN_FOREST"]: 20.0,   # Forêt de Jade
+    MAP_IDS["PEWTER_CITY"]:     30.0,   # Argenta — ville de Brock
+    MAP_IDS["PEWTER_GYM"]:      50.0,   # Arène Brock — objectif final
 }
+
+# Cartes suivies par les métriques de jalons (_info)
+_MS_MAPS: dict[str, int] = {
+    'ms_viridian': MAP_IDS["VIRIDIAN_CITY"],
+    'ms_forest':   MAP_IDS["VIRIDIAN_FOREST"],
+    'ms_pewter':   MAP_IDS["PEWTER_CITY"],
+    'ms_mt_moon':  MAP_IDS["MT_MOON_1F"],   # était 0x59 = VERMILION_POKECENTER
+}
+_BOULDER_BADGE = 1 << sym.BIT_BOULDERBADGE
 
 ACTIONS          = ['up', 'down', 'left', 'right', 'a', 'b', 'start']
 TICKS_PER_ACTION = 24   # ~0.4s à 60fps — durée d'une animation de déplacement Gen 1
 
-_DIRECTION_MAP = {0x00: 0.0, 0x04: 0.33, 0x08: 0.66, 0x0C: 1.0}
+_DIRECTION_MAP = {
+    sym.SPRITE_FACING_DOWN:  0.0,
+    sym.SPRITE_FACING_UP:    0.33,
+    sym.SPRITE_FACING_LEFT:  0.66,
+    sym.SPRITE_FACING_RIGHT: 1.0,
+}
 
 
 class PokemonBlueEnv(gym.Env):
@@ -133,7 +169,7 @@ class PokemonBlueEnv(gym.Env):
         self._steps_on_current_map = 0
 
         # Chemin optimal Bourg Palette → Arène de Pierre (carte une fois pour toutes)
-        _path = self._kg.zone_path(0x00, 0x36)
+        _path = self._kg.zone_path(MAP_IDS["PALLET_TOWN"], MAP_IDS["PEWTER_GYM"])
         self._optimal_path_zones: frozenset[int] = frozenset(_path)
 
         window = 'null' if headless else 'SDL2'
@@ -224,7 +260,7 @@ class PokemonBlueEnv(gym.Env):
         self._steps_on_current_map = 0
         self._map_min_y          = {}
         # _seen_tiles intentionnellement NON resetté : persiste entre épisodes
-        self._prev_move_pp = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
+        self._prev_move_pp = [self._r(RAM_MOVE_PP[i]) & RAM_PP_MASK for i in range(4)]
 
         return self._observe(), {}
 
@@ -249,10 +285,8 @@ class PokemonBlueEnv(gym.Env):
 
         reward = self._reward(x, y, mid)
 
-        if self._blacked_out():
-            terminated = True
-        else:
-            terminated = self._r(RAM_BADGES) & 0x01 > 0   # Badge Pierre obtenu
+        # Fin d'épisode : blackout ou Badge Roche obtenu
+        terminated = self._blacked_out() or self._r(RAM_BADGES) & _BOULDER_BADGE > 0
 
         moved = x != self._prev_x or y != self._prev_y
         self._steps_stuck = 0 if moved else self._steps_stuck + 1
@@ -321,7 +355,7 @@ class PokemonBlueEnv(gym.Env):
         self._prev_level_reward = self._r_level()
         self._prev_total_hp     = self._total_party_hp()
         self._prev_enemy_hp     = 0
-        self._prev_move_pp      = [self._r(RAM_MOVE_PP[i]) for i in range(4)]
+        self._prev_move_pp      = [self._r(RAM_MOVE_PP[i]) & RAM_PP_MASK for i in range(4)]
         self._tile_visits          = {}
         self._escaped_lab          = False
         self._min_y_progress       = 255
@@ -424,7 +458,7 @@ class PokemonBlueEnv(gym.Env):
             self._r(RAM_MONEY[2]),
         ) / 999_999.0
 
-        items_norm = min(self._r(RAM_ITEM_COUNT) / 20.0, 1.0)
+        items_norm = min(self._r(RAM_ITEM_COUNT) / RAM_ITEM_CAPACITY, 1.0)
 
         return np.array([
             x                  / 255.0,
@@ -497,26 +531,17 @@ class PokemonBlueEnv(gym.Env):
         if self._r(RAM_BATTLE) == 0:
             return 0.5, 0.0
 
-        enemy_type1 = self._r(RAM_ENEMY_TYPE1)
-        enemy_type2 = self._r(RAM_ENEMY_TYPE2)
-        enemy_types = [
-            RAM_TYPE_BYTE_TO_NAME.get(enemy_type1, "normal"),
-            RAM_TYPE_BYTE_TO_NAME.get(enemy_type2, "normal"),
-        ]
+        enemy_types = self._enemy_types()
 
         best_mult = 0.0
         for i in range(4):
-            pp      = self._r(RAM_MOVE_PP[i])
+            pp      = self._r(RAM_MOVE_PP[i]) & RAM_PP_MASK
             move_id = self._r(RAM_MOVE_IDS[i])
-            if pp == 0 or move_id == 0:
+            if pp == 0 or move_id not in MOVE_TYPES:
                 continue
             if move_id in STATUS_MOVES:
                 continue
-            move_type_byte = MOVE_TYPES.get(move_id, 0x00)
-            move_type_name = RAM_TYPE_BYTE_TO_NAME.get(move_type_byte, "normal")
-            mult = 1.0
-            for def_type in enemy_types:
-                mult *= TYPE_CHART.get(move_type_name, {}).get(def_type, 1.0)
+            mult = type_multiplier(MOVE_TYPES[move_id], enemy_types)
             if mult > best_mult:
                 best_mult = mult
 
@@ -535,11 +560,11 @@ class PokemonBlueEnv(gym.Env):
         de jeu agrégées par GameMetricsCallback pour le monitoring TensorBoard.
 
         Milestones encodés en bits (0/1) — lus depuis _visited_maps et RAM_BADGES :
-          ms_viridian : Bourg des Eaux (map 0x01) visitée
-          ms_forest   : Forêt de Jade  (map 0x33) visitée
-          ms_pewter   : Argenta         (map 0x02) visitée
-          ms_badge1   : Badge Pierre obtenu (bit 0 de RAM_BADGES)
-          ms_mt_moon  : Mont Sélénite   (map 0x59) visitée
+          ms_viridian : Jadielle       (VIRIDIAN_CITY) visitée
+          ms_forest   : Forêt de Jade  (VIRIDIAN_FOREST) visitée
+          ms_pewter   : Argenta        (PEWTER_CITY) visitée
+          ms_badge1   : Badge Roche obtenu (BIT_BOULDERBADGE de RAM_BADGES)
+          ms_mt_moon  : Mont Sélénite  (MT_MOON_1F) visité
         """
         party_size = min(self._r(RAM_PARTY_COUNT), 6)
         max_level  = (
@@ -565,11 +590,8 @@ class PokemonBlueEnv(gym.Env):
             'pokedex_owned':   pokedex_owned,
             'episode_steps':   self._step_count,
             # Milestones (0/1) — utilisés pour le taux de complétion
-            'ms_viridian':  int(0x01 in self._visited_maps),
-            'ms_forest':    int(0x33 in self._visited_maps),
-            'ms_pewter':    int(0x02 in self._visited_maps),
-            'ms_badge1':    int(bool(badges & 0x01)),
-            'ms_mt_moon':   int(0x59 in self._visited_maps),
+            **{name: int(map_id in self._visited_maps) for name, map_id in _MS_MAPS.items()},
+            'ms_badge1':    int(bool(badges & _BOULDER_BADGE)),
             # Progression géographique (pour diagnostic)
             'min_y_progress':         self._min_y_progress,
             'steps_on_current_map':   self._steps_on_current_map,
@@ -671,24 +693,15 @@ class PokemonBlueEnv(gym.Env):
         Returns:
             +0.1 si SE · +0.2 si double SE · 0.0 sinon ou si move de statut.
         """
-        enemy_type1 = self._r(RAM_ENEMY_TYPE1)
-        enemy_type2 = self._r(RAM_ENEMY_TYPE2)
-        enemy_types = [
-            RAM_TYPE_BYTE_TO_NAME.get(enemy_type1, "normal"),
-            RAM_TYPE_BYTE_TO_NAME.get(enemy_type2, "normal"),
-        ]
+        enemy_types = self._enemy_types()
 
         bonus = 0.0
         for i in range(4):
-            curr_pp = self._r(RAM_MOVE_PP[i])
+            curr_pp = self._r(RAM_MOVE_PP[i]) & RAM_PP_MASK
             if curr_pp < self._prev_move_pp[i]:
                 move_id = self._r(RAM_MOVE_IDS[i])
-                if move_id and move_id not in STATUS_MOVES:
-                    move_type_byte = MOVE_TYPES.get(move_id, 0x00)
-                    move_type_name = RAM_TYPE_BYTE_TO_NAME.get(move_type_byte, "normal")
-                    mult = 1.0
-                    for def_type in enemy_types:
-                        mult *= TYPE_CHART.get(move_type_name, {}).get(def_type, 1.0)
+                if move_id in MOVE_TYPES and move_id not in STATUS_MOVES:
+                    mult = type_multiplier(MOVE_TYPES[move_id], enemy_types)
                     if mult >= 4.0:
                         bonus = 0.2
                     elif mult >= 2.0:
@@ -714,8 +727,12 @@ class PokemonBlueEnv(gym.Env):
             result = result * 100 + (b >> 4) * 10 + (b & 0x0F)
         return result
 
+    def _enemy_types(self) -> tuple[int, int]:
+        """Octets de type de l'ennemi (wEnemyMonType1/2 ; un mono-type est répété)."""
+        return self._r(RAM_ENEMY_TYPE1), self._r(RAM_ENEMY_TYPE2)
+
     def _count_event_flags(self) -> int:
-        """Nombre de bits à 1 dans la zone event flags (0xD747, 32 octets)."""
+        """Nombre de drapeaux actifs parmi les 2560 de wEventFlags (320 octets)."""
         return sum(self._r(RAM_EVENT_FLAGS + i).bit_count() for i in range(RAM_EVENT_LEN))
 
     def _total_party_hp(self) -> int:
@@ -750,8 +767,12 @@ class PokemonBlueEnv(gym.Env):
         return 30.0 + (total - 15) / 4.0
 
     def _blacked_out(self) -> bool:
-        max_hp = self._r16(RAM_PLAYER_MHP_H)
-        return max_hp > 0 and self._r16(RAM_PLAYER_HP_H) == 0 and self._r(RAM_BATTLE) == 0
+        """Toute l'équipe est K.O. hors combat (pas seulement le Pokémon n°1)."""
+        return (
+            self._total_party_max_hp() > 0
+            and self._total_party_hp() == 0
+            and self._r(RAM_BATTLE) == 0
+        )
 
     # ── Action Masking (requis par MaskablePPO / sb3-contrib) ────────────────
 
@@ -760,10 +781,9 @@ class PokemonBlueEnv(gym.Env):
 
         Règles par état de jeu :
 
-          Overworld normal  → toutes les actions autorisées.
-
-          Transition (fade) → mouvement et Start bloqués (inputs perdus
-                              pendant le fondu). Seuls 'a' et 'b' restent actifs.
+          Hors combat       → toutes les actions autorisées. (Le masquage pendant
+                              les transitions reposait sur une adresse fausse ;
+                              il reviendra avec la détection de mode de la Phase 1.)
 
           En combat         → mouvement et Start désactivés (Start n'a aucun
                               effet pendant un combat en Gen 1).
@@ -776,16 +796,8 @@ class PokemonBlueEnv(gym.Env):
         """
         mask = np.ones(len(ACTIONS), dtype=bool)
         battle = self._r(RAM_BATTLE)
-        fading = self._r(RAM_FADING)
 
-        if fading:
-            mask[0] = False  # up
-            mask[1] = False  # down
-            mask[2] = False  # left
-            mask[3] = False  # right
-            mask[6] = False  # start
-
-        elif battle > 0:
+        if battle > 0:
             mask[0] = False  # up
             mask[1] = False  # down
             mask[2] = False  # left
@@ -793,25 +805,16 @@ class PokemonBlueEnv(gym.Env):
             mask[5] = False  # b — empêche la fuite systématique
             mask[6] = False  # start (sans effet en combat Gen 1)
 
-            enemy_type1 = self._r(RAM_ENEMY_TYPE1)
-            enemy_type2 = self._r(RAM_ENEMY_TYPE2)
-            enemy_type_names = [
-                RAM_TYPE_BYTE_TO_NAME.get(enemy_type1, "normal"),
-                RAM_TYPE_BYTE_TO_NAME.get(enemy_type2, "normal"),
-            ]
+            enemy_types = self._enemy_types()
             has_usable_move = False
             for i in range(4):
-                pp      = self._r(RAM_MOVE_PP[i])
+                pp      = self._r(RAM_MOVE_PP[i]) & RAM_PP_MASK
                 move_id = self._r(RAM_MOVE_IDS[i])
-                if pp == 0 or move_id == 0:
+                if pp == 0 or move_id not in MOVE_TYPES:
                     continue
                 if move_id in STATUS_MOVES:
                     continue
-                move_type_byte = MOVE_TYPES.get(move_id, 0x00)
-                move_type_name = RAM_TYPE_BYTE_TO_NAME.get(move_type_byte, "normal")
-                mult = 1.0
-                for def_type in enemy_type_names:
-                    mult *= TYPE_CHART.get(move_type_name, {}).get(def_type, 1.0)
+                mult = type_multiplier(MOVE_TYPES[move_id], enemy_types)
                 if mult > 0.0:
                     has_usable_move = True
                     break

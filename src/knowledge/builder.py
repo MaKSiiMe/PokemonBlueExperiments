@@ -38,11 +38,14 @@ from typing import Any
 import networkx as nx
 import requests
 
+from pokeblue.knowledge import gen1_data as g1
 from src.knowledge.gen1_data import (
+    GEN1_DEX_TO_INTERNAL,
     GEN1_TYPES,
+    PRIORITY_MOVES,
+    RAM_TYPE_BYTE_TO_NAME,
     TYPE_CHART,
     ZONE_MAP_ID,
-    PRIORITY_MOVES,
 )
 
 logger = logging.getLogger(__name__)
@@ -177,23 +180,21 @@ class KnowledgeGraphBuilder:
             name = data["name"]
             node_id = f"pokemon:{name}"
 
-            # Filtrer les types Gen 1 (la PokéAPI peut retourner des types modernes
-            # pour des formes alternatives — on garde uniquement les types valides)
-            types: list[str] = [
-                t["type"]["name"]
-                for t in data["types"]
-                if t["type"]["name"] in GEN1_TYPES
-            ]
+            # Types et stats Gen 1 (pret/pokered) : la PokéAPI renvoie les valeurs
+            # modernes (Mélofée Fée, stats rééquilibrées, pas de stat Spécial unique).
+            gen1 = g1.SPECIES[GEN1_DEX_TO_INTERNAL[dex]]
+            types: list[str] = list(dict.fromkeys(RAM_TYPE_BYTE_TO_NAME[t] for t in gen1.types))
 
             G.add_node(
                 node_id,
                 kind="pokemon",
                 name=name,
                 dex=dex,
-                base_hp=data["stats"][0]["base_stat"],
-                base_attack=data["stats"][1]["base_stat"],
-                base_defense=data["stats"][2]["base_stat"],
-                base_speed=data["stats"][5]["base_stat"],
+                base_hp=gen1.hp,
+                base_attack=gen1.attack,
+                base_defense=gen1.defense,
+                base_speed=gen1.speed,
+                base_special=gen1.special,
                 types=types,
             )
 
@@ -229,25 +230,18 @@ class KnowledgeGraphBuilder:
         logger.info("  %d moves uniques ajoutés au graphe", len(move_ids_seen))
 
     def _add_move_node(self, G: nx.DiGraph, move_id: int, move_name: str) -> None:
-        """Fetche un move et l'ajoute au graphe."""
-        try:
-            data = self._api.get_move(move_id)
-        except requests.HTTPError as exc:
-            logger.warning("Move %d (%s) non trouvé : %s", move_id, move_name, exc)
-            G.add_node(f"move:{move_name}", kind="move", name=move_name,
-                       move_id=move_id, type_name=None, base_power=None,
-                       damage_class=None, priority=0)
-            return
+        """Ajoute un move au graphe avec ses données Gen 1.
 
-        type_name = data["type"]["name"]
-        # Ignorer les types non-Gen1 (par sécurité)
-        if type_name not in GEN1_TYPES:
-            type_name = None
-
-        priority = data.get("priority", 0)
-        # Certains moves Gen 1 ont une priorité différente dans pokered vs PokéAPI
-        # On surcharge avec les données hardcodées si disponibles
-        priority = PRIORITY_MOVES.get(move_id, priority)
+        Les IDs PokéAPI 1–165 suivent l'ordre interne de la Gen 1 ; type, puissance,
+        PP et priorité viennent de pret/pokered (la PokéAPI donne les valeurs modernes :
+        Morsure Ténèbres, Tornade Vol, Poing-Karaté Combat…).
+        """
+        gen1 = g1.MOVES[move_id]
+        type_name = RAM_TYPE_BYTE_TO_NAME[gen1.type]
+        if not g1.is_damaging(move_id):
+            damage_class = "status"
+        else:
+            damage_class = "special" if g1.is_special_type(gen1.type) else "physical"
 
         node_id = f"move:{move_name}"
         G.add_node(
@@ -256,10 +250,10 @@ class KnowledgeGraphBuilder:
             name=move_name,
             move_id=move_id,
             type_name=type_name,
-            base_power=data.get("power"),
-            damage_class=data["damage_class"]["name"],  # physical/special/status
-            priority=priority,
-            pp=data.get("pp"),
+            base_power=gen1.power,
+            damage_class=damage_class,  # en Gen 1, physique/spécial dépend du type
+            priority=PRIORITY_MOVES.get(move_id, 0),
+            pp=gen1.pp,
         )
 
         if type_name:

@@ -1,8 +1,10 @@
 """
-test_battle.py — Test manuel du BattleAgent.
+battle_manual.py — Test manuel (interactif) du BattleAgent.
+
+Hors de la suite pytest : fenêtre SDL2 et clavier requis (extra `tools` : pynput).
 
 Lance le jeu en SDL2. Tu joues manuellement jusqu'au combat.
-Dès que 0xD057 > 0, le BattleAgent prend le relais automatiquement.
+Dès que wIsInBattle > 0, le BattleAgent prend le relais automatiquement.
 
 Contrôles (hors combat) :
     Z / Q / S / D  →  haut / gauche / bas / droite
@@ -10,20 +12,22 @@ Contrôles (hors combat) :
     E              →  bouton B
     Echap          →  quitter
 
-Usage :
-    python test_battle.py
-    python test_battle.py --state states/47_pewter_gym.state
+Usage (depuis la racine du repo) :
+    python -m tests.manual.battle_manual
+    python -m tests.manual.battle_manual --state states/47_pewter_gym.state
 """
 
 import argparse
 import threading
 import time
+
 from pyboy import PyBoy
 from pynput import keyboard as kb
 
+from pokeblue.state import ram_symbols as sym
 from src.agent.battle_agent import BattleAgent
 from src.emulator.pokemon_env import TICKS_PER_ACTION
-from src.emulator.ram_map import RAM_BATTLE, RAM_FADING, RAM_BADGES
+from src.emulator.ram_map import RAM_BADGES, RAM_BATTLE
 
 ROM_PATH = 'ROMs/PokemonBlue.gb'
 
@@ -91,10 +95,9 @@ def main():
     try:
         while not _stop.is_set():
             battle = pyboy.memory[RAM_BATTLE]
-            fading = pyboy.memory[RAM_FADING]
 
             if battle > 0 and prev_battle == 0:
-                kind = 'sauvage' if battle == 1 else 'dresseur'
+                kind = 'sauvage' if battle == sym.WILD_BATTLE else 'dresseur'
                 print(f"[Test] Combat {kind} — BattleAgent actif.")
                 _manual_mode.clear()
                 battle_agent.reset()
@@ -109,9 +112,7 @@ def main():
 
             prev_battle = battle
 
-            if fading:
-                pyboy.tick()
-            elif battle > 0:
+            if battle > 0:
                 action = battle_agent.act(pyboy)
                 if action:
                     pyboy.button(action)

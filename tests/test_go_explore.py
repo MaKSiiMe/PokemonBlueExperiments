@@ -8,8 +8,7 @@ Garantit que :
   - Le step_count est remis à 0 après reset_from_state().
 """
 
-import pytest
-from src.emulator.ram_map import RAM_PLAYER_X, RAM_PLAYER_Y, RAM_MAP_ID
+from src.emulator.ram_map import RAM_MAP_ID, RAM_PLAYER_X, RAM_PLAYER_Y
 
 
 def test_capture_returns_bytes(env):

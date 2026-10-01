@@ -7,7 +7,7 @@ import pytest
 
 def _call_reward(env):
     """Appelle _reward() avec la position courante et retourne (reward, components)."""
-    from src.emulator.ram_map import RAM_PLAYER_X, RAM_PLAYER_Y, RAM_MAP_ID
+    from src.emulator.ram_map import RAM_MAP_ID, RAM_PLAYER_X, RAM_PLAYER_Y
     x   = env._r(RAM_PLAYER_X)
     y   = env._r(RAM_PLAYER_Y)
     mid = env._r(RAM_MAP_ID)

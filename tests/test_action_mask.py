@@ -5,8 +5,7 @@ Actions layout : ['up', 'down', 'left', 'right', 'a', 'b', 'start']
                    0      1       2       3        4    5      6
 """
 
-import pytest
-from src.emulator.ram_map import RAM_BATTLE, RAM_FADING
+from src.emulator.ram_map import RAM_BATTLE
 
 
 def _set_ram(env, addr, value):
@@ -15,23 +14,8 @@ def _set_ram(env, addr, value):
 
 def test_overworld_all_actions_allowed(env):
     _set_ram(env, RAM_BATTLE, 0)
-    _set_ram(env, RAM_FADING, 0)
     mask = env.action_masks()
     assert mask.all(), "Overworld : toutes les actions doivent être autorisées"
-
-
-def test_fading_movement_disabled(env):
-    _set_ram(env, RAM_BATTLE, 0)
-    _set_ram(env, RAM_FADING, 1)
-    mask = env.action_masks()
-    assert not mask[0], "fading: up doit être masqué"
-    assert not mask[1], "fading: down doit être masqué"
-    assert not mask[2], "fading: left doit être masqué"
-    assert not mask[3], "fading: right doit être masqué"
-    assert not mask[6], "fading: start doit être masqué"
-    assert mask[4], "fading: A doit rester autorisé"
-    assert mask[5], "fading: B doit rester autorisé"
-    _set_ram(env, RAM_FADING, 0)
 
 
 def test_battle_movement_disabled(env):
