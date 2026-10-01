@@ -67,6 +67,7 @@ LAYOUT_CONSTANTS = {
     "constants/ram_constants.asm": (
         "BIT_BOULDERBADGE", "BIT_CASCADEBADGE", "BIT_THUNDERBADGE", "BIT_RAINBOWBADGE",
         "BIT_SOULBADGE", "BIT_MARSHBADGE", "BIT_VOLCANOBADGE", "BIT_EARTHBADGE", "NUM_BADGES",
+        "BIT_GAVE_SAFFRON_GUARDS_DRINK",   # wStatusFlags1
     ),
     "constants/menu_constants.asm": ("BAG_ITEM_CAPACITY",),
     "constants/text_constants.asm": ("NAME_LENGTH",),
@@ -76,6 +77,11 @@ LAYOUT_CONSTANTS = {
         "SPRITE_FACING_DOWN", "SPRITE_FACING_UP", "SPRITE_FACING_LEFT", "SPRITE_FACING_RIGHT",
     ),
     "constants/map_data_constants.asm": ("NORTH", "SOUTH", "WEST", "EAST"),  # wCurMapConnections
+    "constants/map_object_constants.asm": (
+        "SPRITESTATEDATA1_PICTUREID", "SPRITESTATEDATA1_IMAGEINDEX", "SPRITESTATEDATA1_LENGTH",
+        "SPRITESTATEDATA2_MAPY", "SPRITESTATEDATA2_MAPX", "SPRITESTATEDATA2_LENGTH",
+        "NUM_SPRITESTATEDATA_STRUCTS",
+    ),
 }
 
 # Tailles des tableaux de bits : macro `flag_array` (macros/ram.asm) = (n + 7) / 8 octets.

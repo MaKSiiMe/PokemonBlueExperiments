@@ -14,6 +14,9 @@ from pokeblue.state.memory import MemorySnapshot
 
 # Modificateurs de stats utilisés (wPlayerMonStatMods) : Attaque … Esquive.
 NUM_USED_STAT_MODS = sym.MOD_EVASION + 1
+# wSpriteStateData2 MAPY/MAPX valent la coordonnée + 4 (object_event : `db \2 + 4`,
+# macros/scripts/maps.asm).
+SPRITE_MAP_COORD_OFFSET = 4
 
 
 # ── Décodage ──────────────────────────────────────────────────────────────────
@@ -166,6 +169,19 @@ def _read_battle_mon(mem: MemorySnapshot, prefix: str, mods_addr: int) -> Battle
     )
 
 
+def _read_sprites(mem: MemorySnapshot) -> tuple[tuple[int, int, int], ...]:
+    """Positions courantes des PNJ (emplacement 0 = joueur, ignoré)."""
+    sprites = []
+    for slot in range(1, sym.NUM_SPRITESTATEDATA_STRUCTS):
+        data1 = sym.W_SPRITE_STATE_DATA1 + slot * sym.SPRITESTATEDATA1_LENGTH
+        data2 = sym.W_SPRITE_STATE_DATA2 + slot * sym.SPRITESTATEDATA2_LENGTH
+        if mem[data1 + sym.SPRITESTATEDATA1_PICTUREID]:
+            sprites.append((slot,
+                            mem[data2 + sym.SPRITESTATEDATA2_MAPX] - SPRITE_MAP_COORD_OFFSET,
+                            mem[data2 + sym.SPRITESTATEDATA2_MAPY] - SPRITE_MAP_COORD_OFFSET))
+    return tuple(sprites)
+
+
 # ── État complet ──────────────────────────────────────────────────────────────
 
 @dataclass(frozen=True, slots=True)
@@ -183,6 +199,12 @@ class GameState:
     event_flags: int                     # bit i = drapeau i (NUM_EVENTS bits)
     pokedex_owned: int                   # bit i = n° de Pokédex i + 1
     pokedex_seen: int
+    hidden_objects: int                  # bit i = objet activable i masqué (wToggleableObjectFlags)
+    status_flags1: int                   # wStatusFlags1 (ex. BIT_GAVE_SAFFRON_GUARDS_DRINK)
+    player_starter: int                  # wPlayerStarter (ID interne)
+    rival_starter: int                   # wRivalStarter : choisit l'équipe du rival
+    walk_bike_surf: int                  # wWalkBikeSurfState : 0 marche, 1 vélo, 2 surf
+    sprites: tuple[tuple[int, int, int], ...]  # (n° d'objet, x, y) des PNJ chargés sur la carte
     # Combat (None hors combat)
     battle: Battle | None
     # Affichage : entrées de la détection de mode
@@ -221,6 +243,14 @@ class GameState:
             event_flags=decode_flags(mem.read(sym.W_EVENT_FLAGS, sym.EVENT_FLAGS_SIZE)),
             pokedex_owned=decode_flags(mem.read(sym.W_POKEDEX_OWNED, sym.POKEDEX_FLAGS_SIZE)),
             pokedex_seen=decode_flags(mem.read(sym.W_POKEDEX_SEEN, sym.POKEDEX_FLAGS_SIZE)),
+            hidden_objects=decode_flags(mem.read(
+                sym.W_TOGGLEABLE_OBJECT_FLAGS,
+                sym.W_TOGGLEABLE_OBJECT_FLAGS_END - sym.W_TOGGLEABLE_OBJECT_FLAGS)),
+            status_flags1=mem[sym.W_STATUS_FLAGS1],
+            player_starter=mem[sym.W_PLAYER_STARTER],
+            rival_starter=mem[sym.W_RIVAL_STARTER],
+            walk_bike_surf=mem[sym.W_WALK_BIKE_SURF_STATE],
+            sprites=_read_sprites(mem),
             battle=battle,
             tilemap=mem.read(sym.W_TILE_MAP, sym.SCREEN_AREA),
             map_pal_offset=mem[sym.W_MAP_PAL_OFFSET],
@@ -240,6 +270,10 @@ class GameState:
     @property
     def n_flags(self) -> int:
         return self.event_flags.bit_count()
+
+    def object_hidden(self, toggle: int) -> bool:
+        """Objet activable n° `toggle` masqué (Ronflex endormi, objet ramassé…)."""
+        return bool(self.hidden_objects >> toggle & 1)
 
     def has_badge(self, bit: int) -> bool:
         return bool(self.badges >> bit & 1)

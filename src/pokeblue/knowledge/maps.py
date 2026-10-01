@@ -84,6 +84,7 @@ class MapData:
     toggles: tuple[Toggle, ...]
     wild: WildTable | None
     gym_leader_no: int | None
+    blocks: bytes             # n° de bloc, width × height (fichier .blk)
     tiles: tuple[bytes, ...]  # une ligne par rangée de cases
 
     @property
@@ -130,6 +131,7 @@ def _from_json(raw: dict) -> MapData:
             water_rate=wild["water_rate"], water=tuple(map(tuple, wild["water"])),
         ) if wild else None,
         gym_leader_no=raw["gym_leader_no"],
+        blocks=bytes.fromhex(raw["blocks"]),
         tiles=tuple(bytes.fromhex(row) for row in raw["tiles"]),
     )
 

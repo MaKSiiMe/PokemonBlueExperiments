@@ -38,6 +38,7 @@ CONSTANT_FILES = (
     "constants/sprite_data_constants.asm",
     "constants/map_constants.asm",
     "constants/map_data_constants.asm",
+    "constants/map_object_constants.asm",
     "constants/toggle_constants.asm",
     "constants/tileset_constants.asm",
     "constants/event_constants.asm",

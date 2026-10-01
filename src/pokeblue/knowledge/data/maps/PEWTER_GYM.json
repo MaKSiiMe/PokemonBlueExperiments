@@ -68,6 +68,7 @@
  ],
  "gym_leader_no": 1,
  "padded_blocks": 0,
+ "blocks": "080a0a0a090c0b050b0d0e12130b0f0e12130b0f0c0705060d05110510050505040505",
  "wild": null,
  "toggles": [],
  "tiles": [

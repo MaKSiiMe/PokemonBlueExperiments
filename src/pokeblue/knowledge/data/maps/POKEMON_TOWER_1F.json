@@ -92,6 +92,7 @@
  ],
  "gym_leader_no": null,
  "padded_blocks": 0,
+ "blocks": "010101030a0607030101010110060e0e0e060801010c390e0e0e0e0e200d010a0e0e0e0e0e0e0e0701390e0e0e0e0e0e0e12011c0e0e0e0e0e0e0e1e010c0e0e0e0e253f3f0d0101140e0e0e250e0b01010101051c0e1e050101",
  "wild": {
   "grass_rate": 0,
   "grass": [],

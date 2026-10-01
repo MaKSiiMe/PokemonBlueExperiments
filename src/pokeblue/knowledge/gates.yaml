@@ -1,0 +1,87 @@
+# Passages bloqués par un script de coordonnées tant qu'une condition n'est pas remplie.
+#
+# Ces verrous ne sont pas des collisions : un script repousse le joueur ou lance un
+# dialogue s'il atteint certaines cases (ArePlayerCoordsInArray, tests sur
+# wXCoord / wYCoord). Les cases et conditions ci-dessous sont relevées à la main
+# dans les scripts cités. Pour la navigation, les cases d'un verrou fermé sont
+# infranchissables.
+#
+# Conditions (toutes doivent être vraies) :
+#   events / events_unset   drapeaux d'événement actifs / inactifs
+#   badges                  bits de badge (BIT_*BADGE sans le préfixe BIT_)
+#   items                   objets présents dans le sac
+#   money                   argent minimal
+#   status_flags1           bits de wStatusFlags1 (constants/ram_constants.asm)
+# `open_when_any` : liste de conditions, une seule suffit.
+# Une case peut être donnée par `squares` ou par `rows` (rangée y, bornée en x).
+
+gates:
+  - id: viridian_old_man
+    map: VIRIDIAN_CITY
+    squares: [[19, 9]]
+    open_when: {events: [EVENT_GOT_POKEDEX]}
+    source: scripts/ViridianCity.asm ViridianCityCheckGotPokedexScript
+
+  - id: viridian_gym_door
+    map: VIRIDIAN_CITY
+    squares: [[32, 8]]
+    open_when_any:
+      - {events: [EVENT_VIRIDIAN_GYM_OPEN]}
+      - {badges: [BOULDERBADGE, CASCADEBADGE, THUNDERBADGE, RAINBOWBADGE, SOULBADGE, MARSHBADGE, VOLCANOBADGE]}
+    source: scripts/ViridianCity.asm ViridianCityCheckGymOpenScript
+
+  - id: pewter_east_exit
+    map: PEWTER_CITY
+    squares: [[35, 17], [36, 17], [37, 18], [37, 19]]
+    open_when: {events: [EVENT_BEAT_BROCK]}
+    source: scripts/PewterCity.asm (garçon qui ramène le joueur à l'arène)
+
+  - id: route22_gate_boulderbadge
+    map: ROUTE_22_GATE
+    squares: [[4, 2], [5, 2]]
+    open_when: {badges: [BOULDERBADGE]}
+    source: scripts/Route22Gate.asm Route22GateScriptCoords, Route22GateGuardText
+
+  # Route 23 : sept gardes, du sud au nord (Route23GuardsYCoords). Le garde de la
+  # rangée 35 ne contrôle que les cases x < 14 (au-delà, sortie de la Route Victoire).
+  - {id: route23_cascadebadge, map: ROUTE_23, rows: [{y: 136}], open_when: {badges: [CASCADEBADGE]}, source: scripts/Route23.asm Route23DefaultScript}
+  - {id: route23_thunderbadge, map: ROUTE_23, rows: [{y: 119}], open_when: {badges: [THUNDERBADGE]}, source: scripts/Route23.asm Route23DefaultScript}
+  - {id: route23_rainbowbadge, map: ROUTE_23, rows: [{y: 105}], open_when: {badges: [RAINBOWBADGE]}, source: scripts/Route23.asm Route23DefaultScript}
+  - {id: route23_soulbadge, map: ROUTE_23, rows: [{y: 96}], open_when: {badges: [SOULBADGE]}, source: scripts/Route23.asm Route23DefaultScript}
+  - {id: route23_marshbadge, map: ROUTE_23, rows: [{y: 85}], open_when: {badges: [MARSHBADGE]}, source: scripts/Route23.asm Route23DefaultScript}
+  - {id: route23_volcanobadge, map: ROUTE_23, rows: [{y: 56}], open_when: {badges: [VOLCANOBADGE]}, source: scripts/Route23.asm Route23DefaultScript}
+  - {id: route23_earthbadge, map: ROUTE_23, rows: [{y: 35, x_max: 13}], open_when: {badges: [EARTHBADGE]}, source: scripts/Route23.asm Route23DefaultScript}
+
+  - id: vermilion_dock
+    map: VERMILION_CITY
+    squares: [[18, 30]]
+    open_when: {items: [S_S_TICKET], events_unset: [EVENT_SS_ANNE_LEFT]}
+    source: scripts/VermilionCity.asm SSAnneTicketCheckCoords
+
+  # Portes de Safrania : les gardes ont soif (boisson donnée une fois pour toutes).
+  - {id: saffron_gate_route5, map: ROUTE_5_GATE, squares: [[3, 3], [4, 3]], open_when: {status_flags1: [BIT_GAVE_SAFFRON_GUARDS_DRINK]}, source: scripts/Route5Gate.asm}
+  - {id: saffron_gate_route6, map: ROUTE_6_GATE, squares: [[3, 2], [4, 2]], open_when: {status_flags1: [BIT_GAVE_SAFFRON_GUARDS_DRINK]}, source: scripts/Route6Gate.asm}
+  - {id: saffron_gate_route7, map: ROUTE_7_GATE, squares: [[3, 3], [3, 4]], open_when: {status_flags1: [BIT_GAVE_SAFFRON_GUARDS_DRINK]}, source: scripts/Route7Gate.asm}
+  - {id: saffron_gate_route8, map: ROUTE_8_GATE, squares: [[2, 3], [2, 4]], open_when: {status_flags1: [BIT_GAVE_SAFFRON_GUARDS_DRINK]}, source: scripts/Route8Gate.asm}
+
+  - id: pokemon_tower_ghost
+    map: POKEMON_TOWER_6F
+    squares: [[10, 16]]
+    open_when: {events: [EVENT_BEAT_GHOST_MAROWAK]}
+    source: "scripts/PokemonTower6F.asm (Ossatueur spectral : Scope Sylphe requis pour le battre)"
+
+  - id: cinnabar_gym_door
+    map: CINNABAR_ISLAND
+    squares: [[18, 4]]
+    open_when: {items: [SECRET_KEY]}
+    source: scripts/CinnabarIsland.asm CinnabarIslandDefaultScript
+
+  # Piste Cyclable : vélo obligatoire.
+  - {id: cycling_road_route16, map: ROUTE_16_GATE_1F, squares: [[4, 7], [4, 8], [4, 9], [4, 10]], open_when: {items: [BICYCLE]}, source: scripts/Route16Gate1F.asm}
+  - {id: cycling_road_route18, map: ROUTE_18_GATE_1F, squares: [[4, 3], [4, 4], [4, 5], [4, 6]], open_when: {items: [BICYCLE]}, source: scripts/Route18Gate1F.asm}
+
+  - id: safari_zone_entry
+    map: SAFARI_ZONE_GATE
+    squares: [[3, 2], [4, 2]]
+    open_when: {money: 500}
+    source: "scripts/SafariZoneGate.asm (entrée à ¥500 : hMoney = $00 $05 $00)"

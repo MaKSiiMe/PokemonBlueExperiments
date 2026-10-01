@@ -1,0 +1,91 @@
+# Blocs de carte remplacés par les scripts selon un drapeau d'événement.
+#
+# Le fichier .blk d'une carte n'est que son état initial : au chargement, certains
+# scripts appellent ReplaceTileBlock selon un event flag (barrières de la Route
+# Victoire, portes de Sylphe SARL, interrupteurs du Manoir…). Ces appels passent
+# souvent par des sous-programmes, donc ce fichier est relu à la main, script par
+# script. tests/test_block_events.py vérifie qu'il concorde avec une extraction
+# automatique sur les scripts de forme simple.
+#
+# Champs : map, block [x, y] (en blocs : `lb bc, y, x` dans le script), event,
+# when_set (le remplacement a lieu si l'événement est actif, ou s'il ne l'est pas),
+# block_id (nouveau bloc), source ; solvable_with : capacité qui permet au joueur
+# d'activer l'événement lui-même (pousser un rocher sur l'interrupteur avec Force).
+
+block_events:
+  # ── Route Victoire : un rocher sur l'interrupteur ouvre la barrière ─────────────
+  - {map: VICTORY_ROAD_1F, block: [4, 6], event: EVENT_VICTORY_ROAD_1_BOULDER_ON_SWITCH, when_set: true, solvable_with: STRENGTH, block_id: 0x1D, source: scripts/VictoryRoad1F.asm VictoryRoad1F_Script}
+  - {map: VICTORY_ROAD_2F, block: [3, 4], event: EVENT_VICTORY_ROAD_2_BOULDER_ON_SWITCH1, when_set: true, solvable_with: STRENGTH, block_id: 0x15, source: scripts/VictoryRoad2F.asm VictoryRoad2FCheckBoulderEventScript}
+  - {map: VICTORY_ROAD_2F, block: [11, 7], event: EVENT_VICTORY_ROAD_2_BOULDER_ON_SWITCH2, when_set: true, solvable_with: STRENGTH, block_id: 0x1D, source: scripts/VictoryRoad2F.asm VictoryRoad2FCheckBoulderEventScript}
+  - {map: VICTORY_ROAD_3F, block: [3, 5], event: EVENT_VICTORY_ROAD_3_BOULDER_ON_SWITCH1, when_set: true, solvable_with: STRENGTH, block_id: 0x1D, source: scripts/VictoryRoad3F.asm VictoryRoad3FCheckBoulderEventScript}
+
+  # ── Conseil 4 : sortie ouverte une fois le dresseur battu ───────────────────────
+  - {map: LORELEIS_ROOM, block: [2, 0], event: EVENT_BEAT_LORELEIS_ROOM_TRAINER_0, when_set: true, block_id: 0x24, source: scripts/LoreleisRoom.asm}
+  - {map: BRUNOS_ROOM, block: [2, 0], event: EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, when_set: true, block_id: 0x24, source: scripts/BrunosRoom.asm}
+  - {map: AGATHAS_ROOM, block: [2, 0], event: EVENT_BEAT_AGATHAS_ROOM_TRAINER_0, when_set: true, block_id: 0x3B, source: scripts/AgathasRoom.asm}
+  - {map: LANCES_ROOM, block: [2, 6], event: EVENT_LANCES_ROOM_LOCK_DOOR, when_set: false, block_id: 0x31, source: scripts/LancesRoom.asm LanceShowOrHideEntranceBlocks}
+  - {map: LANCES_ROOM, block: [3, 6], event: EVENT_LANCES_ROOM_LOCK_DOOR, when_set: false, block_id: 0x32, source: scripts/LancesRoom.asm LanceShowOrHideEntranceBlocks}
+  - {map: LANCES_ROOM, block: [2, 6], event: EVENT_LANCES_ROOM_LOCK_DOOR, when_set: true, block_id: 0x72, source: scripts/LancesRoom.asm LanceShowOrHideEntranceBlocks}
+  - {map: LANCES_ROOM, block: [3, 6], event: EVENT_LANCES_ROOM_LOCK_DOOR, when_set: true, block_id: 0x73, source: scripts/LancesRoom.asm LanceShowOrHideEntranceBlocks}
+
+  # ── Céladopole : l'interrupteur derrière l'affiche révèle l'escalier ────────────
+  - {map: GAME_CORNER, block: [8, 2], event: EVENT_FOUND_ROCKET_HIDEOUT, when_set: false, block_id: 0x2A, source: scripts/GameCorner.asm GameCornerSetRocketHideoutDoorTile}
+  - {map: GAME_CORNER, block: [8, 2], event: EVENT_FOUND_ROCKET_HIDEOUT, when_set: true, block_id: 0x43, source: scripts/GameCorner.asm GameCornerPosterText}
+
+  # ── Repaire Rocket ──────────────────────────────────────────────────────────────
+  - {map: ROCKET_HIDEOUT_B1F, block: [12, 8], event: EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_4, when_set: false, block_id: 0x54, source: scripts/RocketHideoutB1F.asm}
+  - {map: ROCKET_HIDEOUT_B1F, block: [12, 8], event: EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_4, when_set: true, block_id: 0x0E, source: scripts/RocketHideoutB1F.asm}
+  - {map: ROCKET_HIDEOUT_B4F, block: [12, 5], event: EVENT_ROCKET_HIDEOUT_4_DOOR_UNLOCKED, when_set: false, block_id: 0x2D, source: scripts/RocketHideoutB4F.asm}
+
+  # ── Arène de Carmin : porte fermée tant que la 2e serrure n'est pas ouverte ─────
+  - {map: VERMILION_GYM, block: [2, 2], event: EVENT_2ND_LOCK_OPENED, when_set: false, block_id: 0x24, source: scripts/VermilionGym.asm}
+
+  # ── Sylphe SARL : portes verrouillées tant que la Carte Magnétique n'a pas servi ─
+  - {map: SILPH_CO_2F, block: [2, 2], event: EVENT_SILPH_CO_2_UNLOCKED_DOOR1, when_set: false, block_id: 0x54, source: scripts/SilphCo2F.asm}
+  - {map: SILPH_CO_2F, block: [2, 5], event: EVENT_SILPH_CO_2_UNLOCKED_DOOR2, when_set: false, block_id: 0x54, source: scripts/SilphCo2F.asm}
+  - {map: SILPH_CO_3F, block: [4, 4], event: EVENT_SILPH_CO_3_UNLOCKED_DOOR1, when_set: false, block_id: 0x5F, source: scripts/SilphCo3F.asm}
+  - {map: SILPH_CO_3F, block: [8, 4], event: EVENT_SILPH_CO_3_UNLOCKED_DOOR2, when_set: false, block_id: 0x5F, source: scripts/SilphCo3F.asm}
+  - {map: SILPH_CO_4F, block: [2, 6], event: EVENT_SILPH_CO_4_UNLOCKED_DOOR1, when_set: false, block_id: 0x54, source: scripts/SilphCo4F.asm}
+  - {map: SILPH_CO_4F, block: [6, 4], event: EVENT_SILPH_CO_4_UNLOCKED_DOOR2, when_set: false, block_id: 0x54, source: scripts/SilphCo4F.asm}
+  - {map: SILPH_CO_5F, block: [3, 2], event: EVENT_SILPH_CO_5_UNLOCKED_DOOR1, when_set: false, block_id: 0x5F, source: scripts/SilphCo5F.asm}
+  - {map: SILPH_CO_5F, block: [3, 6], event: EVENT_SILPH_CO_5_UNLOCKED_DOOR2, when_set: false, block_id: 0x5F, source: scripts/SilphCo5F.asm}
+  - {map: SILPH_CO_5F, block: [7, 5], event: EVENT_SILPH_CO_5_UNLOCKED_DOOR3, when_set: false, block_id: 0x5F, source: scripts/SilphCo5F.asm}
+  - {map: SILPH_CO_6F, block: [2, 6], event: EVENT_SILPH_CO_6_UNLOCKED_DOOR, when_set: false, block_id: 0x5F, source: scripts/SilphCo6F.asm}
+  - {map: SILPH_CO_7F, block: [5, 3], event: EVENT_SILPH_CO_7_UNLOCKED_DOOR1, when_set: false, block_id: 0x54, source: scripts/SilphCo7F.asm}
+  - {map: SILPH_CO_7F, block: [10, 2], event: EVENT_SILPH_CO_7_UNLOCKED_DOOR2, when_set: false, block_id: 0x54, source: scripts/SilphCo7F.asm}
+  - {map: SILPH_CO_7F, block: [10, 6], event: EVENT_SILPH_CO_7_UNLOCKED_DOOR3, when_set: false, block_id: 0x54, source: scripts/SilphCo7F.asm}
+  - {map: SILPH_CO_8F, block: [3, 4], event: EVENT_SILPH_CO_8_UNLOCKED_DOOR, when_set: false, block_id: 0x5F, source: scripts/SilphCo8F.asm}
+  - {map: SILPH_CO_9F, block: [1, 4], event: EVENT_SILPH_CO_9_UNLOCKED_DOOR1, when_set: false, block_id: 0x5F, source: scripts/SilphCo9F.asm}
+  - {map: SILPH_CO_9F, block: [9, 2], event: EVENT_SILPH_CO_9_UNLOCKED_DOOR2, when_set: false, block_id: 0x54, source: scripts/SilphCo9F.asm}
+  - {map: SILPH_CO_9F, block: [9, 5], event: EVENT_SILPH_CO_9_UNLOCKED_DOOR3, when_set: false, block_id: 0x54, source: scripts/SilphCo9F.asm}
+  - {map: SILPH_CO_9F, block: [5, 6], event: EVENT_SILPH_CO_9_UNLOCKED_DOOR4, when_set: false, block_id: 0x5F, source: scripts/SilphCo9F.asm}
+  - {map: SILPH_CO_10F, block: [5, 4], event: EVENT_SILPH_CO_10_UNLOCKED_DOOR, when_set: false, block_id: 0x54, source: scripts/SilphCo10F.asm}
+  - {map: SILPH_CO_11F, block: [3, 6], event: EVENT_SILPH_CO_11_UNLOCKED_DOOR, when_set: false, block_id: 0x20, source: scripts/SilphCo11F.asm}
+
+  # ── Manoir Pokémon : barrières inversées par l'interrupteur ─────────────────────
+  - {map: POKEMON_MANSION_1F, block: [12, 6], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x0E, source: scripts/PokemonMansion1F.asm Mansion1CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_1F, block: [8, 3], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x2D, source: scripts/PokemonMansion1F.asm Mansion1CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_1F, block: [10, 8], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x2D, source: scripts/PokemonMansion1F.asm Mansion1CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_1F, block: [13, 13], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x2D, source: scripts/PokemonMansion1F.asm Mansion1CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_1F, block: [12, 6], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x2D, source: scripts/PokemonMansion1F.asm Mansion1CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_1F, block: [8, 3], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x0E, source: scripts/PokemonMansion1F.asm Mansion1CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_1F, block: [10, 8], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x0E, source: scripts/PokemonMansion1F.asm Mansion1CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_1F, block: [13, 13], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x0E, source: scripts/PokemonMansion1F.asm Mansion1CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_2F, block: [4, 2], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x0E, source: scripts/PokemonMansion2F.asm Mansion2CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_2F, block: [9, 4], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x54, source: scripts/PokemonMansion2F.asm Mansion2CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_2F, block: [3, 11], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x5F, source: scripts/PokemonMansion2F.asm Mansion2CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_2F, block: [4, 2], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x5F, source: scripts/PokemonMansion2F.asm Mansion2CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_2F, block: [9, 4], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x0E, source: scripts/PokemonMansion2F.asm Mansion2CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_2F, block: [3, 11], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x0E, source: scripts/PokemonMansion2F.asm Mansion2CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_3F, block: [7, 2], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x0E, source: scripts/PokemonMansion3F.asm Mansion3CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_3F, block: [7, 5], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x5F, source: scripts/PokemonMansion3F.asm Mansion3CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_3F, block: [7, 2], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x5F, source: scripts/PokemonMansion3F.asm Mansion3CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_3F, block: [7, 5], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x0E, source: scripts/PokemonMansion3F.asm Mansion3CheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_B1F, block: [13, 8], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x0E, source: scripts/PokemonMansionB1F.asm MansionB1FCheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_B1F, block: [6, 11], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x0E, source: scripts/PokemonMansionB1F.asm MansionB1FCheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_B1F, block: [4, 3], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x5F, source: scripts/PokemonMansionB1F.asm MansionB1FCheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_B1F, block: [8, 8], event: EVENT_MANSION_SWITCH_ON, when_set: false, block_id: 0x54, source: scripts/PokemonMansionB1F.asm MansionB1FCheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_B1F, block: [13, 8], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x2D, source: scripts/PokemonMansionB1F.asm MansionB1FCheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_B1F, block: [6, 11], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x5F, source: scripts/PokemonMansionB1F.asm MansionB1FCheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_B1F, block: [4, 3], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x0E, source: scripts/PokemonMansionB1F.asm MansionB1FCheckReplaceSwitchDoorBlocks}
+  - {map: POKEMON_MANSION_B1F, block: [8, 8], event: EVENT_MANSION_SWITCH_ON, when_set: true, block_id: 0x0E, source: scripts/PokemonMansionB1F.asm MansionB1FCheckReplaceSwitchDoorBlocks}

@@ -311,6 +311,7 @@ def render(root: Path) -> dict[str, str]:
             "warps": objects["warps"], "signs": objects["signs"], "objects": objects["objects"],
             "gym_leader_no": gym_numbers.get(label),
             "padded_blocks": missing,
+            "blocks": blk.hex(),
             "wild": None,
             "toggles": [],
             "tiles": rows,
@@ -331,6 +332,18 @@ def render(root: Path) -> dict[str, str]:
         f"maps/{name}.json": json.dumps(data, ensure_ascii=False, indent=1) + "\n"
         for name, data in sorted(maps.items())
     }
+    # Tuile représentative de chaque case de chaque bloc (4 par bloc, ordre haut-gauche,
+    # haut-droite, bas-gauche, bas-droite) : permet de recalculer les cases quand un
+    # script remplace un bloc (block_events.yaml).
+    for ts in tilesets.values():
+        bst = (root / ts["blockset"]).read_bytes()
+        squares = bytearray()
+        for block in range(len(bst) // (BLOCK_TILES * BLOCK_TILES)):
+            for sy in range(2):
+                for sx in range(2):
+                    tile_y, tile_x = sy * SQUARE_TILES + 1, sx * SQUARE_TILES
+                    squares.append(bst[block * BLOCK_TILES * BLOCK_TILES + tile_y * BLOCK_TILES + tile_x])
+        ts["block_squares"] = squares.hex()
     files["tilesets.json"] = json.dumps({
         "source_commit": POKERED_COMMIT,
         "tilesets": tilesets,

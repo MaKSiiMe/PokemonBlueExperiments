@@ -60,6 +60,7 @@
  "objects": [],
  "gym_leader_no": null,
  "padded_blocks": 0,
+ "blocks": "0f0f0f0f0f0f0f0f0f0f313131470b0b0b0b5f7b0f3131470b0b0b745f7b0f1a5c4b743131315f7b0f313131315f200d21010f1a20215c1a377d7e770f087c7e313131315f7b0f313131313131315f7b0f0f0f0f0f0f0f0f0f0f",
  "wild": {
   "grass_rate": 15,
   "grass": [
