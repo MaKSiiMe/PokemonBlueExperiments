@@ -46,3 +46,6 @@ __pycache__/
 htmlcov/
 
 stage*.md
+
+# --- PACKAGING ---
+*.egg-info/

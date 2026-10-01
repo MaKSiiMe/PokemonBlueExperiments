@@ -19,7 +19,6 @@ import random
 from functools import partial
 
 import numpy as np
-
 from sb3_contrib import MaskablePPO
 from stable_baselines3.common.monitor import Monitor
 
