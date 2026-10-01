@@ -1,0 +1,88 @@
+{
+ "id": 122,
+ "name": "CELADON_MART_1F",
+ "label": "CeladonMart1F",
+ "tileset": "LOBBY",
+ "width": 10,
+ "height": 4,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 16,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 17,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 12,
+   "y": 1,
+   "map": "CELADON_MART_2F",
+   "warp": 1
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "map": "CELADON_MART_ELEVATOR",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 11,
+   "y": 4,
+   "text": "TEXT_CELADONMART1F_DIRECTORY_SIGN"
+  },
+  {
+   "x": 14,
+   "y": 1,
+   "text": "TEXT_CELADONMART1F_CURRENT_FLOOR_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 8,
+   "y": 3,
+   "sprite": "SPRITE_LINK_RECEPTIONIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONMART1F_RECEPTIONIST",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONMART1F_RECEPTIONIST"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0101010101010101010101010101010101010101",
+  "2138162121212621212121261c21212112122121",
+  "2020202020203620202020362020202032322017",
+  "2020202020203620202020362020202020202017",
+  "2020202020203015151515152020202020202017",
+  "2020202020202020202020202020202020202017",
+  "2020202020202020202020202020202020202020",
+  "2020141420202020202020202020202014142020"
+ ]
+}

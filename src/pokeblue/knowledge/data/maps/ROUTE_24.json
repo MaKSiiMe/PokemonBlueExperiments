@@ -1,0 +1,269 @@
+{
+ "id": 35,
+ "name": "ROUTE_24",
+ "label": "Route24",
+ "tileset": "OVERWORLD",
+ "width": 10,
+ "height": 18,
+ "border_block": 44,
+ "connections": [
+  {
+   "direction": "south",
+   "map": "CERULEAN_CITY",
+   "offset": -5
+  },
+  {
+   "direction": "east",
+   "map": "ROUTE_25",
+   "offset": 0
+  }
+ ],
+ "warps": [],
+ "signs": [],
+ "objects": [
+  {
+   "x": 11,
+   "y": 15,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE24_COOLTRAINER_M1",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 6
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROUTE24_COOLTRAINER_M1"
+  },
+  {
+   "x": 5,
+   "y": 20,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE24_COOLTRAINER_M2",
+   "trainer": {
+    "class": "JR_TRAINER_M",
+    "party": 2
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE24_COOLTRAINER_M2"
+  },
+  {
+   "x": 11,
+   "y": 19,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE24_COOLTRAINER_M3",
+   "trainer": {
+    "class": "JR_TRAINER_M",
+    "party": 3
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE24_COOLTRAINER_M3"
+  },
+  {
+   "x": 10,
+   "y": 22,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE24_COOLTRAINER_F1",
+   "trainer": {
+    "class": "LASS",
+    "party": 7
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE24_COOLTRAINER_F1"
+  },
+  {
+   "x": 11,
+   "y": 25,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE24_YOUNGSTER1",
+   "trainer": {
+    "class": "YOUNGSTER",
+    "party": 4
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE24_YOUNGSTER1"
+  },
+  {
+   "x": 10,
+   "y": 28,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE24_COOLTRAINER_F2",
+   "trainer": {
+    "class": "LASS",
+    "party": 8
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE24_COOLTRAINER_F2"
+  },
+  {
+   "x": 11,
+   "y": 31,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE24_YOUNGSTER2",
+   "trainer": {
+    "class": "BUG_CATCHER",
+    "party": 9
+   },
+   "item": null,
+   "index": 7,
+   "name": "ROUTE24_YOUNGSTER2"
+  },
+  {
+   "x": 10,
+   "y": 5,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROUTE24_TM_THUNDER_WAVE",
+   "trainer": null,
+   "item": "TM_THUNDER_WAVE",
+   "index": 8,
+   "name": "ROUTE24_TM_THUNDER_WAVE"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 25,
+  "grass": [
+   [
+    7,
+    "WEEDLE"
+   ],
+   [
+    8,
+    "KAKUNA"
+   ],
+   [
+    12,
+    "PIDGEY"
+   ],
+   [
+    12,
+    "ODDISH"
+   ],
+   [
+    13,
+    "ODDISH"
+   ],
+   [
+    10,
+    "ABRA"
+   ],
+   [
+    14,
+    "ODDISH"
+   ],
+   [
+    7,
+    "CATERPIE"
+   ],
+   [
+    8,
+    "METAPOD"
+   ],
+   [
+    12,
+    "PIDGEY"
+   ],
+   [
+    12,
+    "BELLSPROUT"
+   ],
+   [
+    13,
+    "BELLSPROUT"
+   ],
+   [
+    10,
+    "ABRA"
+   ],
+   [
+    14,
+    "BELLSPROUT"
+   ],
+   [
+    13,
+    "PIDGEY"
+   ],
+   [
+    8,
+    "ABRA"
+   ],
+   [
+    12,
+    "ABRA"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 36,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 37,
+   "object": 8,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "1111111111111111111111111111111111111111",
+  "1111111111111111111111111111111111111111",
+  "1111111111111111111111111111111111111111",
+  "1111112437373737373737373737373737373737",
+  "111111243939393939393939390d3939272c2c2c",
+  "111111243939393939393939390d3939272c2c2c",
+  "111111243939393939393939390d3939272c2c2c",
+  "1111112436373c36363736373637393936373737",
+  "1111112439393939393939393939393939393939",
+  "1111112439393939393939393939393939393939",
+  "111111242c2c2c2c2c2c39393a3a3a3a3a3a3a3a",
+  "111111242c2c2c2c2c2c39393a2c2c2c2c2c2c2c",
+  "111111242c2c2c2c2c2c39393a2c2c2c1e111111",
+  "111111242c2c2c2c2c2c39393a2c2c2c27111111",
+  "111111242c2c2c2c2c2c39393a2c2c2c27111111",
+  "111111242c2c2c2c2c2c39393a2c2c2c27111111",
+  "111111242c2c3214143a3c3c3a2c2c2c27111111",
+  "111111242c2c3214143a3c3c3a2c2c2c27111111",
+  "1111112452523214143a3c3c3a2c2c2c27111111",
+  "1111112452523214143a3c3c3a2c2c2c27111111",
+  "1111112452523214143a3c3c3a2c2c2c27111111",
+  "1111112452523214143a3c3c3a2c2c2c36373737",
+  "1111112452523214143a3c3c3a2c2c3a14141414",
+  "1111112452523214143a3c3c3a2c2c3a14141414",
+  "1111112452523214143a3c3c3a2c2c3a14141414",
+  "1111112452523214143a3c3c3a2c2c3a14141414",
+  "1111112452523214143a3c3c3a2c2c3a14141414",
+  "1111112452523214143a3c3c3a2c2c3a14141414",
+  "1111112452523214143a3c3c3a2c2c3a14141414",
+  "1111112452523214143a3c3c3a2c2c3a14141414",
+  "1111112452523214143a3c3c3a2c2c3a14141414",
+  "1111112452523214143a3c3c3a2c2c3a14141414",
+  "1111112414141414143a3c3c3a2c2c3a14141414",
+  "1111112414141414143a3c3c3a2c2c3a14141414",
+  "1111112414141414143a3c3c3a2c2c3a14141414",
+  "1111112414141414143a3c3c3a2c2c3a14141414"
+ ]
+}

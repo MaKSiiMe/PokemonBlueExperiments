@@ -1,0 +1,223 @@
+{
+ "id": 102,
+ "name": "SS_ANNE_1F_ROOMS",
+ "label": "SSAnne1FRooms",
+ "tileset": "SHIP",
+ "width": 12,
+ "height": 8,
+ "border_block": 12,
+ "connections": [],
+ "warps": [
+  {
+   "x": 0,
+   "y": 0,
+   "map": "SS_ANNE_1F",
+   "warp": 3
+  },
+  {
+   "x": 10,
+   "y": 0,
+   "map": "SS_ANNE_1F",
+   "warp": 4
+  },
+  {
+   "x": 20,
+   "y": 0,
+   "map": "SS_ANNE_1F",
+   "warp": 5
+  },
+  {
+   "x": 0,
+   "y": 10,
+   "map": "SS_ANNE_1F",
+   "warp": 6
+  },
+  {
+   "x": 10,
+   "y": 10,
+   "map": "SS_ANNE_1F",
+   "warp": 7
+  },
+  {
+   "x": 20,
+   "y": 10,
+   "map": "SS_ANNE_1F",
+   "warp": 8
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 2,
+   "y": 3,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SSANNE1FROOMS_GENTLEMAN1",
+   "trainer": {
+    "class": "GENTLEMAN",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "SSANNE1FROOMS_GENTLEMAN1"
+  },
+  {
+   "x": 11,
+   "y": 4,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SSANNE1FROOMS_GENTLEMAN2",
+   "trainer": {
+    "class": "GENTLEMAN",
+    "party": 2
+   },
+   "item": null,
+   "index": 2,
+   "name": "SSANNE1FROOMS_GENTLEMAN2"
+  },
+  {
+   "x": 11,
+   "y": 14,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SSANNE1FROOMS_YOUNGSTER",
+   "trainer": {
+    "class": "YOUNGSTER",
+    "party": 8
+   },
+   "item": null,
+   "index": 3,
+   "name": "SSANNE1FROOMS_YOUNGSTER"
+  },
+  {
+   "x": 13,
+   "y": 11,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SSANNE1FROOMS_COOLTRAINER_F",
+   "trainer": {
+    "class": "LASS",
+    "party": 11
+   },
+   "item": null,
+   "index": 4,
+   "name": "SSANNE1FROOMS_COOLTRAINER_F"
+  },
+  {
+   "x": 22,
+   "y": 3,
+   "sprite": "SPRITE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_SSANNE1FROOMS_GIRL1",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "SSANNE1FROOMS_GIRL1"
+  },
+  {
+   "x": 0,
+   "y": 14,
+   "sprite": "SPRITE_MIDDLE_AGED_MAN",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNE1FROOMS_MIDDLE_AGED_MAN",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "SSANNE1FROOMS_MIDDLE_AGED_MAN"
+  },
+  {
+   "x": 2,
+   "y": 11,
+   "sprite": "SPRITE_LITTLE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNE1FROOMS_LITTLE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "SSANNE1FROOMS_LITTLE_GIRL"
+  },
+  {
+   "x": 3,
+   "y": 11,
+   "sprite": "SPRITE_FAIRY",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNE1FROOMS_WIGGLYTUFF",
+   "trainer": null,
+   "item": null,
+   "index": 8,
+   "name": "SSANNE1FROOMS_WIGGLYTUFF"
+  },
+  {
+   "x": 10,
+   "y": 13,
+   "sprite": "SPRITE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SSANNE1FROOMS_GIRL2",
+   "trainer": null,
+   "item": null,
+   "index": 9,
+   "name": "SSANNE1FROOMS_GIRL2"
+  },
+  {
+   "x": 12,
+   "y": 15,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNE1FROOMS_TM_BODY_SLAM",
+   "trainer": null,
+   "item": "TM_BODY_SLAM",
+   "index": 10,
+   "name": "SSANNE1FROOMS_TM_BODY_SLAM"
+  },
+  {
+   "x": 21,
+   "y": 13,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_SSANNE1FROOMS_GENTLEMAN3",
+   "trainer": null,
+   "item": null,
+   "index": 11,
+   "name": "SSANNE1FROOMS_GENTLEMAN3"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 114,
+   "object": 10,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "1e1212120101010101011e1212120101010101011e121212",
+  "1d1d1d1d0101010101011d1d1d1d0101010101011d1d1d1d",
+  "1d1d1d1d0101010101011d1d1d1d0101010101011d1d1d1d",
+  "1d1d1d1d0101010101011d1d1d1d0101010101011d1d1d1d",
+  "1d1d1d560101010101011d1d1d560101010101011d1d1d56",
+  "192c1d56010101010101192c1d56010101010101192c1d56",
+  "010101010101010101010101010101010101010101010101",
+  "010101010101010101010101010101010101010101010101",
+  "010101010101010101010101010101010101010101010101",
+  "010101010101010101010101010101010101010101010101",
+  "1e1212120101010101011e1212120101010101011e121212",
+  "1d1d1d1d0101010101011d1d1d1d0101010101011d1d1d1d",
+  "1d1d1d1d0101010101011d1d1d1d0101010101011d1d1d1d",
+  "1d1d1d1d0101010101011d1d1d1d0101010101011d1d1d1d",
+  "1d1d1d560101010101011d1d1d560101010101011d1d1d56",
+  "192c1d56010101010101192c1d56010101010101192c1d56"
+ ]
+}

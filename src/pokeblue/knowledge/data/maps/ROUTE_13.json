@@ -1,0 +1,301 @@
+{
+ "id": 24,
+ "name": "ROUTE_13",
+ "label": "Route13",
+ "tileset": "OVERWORLD",
+ "width": 30,
+ "height": 9,
+ "border_block": 67,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "ROUTE_12",
+   "offset": 20
+  },
+  {
+   "direction": "west",
+   "map": "ROUTE_14",
+   "offset": 0
+  }
+ ],
+ "warps": [],
+ "signs": [
+  {
+   "x": 15,
+   "y": 13,
+   "text": "TEXT_ROUTE13_TRAINER_TIPS1"
+  },
+  {
+   "x": 33,
+   "y": 5,
+   "text": "TEXT_ROUTE13_TRAINER_TIPS2"
+  },
+  {
+   "x": 31,
+   "y": 11,
+   "text": "TEXT_ROUTE13_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 49,
+   "y": 10,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE13_COOLTRAINER_M1",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROUTE13_COOLTRAINER_M1"
+  },
+  {
+   "x": 48,
+   "y": 10,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE13_COOLTRAINER_F1",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 12
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE13_COOLTRAINER_F1"
+  },
+  {
+   "x": 27,
+   "y": 9,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE13_COOLTRAINER_F2",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 13
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE13_COOLTRAINER_F2"
+  },
+  {
+   "x": 23,
+   "y": 10,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE13_COOLTRAINER_F3",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 14
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE13_COOLTRAINER_F3"
+  },
+  {
+   "x": 50,
+   "y": 5,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE13_COOLTRAINER_F4",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 15
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE13_COOLTRAINER_F4"
+  },
+  {
+   "x": 12,
+   "y": 4,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE13_COOLTRAINER_M2",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 2
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE13_COOLTRAINER_M2"
+  },
+  {
+   "x": 33,
+   "y": 6,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE13_BEAUTY1",
+   "trainer": {
+    "class": "BEAUTY",
+    "party": 4
+   },
+   "item": null,
+   "index": 7,
+   "name": "ROUTE13_BEAUTY1"
+  },
+  {
+   "x": 32,
+   "y": 6,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE13_BEAUTY2",
+   "trainer": {
+    "class": "BEAUTY",
+    "party": 5
+   },
+   "item": null,
+   "index": 8,
+   "name": "ROUTE13_BEAUTY2"
+  },
+  {
+   "x": 10,
+   "y": 7,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE13_BIKER",
+   "trainer": {
+    "class": "BIKER",
+    "party": 1
+   },
+   "item": null,
+   "index": 9,
+   "name": "ROUTE13_BIKER"
+  },
+  {
+   "x": 7,
+   "y": 13,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE13_COOLTRAINER_M3",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 3
+   },
+   "item": null,
+   "index": 10,
+   "name": "ROUTE13_COOLTRAINER_M3"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 20,
+  "grass": [
+   [
+    24,
+    "ODDISH"
+   ],
+   [
+    25,
+    "PIDGEY"
+   ],
+   [
+    27,
+    "PIDGEY"
+   ],
+   [
+    24,
+    "VENONAT"
+   ],
+   [
+    22,
+    "ODDISH"
+   ],
+   [
+    26,
+    "VENONAT"
+   ],
+   [
+    26,
+    "ODDISH"
+   ],
+   [
+    25,
+    "DITTO"
+   ],
+   [
+    28,
+    "GLOOM"
+   ],
+   [
+    30,
+    "GLOOM"
+   ],
+   [
+    24,
+    "BELLSPROUT"
+   ],
+   [
+    25,
+    "PIDGEY"
+   ],
+   [
+    27,
+    "PIDGEY"
+   ],
+   [
+    24,
+    "VENONAT"
+   ],
+   [
+    22,
+    "BELLSPROUT"
+   ],
+   [
+    26,
+    "VENONAT"
+   ],
+   [
+    26,
+    "BELLSPROUT"
+   ],
+   [
+    25,
+    "DITTO"
+   ],
+   [
+    28,
+    "WEEPINBELL"
+   ],
+   [
+    30,
+    "WEEPINBELL"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [],
+ "tiles": [
+  "39393939393939393939393939393939393939393939393939393939393939393939392350505050505050505050505050503c3c141414141414143a",
+  "39393939393939393939393939393939393939393939393939393939393939393939505050505050505050505050505050503c3c141414141414143a",
+  "39393939393939393939393939393939393939393939393939393939393939393939505050505050505050505050505050503c3c141414141414143a",
+  "5555555555555555555555555555555555555555555555555555555555555555555550502c2c2c2c2c2c2c2c2c2c2c2c50503c3c141414141414143a",
+  "393939393939393939393939392339393939393939393939393955233939393939393d2c2c2c525252525252525252522c503c3c141414141414143a",
+  "5555555555555555555555552339393955555555555555553939552355555555555650502c2c525252525252525252522c503c3c141414141414143a",
+  "393939393939393939393939393939395523393939393939393939393939393939235050502c525252525252525252522c503c3c141414141414143a",
+  "555555555555555555553939555555555523555555555555555555555555555523395050502c525252525252525252522c503c3c141414141414143a",
+  "39393939393939393939393955233939393939393939393939393939552339393923505050502c2c2c2c2c2c2c2c2c2c50503c3c141414141414143a",
+  "55555555393955555555555555235555555555555555555555553939552355552339505050505050505050505050505050503c3c141414141414143a",
+  "3939393939395523393939393939393939393939393939395523393939393939393939393c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c141414141414143a",
+  "5555555555555523393955555555555555555555555539395523555555555556555539393c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c141414141414143a",
+  "55233939393939393939393939393939552339393939393939393939393939393939393914141414141414141414141414141414141414141414143a",
+  "55235555555539395555555555555556552355555555555555555555555555555555555514141414141414141414141414141414141414141414143a",
+  "505050503a3a3a3a3a3a3a3a3a3a3a3a3a3a14141414141414141414141414141414143a14141414141414141414141414141414141414141414143a",
+  "505050502c2c2c2c2c2c2c2c2c2c2c2c2c2c14141414141414141414141414141414143a14141414141414141414141414141414141414141414143a",
+  "50505050141414141414141414141414141414141414141414141414141414141414143a14141414141414141414141414141414141414141414143a",
+  "50505050141414141414141414141414141414141414141414141414141414141414143a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a"
+ ]
+}

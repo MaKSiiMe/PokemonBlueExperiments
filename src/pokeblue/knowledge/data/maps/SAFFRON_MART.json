@@ -1,0 +1,77 @@
+{
+ "id": 180,
+ "name": "SAFFRON_MART",
+ "label": "SaffronMart",
+ "tileset": "MART",
+ "width": 4,
+ "height": 4,
+ "border_block": 0,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 5
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 0,
+   "y": 5,
+   "sprite": "SPRITE_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SAFFRONMART_CLERK",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SAFFRONMART_CLERK"
+  },
+  {
+   "x": 4,
+   "y": 2,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFFRONMART_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SAFFRONMART_SUPER_NERD"
+  },
+  {
+   "x": 6,
+   "y": 5,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_SAFFRONMART_COOLTRAINER_F",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "SAFFRONMART_COOLTRAINER_F"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "4e4e2c2c2c2c4e4e",
+  "17173e3e3e3e1717",
+  "1a11111111111111",
+  "5051111150515051",
+  "28101a1154555455",
+  "1a1e1a1111111111",
+  "19191a1111111111",
+  "1a11111c1c111111"
+ ]
+}

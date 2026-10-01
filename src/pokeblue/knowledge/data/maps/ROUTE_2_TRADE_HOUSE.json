@@ -1,0 +1,65 @@
+{
+ "id": 48,
+ "name": "ROUTE_2_TRADE_HOUSE",
+ "label": "Route2TradeHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 2,
+   "y": 4,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE2TRADEHOUSE_SCIENTIST",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE2TRADEHOUSE_SCIENTIST"
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "sprite": "SPRITE_GAMEBOY_KID",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE2TRADEHOUSE_GAMEBOY_KID",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "ROUTE2TRADEHOUSE_GAMEBOY_KID"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0e0e003d00340030",
+  "1e1e01010101011e",
+  "0101010101010101",
+  "010112362f120101",
+  "0101123c3a120101",
+  "0101010101010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

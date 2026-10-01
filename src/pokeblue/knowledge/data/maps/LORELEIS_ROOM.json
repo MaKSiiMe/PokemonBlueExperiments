@@ -1,0 +1,72 @@
+{
+ "id": 245,
+ "name": "LORELEIS_ROOM",
+ "label": "LoreleisRoom",
+ "tileset": "GYM",
+ "width": 5,
+ "height": 6,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 11,
+   "map": "INDIGO_PLATEAU_LOBBY",
+   "warp": 3
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "map": "INDIGO_PLATEAU_LOBBY",
+   "warp": 3
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "map": "BRUNOS_ROOM",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "map": "BRUNOS_ROOM",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 2,
+   "sprite": "SPRITE_LORELEI",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_LORELEISROOM_LORELEI",
+   "trainer": {
+    "class": "LORELEI",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "LORELEISROOM_LORELEI"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "10101010303010101010",
+  "14141414111114141414",
+  "14141919191919191414",
+  "14141919191919191414",
+  "14141919191919191414",
+  "14141919191919191414",
+  "14141414111114141414",
+  "14141414111114141414",
+  "14141412111114141414",
+  "14141432111114141414",
+  "1414250f1111250f1414",
+  "1414250f1111250f1414"
+ ]
+}

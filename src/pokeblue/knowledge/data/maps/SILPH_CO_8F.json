@@ -1,0 +1,154 @@
+{
+ "id": 213,
+ "name": "SILPH_CO_8F",
+ "label": "SilphCo8F",
+ "tileset": "FACILITY",
+ "width": 13,
+ "height": 9,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 16,
+   "y": 0,
+   "map": "SILPH_CO_9F",
+   "warp": 2
+  },
+  {
+   "x": 14,
+   "y": 0,
+   "map": "SILPH_CO_7F",
+   "warp": 1
+  },
+  {
+   "x": 18,
+   "y": 0,
+   "map": "SILPH_CO_ELEVATOR",
+   "warp": 1
+  },
+  {
+   "x": 3,
+   "y": 11,
+   "map": "SILPH_CO_8F",
+   "warp": 7
+  },
+  {
+   "x": 3,
+   "y": 15,
+   "map": "SILPH_CO_2F",
+   "warp": 5
+  },
+  {
+   "x": 11,
+   "y": 5,
+   "map": "SILPH_CO_2F",
+   "warp": 6
+  },
+  {
+   "x": 11,
+   "y": 9,
+   "map": "SILPH_CO_8F",
+   "warp": 4
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 2,
+   "sprite": "SPRITE_SILPH_WORKER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO8F_SILPH_WORKER_M",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SILPHCO8F_SILPH_WORKER_M"
+  },
+  {
+   "x": 19,
+   "y": 2,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SILPHCO8F_ROCKET1",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 35
+   },
+   "item": null,
+   "index": 2,
+   "name": "SILPHCO8F_ROCKET1"
+  },
+  {
+   "x": 10,
+   "y": 2,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SILPHCO8F_SCIENTIST",
+   "trainer": {
+    "class": "SCIENTIST",
+    "party": 9
+   },
+   "item": null,
+   "index": 3,
+   "name": "SILPHCO8F_SCIENTIST"
+  },
+  {
+   "x": 12,
+   "y": 15,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SILPHCO8F_ROCKET2",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 36
+   },
+   "item": null,
+   "index": 4,
+   "name": "SILPHCO8F_ROCKET2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 171,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 172,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 173,
+   "object": 4,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2b3a3a3a3a3a3a2b0d0d0d0d0d2b1b594359585959595959592b",
+  "2b0101010101012b4c4c4c4c1d2b01010101010101010101012b",
+  "2b0101010101012b010101011d2b01010101010101010101012b",
+  "2b011d351d35012b010101014c2b01010101010101010101012b",
+  "2b011d351d35012b01010101012b01012b3a3a3a3a3a3a3a3a2b",
+  "2b011d351d35012b01010120012b01012b01010101010101012b",
+  "2b011d351d35012b01010101012b01012b01380138010115012b",
+  "2b011d351d35013b01013b3a3a2b01012b01190119010117012b",
+  "2b0144451d35010101010101012b01012b01010101010101012b",
+  "2b0101011d35010101010120012b01012b01010101010101012b",
+  "2b0101014445012b01011d35012b01012b011d3501010115012b",
+  "2b0101200101012b01014445012b01012b01444501010117012b",
+  "2b0101010101012b01010101012b01012b01010101010101012b",
+  "2b3a3a3a3a3a3a3a01013b3a3a3a01013b3a3a3a01013b3a3a2b",
+  "2b1501010101010101010101010101010101010101010101012b",
+  "2b1701200101010101010101010101010101010101010101012b",
+  "2b0101010101010101010101010101010101010101010101012b",
+  "3b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a"
+ ]
+}

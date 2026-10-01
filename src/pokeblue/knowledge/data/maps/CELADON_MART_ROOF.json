@@ -1,0 +1,80 @@
+{
+ "id": 126,
+ "name": "CELADON_MART_ROOF",
+ "label": "CeladonMartRoof",
+ "tileset": "LOBBY",
+ "width": 10,
+ "height": 4,
+ "border_block": 66,
+ "connections": [],
+ "warps": [
+  {
+   "x": 15,
+   "y": 2,
+   "map": "CELADON_MART_5F",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 10,
+   "y": 1,
+   "text": "TEXT_CELADONMARTROOF_VENDING_MACHINE1"
+  },
+  {
+   "x": 11,
+   "y": 1,
+   "text": "TEXT_CELADONMARTROOF_VENDING_MACHINE2"
+  },
+  {
+   "x": 12,
+   "y": 2,
+   "text": "TEXT_CELADONMARTROOF_VENDING_MACHINE3"
+  },
+  {
+   "x": 13,
+   "y": 2,
+   "text": "TEXT_CELADONMARTROOF_CURRENT_FLOOR_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 10,
+   "y": 4,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_CELADONMARTROOF_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONMARTROOF_SUPER_NERD"
+  },
+  {
+   "x": 5,
+   "y": 5,
+   "sprite": "SPRITE_LITTLE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_CELADONMARTROOF_LITTLE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONMARTROOF_LITTLE_GIRL"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "4f4f545454545454545422223637373737374b4f",
+  "4f4f45454545454545453232225b5b5b5b5b4b4f",
+  "4f4f451736371745454545453221211a21214b4f",
+  "4f4f451755571745454545454545454545454b4f",
+  "4f4f454545454517363717454545454545454b4f",
+  "4f4f454545454517555717454545454545454b4f",
+  "4f4f454545454545454545454545454545454b4f",
+  "4f4f545454545454545454545454545454544b4f"
+ ]
+}

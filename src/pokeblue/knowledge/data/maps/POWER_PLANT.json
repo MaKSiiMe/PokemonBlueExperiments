@@ -1,0 +1,395 @@
+{
+ "id": 83,
+ "name": "POWER_PLANT",
+ "label": "PowerPlant",
+ "tileset": "FACILITY",
+ "width": 20,
+ "height": 18,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 35,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 5,
+   "y": 35,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 0,
+   "y": 11,
+   "map": "LAST_MAP",
+   "warp": 4
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 9,
+   "y": 20,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_VOLTORB1",
+   "trainer": {
+    "class": "VOLTORB",
+    "party": 40
+   },
+   "item": null,
+   "index": 1,
+   "name": "POWERPLANT_VOLTORB1"
+  },
+  {
+   "x": 32,
+   "y": 18,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_VOLTORB2",
+   "trainer": {
+    "class": "VOLTORB",
+    "party": 40
+   },
+   "item": null,
+   "index": 2,
+   "name": "POWERPLANT_VOLTORB2"
+  },
+  {
+   "x": 21,
+   "y": 25,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_VOLTORB3",
+   "trainer": {
+    "class": "VOLTORB",
+    "party": 40
+   },
+   "item": null,
+   "index": 3,
+   "name": "POWERPLANT_VOLTORB3"
+  },
+  {
+   "x": 25,
+   "y": 18,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_ELECTRODE1",
+   "trainer": {
+    "class": "ELECTRODE",
+    "party": 43
+   },
+   "item": null,
+   "index": 4,
+   "name": "POWERPLANT_ELECTRODE1"
+  },
+  {
+   "x": 23,
+   "y": 34,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_VOLTORB4",
+   "trainer": {
+    "class": "VOLTORB",
+    "party": 40
+   },
+   "item": null,
+   "index": 5,
+   "name": "POWERPLANT_VOLTORB4"
+  },
+  {
+   "x": 26,
+   "y": 28,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_VOLTORB5",
+   "trainer": {
+    "class": "VOLTORB",
+    "party": 40
+   },
+   "item": null,
+   "index": 6,
+   "name": "POWERPLANT_VOLTORB5"
+  },
+  {
+   "x": 21,
+   "y": 14,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_ELECTRODE2",
+   "trainer": {
+    "class": "ELECTRODE",
+    "party": 43
+   },
+   "item": null,
+   "index": 7,
+   "name": "POWERPLANT_ELECTRODE2"
+  },
+  {
+   "x": 37,
+   "y": 32,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_VOLTORB6",
+   "trainer": {
+    "class": "VOLTORB",
+    "party": 40
+   },
+   "item": null,
+   "index": 8,
+   "name": "POWERPLANT_VOLTORB6"
+  },
+  {
+   "x": 4,
+   "y": 9,
+   "sprite": "SPRITE_BIRD",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_POWERPLANT_ZAPDOS",
+   "trainer": {
+    "class": "ZAPDOS",
+    "party": 50
+   },
+   "item": null,
+   "index": 9,
+   "name": "POWERPLANT_ZAPDOS"
+  },
+  {
+   "x": 7,
+   "y": 25,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_CARBOS",
+   "trainer": null,
+   "item": "CARBOS",
+   "index": 10,
+   "name": "POWERPLANT_CARBOS"
+  },
+  {
+   "x": 28,
+   "y": 3,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_HP_UP",
+   "trainer": null,
+   "item": "HP_UP",
+   "index": 11,
+   "name": "POWERPLANT_HP_UP"
+  },
+  {
+   "x": 34,
+   "y": 3,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_RARE_CANDY",
+   "trainer": null,
+   "item": "RARE_CANDY",
+   "index": 12,
+   "name": "POWERPLANT_RARE_CANDY"
+  },
+  {
+   "x": 26,
+   "y": 32,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_TM_THUNDER",
+   "trainer": null,
+   "item": "TM_THUNDER",
+   "index": 13,
+   "name": "POWERPLANT_TM_THUNDER"
+  },
+  {
+   "x": 20,
+   "y": 32,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POWERPLANT_TM_REFLECT",
+   "trainer": null,
+   "item": "TM_REFLECT",
+   "index": 14,
+   "name": "POWERPLANT_TM_REFLECT"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 10,
+  "grass": [
+   [
+    21,
+    "VOLTORB"
+   ],
+   [
+    21,
+    "MAGNEMITE"
+   ],
+   [
+    20,
+    "PIKACHU"
+   ],
+   [
+    24,
+    "PIKACHU"
+   ],
+   [
+    23,
+    "MAGNEMITE"
+   ],
+   [
+    23,
+    "VOLTORB"
+   ],
+   [
+    32,
+    "MAGNETON"
+   ],
+   [
+    35,
+    "MAGNETON"
+   ],
+   [
+    33,
+    "ELECTABUZZ"
+   ],
+   [
+    36,
+    "ELECTABUZZ"
+   ],
+   [
+    33,
+    "RAICHU"
+   ],
+   [
+    36,
+    "RAICHU"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 77,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 78,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 79,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 80,
+   "object": 4,
+   "initially_visible": true
+  },
+  {
+   "toggle": 81,
+   "object": 5,
+   "initially_visible": true
+  },
+  {
+   "toggle": 82,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 83,
+   "object": 7,
+   "initially_visible": true
+  },
+  {
+   "toggle": 84,
+   "object": 8,
+   "initially_visible": true
+  },
+  {
+   "toggle": 85,
+   "object": 9,
+   "initially_visible": true
+  },
+  {
+   "toggle": 86,
+   "object": 10,
+   "initially_visible": true
+  },
+  {
+   "toggle": 87,
+   "object": 11,
+   "initially_visible": true
+  },
+  {
+   "toggle": 88,
+   "object": 12,
+   "initially_visible": true
+  },
+  {
+   "toggle": 89,
+   "object": 13,
+   "initially_visible": true
+  },
+  {
+   "toggle": 90,
+   "object": 14,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2b3a0d0d0d0d0d0d2b3a3a3a3a3a3a2b3a3a3a3a3a3a3a3a3a2b3a3a3a3a3a3a3a3a3a3a3a3a3a2b",
+  "2b014c4c4c4c4c4c2b3636363636362b3636363636363636362b363636363636363636363636362b",
+  "2b013636363601013b0136360136362b3636363636360101012b363619191919191919193636362b",
+  "2b01010136360101010101010136362b3636010101010101012b363601191919191901013636362b",
+  "2b010101010101012b3a3a013b3a3a2b3a3a013b0d0d2b01012b360101363636191919010101362b",
+  "2b010101010101012b3601010101362b010101014c4c2b01012b360101363636191919190101362b",
+  "2b3a3a3a01013b3a2b3636010136362b3a3a010136362b01012b363601013636360101010136362b",
+  "2b010101010101012b3636010136362b0101010136362b01012b363601013636360101010136362b",
+  "2b010101010101012b3636360136362b0101010101362b01012b360101013636010136363636362b",
+  "2b010101010101012b3636360136362b0101010101362b01012b360101013636010136363636362b",
+  "3b010101010101012b3636010101013b0101010101012b01012b010101013601010101363636362b",
+  "01010101010101012b363601010101010101010101012b01012b010101013601010101363636362b",
+  "2b3a3a3a3a3a3a3a2b3a3a3a3a3a3a2b3a3a013b0d0d2b01012b010101010101010101010101012b",
+  "2b363636363601012b0101013636362b010101014c4c2b01013b3a3a3a3a01013b3a3a3a3a3a3a2b",
+  "2b363636010101013b0101010136362b0101010101012b010101010101010101010101010101012b",
+  "2b36010101010101010101010136362b3a3a3a3a3a3a3b3a3a3a3a3a3a3a3a3a3a3a3a3a2b01012b",
+  "2b36010101010101010101010101362b36360101010101010101010101010101010101012b01012b",
+  "2b360101010101012b0101010101362b36361919191919190101191919191919191901012b01012b",
+  "2b0d0d0d3a0101012b3636363601362b36363636191919191901191919191919010101012b01012b",
+  "2b1d4c4c010101012b3636363601362b01013636011919191919191919191919191901012b01012b",
+  "2b1d0101010101012b0136360101013b01010101010101010101010101010101010101012b01012b",
+  "2b4c0101010101012b0101010101010101011919191919191919191919191919191901012b01012b",
+  "2b0101360d0d0d0d3a01013b0d0d0d2b01010101010101010101010101010101010101012b01012b",
+  "2b0101364c4c4c4c010101014c4c1d2b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b01012b",
+  "2b010101010136363636360101011d2b36363636360136363636363636360136363636360101362b",
+  "2b010101010101013636360101014c2b01013636360136363636363601010136363601010101362b",
+  "2b3a3a3a01013b3a2b3a3a3a3a01012b01010101010101363636010101010101363601010136362b",
+  "2b360101010101012b3636360101013b01010101010101360101010101010101010101010136362b",
+  "2b363601010136362b0d01010101010101013636010101010101013636360136363636363636362b",
+  "2b363601010136362b4c01010101010101013636010101010101013636360136363636363636362b",
+  "2b360101013636362b0d3a013b3a0d0d0d0d3a3a0d0d0d0d2b3a3a3a3636013b0d0d0d0d3a3a3a2b",
+  "2b360101013636362b4c010101014c4c4c4c36364c4c4c4c2b010101363601014c4c4c4c3636362b",
+  "2b010101010101362b3601010101363636360101010136362b01011901010101010101191901012b",
+  "2b010101010101362b3601010101010136360101010136362b01191901011919191901191919012b",
+  "2b010101010101012b0101010101010101010101010101012b01010101010101010101010101012b",
+  "3b3a3a3a42523b3a3b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a"
+ ]
+}

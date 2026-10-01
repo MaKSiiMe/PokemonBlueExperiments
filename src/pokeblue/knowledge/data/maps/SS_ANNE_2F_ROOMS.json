@@ -1,0 +1,288 @@
+{
+ "id": 103,
+ "name": "SS_ANNE_2F_ROOMS",
+ "label": "SSAnne2FRooms",
+ "tileset": "SHIP",
+ "width": 12,
+ "height": 8,
+ "border_block": 12,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 5,
+   "map": "SS_ANNE_2F",
+   "warp": 1
+  },
+  {
+   "x": 3,
+   "y": 5,
+   "map": "SS_ANNE_2F",
+   "warp": 1
+  },
+  {
+   "x": 12,
+   "y": 5,
+   "map": "SS_ANNE_2F",
+   "warp": 2
+  },
+  {
+   "x": 13,
+   "y": 5,
+   "map": "SS_ANNE_2F",
+   "warp": 2
+  },
+  {
+   "x": 22,
+   "y": 5,
+   "map": "SS_ANNE_2F",
+   "warp": 3
+  },
+  {
+   "x": 23,
+   "y": 5,
+   "map": "SS_ANNE_2F",
+   "warp": 3
+  },
+  {
+   "x": 2,
+   "y": 15,
+   "map": "SS_ANNE_2F",
+   "warp": 4
+  },
+  {
+   "x": 3,
+   "y": 15,
+   "map": "SS_ANNE_2F",
+   "warp": 4
+  },
+  {
+   "x": 12,
+   "y": 15,
+   "map": "SS_ANNE_2F",
+   "warp": 5
+  },
+  {
+   "x": 13,
+   "y": 15,
+   "map": "SS_ANNE_2F",
+   "warp": 5
+  },
+  {
+   "x": 22,
+   "y": 15,
+   "map": "SS_ANNE_2F",
+   "warp": 6
+  },
+  {
+   "x": 23,
+   "y": 15,
+   "map": "SS_ANNE_2F",
+   "warp": 6
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 10,
+   "y": 2,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SSANNE2FROOMS_GENTLEMAN1",
+   "trainer": {
+    "class": "GENTLEMAN",
+    "party": 3
+   },
+   "item": null,
+   "index": 1,
+   "name": "SSANNE2FROOMS_GENTLEMAN1"
+  },
+  {
+   "x": 13,
+   "y": 4,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SSANNE2FROOMS_FISHER",
+   "trainer": {
+    "class": "FISHER",
+    "party": 1
+   },
+   "item": null,
+   "index": 2,
+   "name": "SSANNE2FROOMS_FISHER"
+  },
+  {
+   "x": 0,
+   "y": 14,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SSANNE2FROOMS_GENTLEMAN2",
+   "trainer": {
+    "class": "GENTLEMAN",
+    "party": 5
+   },
+   "item": null,
+   "index": 3,
+   "name": "SSANNE2FROOMS_GENTLEMAN2"
+  },
+  {
+   "x": 2,
+   "y": 11,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNE2FROOMS_COOLTRAINER_F",
+   "trainer": {
+    "class": "LASS",
+    "party": 12
+   },
+   "item": null,
+   "index": 4,
+   "name": "SSANNE2FROOMS_COOLTRAINER_F"
+  },
+  {
+   "x": 1,
+   "y": 2,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNE2FROOMS_GENTLEMAN3",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "SSANNE2FROOMS_GENTLEMAN3"
+  },
+  {
+   "x": 12,
+   "y": 1,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNE2FROOMS_MAX_ETHER",
+   "trainer": null,
+   "item": "MAX_ETHER",
+   "index": 6,
+   "name": "SSANNE2FROOMS_MAX_ETHER"
+  },
+  {
+   "x": 21,
+   "y": 2,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNE2FROOMS_GENTLEMAN4",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "SSANNE2FROOMS_GENTLEMAN4"
+  },
+  {
+   "x": 22,
+   "y": 1,
+   "sprite": "SPRITE_GRAMPS",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNE2FROOMS_GRAMPS",
+   "trainer": null,
+   "item": null,
+   "index": 8,
+   "name": "SSANNE2FROOMS_GRAMPS"
+  },
+  {
+   "x": 0,
+   "y": 12,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNE2FROOMS_RARE_CANDY",
+   "trainer": null,
+   "item": "RARE_CANDY",
+   "index": 9,
+   "name": "SSANNE2FROOMS_RARE_CANDY"
+  },
+  {
+   "x": 12,
+   "y": 12,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNE2FROOMS_GENTLEMAN5",
+   "trainer": null,
+   "item": null,
+   "index": 10,
+   "name": "SSANNE2FROOMS_GENTLEMAN5"
+  },
+  {
+   "x": 11,
+   "y": 14,
+   "sprite": "SPRITE_LITTLE_BOY",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNE2FROOMS_LITTLE_BOY",
+   "trainer": null,
+   "item": null,
+   "index": 11,
+   "name": "SSANNE2FROOMS_LITTLE_BOY"
+  },
+  {
+   "x": 22,
+   "y": 12,
+   "sprite": "SPRITE_BRUNETTE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SSANNE2FROOMS_BRUNETTE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 12,
+   "name": "SSANNE2FROOMS_BRUNETTE_GIRL"
+  },
+  {
+   "x": 20,
+   "y": 12,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SSANNE2FROOMS_BEAUTY",
+   "trainer": null,
+   "item": null,
+   "index": 13,
+   "name": "SSANNE2FROOMS_BEAUTY"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 115,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 116,
+   "object": 9,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "090a1212010101010101090a1212010101010101090a1212",
+  "0b0b1d560101010101010b0b1d560101010101010b0b1d56",
+  "1d1d1d3b0101010101011d1d1d3b0101010101011d1d1d3b",
+  "171d1d1d010101010101171d1d1d010101010101171d1d1d",
+  "1d1d1d1d0101010101011d1d1d1d0101010101011d1d1d1d",
+  "1d1d34340101010101011d1d34340101010101011d1d3434",
+  "010101010101010101010101010101010101010101010101",
+  "010101010101010101010101010101010101010101010101",
+  "010101010101010101010101010101010101010101010101",
+  "010101010101010101010101010101010101010101010101",
+  "090a1212010101010101090a1212010101010101090a1212",
+  "0b0b1d560101010101010b0b1d560101010101010b0b1d56",
+  "1d1d1d3b0101010101011d1d1d3b0101010101011d1d1d3b",
+  "171d1d1d010101010101171d1d1d010101010101171d1d1d",
+  "1d1d1d1d0101010101011d1d1d1d0101010101011d1d1d1d",
+  "1d1d34340101010101011d1d34340101010101011d1d3434"
+ ]
+}

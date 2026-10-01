@@ -1,0 +1,310 @@
+{
+ "id": 22,
+ "name": "ROUTE_11",
+ "label": "Route11",
+ "tileset": "OVERWORLD",
+ "width": 30,
+ "height": 9,
+ "border_block": 15,
+ "connections": [
+  {
+   "direction": "west",
+   "map": "VERMILION_CITY",
+   "offset": -4
+  },
+  {
+   "direction": "east",
+   "map": "ROUTE_12",
+   "offset": -27
+  }
+ ],
+ "warps": [
+  {
+   "x": 49,
+   "y": 8,
+   "map": "ROUTE_11_GATE_1F",
+   "warp": 1
+  },
+  {
+   "x": 49,
+   "y": 9,
+   "map": "ROUTE_11_GATE_1F",
+   "warp": 2
+  },
+  {
+   "x": 58,
+   "y": 8,
+   "map": "ROUTE_11_GATE_1F",
+   "warp": 3
+  },
+  {
+   "x": 58,
+   "y": 9,
+   "map": "ROUTE_11_GATE_1F",
+   "warp": 4
+  },
+  {
+   "x": 4,
+   "y": 5,
+   "map": "DIGLETTS_CAVE_ROUTE_11",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 1,
+   "y": 5,
+   "text": "TEXT_ROUTE11_DIGLETTSCAVE_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 10,
+   "y": 14,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE11_GAMBLER1",
+   "trainer": {
+    "class": "GAMBLER",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROUTE11_GAMBLER1"
+  },
+  {
+   "x": 26,
+   "y": 9,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE11_GAMBLER2",
+   "trainer": {
+    "class": "GAMBLER",
+    "party": 2
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE11_GAMBLER2"
+  },
+  {
+   "x": 13,
+   "y": 5,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE11_YOUNGSTER1",
+   "trainer": {
+    "class": "YOUNGSTER",
+    "party": 9
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE11_YOUNGSTER1"
+  },
+  {
+   "x": 36,
+   "y": 11,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE11_SUPER_NERD1",
+   "trainer": {
+    "class": "ENGINEER",
+    "party": 2
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE11_SUPER_NERD1"
+  },
+  {
+   "x": 22,
+   "y": 4,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE11_YOUNGSTER2",
+   "trainer": {
+    "class": "YOUNGSTER",
+    "party": 10
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE11_YOUNGSTER2"
+  },
+  {
+   "x": 45,
+   "y": 7,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE11_GAMBLER3",
+   "trainer": {
+    "class": "GAMBLER",
+    "party": 3
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE11_GAMBLER3"
+  },
+  {
+   "x": 33,
+   "y": 3,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE11_GAMBLER4",
+   "trainer": {
+    "class": "GAMBLER",
+    "party": 4
+   },
+   "item": null,
+   "index": 7,
+   "name": "ROUTE11_GAMBLER4"
+  },
+  {
+   "x": 43,
+   "y": 5,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE11_YOUNGSTER3",
+   "trainer": {
+    "class": "YOUNGSTER",
+    "party": 11
+   },
+   "item": null,
+   "index": 8,
+   "name": "ROUTE11_YOUNGSTER3"
+  },
+  {
+   "x": 45,
+   "y": 16,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE11_SUPER_NERD2",
+   "trainer": {
+    "class": "ENGINEER",
+    "party": 3
+   },
+   "item": null,
+   "index": 9,
+   "name": "ROUTE11_SUPER_NERD2"
+  },
+  {
+   "x": 22,
+   "y": 12,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE11_YOUNGSTER4",
+   "trainer": {
+    "class": "YOUNGSTER",
+    "party": 12
+   },
+   "item": null,
+   "index": 10,
+   "name": "ROUTE11_YOUNGSTER4"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    14,
+    "EKANS"
+   ],
+   [
+    15,
+    "SPEAROW"
+   ],
+   [
+    12,
+    "EKANS"
+   ],
+   [
+    9,
+    "DROWZEE"
+   ],
+   [
+    13,
+    "SPEAROW"
+   ],
+   [
+    13,
+    "DROWZEE"
+   ],
+   [
+    15,
+    "EKANS"
+   ],
+   [
+    14,
+    "SANDSHREW"
+   ],
+   [
+    15,
+    "SPEAROW"
+   ],
+   [
+    12,
+    "SANDSHREW"
+   ],
+   [
+    9,
+    "DROWZEE"
+   ],
+   [
+    13,
+    "SPEAROW"
+   ],
+   [
+    13,
+    "DROWZEE"
+   ],
+   [
+    15,
+    "SANDSHREW"
+   ],
+   [
+    17,
+    "SPEAROW"
+   ],
+   [
+    11,
+    "DROWZEE"
+   ],
+   [
+    15,
+    "DROWZEE"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [],
+ "tiles": [
+  "3939393939393939502c1023232323232323232323232323525252525252102323232323232323232323525252522c2c2c2c2c2c2c2c2c2c50505050",
+  "3939393939393939502c1023202020202020202020202123525252525252102320202020202020202123525252522c2c2c2c2c2c2c2c2c2c50505050",
+  "39391e1111111124502c1023525252525252525252521023525252525252102352525252525252521023525252522c2c2c2c2c2c2c2c2c2c50505050",
+  "3939271111111124502c1023525252525252525252521023525252525252102352525252525252522123525252522c2c2c2c2c2c2c2c2c2c50505050",
+  "3939271111111124502c1023525252525252525252521023525252525252102352525252525252525252525252522c2c2c2c2c2c2c2c2c2c50505050",
+  "5556363758373737502c1023525252525252525252521023525252525252102352525252525252525252525252522c2c502c2c2c2c2c2c2c50505050",
+  "393939393939393939392323525252521023232323232323525252525252102323232323232352525252525252522c2c2c2c5a121212121212125050",
+  "39393939393939393939212352525252102320202020212352525252525210232020202021235252525252525252505050505c171717171717175050",
+  "1414141414141414502c102352525252102352525252102352525252525210235252525210235252525252523923392339230f4b4b4b4b4b4b4b2c2c",
+  "1414141414141414502c102352525252102352525252102352525252525210235252525210235252525252522339233923394e1a1a1a1a1a1a1a2c2c",
+  "1414141414141414502c102323232323232352525252102323232323232323235252525210235252525252521023505050502c2c2c2c2c2c50505050",
+  "1414141414141414502c2120202020202020525252522120202020202020212352525252102352525252525210232c2c2c2c2c2c2c2c2c2c50505050",
+  "1414141414141414502c5252525252525252525252525252525252525252102352525252102352525252525210232c2c2c2c2c2c2c2c2c2c50505050",
+  "1414141414141414502c5252525252525252525252525252525252525252102352525252102352525252525210232c2c2c2c2c2c2c2c2c2c50505050",
+  "5050505050505050502c1023525252525252525252525252525252525252102323232323232352525252525210232c2c2c2c2c2c2c2c2c2c50505050",
+  "5050505050505050502c1023525252525252525252525252525252525252102320202020212352525252525210232c2c2c2c2c2c2c2c2c2c50505050",
+  "505050505050505050501023232323232323232323232323232323232323232352525252102323232323232323232c2c2c2c2c2c2c2c2c2c50505050",
+  "505050505050505050502120202020202020202020202020202020202020202052525252212020202020202020202c2c2c2c2c2c2c2c2c2c50505050"
+ ]
+}

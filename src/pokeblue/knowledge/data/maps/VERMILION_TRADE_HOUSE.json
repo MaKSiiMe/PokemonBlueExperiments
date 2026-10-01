@@ -1,0 +1,53 @@
+{
+ "id": 196,
+ "name": "VERMILION_TRADE_HOUSE",
+ "label": "VermilionTradeHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 8
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 8
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 5,
+   "sprite": "SPRITE_LITTLE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_VERMILIONTRADEHOUSE_LITTLE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "VERMILIONTRADEHOUSE_LITTLE_GIRL"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0e0e003d00340030",
+  "1e1e01010101011e",
+  "0101010101010101",
+  "010112362f120101",
+  "0101123c3a120101",
+  "0101010101010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

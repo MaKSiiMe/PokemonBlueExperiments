@@ -1,0 +1,233 @@
+{
+ "id": 14,
+ "name": "ROUTE_3",
+ "label": "Route3",
+ "tileset": "OVERWORLD",
+ "width": 35,
+ "height": 9,
+ "border_block": 44,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "ROUTE_4",
+   "offset": 25
+  },
+  {
+   "direction": "west",
+   "map": "PEWTER_CITY",
+   "offset": -4
+  }
+ ],
+ "warps": [],
+ "signs": [
+  {
+   "x": 59,
+   "y": 9,
+   "text": "TEXT_ROUTE3_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 57,
+   "y": 11,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROUTE3_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE3_SUPER_NERD"
+  },
+  {
+   "x": 10,
+   "y": 6,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE3_YOUNGSTER1",
+   "trainer": {
+    "class": "BUG_CATCHER",
+    "party": 4
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE3_YOUNGSTER1"
+  },
+  {
+   "x": 14,
+   "y": 4,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE3_YOUNGSTER2",
+   "trainer": {
+    "class": "YOUNGSTER",
+    "party": 1
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE3_YOUNGSTER2"
+  },
+  {
+   "x": 16,
+   "y": 9,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE3_COOLTRAINER_F1",
+   "trainer": {
+    "class": "LASS",
+    "party": 1
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE3_COOLTRAINER_F1"
+  },
+  {
+   "x": 19,
+   "y": 5,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE3_YOUNGSTER3",
+   "trainer": {
+    "class": "BUG_CATCHER",
+    "party": 5
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE3_YOUNGSTER3"
+  },
+  {
+   "x": 23,
+   "y": 4,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE3_COOLTRAINER_F2",
+   "trainer": {
+    "class": "LASS",
+    "party": 2
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE3_COOLTRAINER_F2"
+  },
+  {
+   "x": 22,
+   "y": 9,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE3_YOUNGSTER4",
+   "trainer": {
+    "class": "YOUNGSTER",
+    "party": 2
+   },
+   "item": null,
+   "index": 7,
+   "name": "ROUTE3_YOUNGSTER4"
+  },
+  {
+   "x": 24,
+   "y": 6,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE3_YOUNGSTER5",
+   "trainer": {
+    "class": "BUG_CATCHER",
+    "party": 6
+   },
+   "item": null,
+   "index": 8,
+   "name": "ROUTE3_YOUNGSTER5"
+  },
+  {
+   "x": 33,
+   "y": 10,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE3_COOLTRAINER_F3",
+   "trainer": {
+    "class": "LASS",
+    "party": 3
+   },
+   "item": null,
+   "index": 9,
+   "name": "ROUTE3_COOLTRAINER_F3"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 20,
+  "grass": [
+   [
+    6,
+    "PIDGEY"
+   ],
+   [
+    5,
+    "SPEAROW"
+   ],
+   [
+    7,
+    "PIDGEY"
+   ],
+   [
+    6,
+    "SPEAROW"
+   ],
+   [
+    7,
+    "SPEAROW"
+   ],
+   [
+    8,
+    "PIDGEY"
+   ],
+   [
+    8,
+    "SPEAROW"
+   ],
+   [
+    3,
+    "JIGGLYPUFF"
+   ],
+   [
+    5,
+    "JIGGLYPUFF"
+   ],
+   [
+    7,
+    "JIGGLYPUFF"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [],
+ "tiles": [
+  "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111124502c392339233923271111111111",
+  "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111124502c233923392339271111111111",
+  "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111242c2c392339233923271111111111",
+  "11111111111111111124373737373737373737373737373737373737131111111124373737373737373737373737373737371311111111242c2c233923392339271111111111",
+  "111111111111111111242c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2711111111242c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2711111111242c2c39231e111111111111111111",
+  "111111111111111111242c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2711111111242c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2711111111242c2c233927111111111111111111",
+  "111111111111111111242c2c2c2c2c2c2c502c2c2c2c2c502c2c2c2c2711111111242c2c2c2c1e11111111242c2c2c2c2c2c2711111111242c2c2c2c27111111111111111111",
+  "37373737373737373737373c3737373737503737373737503737373c3637373737373737373c27111111112437373737373c2711111111243737373c36373737373713111111",
+  "39232c2c3a2c2c2c2c2c2c2c2c2c2c2c2c502c2c2c2c2c502c2c2c2c2c2c2c2c2c2c2c2c2c2c2711111111242c2c2c2c2c2c2711111111242c2c393952525252525227111111",
+  "23392c2c2c2c2c2c2c2c2c2c2c2c2c2c2c502c2c2c2c2c502c2c2c2c2c2c2c2c2c2c2c2c2c2c2711111111242c2c2c2c2c2c3637373737372c2c555652525252525227111111",
+  "39232c2c2c2c2c2c2c502c2c2c2c2c2c2c502c2c2c2c2c5052525252525252525252525252522711111111242c2c2c2c2c2c2c2c2c2c2c2c2c2c525252525252525227111111",
+  "23392c2c3a2c2c2c2c5037373737373c375037373737375052525252525252525252525252522711111111242c2c2c2c2c2c2c2c2c2c2c2c2c2c525252525252525227111111",
+  "111111111111111111242c2c2c2c2c2c2c2c2c2c2c2c2c5052525252525252525252525252522711111111242c2c2c2c2c2c2c2c2c2c2c2c2c2c525252525252525227111111",
+  "111111111111111111242c2c2c2c2c2c2c2c2c2c2c2c2c5052525252525252525252525252522711111111242c2c2c2c2c2c2c2c2c2c2c2c2c2c525252525252525227111111",
+  "111111111111111111241e1111111111111111111111111111245050505050505050505050502711111111241e11111111111111111111111111111111111111111111111111",
+  "11111111111111111124271111111111111111111111111111245050505050505050505050502711111111242711111111111111111111111111111111111111111111111111",
+  "11111111111111111124271111111111111111111111111111245050505050505050505050502711111111242711111111111111111111111111111111111111111111111111",
+  "37373737373737373737271111111111111111111111111111245050505050505050505050502711111111242711111111111111111111111111111111111111111111111111"
+ ]
+}

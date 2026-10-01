@@ -1,0 +1,59 @@
+{
+ "id": 80,
+ "name": "UNDERGROUND_PATH_ROUTE_8",
+ "label": "UndergroundPathRoute8",
+ "tileset": "GATE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "map": "UNDERGROUND_PATH_WEST_EAST",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 4,
+   "sprite": "SPRITE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_UNDERGROUNDPATHROUTE8_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "UNDERGROUNDPATHROUTE8_GIRL"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "1500000000000015",
+  "3501010101010135",
+  "0117320101321701",
+  "0117010101011701",
+  "011701011a011701",
+  "0117010101011701",
+  "1532320101323215",
+  "3501011414010135"
+ ]
+}

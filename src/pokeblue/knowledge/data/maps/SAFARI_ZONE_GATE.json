@@ -1,0 +1,75 @@
+{
+ "id": 156,
+ "name": "SAFARI_ZONE_GATE",
+ "label": "SafariZoneGate",
+ "tileset": "GATE",
+ "width": 4,
+ "height": 3,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 5,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 4,
+   "y": 5,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "map": "SAFARI_ZONE_CENTER",
+   "warp": 1
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "map": "SAFARI_ZONE_CENTER",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 6,
+   "y": 2,
+   "sprite": "SPRITE_SAFARI_ZONE_WORKER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SAFARIZONEGATE_SAFARI_ZONE_WORKER1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SAFARIZONEGATE_SAFARI_ZONE_WORKER1"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "sprite": "SPRITE_SAFARI_ZONE_WORKER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SAFARIZONEGATE_SAFARI_ZONE_WORKER2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SAFARIZONEGATE_SAFARI_ZONE_WORKER2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "3222013738012232",
+  "3222170101172232",
+  "3201170101170132",
+  "3201170101170132",
+  "3201320101320132",
+  "3232013738013232"
+ ]
+}

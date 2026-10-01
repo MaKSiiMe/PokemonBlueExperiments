@@ -1,0 +1,56 @@
+{
+ "id": 131,
+ "name": "CELADON_MANSION_ROOF",
+ "label": "CeladonMansionRoof",
+ "tileset": "MANSION",
+ "width": 4,
+ "height": 6,
+ "border_block": 9,
+ "connections": [],
+ "warps": [
+  {
+   "x": 6,
+   "y": 1,
+   "map": "CELADON_MANSION_3F",
+   "warp": 2
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "map": "CELADON_MANSION_3F",
+   "warp": 3
+  },
+  {
+   "x": 2,
+   "y": 7,
+   "map": "CELADON_MANSION_ROOF_HOUSE",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 3,
+   "y": 7,
+   "text": "TEXT_CELADONMANSIONROOF_HOUSE_SIGN"
+  }
+ ],
+ "objects": [],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "4a1e1e1e1e4a1e4a",
+  "4a011a01014a1a4a",
+  "4a010101014a014a",
+  "4a010101014a014a",
+  "4a363737014a014a",
+  "4a363737014a014a",
+  "4a363737014a014a",
+  "4a305306014a014a",
+  "4a010101014a014a",
+  "4a2b1f1f1f5a014a",
+  "4a0101010101014a",
+  "5a2b1f1f1f1f1f5a"
+ ]
+}

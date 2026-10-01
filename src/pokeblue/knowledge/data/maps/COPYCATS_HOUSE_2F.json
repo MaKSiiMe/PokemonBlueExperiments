@@ -1,0 +1,106 @@
+{
+ "id": 176,
+ "name": "COPYCATS_HOUSE_2F",
+ "label": "CopycatsHouse2F",
+ "tileset": "REDS_HOUSE_2",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 7,
+   "y": 1,
+   "map": "COPYCATS_HOUSE_1F",
+   "warp": 3
+  }
+ ],
+ "signs": [
+  {
+   "x": 3,
+   "y": 5,
+   "text": "TEXT_COPYCATSHOUSE2F_SNES"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "text": "TEXT_COPYCATSHOUSE2F_PC"
+  }
+ ],
+ "objects": [
+  {
+   "x": 4,
+   "y": 3,
+   "sprite": "SPRITE_BRUNETTE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_COPYCATSHOUSE2F_COPYCAT",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "COPYCATSHOUSE2F_COPYCAT"
+  },
+  {
+   "x": 4,
+   "y": 6,
+   "sprite": "SPRITE_BIRD",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_COPYCATSHOUSE2F_DODUO",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "COPYCATSHOUSE2F_DODUO"
+  },
+  {
+   "x": 5,
+   "y": 1,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_COPYCATSHOUSE2F_MONSTER",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "COPYCATSHOUSE2F_MONSTER"
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "sprite": "SPRITE_BIRD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_COPYCATSHOUSE2F_BIRD",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "COPYCATSHOUSE2F_BIRD"
+  },
+  {
+   "x": 1,
+   "y": 6,
+   "sprite": "SPRITE_FAIRY",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_COPYCATSHOUSE2F_FAIRY",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "COPYCATSHOUSE2F_FAIRY"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "2026270000340034",
+  "323c3a010101011a",
+  "0101010101010101",
+  "0101010101010101",
+  "0101011601010101",
+  "0101011e01010101",
+  "3d01010101010801",
+  "3f01010101011801"
+ ]
+}

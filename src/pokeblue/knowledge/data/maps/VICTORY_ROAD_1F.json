@@ -1,0 +1,204 @@
+{
+ "id": 108,
+ "name": "VICTORY_ROAD_1F",
+ "label": "VictoryRoad1F",
+ "tileset": "CAVERN",
+ "width": 10,
+ "height": 9,
+ "border_block": 125,
+ "connections": [],
+ "warps": [
+  {
+   "x": 8,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 9,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "map": "VICTORY_ROAD_2F",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 7,
+   "y": 5,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_VICTORYROAD1F_COOLTRAINER_F",
+   "trainer": {
+    "class": "COOLTRAINER_F",
+    "party": 5
+   },
+   "item": null,
+   "index": 1,
+   "name": "VICTORYROAD1F_COOLTRAINER_F"
+  },
+  {
+   "x": 3,
+   "y": 2,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_VICTORYROAD1F_COOLTRAINER_M",
+   "trainer": {
+    "class": "COOLTRAINER_M",
+    "party": 5
+   },
+   "item": null,
+   "index": 2,
+   "name": "VICTORYROAD1F_COOLTRAINER_M"
+  },
+  {
+   "x": 11,
+   "y": 0,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_VICTORYROAD1F_TM_SKY_ATTACK",
+   "trainer": null,
+   "item": "TM_SKY_ATTACK",
+   "index": 3,
+   "name": "VICTORYROAD1F_TM_SKY_ATTACK"
+  },
+  {
+   "x": 9,
+   "y": 2,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_VICTORYROAD1F_RARE_CANDY",
+   "trainer": null,
+   "item": "RARE_CANDY",
+   "index": 4,
+   "name": "VICTORYROAD1F_RARE_CANDY"
+  },
+  {
+   "x": 5,
+   "y": 15,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_VICTORYROAD1F_BOULDER1",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "VICTORYROAD1F_BOULDER1"
+  },
+  {
+   "x": 14,
+   "y": 2,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_VICTORYROAD1F_BOULDER2",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "VICTORYROAD1F_BOULDER2"
+  },
+  {
+   "x": 2,
+   "y": 10,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_VICTORYROAD1F_BOULDER3",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "VICTORYROAD1F_BOULDER3"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    24,
+    "MACHOP"
+   ],
+   [
+    26,
+    "GEODUDE"
+   ],
+   [
+    22,
+    "ZUBAT"
+   ],
+   [
+    36,
+    "ONIX"
+   ],
+   [
+    39,
+    "ONIX"
+   ],
+   [
+    42,
+    "ONIX"
+   ],
+   [
+    41,
+    "GRAVELER"
+   ],
+   [
+    41,
+    "GOLBAT"
+   ],
+   [
+    42,
+    "MACHOKE"
+   ],
+   [
+    43,
+    "MAROWAK"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 212,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 213,
+   "object": 4,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "121212121212121212121c201212202012121212",
+  "121a202012121212121c1c201c12122020121212",
+  "121c20201c1c1212122020202020202020201c1c",
+  "121c2020201c121212121220201220202020201c",
+  "1220202004050505050505050505050505172020",
+  "1220202031050505050505050505050505172020",
+  "1212202031050505050505050505050505172020",
+  "1212202028101015101026050517101510102020",
+  "12121220202020202020310505171c2020202020",
+  "12122020040505051720310505171c1c20202012",
+  "121c201231050505171231050517121212121c12",
+  "121c2020310505051712310505171c2020201212",
+  "1220202031050505052405050517202020201212",
+  "20202012281510101010101010102012202d1c12",
+  "2020121220201212202020202020202020121212",
+  "122020202020122020201c1c2020202020121212",
+  "121c2020202020202020121220201c1c12121212",
+  "1212121212122020212112121212121212121212"
+ ]
+}

@@ -1,0 +1,300 @@
+{
+ "id": 6,
+ "name": "CELADON_CITY",
+ "label": "CeladonCity",
+ "tileset": "OVERWORLD",
+ "width": 25,
+ "height": 18,
+ "border_block": 15,
+ "connections": [
+  {
+   "direction": "west",
+   "map": "ROUTE_16",
+   "offset": 4
+  },
+  {
+   "direction": "east",
+   "map": "ROUTE_7",
+   "offset": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 13,
+   "map": "CELADON_MART_1F",
+   "warp": 1
+  },
+  {
+   "x": 10,
+   "y": 13,
+   "map": "CELADON_MART_1F",
+   "warp": 3
+  },
+  {
+   "x": 24,
+   "y": 9,
+   "map": "CELADON_MANSION_1F",
+   "warp": 1
+  },
+  {
+   "x": 24,
+   "y": 3,
+   "map": "CELADON_MANSION_1F",
+   "warp": 3
+  },
+  {
+   "x": 25,
+   "y": 3,
+   "map": "CELADON_MANSION_1F",
+   "warp": 3
+  },
+  {
+   "x": 41,
+   "y": 9,
+   "map": "CELADON_POKECENTER",
+   "warp": 1
+  },
+  {
+   "x": 12,
+   "y": 27,
+   "map": "CELADON_GYM",
+   "warp": 1
+  },
+  {
+   "x": 28,
+   "y": 19,
+   "map": "GAME_CORNER",
+   "warp": 1
+  },
+  {
+   "x": 39,
+   "y": 19,
+   "map": "CELADON_MART_5F",
+   "warp": 1
+  },
+  {
+   "x": 33,
+   "y": 19,
+   "map": "GAME_CORNER_PRIZE_ROOM",
+   "warp": 1
+  },
+  {
+   "x": 31,
+   "y": 27,
+   "map": "CELADON_DINER",
+   "warp": 1
+  },
+  {
+   "x": 35,
+   "y": 27,
+   "map": "CELADON_CHIEF_HOUSE",
+   "warp": 1
+  },
+  {
+   "x": 43,
+   "y": 27,
+   "map": "CELADON_HOTEL",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 27,
+   "y": 15,
+   "text": "TEXT_CELADONCITY_TRAINER_TIPS1"
+  },
+  {
+   "x": 19,
+   "y": 15,
+   "text": "TEXT_CELADONCITY_SIGN"
+  },
+  {
+   "x": 42,
+   "y": 9,
+   "text": "TEXT_CELADONCITY_POKECENTER_SIGN"
+  },
+  {
+   "x": 13,
+   "y": 29,
+   "text": "TEXT_CELADONCITY_GYM_SIGN"
+  },
+  {
+   "x": 21,
+   "y": 9,
+   "text": "TEXT_CELADONCITY_MANSION_SIGN"
+  },
+  {
+   "x": 12,
+   "y": 13,
+   "text": "TEXT_CELADONCITY_DEPTSTORE_SIGN"
+  },
+  {
+   "x": 39,
+   "y": 21,
+   "text": "TEXT_CELADONCITY_TRAINER_TIPS2"
+  },
+  {
+   "x": 33,
+   "y": 21,
+   "text": "TEXT_CELADONCITY_PRIZEEXCHANGE_SIGN"
+  },
+  {
+   "x": 27,
+   "y": 21,
+   "text": "TEXT_CELADONCITY_GAMECORNER_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 8,
+   "y": 17,
+   "sprite": "SPRITE_LITTLE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_CELADONCITY_LITTLE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONCITY_LITTLE_GIRL"
+  },
+  {
+   "x": 11,
+   "y": 28,
+   "sprite": "SPRITE_GRAMPS",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_CELADONCITY_GRAMPS1",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONCITY_GRAMPS1"
+  },
+  {
+   "x": 14,
+   "y": 19,
+   "sprite": "SPRITE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_CELADONCITY_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CELADONCITY_GIRL"
+  },
+  {
+   "x": 25,
+   "y": 22,
+   "sprite": "SPRITE_GRAMPS",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONCITY_GRAMPS2",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "CELADONCITY_GRAMPS2"
+  },
+  {
+   "x": 22,
+   "y": 16,
+   "sprite": "SPRITE_GRAMPS",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONCITY_GRAMPS3",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "CELADONCITY_GRAMPS3"
+  },
+  {
+   "x": 32,
+   "y": 12,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_CELADONCITY_FISHER",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "CELADONCITY_FISHER"
+  },
+  {
+   "x": 30,
+   "y": 12,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_CELADONCITY_POLIWRATH",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "CELADONCITY_POLIWRATH"
+  },
+  {
+   "x": 32,
+   "y": 29,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CELADONCITY_ROCKET1",
+   "trainer": null,
+   "item": null,
+   "index": 8,
+   "name": "CELADONCITY_ROCKET1"
+  },
+  {
+   "x": 42,
+   "y": 14,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CELADONCITY_ROCKET2",
+   "trainer": null,
+   "item": null,
+   "index": 9,
+   "name": "CELADONCITY_ROCKET2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "5050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050",
+  "50502c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c5050",
+  "50502c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c50",
+  "50502c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c505050502c2c5050505050502c2c5050505050505050505050502c2c2c50",
+  "50505a1212125b5b5b5b5b5b5b5b5a12121212125b5b5a12121212125b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b502c2c50",
+  "50505c1717175b5b5b5b5b5b5b5b5c17171717175b5b5c17171717175b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b502c2c50",
+  "50500f4b4b4b5a121212121212120f4b4b4b4b4b5b5b0f4b4b4b4b4b5a1212125a1212125a1212125a1212125b5b502c2c50",
+  "50500f4b4b4b5c171717171717170f4b4b4b4b4b5b5b0f4b4b4b4b4b5c1717175c1717175c1717175c1717175b5b502c2c50",
+  "50500f4b4b4b0f4b4b4b4b4b4b4b0f4b4b4b4b4b30300f4b4b4b4b4b0f4b4b4b0f4b4b4b0f4b4b4b0f4b4b4b5b5b50505050",
+  "50504e1a1a1a0f4b4b4b4b4b4b4b4e1a1a1a1a1a30564e1a1b1a1a1a4e1a1a1a4e1a1a1a4e1a1a1a4e1b4a1a5b5b50505050",
+  "50505b5b5b5b0f4b4b4b4b4b4b4b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b",
+  "50505b5b5b5b0f4b4b4b4b4b4b4b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b",
+  "50505b5b5b5b0f4b4b4b4b4b4b4b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b50505050",
+  "50505b5b5b5b4e1a1b1a1b1a4a1a5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b50505050",
+  "50505b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b3030151717171718393939393939393939395b5b393939393939393950505050",
+  "50505b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b30564e1a1a1a1a1a555655555555555555555b5b555555555555555550505050",
+  "50505b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b3a2c3c3c2c3a5a12121212125a1212125b5b5a1212125a12121250502c50",
+  "50505b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b3a2c3c3c2c3a5c17171717175c1717175b5b5c1717175c17171750502c50",
+  "39395b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b3a141414143a0f4b4b4b4b4b0f4b4b4b5b5b0f4b4b4b0f4b4b4b50502c50",
+  "55555b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b3a141414143a4e1a1b1a1a1a4e1b1a1a5b5b4e1a1a1a4e1a1a1a50502c50",
+  "50505b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b3a141414143a393939393939393939395b5b39393939393939392c3d2c50",
+  "50505b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b3a141414143a555655555555555655555b5b5556555555555555502c2c50",
+  "50505b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b502c2c50",
+  "50505b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b502c2c50",
+  "50505a12121215121212121212385a1212125a1212125b5b5b5b5a1212125a1212125a1212125a1212125a1212122c2c2c50",
+  "50505c17171715171717171717185c1717175c1717175b5b5b5b5c1717175c1717175c1717175c1717175c1717172c2c2c50",
+  "50500f4b4b4b0f222222222222220f4b4b4b0f4b4b4b5b5b5b5b0f4b4b4b0f4b4b4b0f4b4b4b0f4b4b4b0f4b4b4b2c2c2c50",
+  "50504e1a1a1a4e1a1a1a1a1a1b1a4e1a1a1a4e1a1a1a5b5b5b5b4e1a1a1a4e1b1a1a4e1b1a1a4e1a1a1a4e1b1a1a2c2c2c50",
+  "50505b5b5b5b5b5b5b5b5b5b30305b5b5b5b5a1212125b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b2c2c2c50",
+  "50505b5b5b5b5b5b5b5b5b5b30565b5b5b5b5c1717175b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b2c2c2c50",
+  "50502c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c0f4b4b4b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b2c2c2c50",
+  "50503737373c3737373737373737373737374e1a1a1a5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b2c2c2c50",
+  "50502c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c505050505050505050505050503d505050505050505050502c2c2c50",
+  "50502c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c502c2c502c2c2c2c2c2c2c2c2c2c2c50",
+  "50502c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c50502c2c2c2c2c2c2c2c2c2c5050",
+  "5050505050505050505050505050505050505050505050505050505050505050505050502c50505050505050505050505050"
+ ]
+}

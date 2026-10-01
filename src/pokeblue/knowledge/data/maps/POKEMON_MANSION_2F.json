@@ -1,0 +1,216 @@
+{
+ "id": 214,
+ "name": "POKEMON_MANSION_2F",
+ "label": "PokemonMansion2F",
+ "tileset": "FACILITY",
+ "width": 15,
+ "height": 14,
+ "border_block": 1,
+ "connections": [],
+ "warps": [
+  {
+   "x": 5,
+   "y": 10,
+   "map": "POKEMON_MANSION_1F",
+   "warp": 5
+  },
+  {
+   "x": 7,
+   "y": 10,
+   "map": "POKEMON_MANSION_3F",
+   "warp": 1
+  },
+  {
+   "x": 25,
+   "y": 14,
+   "map": "POKEMON_MANSION_3F",
+   "warp": 3
+  },
+  {
+   "x": 6,
+   "y": 1,
+   "map": "POKEMON_MANSION_3F",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 17,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_POKEMONMANSION2F_SUPER_NERD",
+   "trainer": {
+    "class": "BURGLAR",
+    "party": 7
+   },
+   "item": null,
+   "index": 1,
+   "name": "POKEMONMANSION2F_SUPER_NERD"
+  },
+  {
+   "x": 28,
+   "y": 7,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSION2F_CALCIUM",
+   "trainer": null,
+   "item": "CALCIUM",
+   "index": 2,
+   "name": "POKEMONMANSION2F_CALCIUM"
+  },
+  {
+   "x": 18,
+   "y": 2,
+   "sprite": "SPRITE_POKEDEX",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSION2F_DIARY1",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "POKEMONMANSION2F_DIARY1"
+  },
+  {
+   "x": 3,
+   "y": 22,
+   "sprite": "SPRITE_POKEDEX",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSION2F_DIARY2",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "POKEMONMANSION2F_DIARY2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 10,
+  "grass": [
+   [
+    32,
+    "GROWLITHE"
+   ],
+   [
+    34,
+    "KOFFING"
+   ],
+   [
+    34,
+    "KOFFING"
+   ],
+   [
+    30,
+    "PONYTA"
+   ],
+   [
+    30,
+    "KOFFING"
+   ],
+   [
+    32,
+    "PONYTA"
+   ],
+   [
+    30,
+    "GRIMER"
+   ],
+   [
+    28,
+    "PONYTA"
+   ],
+   [
+    39,
+    "WEEZING"
+   ],
+   [
+    37,
+    "MUK"
+   ],
+   [
+    32,
+    "VULPIX"
+   ],
+   [
+    34,
+    "GRIMER"
+   ],
+   [
+    34,
+    "GRIMER"
+   ],
+   [
+    30,
+    "PONYTA"
+   ],
+   [
+    30,
+    "GRIMER"
+   ],
+   [
+    32,
+    "PONYTA"
+   ],
+   [
+    30,
+    "KOFFING"
+   ],
+   [
+    28,
+    "PONYTA"
+   ],
+   [
+    39,
+    "MUK"
+   ],
+   [
+    37,
+    "WEEZING"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 187,
+   "object": 2,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2b3a3a3a3a3a3a3a3a2b3a3a3a3a3a2b3a3a3a3a3a3a2b3a0d0d3a3a3a2b",
+  "2b36363636361301012b01010101012b0101010101012b014c4c3636362b",
+  "2b36363601010101012b01010101012b01011d3501013b0101013636362b",
+  "2b36363601010101013b01010101012b010144450101010101010101362b",
+  "2b36010101010101010101010101012b010101010101363636010101012b",
+  "2b36010101010101010101010101013b3a3a01013b3a363636010101012b",
+  "2b01010138013801012b010101010101010101010101013636363636012b",
+  "2b01010119011901012b010101010101010101010101013636363636012b",
+  "2b01010101010101012b010101152b0d3a3a01013b3a36363a3a3a3a3a2b",
+  "2b3a3a3a3a3a3a3a3a3a010101172b1d010101010101363601013636362b",
+  "2b012701011b01130101010101152b1d010101010101360101010101012b",
+  "2b013d01010101010101010101172b4c010101010101360101010101012b",
+  "2b0101010101012b3601010101013636363601010101360101010101012b",
+  "2b0101010101012b3601012b3a3a363636363a3a0101360101013b3a3a2b",
+  "2b0d0d0d3a01362b3601012b36363636363601010101363601130101012b",
+  "2b4c4c4c0101362b3601012b36363636363601010101363601010101012b",
+  "2b010101013636363636012b01014111111150505050505050505050503b",
+  "2b010101013636363636012b010141111111111111111111111111111111",
+  "2b0d0d0d0d0d3a2b0101012b010141111111111111111111111111111111",
+  "2b4c4c4c4c4c012b0101012b010141111111111111111111111111111111",
+  "2b0101010101012b0101012b010141111111111111111111111111111111",
+  "2b0101010101013b0101013b010141111111111111111111111111111111",
+  "2b011d351d35010101010101010141111111111111111111111111111111",
+  "2b014445444501010101012b010141111111111111111111111111111111",
+  "2b0101010101012b0101012b010141111111111111111111111111111111",
+  "2b0101010101012b0101012b010141111111111111111111111111111111",
+  "2b0101010101012b0101012b505051111111111111111111111111111111",
+  "3b3a3a3a3a3a3a3a3a3a3a3a111111111111111111111111111111111111"
+ ]
+}

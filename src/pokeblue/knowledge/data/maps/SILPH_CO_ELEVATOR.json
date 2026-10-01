@@ -1,0 +1,42 @@
+{
+ "id": 236,
+ "name": "SILPH_CO_ELEVATOR",
+ "label": "SilphCoElevator",
+ "tileset": "LOBBY",
+ "width": 2,
+ "height": 2,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 1,
+   "y": 3,
+   "map": "UNUSED_MAP_ED",
+   "warp": 1
+  },
+  {
+   "x": 2,
+   "y": 3,
+   "map": "UNUSED_MAP_ED",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 3,
+   "y": 0,
+   "text": "TEXT_SILPHCOELEVATOR_ELEVATOR"
+  }
+ ],
+ "objects": [],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "2121213f",
+  "45454545",
+  "45454545",
+  "45141445"
+ ]
+}

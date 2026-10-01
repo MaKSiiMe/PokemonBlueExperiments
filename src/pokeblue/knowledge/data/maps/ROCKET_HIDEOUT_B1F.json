@@ -1,0 +1,189 @@
+{
+ "id": 199,
+ "name": "ROCKET_HIDEOUT_B1F",
+ "label": "RocketHideoutB1F",
+ "tileset": "FACILITY",
+ "width": 15,
+ "height": 14,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 23,
+   "y": 2,
+   "map": "ROCKET_HIDEOUT_B2F",
+   "warp": 1
+  },
+  {
+   "x": 21,
+   "y": 2,
+   "map": "GAME_CORNER",
+   "warp": 3
+  },
+  {
+   "x": 24,
+   "y": 19,
+   "map": "ROCKET_HIDEOUT_ELEVATOR",
+   "warp": 1
+  },
+  {
+   "x": 21,
+   "y": 24,
+   "map": "ROCKET_HIDEOUT_B2F",
+   "warp": 4
+  },
+  {
+   "x": 25,
+   "y": 19,
+   "map": "ROCKET_HIDEOUT_ELEVATOR",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 26,
+   "y": 8,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROCKETHIDEOUTB1F_ROCKET1",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 8
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROCKETHIDEOUTB1F_ROCKET1"
+  },
+  {
+   "x": 12,
+   "y": 6,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROCKETHIDEOUTB1F_ROCKET2",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 9
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROCKETHIDEOUTB1F_ROCKET2"
+  },
+  {
+   "x": 18,
+   "y": 17,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROCKETHIDEOUTB1F_ROCKET3",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 10
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROCKETHIDEOUTB1F_ROCKET3"
+  },
+  {
+   "x": 15,
+   "y": 25,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROCKETHIDEOUTB1F_ROCKET4",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 11
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROCKETHIDEOUTB1F_ROCKET4"
+  },
+  {
+   "x": 28,
+   "y": 18,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROCKETHIDEOUTB1F_ROCKET5",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 12
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROCKETHIDEOUTB1F_ROCKET5"
+  },
+  {
+   "x": 11,
+   "y": 14,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB1F_ESCAPE_ROPE",
+   "trainer": null,
+   "item": "ESCAPE_ROPE",
+   "index": 6,
+   "name": "ROCKETHIDEOUTB1F_ESCAPE_ROPE"
+  },
+  {
+   "x": 9,
+   "y": 17,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB1F_HYPER_POTION",
+   "trainer": null,
+   "item": "HYPER_POTION",
+   "index": 7,
+   "name": "ROCKETHIDEOUTB1F_HYPER_POTION"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 123,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 124,
+   "object": 7,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "3333333333333333333333333333333333332b3a3a3a3a3a3a2b33333333",
+  "3333333333333333333333333333333333332b0101010101012b33333333",
+  "3333333333333333333333333333333333332b010113011b012b33333333",
+  "3333333333333333333333333333333333332b0101010101012b33333333",
+  "33333333333333332b3a3a3a3a3a3a3a3a3a3a3a010101013b3a3a3a3a2b",
+  "33333333333333332b01010101010101010101010101010101010101012b",
+  "33333333333333332b01010101010101010101010101010101010101012b",
+  "33333333333333332b01010101010101010101010101010101010101012b",
+  "33333333333333332b3a3a01013b3a2b1501010101152b3a3a01013b3a2b",
+  "33333333333333332b0101010101012b1701010101172b0101010101012b",
+  "33333333333333332b0101010101012b1501010101152b0101010101012b",
+  "33333333333333332b0101010101012b1701010101172b0101010101012b",
+  "33333333333333332b011d351d35012b1501010101152b011d351d35012b",
+  "33333333333333332b0144454445012b1701010101172b0144454445012b",
+  "33333333333333332b1501010101012b1501010101152b1501010101012b",
+  "33333333333333332b1701010101012b1701010101172b1701010101012b",
+  "33333333333333332b3a3a3a3a3a3a3a3a3a3a3a3a3a3a2b01013b3a3a2b",
+  "33333333333333332b01010101010101010101010101012b01010101012b",
+  "33333333333333332b15010101010101010101010101012b01010101012b",
+  "33333333333333332b1701011d351d351d3501010101012b42523b3a3a3a",
+  "33333333333333332b1501011d351d351d3501010101012b333333333333",
+  "33333333333333332b1701011d351d351d3501010101012b333333333333",
+  "33333333333333332b1501011d351d351d3501010101012b333333333333",
+  "33333333333333332b1701011d351d351d3501010101012b333333333333",
+  "33333333333333332b1501014445444544450101011b012b333333333333",
+  "33333333333333332b17010101010101010101010101012b333333333333",
+  "33333333333333332b01010101010101010101010101012b333333333333",
+  "33333333333333333b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a333333333333"
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "id": 118,
+ "name": "HALL_OF_FAME",
+ "label": "HallOfFame",
+ "tileset": "GYM",
+ "width": 5,
+ "height": 4,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 7,
+   "map": "CHAMPIONS_ROOM",
+   "warp": 3
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "map": "CHAMPIONS_ROOM",
+   "warp": 4
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 2,
+   "sprite": "SPRITE_OAK",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_HALLOFFAME_OAK",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "HALLOFFAME_OAK"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "10101010101010101010",
+  "19191919365519191919",
+  "19191919191919191919",
+  "19191919191919191919",
+  "19191919191919191919",
+  "19191919191919191919",
+  "19191919191919191919",
+  "19191919161619191919"
+ ]
+}

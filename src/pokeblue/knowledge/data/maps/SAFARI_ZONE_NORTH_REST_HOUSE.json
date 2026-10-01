@@ -1,0 +1,77 @@
+{
+ "id": 225,
+ "name": "SAFARI_ZONE_NORTH_REST_HOUSE",
+ "label": "SafariZoneNorthRestHouse",
+ "tileset": "GATE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "SAFARI_ZONE_NORTH",
+   "warp": 9
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "SAFARI_ZONE_NORTH",
+   "warp": 9
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 6,
+   "y": 3,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_SAFARIZONENORTHRESTHOUSE_SCIENTIST",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SAFARIZONENORTHRESTHOUSE_SCIENTIST"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "sprite": "SPRITE_SAFARI_ZONE_WORKER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFARIZONENORTHRESTHOUSE_SAFARI_ZONE_WORKER",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SAFARIZONENORTHRESTHOUSE_SAFARI_ZONE_WORKER"
+  },
+  {
+   "x": 1,
+   "y": 5,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_SAFARIZONENORTHRESTHOUSE_GENTLEMAN",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "SAFARIZONENORTHRESTHOUSE_GENTLEMAN"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0000001522222222",
+  "0101013522222222",
+  "1201011201010101",
+  "0101010101010101",
+  "1201011201173232",
+  "0101010101170101",
+  "0101010101170132",
+  "0101141401170132"
+ ]
+}

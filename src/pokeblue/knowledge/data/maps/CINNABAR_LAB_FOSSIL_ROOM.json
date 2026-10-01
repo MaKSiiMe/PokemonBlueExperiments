@@ -1,0 +1,65 @@
+{
+ "id": 170,
+ "name": "CINNABAR_LAB_FOSSIL_ROOM",
+ "label": "CinnabarLabFossilRoom",
+ "tileset": "LAB",
+ "width": 4,
+ "height": 4,
+ "border_block": 23,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "CINNABAR_LAB",
+   "warp": 5
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "CINNABAR_LAB",
+   "warp": 5
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 2,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CINNABARLABFOSSILROOM_SCIENTIST1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CINNABARLABFOSSILROOM_SCIENTIST1"
+  },
+  {
+   "x": 7,
+   "y": 6,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_CINNABARLABFOSSILROOM_SCIENTIST2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CINNABARLABFOSSILROOM_SCIENTIST2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "5556555555550a0a",
+  "1a5b1b1a5a5a1a1a",
+  "0c0c0c0c26262626",
+  "0c0c0c0c26262626",
+  "1214121426265051",
+  "162616262626533a",
+  "2626262626262626",
+  "2626373726262626"
+ ]
+}

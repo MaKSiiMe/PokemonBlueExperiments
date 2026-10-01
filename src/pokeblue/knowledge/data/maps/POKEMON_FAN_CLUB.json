@@ -1,0 +1,124 @@
+{
+ "id": 90,
+ "name": "POKEMON_FAN_CLUB",
+ "label": "PokemonFanClub",
+ "tileset": "INTERIOR",
+ "width": 4,
+ "height": 4,
+ "border_block": 13,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 2
+  }
+ ],
+ "signs": [
+  {
+   "x": 1,
+   "y": 0,
+   "text": "TEXT_POKEMONFANCLUB_SIGN_1"
+  },
+  {
+   "x": 6,
+   "y": 0,
+   "text": "TEXT_POKEMONFANCLUB_SIGN_2"
+  }
+ ],
+ "objects": [
+  {
+   "x": 6,
+   "y": 3,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_POKEMONFANCLUB_PIKACHU_FAN",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "POKEMONFANCLUB_PIKACHU_FAN"
+  },
+  {
+   "x": 1,
+   "y": 3,
+   "sprite": "SPRITE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_POKEMONFANCLUB_SEEL_FAN",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "POKEMONFANCLUB_SEEL_FAN"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "sprite": "SPRITE_FAIRY",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_POKEMONFANCLUB_PIKACHU",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "POKEMONFANCLUB_PIKACHU"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "sprite": "SPRITE_SEEL",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_POKEMONFANCLUB_SEEL",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "POKEMONFANCLUB_SEEL"
+  },
+  {
+   "x": 3,
+   "y": 1,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_POKEMONFANCLUB_CHAIRMAN",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "POKEMONFANCLUB_CHAIRMAN"
+  },
+  {
+   "x": 5,
+   "y": 1,
+   "sprite": "SPRITE_LINK_RECEPTIONIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_POKEMONFANCLUB_RECEPTIONIST",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "POKEMONFANCLUB_RECEPTIONIST"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "4423443233442344",
+  "1f1f1f1f1f1f1f1f",
+  "1f1f484012401f1f",
+  "1f3b4d405c403b1f",
+  "1f3b4f4040513b1f",
+  "1f1f1f1f1f1f1f1f",
+  "1f1f1f1f1f1f1f1f",
+  "1f1f47471f1f1f1f"
+ ]
+}

@@ -1,0 +1,205 @@
+{
+ "id": 209,
+ "name": "SILPH_CO_4F",
+ "label": "SilphCo4F",
+ "tileset": "FACILITY",
+ "width": 15,
+ "height": 9,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 24,
+   "y": 0,
+   "map": "SILPH_CO_3F",
+   "warp": 2
+  },
+  {
+   "x": 26,
+   "y": 0,
+   "map": "SILPH_CO_5F",
+   "warp": 2
+  },
+  {
+   "x": 20,
+   "y": 0,
+   "map": "SILPH_CO_ELEVATOR",
+   "warp": 1
+  },
+  {
+   "x": 11,
+   "y": 7,
+   "map": "SILPH_CO_10F",
+   "warp": 4
+  },
+  {
+   "x": 17,
+   "y": 3,
+   "map": "SILPH_CO_6F",
+   "warp": 4
+  },
+  {
+   "x": 3,
+   "y": 15,
+   "map": "SILPH_CO_10F",
+   "warp": 5
+  },
+  {
+   "x": 17,
+   "y": 11,
+   "map": "SILPH_CO_10F",
+   "warp": 6
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 6,
+   "y": 2,
+   "sprite": "SPRITE_SILPH_WORKER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO4F_SILPH_WORKER_M",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SILPHCO4F_SILPH_WORKER_M"
+  },
+  {
+   "x": 9,
+   "y": 14,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SILPHCO4F_ROCKET1",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 26
+   },
+   "item": null,
+   "index": 2,
+   "name": "SILPHCO4F_ROCKET1"
+  },
+  {
+   "x": 14,
+   "y": 6,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SILPHCO4F_SCIENTIST",
+   "trainer": {
+    "class": "SCIENTIST",
+    "party": 5
+   },
+   "item": null,
+   "index": 3,
+   "name": "SILPHCO4F_SCIENTIST"
+  },
+  {
+   "x": 26,
+   "y": 10,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SILPHCO4F_ROCKET2",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 27
+   },
+   "item": null,
+   "index": 4,
+   "name": "SILPHCO4F_ROCKET2"
+  },
+  {
+   "x": 3,
+   "y": 9,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO4F_FULL_HEAL",
+   "trainer": null,
+   "item": "FULL_HEAL",
+   "index": 5,
+   "name": "SILPHCO4F_FULL_HEAL"
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO4F_MAX_REVIVE",
+   "trainer": null,
+   "item": "MAX_REVIVE",
+   "index": 6,
+   "name": "SILPHCO4F_MAX_REVIVE"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO4F_ESCAPE_ROPE",
+   "trainer": null,
+   "item": "ESCAPE_ROPE",
+   "index": 7,
+   "name": "SILPHCO4F_ESCAPE_ROPE"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 145,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 146,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 147,
+   "object": 4,
+   "initially_visible": true
+  },
+  {
+   "toggle": 148,
+   "object": 5,
+   "initially_visible": true
+  },
+  {
+   "toggle": 149,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 150,
+   "object": 7,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2b59595959595959592b0d0d0d0d0d0d0d0d2b59585959591b594359592b",
+  "2b01010101010101012b4c4c4c4c4c4c4c4c2b010101010101010101012b",
+  "2b01191919190119012b01010101010101012b010101010101010101012b",
+  "2b01191919191919012b01010101010101202b010101010101010101012b",
+  "2b01191919191919012b01011d351d3501012b012b3a3a3a01013b3a3a2b",
+  "2b01191919191919012b01014445444501012b012b01010101010101012b",
+  "2b01191919191919012b01010101010101012b012b01150101010115012b",
+  "2b01191901191919012b01200101010101012b012b0117011d350117012b",
+  "2b01191901011919012b3a3a01013b3a0d0d2b012b0101011d350101012b",
+  "2b01190101011919012b0101010101014c4c2b012b0101011d350101012b",
+  "2b01010101010101012b01010101010101012b012b0115011d350115012b",
+  "2b01010101010101012b01010101010101202b012b0117011d350117012b",
+  "2b3a3a3a01013b3a3a3a3a3a01013b3a3a3a3b012b0101011d350101012b",
+  "2b010101010101010101010101010101010101012b0101011d350101012b",
+  "2b010101010101010101010101010101010101012b01150144450115012b",
+  "2b010120010101010101010101010101010101012b01170101010117012b",
+  "2b010101010101010101010101010101010101012b01010101010101012b",
+  "3b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b3a3a3a3a3a3a3a3a3a"
+ ]
+}

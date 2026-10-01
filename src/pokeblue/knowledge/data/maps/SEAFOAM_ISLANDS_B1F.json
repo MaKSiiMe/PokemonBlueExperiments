@@ -1,0 +1,202 @@
+{
+ "id": 159,
+ "name": "SEAFOAM_ISLANDS_B1F",
+ "label": "SeafoamIslandsB1F",
+ "tileset": "CAVERN",
+ "width": 15,
+ "height": 9,
+ "border_block": 125,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 2,
+   "map": "SEAFOAM_ISLANDS_B2F",
+   "warp": 1
+  },
+  {
+   "x": 7,
+   "y": 5,
+   "map": "SEAFOAM_ISLANDS_1F",
+   "warp": 5
+  },
+  {
+   "x": 13,
+   "y": 7,
+   "map": "SEAFOAM_ISLANDS_B2F",
+   "warp": 3
+  },
+  {
+   "x": 19,
+   "y": 15,
+   "map": "SEAFOAM_ISLANDS_B2F",
+   "warp": 4
+  },
+  {
+   "x": 23,
+   "y": 15,
+   "map": "SEAFOAM_ISLANDS_1F",
+   "warp": 7
+  },
+  {
+   "x": 25,
+   "y": 11,
+   "map": "SEAFOAM_ISLANDS_B2F",
+   "warp": 6
+  },
+  {
+   "x": 25,
+   "y": 3,
+   "map": "SEAFOAM_ISLANDS_1F",
+   "warp": 6
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 17,
+   "y": 6,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_SEAFOAMISLANDSB1F_BOULDER1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SEAFOAMISLANDSB1F_BOULDER1"
+  },
+  {
+   "x": 22,
+   "y": 6,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_SEAFOAMISLANDSB1F_BOULDER2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SEAFOAMISLANDSB1F_BOULDER2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 10,
+  "grass": [
+   [
+    30,
+    "STARYU"
+   ],
+   [
+    30,
+    "HORSEA"
+   ],
+   [
+    32,
+    "SHELLDER"
+   ],
+   [
+    32,
+    "HORSEA"
+   ],
+   [
+    28,
+    "SLOWPOKE"
+   ],
+   [
+    30,
+    "SEEL"
+   ],
+   [
+    30,
+    "SLOWPOKE"
+   ],
+   [
+    28,
+    "SEEL"
+   ],
+   [
+    38,
+    "DEWGONG"
+   ],
+   [
+    37,
+    "SEADRA"
+   ],
+   [
+    30,
+    "SHELLDER"
+   ],
+   [
+    30,
+    "KRABBY"
+   ],
+   [
+    32,
+    "STARYU"
+   ],
+   [
+    32,
+    "KRABBY"
+   ],
+   [
+    28,
+    "PSYDUCK"
+   ],
+   [
+    30,
+    "SEEL"
+   ],
+   [
+    30,
+    "PSYDUCK"
+   ],
+   [
+    28,
+    "SEEL"
+   ],
+   [
+    38,
+    "DEWGONG"
+   ],
+   [
+    37,
+    "KINGLER"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 217,
+   "object": 1,
+   "initially_visible": false
+  },
+  {
+   "toggle": 218,
+   "object": 2,
+   "initially_visible": false
+  }
+ ],
+ "tiles": [
+  "101010101010101010100405050505050505051710101010101010101010",
+  "101010101010101010103105050505050505051710101010101010101010",
+  "101020201820202020203105050505050505051720202020202020201010",
+  "101020202020202020203105050505171015101020202020201a20201010",
+  "10102020040505050517310505050517202020201c202020202020201010",
+  "101020203105051a0517310505050517202020201c202020202020201010",
+  "10102020310505050517310505050517202022201c202022202020201010",
+  "10102020310505171010310505180517202020201c202020202020201010",
+  "10102020310505170405050505050517202020201c202020202020201010",
+  "10102020281510103105050505050517202020201c1c1c1c1c1c1c1c1010",
+  "101020202020202031050505050505050505051720202020202020201010",
+  "101020202020202031050505050505050505051720202020201820201010",
+  "101020202020202031050505050505050505051720202020202020201010",
+  "101020202020202028151010101010101015101020202020202020201010",
+  "1010202020202020202020201c202020202020201c202020202020201010",
+  "1010202020202020202020201c202020202020181c20201a202020201010",
+  "101010101010101010101010101010101010101010101010101010101010",
+  "101010101010101010101010101010101010101010101010101010101010"
+ ]
+}

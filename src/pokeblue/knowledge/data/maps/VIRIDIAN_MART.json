@@ -1,0 +1,77 @@
+{
+ "id": 42,
+ "name": "VIRIDIAN_MART",
+ "label": "ViridianMart",
+ "tileset": "MART",
+ "width": 4,
+ "height": 4,
+ "border_block": 0,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 0,
+   "y": 5,
+   "sprite": "SPRITE_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_VIRIDIANMART_CLERK",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "VIRIDIANMART_CLERK"
+  },
+  {
+   "x": 5,
+   "y": 5,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_VIRIDIANMART_YOUNGSTER",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "VIRIDIANMART_YOUNGSTER"
+  },
+  {
+   "x": 3,
+   "y": 3,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_VIRIDIANMART_COOLTRAINER_M",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "VIRIDIANMART_COOLTRAINER_M"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "4e4e2c2c2c2c4e4e",
+  "17173e3e3e3e1717",
+  "1a11111111111111",
+  "5051111150515051",
+  "28101a1154555455",
+  "1a1e1a1111111111",
+  "19191a1111111111",
+  "1a11111c1c111111"
+ ]
+}

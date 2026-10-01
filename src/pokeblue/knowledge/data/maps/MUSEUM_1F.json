@@ -1,0 +1,125 @@
+{
+ "id": 52,
+ "name": "MUSEUM_1F",
+ "label": "Museum1F",
+ "tileset": "MUSEUM",
+ "width": 10,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 10,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 11,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 16,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 17,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 7,
+   "y": 7,
+   "map": "MUSEUM_2F",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 12,
+   "y": 4,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_MUSEUM1F_SCIENTIST1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "MUSEUM1F_SCIENTIST1"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_MUSEUM1F_GAMBLER",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "MUSEUM1F_GAMBLER"
+  },
+  {
+   "x": 15,
+   "y": 2,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_MUSEUM1F_SCIENTIST2",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "MUSEUM1F_SCIENTIST2"
+  },
+  {
+   "x": 17,
+   "y": 4,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_MUSEUM1F_SCIENTIST3",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "MUSEUM1F_SCIENTIST3"
+  },
+  {
+   "x": 16,
+   "y": 2,
+   "sprite": "SPRITE_OLD_AMBER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_MUSEUM1F_OLD_AMBER",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "MUSEUM1F_OLD_AMBER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 52,
+   "object": 5,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "4a4a4a4a4a4a4a4a4a4a4a072222222222222222",
+  "0101010101010101010101172222222222222222",
+  "0130473a4701010101010117120101015c010101",
+  "0132323232010101010101171201010101010101",
+  "0101010101010101010101170101010101010101",
+  "0130473a47010101170101323232170101010101",
+  "0132323232010101170101010115170101010115",
+  "010101010101011c170114140135170114140135"
+ ]
+}

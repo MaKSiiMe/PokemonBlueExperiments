@@ -1,0 +1,77 @@
+{
+ "id": 140,
+ "name": "CELADON_HOTEL",
+ "label": "CeladonHotel",
+ "tileset": "POKECENTER",
+ "width": 7,
+ "height": 4,
+ "border_block": 0,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 13
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 13
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 1,
+   "sprite": "SPRITE_GRANNY",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONHOTEL_GRANNY",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONHOTEL_GRANNY"
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CELADONHOTEL_BEAUTY",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONHOTEL_BEAUTY"
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CELADONHOTEL_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CELADONHOTEL_SUPER_NERD"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "2828282828282828282828283030",
+  "1111111111111111111111113232",
+  "1818181818181818181818181818",
+  "1111111111111111111111111111",
+  "343c111111111111111111111111",
+  "2a1a111111111111111111111111",
+  "3030111111113030111111113030",
+  "3232111c1c113232111111113232"
+ ]
+}

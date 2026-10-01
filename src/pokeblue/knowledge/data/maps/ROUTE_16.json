@@ -1,0 +1,269 @@
+{
+ "id": 27,
+ "name": "ROUTE_16",
+ "label": "Route16",
+ "tileset": "OVERWORLD",
+ "width": 20,
+ "height": 9,
+ "border_block": 15,
+ "connections": [
+  {
+   "direction": "south",
+   "map": "ROUTE_17",
+   "offset": 0
+  },
+  {
+   "direction": "east",
+   "map": "CELADON_CITY",
+   "offset": -4
+  }
+ ],
+ "warps": [
+  {
+   "x": 17,
+   "y": 10,
+   "map": "ROUTE_16_GATE_1F",
+   "warp": 1
+  },
+  {
+   "x": 17,
+   "y": 11,
+   "map": "ROUTE_16_GATE_1F",
+   "warp": 2
+  },
+  {
+   "x": 24,
+   "y": 10,
+   "map": "ROUTE_16_GATE_1F",
+   "warp": 3
+  },
+  {
+   "x": 24,
+   "y": 11,
+   "map": "ROUTE_16_GATE_1F",
+   "warp": 4
+  },
+  {
+   "x": 17,
+   "y": 4,
+   "map": "ROUTE_16_GATE_1F",
+   "warp": 5
+  },
+  {
+   "x": 17,
+   "y": 5,
+   "map": "ROUTE_16_GATE_1F",
+   "warp": 6
+  },
+  {
+   "x": 24,
+   "y": 4,
+   "map": "ROUTE_16_GATE_1F",
+   "warp": 7
+  },
+  {
+   "x": 24,
+   "y": 5,
+   "map": "ROUTE_16_GATE_1F",
+   "warp": 8
+  },
+  {
+   "x": 7,
+   "y": 5,
+   "map": "ROUTE_16_FLY_HOUSE",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 27,
+   "y": 11,
+   "text": "TEXT_ROUTE16_CYCLING_ROAD_SIGN"
+  },
+  {
+   "x": 5,
+   "y": 17,
+   "text": "TEXT_ROUTE16_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 17,
+   "y": 12,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE16_BIKER1",
+   "trainer": {
+    "class": "BIKER",
+    "party": 5
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROUTE16_BIKER1"
+  },
+  {
+   "x": 14,
+   "y": 13,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE16_BIKER2",
+   "trainer": {
+    "class": "CUE_BALL",
+    "party": 1
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE16_BIKER2"
+  },
+  {
+   "x": 11,
+   "y": 12,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE16_BIKER3",
+   "trainer": {
+    "class": "CUE_BALL",
+    "party": 2
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE16_BIKER3"
+  },
+  {
+   "x": 9,
+   "y": 11,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE16_BIKER4",
+   "trainer": {
+    "class": "BIKER",
+    "party": 6
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE16_BIKER4"
+  },
+  {
+   "x": 6,
+   "y": 10,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE16_BIKER5",
+   "trainer": {
+    "class": "CUE_BALL",
+    "party": 3
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE16_BIKER5"
+  },
+  {
+   "x": 3,
+   "y": 12,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE16_BIKER6",
+   "trainer": {
+    "class": "BIKER",
+    "party": 7
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE16_BIKER6"
+  },
+  {
+   "x": 26,
+   "y": 10,
+   "sprite": "SPRITE_SNORLAX",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE16_SNORLAX",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "ROUTE16_SNORLAX"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 25,
+  "grass": [
+   [
+    20,
+    "SPEAROW"
+   ],
+   [
+    22,
+    "SPEAROW"
+   ],
+   [
+    18,
+    "RATTATA"
+   ],
+   [
+    20,
+    "DODUO"
+   ],
+   [
+    20,
+    "RATTATA"
+   ],
+   [
+    18,
+    "DODUO"
+   ],
+   [
+    22,
+    "DODUO"
+   ],
+   [
+    22,
+    "RATTATA"
+   ],
+   [
+    23,
+    "RATICATE"
+   ],
+   [
+    25,
+    "RATICATE"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 33,
+   "object": 7,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c50505050",
+  "3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a50505050",
+  "3a2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c5a12121212122c2c2c2c525252525252525250505050",
+  "3a2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c5c17171717172c2c2c2c525252525252525250505050",
+  "3a2c392339231517171839233923392339230f4b4b4b4b4b39233923525252525252525250505050",
+  "3a2c233923394e1b1a1a23392339233923394e1a1a1a1a1a23392339525252525252525250505050",
+  "3a2c392339233923392339232c2c2c2c2c2c5a12121212122c2c3923392339233923392350505050",
+  "3a2c233923392339233923392c2c2c2c2c2c5c17171717172c2c2339233923392339233950505050",
+  "3a2c393939393939393939393939393939390f4b4b4b4b4b2c2c2c2c2c2c2c2c2c2c2c5050505050",
+  "3a3a555555555555555555555555555555550f4b4b4b4b4b505050505050505050503d5050505050",
+  "3a2c39392c2c2c2c393939393939393939390f4b4b4b4b4b39393939393939393939393939393939",
+  "3a2c39392c2c2c2c393939393939393939394e1a1a1a1a1a55555556555555555555555555555555",
+  "3a2c39392c2c2c2c3939393939393939393939393939393950505050505050505050505050505050",
+  "3a2c39392c2c2c2c3939393939393939393939393939393950505050505050505050505050505050",
+  "3a2c39392c2c2c2c393939393a3a3a3a3a3a3a3a3a3a3a3a50505050505050505050505050505050",
+  "3a2c39392c2c2c2c393939393a2c2c2c2c2c2c2c2c2c2c2c50505050505050505050505050505050",
+  "3a2c39393939393939392c2c3a2c3214141414141414141450505050505050505050505050505050",
+  "3a2c39393956393939392c2c3a2c3214141414141414141450505050505050505050505050505050"
+ ]
+}

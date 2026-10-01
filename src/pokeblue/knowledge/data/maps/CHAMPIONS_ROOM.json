@@ -1,0 +1,83 @@
+{
+ "id": 120,
+ "name": "CHAMPIONS_ROOM",
+ "label": "ChampionsRoom",
+ "tileset": "GYM",
+ "width": 4,
+ "height": 4,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LANCES_ROOM",
+   "warp": 2
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LANCES_ROOM",
+   "warp": 3
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "map": "HALL_OF_FAME",
+   "warp": 1
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "map": "HALL_OF_FAME",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 2,
+   "sprite": "SPRITE_BLUE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CHAMPIONSROOM_RIVAL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CHAMPIONSROOM_RIVAL"
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "sprite": "SPRITE_OAK",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_CHAMPIONSROOM_OAK",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CHAMPIONSROOM_OAK"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 214,
+   "object": 2,
+   "initially_visible": false
+  }
+ ],
+ "tiles": [
+  "2510121111121025",
+  "2511321111321125",
+  "2511111111111125",
+  "2511111111111125",
+  "2511111111111125",
+  "2511111111111125",
+  "2511121111121125",
+  "4210321111324210"
+ ]
+}

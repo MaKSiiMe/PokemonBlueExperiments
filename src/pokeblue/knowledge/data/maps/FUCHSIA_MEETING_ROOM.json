@@ -1,0 +1,77 @@
+{
+ "id": 158,
+ "name": "FUCHSIA_MEETING_ROOM",
+ "label": "FuchsiaMeetingRoom",
+ "tileset": "LAB",
+ "width": 7,
+ "height": 4,
+ "border_block": 23,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 7
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 7
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 1,
+   "sprite": "SPRITE_SAFARI_ZONE_WORKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_FUCHSIAMEETINGROOM_SAFARI_ZONE_WORKER1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "FUCHSIAMEETINGROOM_SAFARI_ZONE_WORKER1"
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "sprite": "SPRITE_SAFARI_ZONE_WORKER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_FUCHSIAMEETINGROOM_SAFARI_ZONE_WORKER2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "FUCHSIAMEETINGROOM_SAFARI_ZONE_WORKER2"
+  },
+  {
+   "x": 10,
+   "y": 1,
+   "sprite": "SPRITE_SAFARI_ZONE_WORKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_FUCHSIAMEETINGROOM_SAFARI_ZONE_WORKER3",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "FUCHSIAMEETINGROOM_SAFARI_ZONE_WORKER3"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "2828282822222220222222222222",
+  "282828282626262626261e262626",
+  "2626262626505151262650512626",
+  "2626262626533a3a2626533a2626",
+  "2626262626262626262626262626",
+  "222226262a222222222222222222",
+  "3c2626262626262626262626263c",
+  "3e2626263737262626262626263e"
+ ]
+}

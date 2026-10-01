@@ -1,0 +1,101 @@
+{
+ "id": 123,
+ "name": "CELADON_MART_2F",
+ "label": "CeladonMart2F",
+ "tileset": "LOBBY",
+ "width": 10,
+ "height": 4,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 12,
+   "y": 1,
+   "map": "CELADON_MART_1F",
+   "warp": 5
+  },
+  {
+   "x": 16,
+   "y": 1,
+   "map": "CELADON_MART_3F",
+   "warp": 2
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "map": "CELADON_MART_ELEVATOR",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 14,
+   "y": 1,
+   "text": "TEXT_CELADONMART2F_CURRENT_FLOOR_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 5,
+   "y": 3,
+   "sprite": "SPRITE_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONMART2F_CLERK1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONMART2F_CLERK1"
+  },
+  {
+   "x": 6,
+   "y": 3,
+   "sprite": "SPRITE_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONMART2F_CLERK2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONMART2F_CLERK2"
+  },
+  {
+   "x": 19,
+   "y": 5,
+   "sprite": "SPRITE_MIDDLE_AGED_MAN",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CELADONMART2F_MIDDLE_AGED_MAN",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CELADONMART2F_MIDDLE_AGED_MAN"
+  },
+  {
+   "x": 14,
+   "y": 4,
+   "sprite": "SPRITE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_CELADONMART2F_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "CELADONMART2F_GIRL"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0101010101010101010101010101010101010101",
+  "2138162126212126212121211a2121211c212121",
+  "2020202036202036202020202020202020202020",
+  "202020203620203620203a3c3a3c20203a3c3a3c",
+  "2020202030151515202050525052202050525052",
+  "2020202020202020202020202020202020202020",
+  "202020202020202020203a3c3a3c20203a3c3a3c",
+  "2020202020202020202050525052202050525052"
+ ]
+}

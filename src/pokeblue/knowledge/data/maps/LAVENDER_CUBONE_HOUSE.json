@@ -1,0 +1,65 @@
+{
+ "id": 151,
+ "name": "LAVENDER_CUBONE_HOUSE",
+ "label": "LavenderCuboneHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 5
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 5,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_LAVENDERCUBONEHOUSE_CUBONE",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "LAVENDERCUBONEHOUSE_CUBONE"
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "sprite": "SPRITE_BRUNETTE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_LAVENDERCUBONEHOUSE_BRUNETTE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "LAVENDERCUBONEHOUSE_BRUNETTE_GIRL"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0e0e003d00340030",
+  "1e1e01010101011e",
+  "0101010101010101",
+  "010112362f120101",
+  "0101123c3a120101",
+  "0101010101010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

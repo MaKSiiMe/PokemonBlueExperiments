@@ -1,0 +1,111 @@
+{
+ "id": 174,
+ "name": "INDIGO_PLATEAU_LOBBY",
+ "label": "IndigoPlateauLobby",
+ "tileset": "MART",
+ "width": 8,
+ "height": 6,
+ "border_block": 0,
+ "connections": [],
+ "warps": [
+  {
+   "x": 7,
+   "y": 11,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 8,
+   "y": 0,
+   "map": "LORELEIS_ROOM",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 7,
+   "y": 5,
+   "sprite": "SPRITE_NURSE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_INDIGOPLATEAULOBBY_NURSE",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "INDIGOPLATEAULOBBY_NURSE"
+  },
+  {
+   "x": 4,
+   "y": 9,
+   "sprite": "SPRITE_GYM_GUIDE",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_INDIGOPLATEAULOBBY_GYM_GUIDE",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "INDIGOPLATEAULOBBY_GYM_GUIDE"
+  },
+  {
+   "x": 5,
+   "y": 1,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_INDIGOPLATEAULOBBY_COOLTRAINER_F",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "INDIGOPLATEAULOBBY_COOLTRAINER_F"
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "sprite": "SPRITE_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_INDIGOPLATEAULOBBY_CLERK",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "INDIGOPLATEAULOBBY_CLERK"
+  },
+  {
+   "x": 13,
+   "y": 6,
+   "sprite": "SPRITE_LINK_RECEPTIONIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_INDIGOPLATEAULOBBY_LINK_RECEPTIONIST",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "INDIGOPLATEAULOBBY_LINK_RECEPTIONIST"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "2c2c4e4e282828285e28000000000000",
+  "3e3e1717111111111111000000000000",
+  "1a111111111111111111000000000000",
+  "50511111142828282828282828282828",
+  "2810111110284b281310284b5e285e28",
+  "1a1e11111048161a1110481611111111",
+  "19191111141818181814181819111918",
+  "1a111111111111111111111111111152",
+  "50515051111111111111111111111111",
+  "54555455111111111111111111111111",
+  "1a111111111111111111111130303030",
+  "1a1111111111111c1c11111132323232"
+ ]
+}

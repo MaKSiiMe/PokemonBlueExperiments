@@ -1,0 +1,217 @@
+{
+ "id": 2,
+ "name": "PEWTER_CITY",
+ "label": "PewterCity",
+ "tileset": "OVERWORLD",
+ "width": 20,
+ "height": 18,
+ "border_block": 10,
+ "connections": [
+  {
+   "direction": "south",
+   "map": "ROUTE_2",
+   "offset": 5
+  },
+  {
+   "direction": "east",
+   "map": "ROUTE_3",
+   "offset": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 14,
+   "y": 7,
+   "map": "MUSEUM_1F",
+   "warp": 1
+  },
+  {
+   "x": 19,
+   "y": 5,
+   "map": "MUSEUM_1F",
+   "warp": 3
+  },
+  {
+   "x": 16,
+   "y": 17,
+   "map": "PEWTER_GYM",
+   "warp": 1
+  },
+  {
+   "x": 29,
+   "y": 13,
+   "map": "PEWTER_NIDORAN_HOUSE",
+   "warp": 1
+  },
+  {
+   "x": 23,
+   "y": 17,
+   "map": "PEWTER_MART",
+   "warp": 1
+  },
+  {
+   "x": 7,
+   "y": 29,
+   "map": "PEWTER_SPEECH_HOUSE",
+   "warp": 1
+  },
+  {
+   "x": 13,
+   "y": 25,
+   "map": "PEWTER_POKECENTER",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 19,
+   "y": 29,
+   "text": "TEXT_PEWTERCITY_TRAINER_TIPS"
+  },
+  {
+   "x": 33,
+   "y": 19,
+   "text": "TEXT_PEWTERCITY_POLICE_NOTICE_SIGN"
+  },
+  {
+   "x": 24,
+   "y": 17,
+   "text": "TEXT_PEWTERCITY_MART_SIGN"
+  },
+  {
+   "x": 14,
+   "y": 25,
+   "text": "TEXT_PEWTERCITY_POKECENTER_SIGN"
+  },
+  {
+   "x": 15,
+   "y": 9,
+   "text": "TEXT_PEWTERCITY_MUSEUM_SIGN"
+  },
+  {
+   "x": 11,
+   "y": 17,
+   "text": "TEXT_PEWTERCITY_GYM_SIGN"
+  },
+  {
+   "x": 25,
+   "y": 23,
+   "text": "TEXT_PEWTERCITY_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 8,
+   "y": 15,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_PEWTERCITY_COOLTRAINER_F",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "PEWTERCITY_COOLTRAINER_F"
+  },
+  {
+   "x": 17,
+   "y": 25,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_PEWTERCITY_COOLTRAINER_M",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "PEWTERCITY_COOLTRAINER_M"
+  },
+  {
+   "x": 27,
+   "y": 17,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_PEWTERCITY_SUPER_NERD1",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "PEWTERCITY_SUPER_NERD1"
+  },
+  {
+   "x": 26,
+   "y": 25,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_PEWTERCITY_SUPER_NERD2",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "PEWTERCITY_SUPER_NERD2"
+  },
+  {
+   "x": 35,
+   "y": 16,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_PEWTERCITY_YOUNGSTER",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "PEWTERCITY_YOUNGSTER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 3,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 4,
+   "object": 5,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c",
+  "2c2c2c2c3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a505050505050",
+  "1111112439232c2c2c2c15121212121212385a12121212122c2c2c2c2c2c2c2c2c2c2c5050505050",
+  "1111112423392c2c2c2c15171717171717185c1717171717505050502c2c2c2c2c2c2c5050505050",
+  "1111112439232c2c2c2c15121212121212380f4b4b4b4b4b2c2c3d2c2c2c2c2c2c2c2c5050505050",
+  "1111112423392c2c2c2c25222222222222284e1b1a1a1a1a2c2c50502c2c2c2c2c2c2c5050505050",
+  "1111112439392c2c2c2c0f4b4b4b4b4b4b4b39392c2c2c2c2c2c2c502c2c2c2c2c2c2c5050505050",
+  "111111243637373c37374e1a1a1a1b1a1a1a363737373737373737503737373c3737375050505050",
+  "11111124392339233923392339233939392339232c2c2c2c2c2c2c2c2c2c2c2c2c2c2c5050505050",
+  "11111124233923392339233923393956233923392c2c2c2c2c2c2c2c2c2c2c2c2c2c2c5050505050",
+  "1111112439232c2c2c2c2c2c2c2c2c2c2c2c392339233923392339233923392339231e1111111111",
+  "1111112423392c2c2c2c2c2c2c2c2c2c2c2c23392339233923392339233923392339271111111111",
+  "11111124392339233923392339233923392339232c2c2c2c2c2c2c2c151717183923271111111111",
+  "11111124233923392339233923392339233923392c2c2c2c2c2c2c2c4e1b1a1a2339271111111111",
+  "1111112439232c2c2c2c3923151212121238392339235a1212123923392339233923271111111111",
+  "1111112423392c2c2c2c2339151717171718233923395c1717172339233923392339363737373737",
+  "1111112439232c2c2c2c39390f222222222239232c2c0f4b4b4b2c2c2c2c2c2c3923392339233923",
+  "1111112423392c2c2c2c39564e1a1a1a1b1a23392c2c4e1b4a1a2c2c2c2c2c2c2339233923392339",
+  "11111124392339233923392339233923392355233923392339233923392339233939392339233923",
+  "11111124233923392339233923392339233955232339233923392339233923393956233923392339",
+  "1111112439232c2c2c2c39232c2c2c2c2c2c55232c2c2c2c2c2c2c2c2c2c2c2c39231e1111111111",
+  "11111124505050505050505050505050505055232c2c2c2c2c2c2c2c2c2c2c2c2339271111111111",
+  "1111112439233923392339235a121212392339233939393939393939393939393923271111111111",
+  "1111112423392339233923395c171717233923393939555555565555555539392339271111111111",
+  "1111112439232c2c2c2c2c2c0f4b4b4b2c2c39232c502c2c2c2c2c2c2c2c502c3923271111111111",
+  "1111112423392c2c2c2c2c2c4e1b4a1a2c2c23392c502c2c2c2c2c2c2c2c502c2339363737373737",
+  "11111124392339233923392339233923392339232c502c2c2c2c2c2c2c2c502c39232c3a2c2c2c2c",
+  "11111124233923392339233923392339233923392c502c2c2c2c2c2c2c2c502c23392c3a2c2c2c2c",
+  "111111243923151717182c2c2c2c2c2c2c2c39392c502c2c2c2c2c2c2c2c502c39232c3a2c2c2c2c",
+  "1124373723394e1b1a1a2c2c2c2c2c2c2c2c39562c503737373c37373737502c23392c3a2c2c2c2c",
+  "11243a3a3923392339233923392339233923392339233923392339233923392339232c3a2c2c2c2c",
+  "11243a3a2339233923392339233923392339233923392339233923392339233923392c3a2c2c2c2c",
+  "11243a3a3a3a3a3a3a3a3a3a50505050505039235050505050503a3a3a3a3a3a3a3a3a3a2c2c2c2c",
+  "37372c2c2c2c2c2c2c2c2c2c50505050505023395050505050502c2c2c2c2c2c2c2c2c2c2c2c2c2c",
+  "2c2c2c2c2c2c2c2c2c2c2c2c50505050505039235050505050502c2c2c2c2c2c2c2c2c2c2c2c2c2c",
+  "2c2c2c2c2c2c2c2c2c2c2c2c50505050505023395050505050502c2c2c2c2c2c2c2c2c2c2c2c2c2c"
+ ]
+}

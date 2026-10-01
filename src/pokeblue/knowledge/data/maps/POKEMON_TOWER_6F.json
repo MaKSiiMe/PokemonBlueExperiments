@@ -1,0 +1,177 @@
+{
+ "id": 147,
+ "name": "POKEMON_TOWER_6F",
+ "label": "PokemonTower6F",
+ "tileset": "CEMETERY",
+ "width": 10,
+ "height": 9,
+ "border_block": 1,
+ "connections": [],
+ "warps": [
+  {
+   "x": 18,
+   "y": 9,
+   "map": "POKEMON_TOWER_5F",
+   "warp": 2
+  },
+  {
+   "x": 9,
+   "y": 16,
+   "map": "POKEMON_TOWER_7F",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 12,
+   "y": 10,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_POKEMONTOWER6F_CHANNELER1",
+   "trainer": {
+    "class": "CHANNELER",
+    "party": 19
+   },
+   "item": null,
+   "index": 1,
+   "name": "POKEMONTOWER6F_CHANNELER1"
+  },
+  {
+   "x": 9,
+   "y": 5,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_POKEMONTOWER6F_CHANNELER2",
+   "trainer": {
+    "class": "CHANNELER",
+    "party": 20
+   },
+   "item": null,
+   "index": 2,
+   "name": "POKEMONTOWER6F_CHANNELER2"
+  },
+  {
+   "x": 16,
+   "y": 5,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_POKEMONTOWER6F_CHANNELER3",
+   "trainer": {
+    "class": "CHANNELER",
+    "party": 21
+   },
+   "item": null,
+   "index": 3,
+   "name": "POKEMONTOWER6F_CHANNELER3"
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONTOWER6F_RARE_CANDY",
+   "trainer": null,
+   "item": "RARE_CANDY",
+   "index": 4,
+   "name": "POKEMONTOWER6F_RARE_CANDY"
+  },
+  {
+   "x": 14,
+   "y": 14,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONTOWER6F_X_ACCURACY",
+   "trainer": null,
+   "item": "X_ACCURACY",
+   "index": 5,
+   "name": "POKEMONTOWER6F_X_ACCURACY"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    21,
+    "GASTLY"
+   ],
+   [
+    22,
+    "GASTLY"
+   ],
+   [
+    23,
+    "GASTLY"
+   ],
+   [
+    24,
+    "GASTLY"
+   ],
+   [
+    20,
+    "GASTLY"
+   ],
+   [
+    19,
+    "GASTLY"
+   ],
+   [
+    26,
+    "HAUNTER"
+   ],
+   [
+    22,
+    "CUBONE"
+   ],
+   [
+    24,
+    "CUBONE"
+   ],
+   [
+    28,
+    "HAUNTER"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 62,
+   "object": 4,
+   "initially_visible": true
+  },
+  {
+   "toggle": 63,
+   "object": 5,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "1111111111111111191919191919111111111111",
+  "1111111111111919191515151519191911111111",
+  "1111111111191919191901010101191919111111",
+  "1111111119191501010101010101010119191111",
+  "1111111919150115151501011515010115191911",
+  "1111111919010101010101011515010101191911",
+  "1111191901010101010101011515010115151919",
+  "1111190101010101010101011515010101010119",
+  "1111191515150115010101011515010101010119",
+  "1111191515150115151515150101010101011b19",
+  "1111190101010101151515150101010101010119",
+  "1111191915150101010101011515150115151919",
+  "1111111919010101010101010101150101191911",
+  "1111111919150101151501011515150115191911",
+  "1111111119190101010101011515010119191111",
+  "1111111111191919151501011515191919111111",
+  "1111111111111919191301010119191911111111",
+  "1111111111111111191919191919111111111111"
+ ]
+}

@@ -1,0 +1,117 @@
+{
+ "id": 128,
+ "name": "CELADON_MANSION_1F",
+ "label": "CeladonMansion1F",
+ "tileset": "MANSION",
+ "width": 4,
+ "height": 6,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 11,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "map": "CELADON_MANSION_2F",
+   "warp": 2
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "map": "CELADON_MANSION_2F",
+   "warp": 3
+  }
+ ],
+ "signs": [
+  {
+   "x": 4,
+   "y": 9,
+   "text": "TEXT_CELADONMANSION1F_MANAGERS_SUITE_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 0,
+   "y": 5,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_CELADONMANSION1F_MEOWTH",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONMANSION1F_MEOWTH"
+  },
+  {
+   "x": 1,
+   "y": 5,
+   "sprite": "SPRITE_GRANNY",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONMANSION1F_GRANNY",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONMANSION1F_GRANNY"
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "sprite": "SPRITE_FAIRY",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CELADONMANSION1F_CLEFAIRY",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CELADONMANSION1F_CLEFAIRY"
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_CELADONMANSION1F_NIDORANF",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "CELADONMANSION1F_NIDORANF"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "10105050534a5050",
+  "10101c01014a011c",
+  "1e2628261e580101",
+  "11323232114a0101",
+  "11111111114a0101",
+  "11111111114a0101",
+  "36371111054a0101",
+  "3c3a1111015a0101",
+  "1111111101010101",
+  "1e1e1e1e161e0101",
+  "0101010101010101",
+  "0101010114140101"
+ ]
+}

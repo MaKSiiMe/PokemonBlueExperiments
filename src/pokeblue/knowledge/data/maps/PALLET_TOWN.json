@@ -1,0 +1,131 @@
+{
+ "id": 0,
+ "name": "PALLET_TOWN",
+ "label": "PalletTown",
+ "tileset": "OVERWORLD",
+ "width": 10,
+ "height": 9,
+ "border_block": 11,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "ROUTE_1",
+   "offset": 0
+  },
+  {
+   "direction": "south",
+   "map": "ROUTE_21",
+   "offset": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 5,
+   "map": "REDS_HOUSE_1F",
+   "warp": 1
+  },
+  {
+   "x": 13,
+   "y": 5,
+   "map": "BLUES_HOUSE",
+   "warp": 1
+  },
+  {
+   "x": 12,
+   "y": 11,
+   "map": "OAKS_LAB",
+   "warp": 2
+  }
+ ],
+ "signs": [
+  {
+   "x": 13,
+   "y": 13,
+   "text": "TEXT_PALLETTOWN_OAKSLAB_SIGN"
+  },
+  {
+   "x": 7,
+   "y": 9,
+   "text": "TEXT_PALLETTOWN_SIGN"
+  },
+  {
+   "x": 3,
+   "y": 5,
+   "text": "TEXT_PALLETTOWN_PLAYERSHOUSE_SIGN"
+  },
+  {
+   "x": 11,
+   "y": 5,
+   "text": "TEXT_PALLETTOWN_RIVALSHOUSE_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 8,
+   "y": 5,
+   "sprite": "SPRITE_OAK",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_PALLETTOWN_OAK",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "PALLETTOWN_OAK"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "sprite": "SPRITE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_PALLETTOWN_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "PALLETTOWN_GIRL"
+  },
+  {
+   "x": 11,
+   "y": 14,
+   "sprite": "SPRITE_FISHER",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_PALLETTOWN_FISHER",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "PALLETTOWN_FISHER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 0,
+   "object": 1,
+   "initially_visible": false
+  }
+ ],
+ "tiles": [
+  "2c2c2c3a2c2c2c2c2c3a52523a2c2c2c2c2c3a2c",
+  "3a3a3a3a3a3a3a3a3a3a52523a3a3a3a3a3a3a3a",
+  "3a2c392339233923392339233923392339232c3a",
+  "3a2c233915171718233923391517171823392c3a",
+  "3a2c39395c171717392339395c17171739232c3a",
+  "3a2c39564e1b1a1a233939564e1b1a1a23392c3a",
+  "3a2c392339233923392339233923392339232c3a",
+  "3a2c233923392339233923392339233923392c3a",
+  "3a2c392339393939392315121212123839232c3a",
+  "3a2c233955555556233915171717171823392c3a",
+  "3a2c39232c2c2c2c39230f224b4b4b4b39232c3a",
+  "3a2c23392c2c2c2c23394e1a1b1a1a1a23392c3a",
+  "3a2c392339233923392339393939393939392c3a",
+  "3a2c233923392339233955555556555539392c3a",
+  "3a2c2c2c3214141439392c2c2c2c2c2c39392c3a",
+  "3a2c2c2c3214141439392c2c2c2c2c2c39392c3a",
+  "3a2c2c2c32141414393939393939393939392c3a",
+  "3a3a2c2c321414143a3a3a3a3a3a3a3a3a3a3a3a"
+ ]
+}

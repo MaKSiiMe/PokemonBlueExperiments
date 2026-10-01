@@ -1,0 +1,256 @@
+{
+ "id": 161,
+ "name": "SEAFOAM_ISLANDS_B3F",
+ "label": "SeafoamIslandsB3F",
+ "tileset": "CAVERN",
+ "width": 15,
+ "height": 9,
+ "border_block": 125,
+ "connections": [],
+ "warps": [
+  {
+   "x": 5,
+   "y": 12,
+   "map": "SEAFOAM_ISLANDS_B2F",
+   "warp": 2
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "map": "SEAFOAM_ISLANDS_B4F",
+   "warp": 3
+  },
+  {
+   "x": 25,
+   "y": 4,
+   "map": "SEAFOAM_ISLANDS_B4F",
+   "warp": 4
+  },
+  {
+   "x": 25,
+   "y": 3,
+   "map": "SEAFOAM_ISLANDS_B2F",
+   "warp": 5
+  },
+  {
+   "x": 25,
+   "y": 14,
+   "map": "SEAFOAM_ISLANDS_B2F",
+   "warp": 7
+  },
+  {
+   "x": 20,
+   "y": 17,
+   "map": "SEAFOAM_ISLANDS_B4F",
+   "warp": 1
+  },
+  {
+   "x": 21,
+   "y": 17,
+   "map": "SEAFOAM_ISLANDS_B4F",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 14,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_SEAFOAMISLANDSB3F_BOULDER1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SEAFOAMISLANDSB3F_BOULDER1"
+  },
+  {
+   "x": 3,
+   "y": 15,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_SEAFOAMISLANDSB3F_BOULDER2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SEAFOAMISLANDSB3F_BOULDER2"
+  },
+  {
+   "x": 8,
+   "y": 14,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_SEAFOAMISLANDSB3F_BOULDER3",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "SEAFOAMISLANDSB3F_BOULDER3"
+  },
+  {
+   "x": 9,
+   "y": 14,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_SEAFOAMISLANDSB3F_BOULDER4",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "SEAFOAMISLANDSB3F_BOULDER4"
+  },
+  {
+   "x": 18,
+   "y": 6,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SEAFOAMISLANDSB3F_BOULDER5",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "SEAFOAMISLANDSB3F_BOULDER5"
+  },
+  {
+   "x": 19,
+   "y": 6,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SEAFOAMISLANDSB3F_BOULDER6",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "SEAFOAMISLANDSB3F_BOULDER6"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 10,
+  "grass": [
+   [
+    31,
+    "SLOWPOKE"
+   ],
+   [
+    31,
+    "SEEL"
+   ],
+   [
+    33,
+    "SLOWPOKE"
+   ],
+   [
+    33,
+    "SEEL"
+   ],
+   [
+    29,
+    "HORSEA"
+   ],
+   [
+    31,
+    "SHELLDER"
+   ],
+   [
+    31,
+    "HORSEA"
+   ],
+   [
+    29,
+    "SHELLDER"
+   ],
+   [
+    39,
+    "SEADRA"
+   ],
+   [
+    31,
+    "PSYDUCK"
+   ],
+   [
+    31,
+    "SEEL"
+   ],
+   [
+    33,
+    "PSYDUCK"
+   ],
+   [
+    33,
+    "SEEL"
+   ],
+   [
+    29,
+    "KRABBY"
+   ],
+   [
+    31,
+    "STARYU"
+   ],
+   [
+    31,
+    "KRABBY"
+   ],
+   [
+    29,
+    "STARYU"
+   ],
+   [
+    39,
+    "KINGLER"
+   ],
+   [
+    37,
+    "DEWGONG"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 221,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 222,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 223,
+   "object": 5,
+   "initially_visible": false
+  },
+  {
+   "toggle": 224,
+   "object": 6,
+   "initially_visible": false
+  }
+ ],
+ "tiles": [
+  "040505050505050505173105310514143105310504050505050505050517",
+  "310505050505050505172810281014142810281031050505050505050517",
+  "310505050505050505171414141414141414141431050505050505050517",
+  "310505050505050505171414141414141414141431050505051a05050517",
+  "310505050505050505170405050505050517141431050505051805050517",
+  "310505050517151510103105050505050517141428101010101010101010",
+  "310505050517202018203105050505050517141404050505050505050517",
+  "310505050517202020203105051710151010141431050505050505050517",
+  "310505050505050505050505051714141414141431050505050505050517",
+  "310505050505050505050505051714141414141428101015260505050517",
+  "310505050505050505050505051714141414141414141414310505050517",
+  "310505050505051710102605051714141414141414141414310505050517",
+  "31050505051a051720203105050505050505051714140405050505050517",
+  "281010101010101020203105050505050505051714143105050505050517",
+  "202020202020201220203105050505050505051714143105051a05050517",
+  "202020201220202020202810101010101515101014142810101010101010",
+  "2020202212202220201220202020202020201c1c14141c20202020202020",
+  "202020201220202020202020202020202020201c14141c20202020202020"
+ ]
+}

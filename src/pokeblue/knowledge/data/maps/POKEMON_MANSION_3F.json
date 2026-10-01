@@ -1,0 +1,220 @@
+{
+ "id": 215,
+ "name": "POKEMON_MANSION_3F",
+ "label": "PokemonMansion3F",
+ "tileset": "FACILITY",
+ "width": 15,
+ "height": 9,
+ "border_block": 1,
+ "connections": [],
+ "warps": [
+  {
+   "x": 7,
+   "y": 10,
+   "map": "POKEMON_MANSION_2F",
+   "warp": 2
+  },
+  {
+   "x": 6,
+   "y": 1,
+   "map": "POKEMON_MANSION_2F",
+   "warp": 4
+  },
+  {
+   "x": 25,
+   "y": 14,
+   "map": "POKEMON_MANSION_2F",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 11,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_POKEMONMANSION3F_SUPER_NERD",
+   "trainer": {
+    "class": "BURGLAR",
+    "party": 8
+   },
+   "item": null,
+   "index": 1,
+   "name": "POKEMONMANSION3F_SUPER_NERD"
+  },
+  {
+   "x": 20,
+   "y": 11,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_POKEMONMANSION3F_SCIENTIST",
+   "trainer": {
+    "class": "SCIENTIST",
+    "party": 12
+   },
+   "item": null,
+   "index": 2,
+   "name": "POKEMONMANSION3F_SCIENTIST"
+  },
+  {
+   "x": 1,
+   "y": 16,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSION3F_MAX_POTION",
+   "trainer": null,
+   "item": "MAX_POTION",
+   "index": 3,
+   "name": "POKEMONMANSION3F_MAX_POTION"
+  },
+  {
+   "x": 25,
+   "y": 5,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSION3F_IRON",
+   "trainer": null,
+   "item": "IRON",
+   "index": 4,
+   "name": "POKEMONMANSION3F_IRON"
+  },
+  {
+   "x": 6,
+   "y": 12,
+   "sprite": "SPRITE_POKEDEX",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSION3F_DIARY",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "POKEMONMANSION3F_DIARY"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 10,
+  "grass": [
+   [
+    31,
+    "KOFFING"
+   ],
+   [
+    33,
+    "GROWLITHE"
+   ],
+   [
+    35,
+    "KOFFING"
+   ],
+   [
+    32,
+    "PONYTA"
+   ],
+   [
+    34,
+    "PONYTA"
+   ],
+   [
+    40,
+    "WEEZING"
+   ],
+   [
+    34,
+    "GRIMER"
+   ],
+   [
+    38,
+    "WEEZING"
+   ],
+   [
+    36,
+    "PONYTA"
+   ],
+   [
+    42,
+    "MUK"
+   ],
+   [
+    31,
+    "GRIMER"
+   ],
+   [
+    33,
+    "VULPIX"
+   ],
+   [
+    35,
+    "GRIMER"
+   ],
+   [
+    32,
+    "PONYTA"
+   ],
+   [
+    34,
+    "MAGMAR"
+   ],
+   [
+    40,
+    "MUK"
+   ],
+   [
+    34,
+    "KOFFING"
+   ],
+   [
+    38,
+    "MUK"
+   ],
+   [
+    36,
+    "PONYTA"
+   ],
+   [
+    42,
+    "WEEZING"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 188,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 189,
+   "object": 4,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2b3a3a3a3a3a3a3a3a3a3a3a3a3a3a2b0d0d0d0d0d0d2b3a363636363636",
+  "2b01010101011b01010136363636012b4c4c4c4c4c4c2b01363636363636",
+  "2b01010101010101010101013636012b0101010101012b01010136363636",
+  "2b01010101010101010101013636013b0101010101013b01010136363636",
+  "2b36360101010101013627010101010101011d3501010101010101363636",
+  "2b3636010101010101363d01010101010101444501010101010101363636",
+  "2b36363636363636363601010101012b010101010136360101010101012b",
+  "2b36363636363636363601010101012b010101010136360101010101012b",
+  "2b363636360101013b3a3a2b1501012b010136363636363601010101012b",
+  "2b363636360101010101362b1701013b3a3a3636363636363a3a3a3a3a2b",
+  "2b0136360101011b0101362b15010101363601010101360101010101012b",
+  "2b013636010101010101362b17010101010101010101360101010101012b",
+  "2b01363601011d350136362b0101363601012b010101010101010101012b",
+  "2b010101010144450136362b3a3a363601013b013b3a2b013b3a3a3a3a2b",
+  "2b363636010101013636362b111111111111111111112b01011b0101012b",
+  "2b363636010101013636362b111111111111111111112b0101010101012b",
+  "2b0101010101363636363636111111111111111111112b0101010101012b",
+  "3b3a3a3a3a3a363636363636111111111111111111113b3a3a3a3a3a3a3a"
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "id": 138,
+ "name": "CELADON_DINER",
+ "label": "CeladonDiner",
+ "tileset": "LOBBY",
+ "width": 5,
+ "height": 4,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 11
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 11
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 8,
+   "y": 5,
+   "sprite": "SPRITE_COOK",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CELADONDINER_COOK",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONDINER_COOK"
+  },
+  {
+   "x": 7,
+   "y": 2,
+   "sprite": "SPRITE_MIDDLE_AGED_WOMAN",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CELADONDINER_MIDDLE_AGED_WOMAN",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONDINER_MIDDLE_AGED_WOMAN"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "sprite": "SPRITE_MIDDLE_AGED_MAN",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONDINER_MIDDLE_AGED_MAN",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CELADONDINER_MIDDLE_AGED_MAN"
+  },
+  {
+   "x": 5,
+   "y": 3,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_CELADONDINER_FISHER",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "CELADONDINER_FISHER"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "sprite": "SPRITE_GYM_GUIDE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONDINER_GYM_GUIDE",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "CELADONDINER_GYM_GUIDE"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "21212121212126212121",
+  "17174545451736202020",
+  "36374545451736202020",
+  "55574545451736202020",
+  "17174545451736202020",
+  "36374545451736202020",
+  "55574545454530151515",
+  "17174514144520202020"
+ ]
+}

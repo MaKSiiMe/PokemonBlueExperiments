@@ -1,0 +1,92 @@
+{
+ "id": 167,
+ "name": "CINNABAR_LAB",
+ "label": "CinnabarLab",
+ "tileset": "LAB",
+ "width": 9,
+ "height": 4,
+ "border_block": 23,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "map": "CINNABAR_LAB_TRADE_ROOM",
+   "warp": 1
+  },
+  {
+   "x": 12,
+   "y": 4,
+   "map": "CINNABAR_LAB_METRONOME_ROOM",
+   "warp": 1
+  },
+  {
+   "x": 16,
+   "y": 4,
+   "map": "CINNABAR_LAB_FOSSIL_ROOM",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 3,
+   "y": 2,
+   "text": "TEXT_CINNABARLAB_PHOTO"
+  },
+  {
+   "x": 9,
+   "y": 4,
+   "text": "TEXT_CINNABARLAB_MEETING_ROOM_SIGN"
+  },
+  {
+   "x": 13,
+   "y": 4,
+   "text": "TEXT_CINNABARLAB_R_AND_D_SIGN"
+  },
+  {
+   "x": 17,
+   "y": 4,
+   "text": "TEXT_CINNABARLAB_TESTING_ROOM_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 1,
+   "y": 3,
+   "sprite": "SPRITE_FISHING_GURU",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CINNABARLAB_FISHING_GURU",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CINNABARLAB_FISHING_GURU"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "363636363636363636363636363636363636",
+  "363636363636363636363636363636363636",
+  "3c222220223c363636363636363636363636",
+  "3e262626263e363636363636363636363636",
+  "262626262626232234222222342222223422",
+  "262626262626262626262626262626262626",
+  "262626262626262626262626262626262626",
+  "262637372626262626262626262626262626"
+ ]
+}

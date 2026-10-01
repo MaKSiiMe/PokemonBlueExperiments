@@ -1,0 +1,89 @@
+{
+ "id": 154,
+ "name": "FUCHSIA_POKECENTER",
+ "label": "FuchsiaPokecenter",
+ "tileset": "POKECENTER",
+ "width": 7,
+ "height": 4,
+ "border_block": 0,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 1,
+   "sprite": "SPRITE_NURSE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_FUCHSIAPOKECENTER_NURSE",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "FUCHSIAPOKECENTER_NURSE"
+  },
+  {
+   "x": 2,
+   "y": 3,
+   "sprite": "SPRITE_ROCKER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_FUCHSIAPOKECENTER_ROCKER",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "FUCHSIAPOKECENTER_ROCKER"
+  },
+  {
+   "x": 6,
+   "y": 5,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_FUCHSIAPOKECENTER_COOLTRAINER_F",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "FUCHSIAPOKECENTER_COOLTRAINER_F"
+  },
+  {
+   "x": 11,
+   "y": 2,
+   "sprite": "SPRITE_LINK_RECEPTIONIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_FUCHSIAPOKECENTER_LINK_RECEPTIONIST",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "FUCHSIAPOKECENTER_LINK_RECEPTIONIST"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "10284b281310284b28285e285e28",
+  "1048161a11104816111111111111",
+  "1418181818141818181819111918",
+  "1111111111111111111111111152",
+  "343c111111111111111111111111",
+  "2a1a111111111111111111111111",
+  "3030111111113030111111113030",
+  "3232111c1c113232111111113232"
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "id": 70,
+ "name": "ROUTE_5_GATE",
+ "label": "Route5Gate",
+ "tileset": "GATE",
+ "width": 4,
+ "height": 3,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 5,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 4,
+   "y": 5,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 1,
+   "y": 3,
+   "sprite": "SPRITE_GUARD",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE5GATE_GUARD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE5GATE_GUARD"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "3222013738012232",
+  "3222170101172232",
+  "3201170101170132",
+  "3201170101170132",
+  "3201320101320132",
+  "3232013738013232"
+ ]
+}

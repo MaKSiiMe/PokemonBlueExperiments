@@ -1,0 +1,130 @@
+{
+ "id": 8,
+ "name": "CINNABAR_ISLAND",
+ "label": "CinnabarIsland",
+ "tileset": "OVERWORLD",
+ "width": 10,
+ "height": 9,
+ "border_block": 67,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "ROUTE_21",
+   "offset": 0
+  },
+  {
+   "direction": "east",
+   "map": "ROUTE_20",
+   "offset": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 6,
+   "y": 3,
+   "map": "POKEMON_MANSION_1F",
+   "warp": 2
+  },
+  {
+   "x": 18,
+   "y": 3,
+   "map": "CINNABAR_GYM",
+   "warp": 1
+  },
+  {
+   "x": 6,
+   "y": 9,
+   "map": "CINNABAR_LAB",
+   "warp": 1
+  },
+  {
+   "x": 11,
+   "y": 11,
+   "map": "CINNABAR_POKECENTER",
+   "warp": 1
+  },
+  {
+   "x": 15,
+   "y": 11,
+   "map": "CINNABAR_MART",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 9,
+   "y": 5,
+   "text": "TEXT_CINNABARISLAND_SIGN"
+  },
+  {
+   "x": 16,
+   "y": 11,
+   "text": "TEXT_CINNABARISLAND_MART_SIGN"
+  },
+  {
+   "x": 12,
+   "y": 11,
+   "text": "TEXT_CINNABARISLAND_POKECENTER_SIGN"
+  },
+  {
+   "x": 9,
+   "y": 11,
+   "text": "TEXT_CINNABARISLAND_POKEMONLAB_SIGN"
+  },
+  {
+   "x": 13,
+   "y": 3,
+   "text": "TEXT_CINNABARISLAND_GYM_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 12,
+   "y": 5,
+   "sprite": "SPRITE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CINNABARISLAND_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CINNABARISLAND_GIRL"
+  },
+  {
+   "x": 14,
+   "y": 6,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CINNABARISLAND_GAMBLER",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CINNABARISLAND_GAMBLER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "3a1414145a121212121239393939151212121238",
+  "3a1414145c171717171739393939151717171718",
+  "3a1414140f4b4b4b4b4b393930300f2222222222",
+  "3a1414144e1a1b1a1a1a393930564e1a1a1a1b1a",
+  "3a14141439393939303039393939393939393939",
+  "3a14141439393939305639393939393939393939",
+  "3a1414145a121212121239393939393939393939",
+  "3a1414145c171717171739393939393939393939",
+  "3a1414140f4b4b4b4b4b5a1212125a1212123939",
+  "3a1414144e1a1b1a1a1a5c1717175c1717173939",
+  "3a1414143939393930300f4b4b4b0f4b4b4b3939",
+  "3a1414143939393930564e1b4a1a4e1b4a1a3939",
+  "3a14141414143939393939393939393939393939",
+  "3a14141414143939393939393939393939393939",
+  "3a14141414141414141414141414141414141414",
+  "3a14141414141414141414141414141414141414",
+  "3a14141414141414141414141414141414141414",
+  "3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a"
+ ]
+}

@@ -1,0 +1,171 @@
+{
+ "id": 134,
+ "name": "CELADON_GYM",
+ "label": "CeladonGym",
+ "tileset": "GYM",
+ "width": 5,
+ "height": 9,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 7
+  },
+  {
+   "x": 5,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 7
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 3,
+   "sprite": "SPRITE_SILPH_WORKER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONGYM_ERIKA",
+   "trainer": {
+    "class": "ERIKA",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "CELADONGYM_ERIKA"
+  },
+  {
+   "x": 2,
+   "y": 11,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_CELADONGYM_COOLTRAINER_F1",
+   "trainer": {
+    "class": "LASS",
+    "party": 17
+   },
+   "item": null,
+   "index": 2,
+   "name": "CELADONGYM_COOLTRAINER_F1"
+  },
+  {
+   "x": 7,
+   "y": 10,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_CELADONGYM_BEAUTY1",
+   "trainer": {
+    "class": "BEAUTY",
+    "party": 1
+   },
+   "item": null,
+   "index": 3,
+   "name": "CELADONGYM_BEAUTY1"
+  },
+  {
+   "x": 9,
+   "y": 5,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONGYM_COOLTRAINER_F2",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 11
+   },
+   "item": null,
+   "index": 4,
+   "name": "CELADONGYM_COOLTRAINER_F2"
+  },
+  {
+   "x": 1,
+   "y": 5,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONGYM_BEAUTY2",
+   "trainer": {
+    "class": "BEAUTY",
+    "party": 2
+   },
+   "item": null,
+   "index": 5,
+   "name": "CELADONGYM_BEAUTY2"
+  },
+  {
+   "x": 6,
+   "y": 3,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONGYM_COOLTRAINER_F3",
+   "trainer": {
+    "class": "LASS",
+    "party": 18
+   },
+   "item": null,
+   "index": 6,
+   "name": "CELADONGYM_COOLTRAINER_F3"
+  },
+  {
+   "x": 3,
+   "y": 3,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONGYM_BEAUTY3",
+   "trainer": {
+    "class": "BEAUTY",
+    "party": 3
+   },
+   "item": null,
+   "index": 7,
+   "name": "CELADONGYM_BEAUTY3"
+  },
+  {
+   "x": 5,
+   "y": 3,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONGYM_COOLTRAINER_F4",
+   "trainer": {
+    "class": "COOLTRAINER_F",
+    "party": 1
+   },
+   "item": null,
+   "index": 8,
+   "name": "CELADONGYM_COOLTRAINER_F4"
+  }
+ ],
+ "gym_leader_no": 4,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "10101010101010101010",
+  "11111111111111111111",
+  "2b032e2e2e2e2e2e2b03",
+  "2b032e2b2b2b2b2e2b03",
+  "2b03502b2b032b2e2b03",
+  "2b032e2b2b032b502b03",
+  "2b032e2b2b2b2b2e2b03",
+  "2b032e2e2e502e2e2b03",
+  "2b032e2e11112e2e2b03",
+  "2b032e2e11112e2e2b03",
+  "2b2b1111111111112b2e",
+  "2e2b1111111111112b2b",
+  "2b032e2e11112e2e2b03",
+  "2b032e2e11112e2e2b03",
+  "11111112111112111111",
+  "11111132111132111111",
+  "11111111111111111111",
+  "11111111161611111111"
+ ]
+}

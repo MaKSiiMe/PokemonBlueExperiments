@@ -1,0 +1,40 @@
+{
+ "id": 121,
+ "name": "UNDERGROUND_PATH_WEST_EAST",
+ "label": "UndergroundPathWestEast",
+ "tileset": "UNDERGROUND",
+ "width": 25,
+ "height": 4,
+ "border_block": 1,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 5,
+   "map": "UNDERGROUND_PATH_ROUTE_7",
+   "warp": 3
+  },
+  {
+   "x": 47,
+   "y": 2,
+   "map": "UNDERGROUND_PATH_ROUTE_8",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "1010090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909091710",
+  "1010150c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c1710",
+  "1010150c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c131710",
+  "1010150c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c1710",
+  "1010150c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c1710",
+  "1010130c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c1710",
+  "1010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010",
+  "1010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010"
+ ]
+}

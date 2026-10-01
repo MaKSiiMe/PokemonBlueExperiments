@@ -55,7 +55,7 @@ def test_no_hardcoded_ram_addresses():
     )
 
 
-@pytest.mark.parametrize("script", ["gen_ram_symbols.py", "gen_gen1_data.py"])
+@pytest.mark.parametrize("script", ["gen_ram_symbols.py", "gen_gen1_data.py", "gen_maps.py"])
 def test_generated_files_are_up_to_date(script):
     if not any((ROOT / ".cache" / "pokered").glob("pokered-*")):
         pytest.skip("sources pokered absentes du cache (lancer le générateur une fois)")

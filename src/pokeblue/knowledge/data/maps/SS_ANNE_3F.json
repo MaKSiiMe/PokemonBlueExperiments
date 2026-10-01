@@ -1,0 +1,51 @@
+{
+ "id": 97,
+ "name": "SS_ANNE_3F",
+ "label": "SSAnne3F",
+ "tileset": "SHIP",
+ "width": 10,
+ "height": 3,
+ "border_block": 12,
+ "connections": [],
+ "warps": [
+  {
+   "x": 0,
+   "y": 3,
+   "map": "SS_ANNE_BOW",
+   "warp": 1
+  },
+  {
+   "x": 19,
+   "y": 3,
+   "map": "SS_ANNE_2F",
+   "warp": 8
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 9,
+   "y": 3,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_SSANNE3F_SAILOR",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SSANNE3F_SAILOR"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0101111111111111111111111111111111110101",
+  "0101121212121212121212121212121212121501",
+  "1212040404040404040404040404040404043012",
+  "0404040404040404040404040404040404040437",
+  "0101010101010101010101010101010101010101",
+  "0101010101010101010101010101010101010101"
+ ]
+}

@@ -1,0 +1,195 @@
+{
+ "id": 228,
+ "name": "CERULEAN_CAVE_1F",
+ "label": "CeruleanCave1F",
+ "tileset": "CAVERN",
+ "width": 15,
+ "height": 9,
+ "border_block": 125,
+ "connections": [],
+ "warps": [
+  {
+   "x": 24,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 7
+  },
+  {
+   "x": 25,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 7
+  },
+  {
+   "x": 27,
+   "y": 1,
+   "map": "CERULEAN_CAVE_2F",
+   "warp": 1
+  },
+  {
+   "x": 23,
+   "y": 7,
+   "map": "CERULEAN_CAVE_2F",
+   "warp": 2
+  },
+  {
+   "x": 18,
+   "y": 9,
+   "map": "CERULEAN_CAVE_2F",
+   "warp": 3
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "map": "CERULEAN_CAVE_2F",
+   "warp": 4
+  },
+  {
+   "x": 1,
+   "y": 3,
+   "map": "CERULEAN_CAVE_2F",
+   "warp": 5
+  },
+  {
+   "x": 3,
+   "y": 11,
+   "map": "CERULEAN_CAVE_2F",
+   "warp": 6
+  },
+  {
+   "x": 0,
+   "y": 6,
+   "map": "CERULEAN_CAVE_B1F",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 7,
+   "y": 13,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CERULEANCAVE1F_FULL_RESTORE",
+   "trainer": null,
+   "item": "FULL_RESTORE",
+   "index": 1,
+   "name": "CERULEANCAVE1F_FULL_RESTORE"
+  },
+  {
+   "x": 19,
+   "y": 3,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CERULEANCAVE1F_MAX_ELIXER",
+   "trainer": null,
+   "item": "MAX_ELIXER",
+   "index": 2,
+   "name": "CERULEANCAVE1F_MAX_ELIXER"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CERULEANCAVE1F_NUGGET",
+   "trainer": null,
+   "item": "NUGGET",
+   "index": 3,
+   "name": "CERULEANCAVE1F_NUGGET"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 10,
+  "grass": [
+   [
+    46,
+    "GOLBAT"
+   ],
+   [
+    46,
+    "HYPNO"
+   ],
+   [
+    46,
+    "MAGNETON"
+   ],
+   [
+    49,
+    "DODRIO"
+   ],
+   [
+    49,
+    "VENOMOTH"
+   ],
+   [
+    52,
+    "ARBOK"
+   ],
+   [
+    52,
+    "SANDSLASH"
+   ],
+   [
+    49,
+    "KADABRA"
+   ],
+   [
+    52,
+    "PARASECT"
+   ],
+   [
+    53,
+    "RAICHU"
+   ],
+   [
+    53,
+    "DITTO"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 53,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 54,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 55,
+   "object": 3,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "310505050405050505050505050505050517310531050405050505050517",
+  "281010103105051a050505050505050505172810281031050505051a0517",
+  "121212123105050505050505050505050517121212123105050505050517",
+  "121a20122810101010101010101010151010122012122815101010101010",
+  "310520202020310531051212121214141414141414141414141414141414",
+  "28101212122031052810121c1c1c14141414141414141414141414141414",
+  "181220202020310514141414141414141c12121204050505050517121414",
+  "20202012121228101414141414141414121212123105051a050517121414",
+  "040505050505051714140405050505050505051731050505050517121414",
+  "3105050505050517141431050505050505051a1731050517101510121414",
+  "310505050505051714143105050512120505051731050517141414141414",
+  "3105051a051710101414310505051c120505051728151010141414141414",
+  "310505050517121214143105050505051212051712202012121204050517",
+  "2815101010101220141428151010260512120517122020201c1c31050517",
+  "202020123105050514141414310531050505051720202020202031050517",
+  "202020202810101014141414281028101015101020202020202031050517",
+  "122020202020201212121212121212202020121231050505202031050517",
+  "121220202020202020202020202020202012121228101010212128101010"
+ ]
+}

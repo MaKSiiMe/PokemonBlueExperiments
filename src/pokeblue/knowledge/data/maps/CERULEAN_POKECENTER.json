@@ -1,0 +1,89 @@
+{
+ "id": 64,
+ "name": "CERULEAN_POKECENTER",
+ "label": "CeruleanPokecenter",
+ "tileset": "POKECENTER",
+ "width": 7,
+ "height": 4,
+ "border_block": 0,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 1,
+   "sprite": "SPRITE_NURSE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CERULEANPOKECENTER_NURSE",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CERULEANPOKECENTER_NURSE"
+  },
+  {
+   "x": 10,
+   "y": 5,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_CERULEANPOKECENTER_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CERULEANPOKECENTER_SUPER_NERD"
+  },
+  {
+   "x": 4,
+   "y": 3,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CERULEANPOKECENTER_GENTLEMAN",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CERULEANPOKECENTER_GENTLEMAN"
+  },
+  {
+   "x": 11,
+   "y": 2,
+   "sprite": "SPRITE_LINK_RECEPTIONIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CERULEANPOKECENTER_LINK_RECEPTIONIST",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "CERULEANPOKECENTER_LINK_RECEPTIONIST"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "10284b281310284b28285e285e28",
+  "1048161a11104816111111111111",
+  "1418181818141818181819111918",
+  "1111111111111111111111111152",
+  "343c111111111111111111111111",
+  "2a1a111111111111111111111111",
+  "3030111111113030111111113030",
+  "3232111c1c113232111111113232"
+ ]
+}

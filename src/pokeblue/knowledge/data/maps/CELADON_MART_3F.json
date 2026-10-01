@@ -1,0 +1,168 @@
+{
+ "id": 124,
+ "name": "CELADON_MART_3F",
+ "label": "CeladonMart3F",
+ "tileset": "LOBBY",
+ "width": 10,
+ "height": 4,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 12,
+   "y": 1,
+   "map": "CELADON_MART_4F",
+   "warp": 1
+  },
+  {
+   "x": 16,
+   "y": 1,
+   "map": "CELADON_MART_2F",
+   "warp": 2
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "map": "CELADON_MART_ELEVATOR",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 2,
+   "y": 4,
+   "text": "TEXT_CELADONMART3F_SNES1"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "text": "TEXT_CELADONMART3F_RPG"
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "text": "TEXT_CELADONMART3F_SNES2"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "text": "TEXT_CELADONMART3F_SPORTS_GAME"
+  },
+  {
+   "x": 2,
+   "y": 6,
+   "text": "TEXT_CELADONMART3F_SNES3"
+  },
+  {
+   "x": 3,
+   "y": 6,
+   "text": "TEXT_CELADONMART3F_PUZZLE_GAME"
+  },
+  {
+   "x": 5,
+   "y": 6,
+   "text": "TEXT_CELADONMART3F_SNES4"
+  },
+  {
+   "x": 6,
+   "y": 6,
+   "text": "TEXT_CELADONMART3F_FIGHTING_GAME"
+  },
+  {
+   "x": 14,
+   "y": 1,
+   "text": "TEXT_CELADONMART3F_CURRENT_FLOOR_SIGN"
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "text": "TEXT_CELADONMART3F_POKEMON_POSTER1"
+  },
+  {
+   "x": 6,
+   "y": 1,
+   "text": "TEXT_CELADONMART3F_POKEMON_POSTER2"
+  },
+  {
+   "x": 10,
+   "y": 1,
+   "text": "TEXT_CELADONMART3F_POKEMON_POSTER3"
+  }
+ ],
+ "objects": [
+  {
+   "x": 16,
+   "y": 5,
+   "sprite": "SPRITE_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CELADONMART3F_CLERK",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONMART3F_CLERK"
+  },
+  {
+   "x": 11,
+   "y": 6,
+   "sprite": "SPRITE_GAMEBOY_KID",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_CELADONMART3F_GAMEBOY_KID1",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONMART3F_GAMEBOY_KID1"
+  },
+  {
+   "x": 7,
+   "y": 2,
+   "sprite": "SPRITE_GAMEBOY_KID",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONMART3F_GAMEBOY_KID2",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CELADONMART3F_GAMEBOY_KID2"
+  },
+  {
+   "x": 8,
+   "y": 2,
+   "sprite": "SPRITE_GAMEBOY_KID",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONMART3F_GAMEBOY_KID3",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "CELADONMART3F_GAMEBOY_KID3"
+  },
+  {
+   "x": 2,
+   "y": 5,
+   "sprite": "SPRITE_LITTLE_BOY",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_CELADONMART3F_LITTLE_BOY",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "CELADONMART3F_LITTLE_BOY"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0101010101010101010101010101010101010101",
+  "2138162158215821582158211c2121211a211e1e",
+  "2020202020202020202020202020202020203232",
+  "2020202020202020202020202020202020202020",
+  "2020341e37341e20202020203615151515151515",
+  "2020202020202020202020203620202020202020",
+  "2020341e37341e2020202020362020203a3c3a3c",
+  "2020202020202020202020203620202050525052"
+ ]
+}

@@ -1,0 +1,183 @@
+{
+ "id": 166,
+ "name": "CINNABAR_GYM",
+ "label": "CinnabarGym",
+ "tileset": "FACILITY",
+ "width": 10,
+ "height": 9,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 16,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 17,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 3,
+   "sprite": "SPRITE_MIDDLE_AGED_MAN",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARGYM_BLAINE",
+   "trainer": {
+    "class": "BLAINE",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "CINNABARGYM_BLAINE"
+  },
+  {
+   "x": 17,
+   "y": 2,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARGYM_SUPER_NERD1",
+   "trainer": {
+    "class": "SUPER_NERD",
+    "party": 9
+   },
+   "item": null,
+   "index": 2,
+   "name": "CINNABARGYM_SUPER_NERD1"
+  },
+  {
+   "x": 17,
+   "y": 8,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARGYM_SUPER_NERD2",
+   "trainer": {
+    "class": "BURGLAR",
+    "party": 4
+   },
+   "item": null,
+   "index": 3,
+   "name": "CINNABARGYM_SUPER_NERD2"
+  },
+  {
+   "x": 11,
+   "y": 4,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARGYM_SUPER_NERD3",
+   "trainer": {
+    "class": "SUPER_NERD",
+    "party": 10
+   },
+   "item": null,
+   "index": 4,
+   "name": "CINNABARGYM_SUPER_NERD3"
+  },
+  {
+   "x": 11,
+   "y": 8,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARGYM_SUPER_NERD4",
+   "trainer": {
+    "class": "BURGLAR",
+    "party": 5
+   },
+   "item": null,
+   "index": 5,
+   "name": "CINNABARGYM_SUPER_NERD4"
+  },
+  {
+   "x": 11,
+   "y": 14,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARGYM_SUPER_NERD5",
+   "trainer": {
+    "class": "SUPER_NERD",
+    "party": 11
+   },
+   "item": null,
+   "index": 6,
+   "name": "CINNABARGYM_SUPER_NERD5"
+  },
+  {
+   "x": 3,
+   "y": 14,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARGYM_SUPER_NERD6",
+   "trainer": {
+    "class": "BURGLAR",
+    "party": 6
+   },
+   "item": null,
+   "index": 7,
+   "name": "CINNABARGYM_SUPER_NERD6"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARGYM_SUPER_NERD7",
+   "trainer": {
+    "class": "SUPER_NERD",
+    "party": 12
+   },
+   "item": null,
+   "index": 8,
+   "name": "CINNABARGYM_SUPER_NERD7"
+  },
+  {
+   "x": 16,
+   "y": 13,
+   "sprite": "SPRITE_GYM_GUIDE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARGYM_GYM_GUIDE",
+   "trainer": null,
+   "item": null,
+   "index": 9,
+   "name": "CINNABARGYM_GYM_GUIDE"
+  }
+ ],
+ "gym_leader_no": 7,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "2b3a0d0d0d0d2b3a2b3a0d0d3a3a3a3a3a3a3a3a",
+  "2b014c4c4c4c2b012b014c4c0101010101010101",
+  "2b01010101012b012b01010101012b0101010101",
+  "2b01010101012b012b01010101012b0101010101",
+  "2b01010101012b012b01010101012b0101010101",
+  "2b01010101012b012b01010101012b0101010101",
+  "2b0d3a3a01012b012b0d3a3a01012b0d3a3a0101",
+  "2b4c010101012b012b4c010101012b4c01010101",
+  "2b01010101012b012b01010101012b0101010101",
+  "2b01010101012b012b01010101012b0101010101",
+  "2b01010101012b012b01010101012b0101010101",
+  "2b01010101012b012b01010101012b3a3a3a0101",
+  "2b0d3a3a01012b012b0d3a3a01012b0101270101",
+  "2b4c010101012b012b4c010101012b01013d0101",
+  "2b01010101012b012b01010101012b0101010101",
+  "2b01010101013b3a3b01010101012b0101010101",
+  "2b010101010101010101010101012b0101010101",
+  "2b010101010101010101010101012b0142520101"
+ ]
+}

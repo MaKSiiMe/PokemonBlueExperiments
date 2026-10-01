@@ -1,0 +1,71 @@
+{
+ "id": 77,
+ "name": "UNDERGROUND_PATH_ROUTE_7",
+ "label": "UndergroundPathRoute7Copy",
+ "tileset": "GATE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 6
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 6
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "map": "UNDERGROUND_PATH_WEST_EAST",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 2,
+   "sprite": "SPRITE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_UNDERGROUNDPATHROUTE7COPY_UNUSED_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "UNDERGROUNDPATHROUTE7COPY_UNUSED_GIRL"
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "sprite": "SPRITE_MIDDLE_AGED_MAN",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_UNDERGROUNDPATHROUTE7COPY_UNUSED_MIDDLE_AGED_MAN",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "UNDERGROUNDPATHROUTE7COPY_UNUSED_MIDDLE_AGED_MAN"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "1500000000000015",
+  "3501010101010135",
+  "0117320101321701",
+  "0117010101011701",
+  "011701011a011701",
+  "0117010101011701",
+  "1532320101323215",
+  "3501011414010135"
+ ]
+}

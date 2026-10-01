@@ -1,0 +1,173 @@
+{
+ "id": 226,
+ "name": "CERULEAN_CAVE_2F",
+ "label": "CeruleanCave2F",
+ "tileset": "CAVERN",
+ "width": 15,
+ "height": 9,
+ "border_block": 125,
+ "connections": [],
+ "warps": [
+  {
+   "x": 29,
+   "y": 1,
+   "map": "CERULEAN_CAVE_1F",
+   "warp": 3
+  },
+  {
+   "x": 22,
+   "y": 6,
+   "map": "CERULEAN_CAVE_1F",
+   "warp": 4
+  },
+  {
+   "x": 19,
+   "y": 7,
+   "map": "CERULEAN_CAVE_1F",
+   "warp": 5
+  },
+  {
+   "x": 9,
+   "y": 1,
+   "map": "CERULEAN_CAVE_1F",
+   "warp": 6
+  },
+  {
+   "x": 1,
+   "y": 3,
+   "map": "CERULEAN_CAVE_1F",
+   "warp": 7
+  },
+  {
+   "x": 3,
+   "y": 11,
+   "map": "CERULEAN_CAVE_1F",
+   "warp": 8
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 29,
+   "y": 9,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CERULEANCAVE2F_PP_UP",
+   "trainer": null,
+   "item": "PP_UP",
+   "index": 1,
+   "name": "CERULEANCAVE2F_PP_UP"
+  },
+  {
+   "x": 4,
+   "y": 15,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CERULEANCAVE2F_ULTRA_BALL",
+   "trainer": null,
+   "item": "ULTRA_BALL",
+   "index": 2,
+   "name": "CERULEANCAVE2F_ULTRA_BALL"
+  },
+  {
+   "x": 13,
+   "y": 6,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CERULEANCAVE2F_FULL_RESTORE",
+   "trainer": null,
+   "item": "FULL_RESTORE",
+   "index": 3,
+   "name": "CERULEANCAVE2F_FULL_RESTORE"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    51,
+    "DODRIO"
+   ],
+   [
+    51,
+    "VENOMOTH"
+   ],
+   [
+    51,
+    "KADABRA"
+   ],
+   [
+    52,
+    "RHYDON"
+   ],
+   [
+    52,
+    "MAROWAK"
+   ],
+   [
+    52,
+    "ELECTRODE"
+   ],
+   [
+    56,
+    "CHANSEY"
+   ],
+   [
+    54,
+    "WIGGLYTUFF"
+   ],
+   [
+    55,
+    "DITTO"
+   ],
+   [
+    60,
+    "DITTO"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 206,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 207,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 208,
+   "object": 3,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "121212121212122020201212121212121212121212202020201212122020",
+  "121212202020202020181220202020202020201220201212201212202018",
+  "202012201212121212121220122012201212201220202020201212202012",
+  "201812202020202020201220122012202012202020122012201212122020",
+  "201212121212121212201212122012122012121212202012202020201220",
+  "202020202020202012202020202020202012122020201212201212121220",
+  "121212121212201212121212122012122012202020121812121212202020",
+  "122020202020202020202020121212122012201812122020122020201212",
+  "122012121212121212121212122020201212121212121220122012121212",
+  "202012202020202020202020202012202020202020201220122020122020",
+  "201220201220121212121212201212121212121212121220121220122012",
+  "201220181220202020202012201220202020202020202020201220122012",
+  "202012121212121212122012201220121220121212121212201220122020",
+  "122020121220202020121212201220201220202020202012201220121220",
+  "121220121220121220202012201212201212121212122012201220202020",
+  "122020122020121212122012202012202020202012202012201212122012",
+  "122012121212202020202020122012121212121212201212121212202012",
+  "122020202020201212121220202020202020202012202020202020201212"
+ ]
+}

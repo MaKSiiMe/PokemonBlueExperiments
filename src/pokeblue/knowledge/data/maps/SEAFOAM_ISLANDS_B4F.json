@@ -1,0 +1,211 @@
+{
+ "id": 162,
+ "name": "SEAFOAM_ISLANDS_B4F",
+ "label": "SeafoamIslandsB4F",
+ "tileset": "CAVERN",
+ "width": 15,
+ "height": 9,
+ "border_block": 125,
+ "connections": [],
+ "warps": [
+  {
+   "x": 20,
+   "y": 17,
+   "map": "SEAFOAM_ISLANDS_B3F",
+   "warp": 6
+  },
+  {
+   "x": 21,
+   "y": 17,
+   "map": "SEAFOAM_ISLANDS_B3F",
+   "warp": 7
+  },
+  {
+   "x": 11,
+   "y": 7,
+   "map": "SEAFOAM_ISLANDS_B3F",
+   "warp": 2
+  },
+  {
+   "x": 25,
+   "y": 4,
+   "map": "SEAFOAM_ISLANDS_B3F",
+   "warp": 3
+  }
+ ],
+ "signs": [
+  {
+   "x": 9,
+   "y": 15,
+   "text": "TEXT_SEAFOAMISLANDSB4F_BOULDERS_SIGN"
+  },
+  {
+   "x": 23,
+   "y": 1,
+   "text": "TEXT_SEAFOAMISLANDSB4F_DANGER_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 4,
+   "y": 15,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SEAFOAMISLANDSB4F_BOULDER1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SEAFOAMISLANDSB4F_BOULDER1"
+  },
+  {
+   "x": 5,
+   "y": 15,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SEAFOAMISLANDSB4F_BOULDER2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SEAFOAMISLANDSB4F_BOULDER2"
+  },
+  {
+   "x": 6,
+   "y": 1,
+   "sprite": "SPRITE_BIRD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SEAFOAMISLANDSB4F_ARTICUNO",
+   "trainer": {
+    "class": "ARTICUNO",
+    "party": 50
+   },
+   "item": null,
+   "index": 3,
+   "name": "SEAFOAMISLANDSB4F_ARTICUNO"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 10,
+  "grass": [
+   [
+    31,
+    "HORSEA"
+   ],
+   [
+    31,
+    "SHELLDER"
+   ],
+   [
+    33,
+    "HORSEA"
+   ],
+   [
+    33,
+    "SHELLDER"
+   ],
+   [
+    29,
+    "SLOWPOKE"
+   ],
+   [
+    31,
+    "SEEL"
+   ],
+   [
+    31,
+    "SLOWPOKE"
+   ],
+   [
+    29,
+    "SEEL"
+   ],
+   [
+    39,
+    "SLOWBRO"
+   ],
+   [
+    31,
+    "KRABBY"
+   ],
+   [
+    31,
+    "STARYU"
+   ],
+   [
+    33,
+    "KRABBY"
+   ],
+   [
+    33,
+    "STARYU"
+   ],
+   [
+    29,
+    "PSYDUCK"
+   ],
+   [
+    31,
+    "SEEL"
+   ],
+   [
+    31,
+    "PSYDUCK"
+   ],
+   [
+    29,
+    "SEEL"
+   ],
+   [
+    39,
+    "GOLDUCK"
+   ],
+   [
+    32,
+    "GOLBAT"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 225,
+   "object": 1,
+   "initially_visible": false
+  },
+  {
+   "toggle": 226,
+   "object": 2,
+   "initially_visible": false
+  },
+  {
+   "toggle": 227,
+   "object": 3,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "101014140405050505050517141404050505050505050505050505171010",
+  "10101414310505050505051714143105050505050505051e050505171010",
+  "101014143105050505050517141431050505050505050505050505171010",
+  "101014142810101510101010141431050505050505050505050505171010",
+  "101014141414141414141414141431050505050505050505051a05171010",
+  "101014141414141414141414141431050517101010101015101010101010",
+  "101014141414040505050505050505050517141414141414141414141010",
+  "10101414141431050505051a050505050517141414141414141414141010",
+  "101014141414310505050505050505050517141414141414141414141010",
+  "101014141414310505050505050505171010141414141414141414141010",
+  "101014141414310505050505050505171414141414141414141414141010",
+  "101014141414281510101010260505171414141414141414141414141010",
+  "101014141414141414141414310505171414141414141414141414141010",
+  "101014141414141414141414310505171414141414141414141414141010",
+  "101014141414040505050505050505050505051714141414141414141010",
+  "1010141414143105051e0505050505050505051714141414141414141010",
+  "1010310514143105050505050505050505050517141431051c2031051010",
+  "1010281014142810101010101010101010101010141428101c1c28101010"
+ ]
+}

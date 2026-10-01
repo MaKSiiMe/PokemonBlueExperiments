@@ -1,0 +1,269 @@
+{
+ "id": 216,
+ "name": "POKEMON_MANSION_B1F",
+ "label": "PokemonMansionB1F",
+ "tileset": "FACILITY",
+ "width": 15,
+ "height": 14,
+ "border_block": 1,
+ "connections": [],
+ "warps": [
+  {
+   "x": 23,
+   "y": 22,
+   "map": "POKEMON_MANSION_1F",
+   "warp": 6
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 16,
+   "y": 23,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSIONB1F_BURGLAR",
+   "trainer": {
+    "class": "BURGLAR",
+    "party": 9
+   },
+   "item": null,
+   "index": 1,
+   "name": "POKEMONMANSIONB1F_BURGLAR"
+  },
+  {
+   "x": 27,
+   "y": 11,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_POKEMONMANSIONB1F_SCIENTIST",
+   "trainer": {
+    "class": "SCIENTIST",
+    "party": 13
+   },
+   "item": null,
+   "index": 2,
+   "name": "POKEMONMANSIONB1F_SCIENTIST"
+  },
+  {
+   "x": 10,
+   "y": 2,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSIONB1F_RARE_CANDY",
+   "trainer": null,
+   "item": "RARE_CANDY",
+   "index": 3,
+   "name": "POKEMONMANSIONB1F_RARE_CANDY"
+  },
+  {
+   "x": 1,
+   "y": 22,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSIONB1F_FULL_RESTORE",
+   "trainer": null,
+   "item": "FULL_RESTORE",
+   "index": 4,
+   "name": "POKEMONMANSIONB1F_FULL_RESTORE"
+  },
+  {
+   "x": 19,
+   "y": 25,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSIONB1F_TM_BLIZZARD",
+   "trainer": null,
+   "item": "TM_BLIZZARD",
+   "index": 5,
+   "name": "POKEMONMANSIONB1F_TM_BLIZZARD"
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSIONB1F_TM_SOLARBEAM",
+   "trainer": null,
+   "item": "TM_SOLARBEAM",
+   "index": 6,
+   "name": "POKEMONMANSIONB1F_TM_SOLARBEAM"
+  },
+  {
+   "x": 16,
+   "y": 20,
+   "sprite": "SPRITE_POKEDEX",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSIONB1F_DIARY",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "POKEMONMANSIONB1F_DIARY"
+  },
+  {
+   "x": 5,
+   "y": 13,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONMANSIONB1F_SECRET_KEY",
+   "trainer": null,
+   "item": "SECRET_KEY",
+   "index": 8,
+   "name": "POKEMONMANSIONB1F_SECRET_KEY"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 10,
+  "grass": [
+   [
+    33,
+    "KOFFING"
+   ],
+   [
+    31,
+    "KOFFING"
+   ],
+   [
+    35,
+    "GROWLITHE"
+   ],
+   [
+    32,
+    "PONYTA"
+   ],
+   [
+    31,
+    "KOFFING"
+   ],
+   [
+    40,
+    "WEEZING"
+   ],
+   [
+    34,
+    "PONYTA"
+   ],
+   [
+    35,
+    "GRIMER"
+   ],
+   [
+    42,
+    "WEEZING"
+   ],
+   [
+    42,
+    "MUK"
+   ],
+   [
+    33,
+    "GRIMER"
+   ],
+   [
+    31,
+    "GRIMER"
+   ],
+   [
+    35,
+    "VULPIX"
+   ],
+   [
+    32,
+    "PONYTA"
+   ],
+   [
+    31,
+    "GRIMER"
+   ],
+   [
+    40,
+    "MUK"
+   ],
+   [
+    34,
+    "PONYTA"
+   ],
+   [
+    35,
+    "KOFFING"
+   ],
+   [
+    38,
+    "MAGMAR"
+   ],
+   [
+    42,
+    "WEEZING"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 190,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 191,
+   "object": 4,
+   "initially_visible": true
+  },
+  {
+   "toggle": 192,
+   "object": 5,
+   "initially_visible": true
+  },
+  {
+   "toggle": 193,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 194,
+   "object": 8,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2b0d0d0d0d0d0d0d3a2b0d0d0d0d0d0d0d0d0d2b3a3a3a3a3a3a3a3a3a2b",
+  "2b1d4c4c4c4c4c4c012b4c4c4c4c4c4c4c4c1d2b0101010101010101012b",
+  "2b1d010101010101012b01010101010101011d2b2701380138013801012b",
+  "2b4c010101010101012b01010101010101014c2b3d01190119011901012b",
+  "2b0101011d350101012b0101010101010101012b0101010101010101012b",
+  "2b01010144450101013b3a3a01013b3a3a3a3a3a3a3a3a3a01013b3a3a2b",
+  "2b010101010101010101010101010101010101010101010101010101012b",
+  "2b010101010101010101010101010101010101010101010101010101012b",
+  "2b3a3a3a01013b3a3a2b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a2b0101012b",
+  "2b01010101010101012b0101010101010101010101010101012b0101012b",
+  "2b01151501011515012b0101010101010101010101010101012b0101012b",
+  "2b01171701011717012b0101010101010101010101010101012b0101012b",
+  "2b01010101010101012b0101010101010101010101010101012b0101012b",
+  "2b01010101010101012b0101010101010101010101010101012b0101012b",
+  "2b01151501011515012b0101010101010101010101010101012b0101012b",
+  "2b01171701011717012b0101010101010101010101010101012b0101012b",
+  "2b01010101010101012b0101012b0d0d01010d0d2b010101012b0101012b",
+  "2b3a3a3a3a3a3a3a3a3a0101012b4c4c01014c4c2b010101013b01013a2b",
+  "2b0101010101010101010101012b0101010101012b01010101010101012b",
+  "2b0101010101010101010101012b0101010101012b01010101010101012b",
+  "2b0101010101010101010101012b01011d3501012b01010101010101012b",
+  "2b0101010101010101010101013b0101444501012b01010101010101012b",
+  "2b010101010101010101010101010101010101012b01011301010101012b",
+  "2b010101010101010101010101010101010101012b01010101010101012b",
+  "2b0101010101010101010101012b0101010127012b01010101010101012b",
+  "2b0101010101010101010101012b010101013d012b01010101010101012b",
+  "2b0101010101010101010101012b0101010101012b01010101010101012b",
+  "3b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b3a3a3a3a3a3a3a3a3a"
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "id": 76,
+ "name": "ROUTE_7_GATE",
+ "label": "Route7Gate",
+ "tileset": "GATE",
+ "width": 3,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 0,
+   "y": 3,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 5,
+   "y": 3,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "map": "LAST_MAP",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 1,
+   "sprite": "SPRITE_GUARD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE7GATE_GUARD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE7GATE_GUARD"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "323232323232",
+  "320101010132",
+  "013232323201",
+  "380101010138",
+  "5e010101015e",
+  "013232323201",
+  "320101010132",
+  "323232323232"
+ ]
+}

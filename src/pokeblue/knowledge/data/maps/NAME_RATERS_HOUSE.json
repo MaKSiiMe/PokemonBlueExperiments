@@ -1,0 +1,53 @@
+{
+ "id": 229,
+ "name": "NAME_RATERS_HOUSE",
+ "label": "NameRatersHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 6
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 6
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 3,
+   "sprite": "SPRITE_SILPH_PRESIDENT",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_NAMERATERSHOUSE_NAME_RATER",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "NAMERATERSHOUSE_NAME_RATER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0e0e003d00340030",
+  "1e1e01010101011e",
+  "0101010101010101",
+  "010112362f120101",
+  "0101123c3a120101",
+  "0101010101010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

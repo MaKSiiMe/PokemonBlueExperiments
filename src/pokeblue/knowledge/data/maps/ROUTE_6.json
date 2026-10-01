@@ -1,0 +1,274 @@
+{
+ "id": 17,
+ "name": "ROUTE_6",
+ "label": "Route6",
+ "tileset": "OVERWORLD",
+ "width": 10,
+ "height": 18,
+ "border_block": 15,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "SAFFRON_CITY",
+   "offset": -5
+  },
+  {
+   "direction": "south",
+   "map": "VERMILION_CITY",
+   "offset": -5
+  }
+ ],
+ "warps": [
+  {
+   "x": 9,
+   "y": 1,
+   "map": "ROUTE_6_GATE",
+   "warp": 3
+  },
+  {
+   "x": 10,
+   "y": 1,
+   "map": "ROUTE_6_GATE",
+   "warp": 3
+  },
+  {
+   "x": 10,
+   "y": 7,
+   "map": "ROUTE_6_GATE",
+   "warp": 1
+  },
+  {
+   "x": 17,
+   "y": 13,
+   "map": "UNDERGROUND_PATH_ROUTE_6",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 19,
+   "y": 15,
+   "text": "TEXT_ROUTE6_UNDERGROUND_PATH_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 10,
+   "y": 21,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE6_COOLTRAINER_M1",
+   "trainer": {
+    "class": "JR_TRAINER_M",
+    "party": 4
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROUTE6_COOLTRAINER_M1"
+  },
+  {
+   "x": 11,
+   "y": 21,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE6_COOLTRAINER_F1",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 2
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE6_COOLTRAINER_F1"
+  },
+  {
+   "x": 0,
+   "y": 15,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE6_YOUNGSTER1",
+   "trainer": {
+    "class": "BUG_CATCHER",
+    "party": 10
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE6_YOUNGSTER1"
+  },
+  {
+   "x": 11,
+   "y": 31,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE6_COOLTRAINER_M2",
+   "trainer": {
+    "class": "JR_TRAINER_M",
+    "party": 5
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE6_COOLTRAINER_M2"
+  },
+  {
+   "x": 11,
+   "y": 30,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE6_COOLTRAINER_F2",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 3
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE6_COOLTRAINER_F2"
+  },
+  {
+   "x": 19,
+   "y": 26,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE6_YOUNGSTER2",
+   "trainer": {
+    "class": "BUG_CATCHER",
+    "party": 11
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE6_YOUNGSTER2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    13,
+    "ODDISH"
+   ],
+   [
+    13,
+    "PIDGEY"
+   ],
+   [
+    15,
+    "PIDGEY"
+   ],
+   [
+    10,
+    "MANKEY"
+   ],
+   [
+    12,
+    "MANKEY"
+   ],
+   [
+    15,
+    "ODDISH"
+   ],
+   [
+    16,
+    "ODDISH"
+   ],
+   [
+    16,
+    "PIDGEY"
+   ],
+   [
+    14,
+    "MANKEY"
+   ],
+   [
+    16,
+    "MANKEY"
+   ],
+   [
+    13,
+    "BELLSPROUT"
+   ],
+   [
+    13,
+    "PIDGEY"
+   ],
+   [
+    15,
+    "PIDGEY"
+   ],
+   [
+    10,
+    "MEOWTH"
+   ],
+   [
+    12,
+    "MEOWTH"
+   ],
+   [
+    15,
+    "BELLSPROUT"
+   ],
+   [
+    16,
+    "BELLSPROUT"
+   ],
+   [
+    16,
+    "PIDGEY"
+   ],
+   [
+    14,
+    "MEOWTH"
+   ],
+   [
+    16,
+    "MEOWTH"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [],
+ "tiles": [
+  "2c2c2c2c2c2c2c2c2c3a2c3a2c2c2c2c2c2c2c2c",
+  "2c2c2c2c2c2c2c2c2c3a2c3a2c2c2c2c2c2c2c2c",
+  "3a3a3a3a3a3a3a3a5a12121212123a3a3a3a3a3a",
+  "2c2c2c2c2c2c2c2c5c17171717172c2c2c2c2c2c",
+  "2c2c2c2c2c2c2c2c0f4b4b4b4b4b2c2c2c2c2c2c",
+  "2c2c2c2c2c2c2c2c0f4b4b4b4b4b2c2c2c2c2c2c",
+  "2c2c2c2c2c2c2c2c0f4b4b4b4b4b2c2c2c2c2c2c",
+  "3737373c373737374e1a1b1a1a1a3737373c3737",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c5a121212",
+  "373737373737373c37373737373737375c171717",
+  "393939393939393939393939393939390f4b4b4b",
+  "393939393939393939393939393939394e1b1a1a",
+  "5252525239395252525252525252393939393939",
+  "5252525239395252525252525252393939393956",
+  "5252525239395252525252525252525252525252",
+  "5252525239395252525252525252525252525252",
+  "5252525239395252525252525252525252525252",
+  "5252525239395252525252525252525252525252",
+  "5252525239393939393939393939393939395252",
+  "5252525239393939393939393939393939395252",
+  "5252525252525252525252525252525239395252",
+  "5252525252525252525252525252525239395252",
+  "3214141414141414141414141414525239395252",
+  "3214141414141414141414141414525239395252",
+  "3214141414141414141414141414525239395252",
+  "3214141414141414141414141414525239395252",
+  "3a3a3a3a2c2c2c2c393939393939393939395252",
+  "2c2c2c3a2c2c2c2c393939393939393939395252",
+  "2c2c2c3a2c2c2c2c39392c2c5252525252525252",
+  "2c2c2c3a3a3a3a3a39392c2c5252525252525252",
+  "141414141414143a39393a3a3a3a3a3a3a3a3a3a",
+  "141414141414143a39393a2c2c2c2c2c2c2c2c2c",
+  "141414141414143a39393a2c2c2c2c2c2c2c2c2c",
+  "141414141414143a39393a2c2c2c2c2c2c2c2c2c"
+ ]
+}

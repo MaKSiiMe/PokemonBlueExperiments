@@ -1,0 +1,59 @@
+{
+ "id": 46,
+ "name": "DIGLETTS_CAVE_ROUTE_2",
+ "label": "DiglettsCaveRoute2",
+ "tileset": "CAVERN",
+ "width": 4,
+ "height": 4,
+ "border_block": 125,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "map": "DIGLETTS_CAVE",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 3,
+   "sprite": "SPRITE_FISHING_GURU",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_DIGLETTSCAVEROUTE2_FISHING_GURU",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "DIGLETTSCAVEROUTE2_FISHING_GURU"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "1212121212121212",
+  "1212121212121212",
+  "1220202020201212",
+  "1220202020201212",
+  "1220202018201212",
+  "1220202020201212",
+  "1220202020201212",
+  "1212212112121212"
+ ]
+}

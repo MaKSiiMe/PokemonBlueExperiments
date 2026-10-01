@@ -1,0 +1,158 @@
+{
+ "id": 4,
+ "name": "LAVENDER_TOWN",
+ "label": "LavenderTown",
+ "tileset": "OVERWORLD",
+ "width": 10,
+ "height": 9,
+ "border_block": 44,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "ROUTE_10",
+   "offset": 0
+  },
+  {
+   "direction": "south",
+   "map": "ROUTE_12",
+   "offset": 0
+  },
+  {
+   "direction": "west",
+   "map": "ROUTE_8",
+   "offset": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 3,
+   "y": 5,
+   "map": "LAVENDER_POKECENTER",
+   "warp": 1
+  },
+  {
+   "x": 14,
+   "y": 5,
+   "map": "POKEMON_TOWER_1F",
+   "warp": 1
+  },
+  {
+   "x": 7,
+   "y": 9,
+   "map": "MR_FUJIS_HOUSE",
+   "warp": 1
+  },
+  {
+   "x": 15,
+   "y": 13,
+   "map": "LAVENDER_MART",
+   "warp": 1
+  },
+  {
+   "x": 3,
+   "y": 13,
+   "map": "LAVENDER_CUBONE_HOUSE",
+   "warp": 1
+  },
+  {
+   "x": 7,
+   "y": 13,
+   "map": "NAME_RATERS_HOUSE",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 11,
+   "y": 9,
+   "text": "TEXT_LAVENDERTOWN_SIGN"
+  },
+  {
+   "x": 9,
+   "y": 3,
+   "text": "TEXT_LAVENDERTOWN_SILPH_SCOPE_SIGN"
+  },
+  {
+   "x": 16,
+   "y": 13,
+   "text": "TEXT_LAVENDERTOWN_MART_SIGN"
+  },
+  {
+   "x": 4,
+   "y": 5,
+   "text": "TEXT_LAVENDERTOWN_POKECENTER_SIGN"
+  },
+  {
+   "x": 5,
+   "y": 9,
+   "text": "TEXT_LAVENDERTOWN_POKEMON_HOUSE_SIGN"
+  },
+  {
+   "x": 17,
+   "y": 7,
+   "text": "TEXT_LAVENDERTOWN_POKEMON_TOWER_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 15,
+   "y": 9,
+   "sprite": "SPRITE_LITTLE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_LAVENDERTOWN_LITTLE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "LAVENDERTOWN_LITTLE_GIRL"
+  },
+  {
+   "x": 9,
+   "y": 10,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_LAVENDERTOWN_COOLTRAINER_M",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "LAVENDERTOWN_COOLTRAINER_M"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_LAVENDERTOWN_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "LAVENDERTOWN_SUPER_NERD"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "1111111111243939393927110f4b4b4b4b4b1111",
+  "3737373737373939393927110f4b4b4b4b4b1111",
+  "39395a1212123939303027110f4b4b4b4b4b1111",
+  "39395c1717173939305627114e1a1a1a1a1a1111",
+  "39390f4b4b4b3939393927111111111111111111",
+  "39394e1b4a1a3939393936373737583737371311",
+  "3939393939393939393939393939393930302711",
+  "3939393939393939393939393939393930562711",
+  "3939393930301517171830303939393939392711",
+  "3939393930564e1b1a1a30563939393939392711",
+  "39393939393939393939393939395a1212122711",
+  "39393939393939393939393939395c1717172711",
+  "39391517171815171718393939390f4b4b4b2711",
+  "39394e1b1a1a4e1b1a1a393939394e1b4a1a2711",
+  "3939393939393939393939393939393939392711",
+  "3939393939393939393939393939393939392711",
+  "111111111111112439391e111111111111111111",
+  "1111111111111124393927111111111111111111"
+ ]
+}

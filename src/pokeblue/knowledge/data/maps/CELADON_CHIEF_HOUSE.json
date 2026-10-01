@@ -1,0 +1,77 @@
+{
+ "id": 139,
+ "name": "CELADON_CHIEF_HOUSE",
+ "label": "CeladonChiefHouse",
+ "tileset": "MANSION",
+ "width": 4,
+ "height": 4,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 12
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 12
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 2,
+   "sprite": "SPRITE_GRAMPS",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONCHIEFHOUSE_CHIEF",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONCHIEFHOUSE_CHIEF"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_CELADONCHIEFHOUSE_ROCKET",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONCHIEFHOUSE_ROCKET"
+  },
+  {
+   "x": 5,
+   "y": 6,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_CELADONCHIEFHOUSE_SAILOR",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CELADONCHIEFHOUSE_SAILOR"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "5050262828265050",
+  "1111323232321111",
+  "1111111111111111",
+  "1111363737371111",
+  "11113c3a3a3a1111",
+  "1111111111111111",
+  "0808111111110808",
+  "1818141411111818"
+ ]
+}

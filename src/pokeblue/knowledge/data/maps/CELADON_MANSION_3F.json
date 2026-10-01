@@ -1,0 +1,126 @@
+{
+ "id": 130,
+ "name": "CELADON_MANSION_3F",
+ "label": "CeladonMansion3F",
+ "tileset": "MANSION",
+ "width": 4,
+ "height": 6,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 6,
+   "y": 1,
+   "map": "CELADON_MANSION_2F",
+   "warp": 1
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "map": "CELADON_MANSION_ROOF",
+   "warp": 1
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "map": "CELADON_MANSION_ROOF",
+   "warp": 2
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "map": "CELADON_MANSION_2F",
+   "warp": 4
+  }
+ ],
+ "signs": [
+  {
+   "x": 1,
+   "y": 3,
+   "text": "TEXT_CELADONMANSION3F_GAME_PROGRAM_PC"
+  },
+  {
+   "x": 4,
+   "y": 3,
+   "text": "TEXT_CELADONMANSION3F_PLAYING_GAME_PC"
+  },
+  {
+   "x": 1,
+   "y": 6,
+   "text": "TEXT_CELADONMANSION3F_GAME_SCRIPT_PC"
+  },
+  {
+   "x": 4,
+   "y": 9,
+   "text": "TEXT_CELADONMANSION3F_DEV_ROOM_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 0,
+   "y": 4,
+   "sprite": "SPRITE_BIKE_SHOP_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_CELADONMANSION3F_PROGRAMMER",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONMANSION3F_PROGRAMMER"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "sprite": "SPRITE_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_CELADONMANSION3F_GRAPHIC_ARTIST",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONMANSION3F_GRAPHIC_ARTIST"
+  },
+  {
+   "x": 0,
+   "y": 7,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_CELADONMANSION3F_WRITER",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CELADONMANSION3F_WRITER"
+  },
+  {
+   "x": 2,
+   "y": 3,
+   "sprite": "SPRITE_SILPH_WORKER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CELADONMANSION3F_GAME_DESIGNER",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "CELADONMANSION3F_GAME_DESIGNER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "10105050504a5050",
+  "10101c011a4a1a1c",
+  "1e1e1e1e1e580101",
+  "40421140424a0101",
+  "12111112114a0101",
+  "11111111114a0101",
+  "40421111054a0101",
+  "12111111015a0101",
+  "1111111101010101",
+  "1e1e1e1e161e0101",
+  "0101010101010101",
+  "0101010101010101"
+ ]
+}

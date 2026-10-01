@@ -1,0 +1,89 @@
+{
+ "id": 125,
+ "name": "CELADON_MART_4F",
+ "label": "CeladonMart4F",
+ "tileset": "LOBBY",
+ "width": 10,
+ "height": 4,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 12,
+   "y": 1,
+   "map": "CELADON_MART_3F",
+   "warp": 1
+  },
+  {
+   "x": 16,
+   "y": 1,
+   "map": "CELADON_MART_5F",
+   "warp": 2
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "map": "CELADON_MART_ELEVATOR",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 14,
+   "y": 1,
+   "text": "TEXT_CELADONMART4F_CURRENT_FLOOR_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 5,
+   "y": 7,
+   "sprite": "SPRITE_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CELADONMART4F_CLERK",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONMART4F_CLERK"
+  },
+  {
+   "x": 15,
+   "y": 5,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CELADONMART4F_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONMART4F_SUPER_NERD"
+  },
+  {
+   "x": 5,
+   "y": 2,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CELADONMART4F_YOUNGSTER",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CELADONMART4F_YOUNGSTER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0101010101010101010101010101010101010101",
+  "2138162121212121212121211a2121211c212121",
+  "2020202020202020202020202020202020202020",
+  "20203a3c3a3c3a3c3a3c20203a3c3a3c3a3c2020",
+  "2020505250525052505220205052505250522020",
+  "2020202020202020202020202020202020202020",
+  "1515151515151515153620203a3c3a3c3a3c2020",
+  "2020202020202020203620205052505250522020"
+ ]
+}

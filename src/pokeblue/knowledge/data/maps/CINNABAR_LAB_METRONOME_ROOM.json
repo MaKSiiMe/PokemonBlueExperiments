@@ -1,0 +1,81 @@
+{
+ "id": 169,
+ "name": "CINNABAR_LAB_METRONOME_ROOM",
+ "label": "CinnabarLabMetronomeRoom",
+ "tileset": "LAB",
+ "width": 4,
+ "height": 4,
+ "border_block": 23,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "CINNABAR_LAB",
+   "warp": 4
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "CINNABAR_LAB",
+   "warp": 4
+  }
+ ],
+ "signs": [
+  {
+   "x": 0,
+   "y": 4,
+   "text": "TEXT_CINNABARLABMETRONOMEROOM_PC_KEYBOARD"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "text": "TEXT_CINNABARLABMETRONOMEROOM_PC_MONITOR"
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "text": "TEXT_CINNABARLABMETRONOMEROOM_AMBER_PIPE"
+  }
+ ],
+ "objects": [
+  {
+   "x": 7,
+   "y": 2,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARLABMETRONOMEROOM_SCIENTIST1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CINNABARLABMETRONOMEROOM_SCIENTIST1"
+  },
+  {
+   "x": 2,
+   "y": 3,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CINNABARLABMETRONOMEROOM_SCIENTIST2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CINNABARLABMETRONOMEROOM_SCIENTIST2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "2222222222282828",
+  "2222222222282828",
+  "2626262626262626",
+  "2626262626262626",
+  "1214262626262828",
+  "1626262626262828",
+  "2626262626262626",
+  "2626373726262626"
+ ]
+}

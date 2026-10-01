@@ -1,0 +1,163 @@
+{
+ "id": 200,
+ "name": "ROCKET_HIDEOUT_B2F",
+ "label": "RocketHideoutB2F",
+ "tileset": "FACILITY",
+ "width": 15,
+ "height": 14,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 27,
+   "y": 8,
+   "map": "ROCKET_HIDEOUT_B1F",
+   "warp": 1
+  },
+  {
+   "x": 21,
+   "y": 8,
+   "map": "ROCKET_HIDEOUT_B3F",
+   "warp": 1
+  },
+  {
+   "x": 24,
+   "y": 19,
+   "map": "ROCKET_HIDEOUT_ELEVATOR",
+   "warp": 1
+  },
+  {
+   "x": 21,
+   "y": 22,
+   "map": "ROCKET_HIDEOUT_B1F",
+   "warp": 4
+  },
+  {
+   "x": 25,
+   "y": 19,
+   "map": "ROCKET_HIDEOUT_ELEVATOR",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 20,
+   "y": 12,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROCKETHIDEOUTB2F_ROCKET",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 13
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROCKETHIDEOUTB2F_ROCKET"
+  },
+  {
+   "x": 1,
+   "y": 11,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB2F_MOON_STONE",
+   "trainer": null,
+   "item": "MOON_STONE",
+   "index": 2,
+   "name": "ROCKETHIDEOUTB2F_MOON_STONE"
+  },
+  {
+   "x": 16,
+   "y": 8,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB2F_NUGGET",
+   "trainer": null,
+   "item": "NUGGET",
+   "index": 3,
+   "name": "ROCKETHIDEOUTB2F_NUGGET"
+  },
+  {
+   "x": 6,
+   "y": 12,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB2F_TM_HORN_DRILL",
+   "trainer": null,
+   "item": "TM_HORN_DRILL",
+   "index": 4,
+   "name": "ROCKETHIDEOUTB2F_TM_HORN_DRILL"
+  },
+  {
+   "x": 3,
+   "y": 21,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB2F_SUPER_POTION",
+   "trainer": null,
+   "item": "SUPER_POTION",
+   "index": 5,
+   "name": "ROCKETHIDEOUTB2F_SUPER_POTION"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 125,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 126,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 127,
+   "object": 4,
+   "initially_visible": true
+  },
+  {
+   "toggle": 128,
+   "object": 5,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333",
+  "333333333333333333333333333333333333333333333333333333333333",
+  "2b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a2b3a3a3a3a2b3a3a3a3a3a2b",
+  "2b01010101011901010101010101010101012b010101012b01010101012b",
+  "2b01191919011901190119011901190101192b01011b012b15010113012b",
+  "2b015e0120010101200120012001191919193b010101012b17010101012b",
+  "2b191901011919191919211901200101012001010101012b15010101012b",
+  "2b011901300101015e01011921010101012001010101012b17010101012b",
+  "2b011901191901192119011901305e19191901010101012b15010101012b",
+  "2b0101010119191901190119210101195e0101010101013b17010101012b",
+  "2b19191901300101012001201919191921192b010101010101010101012b",
+  "2b010101300101012101210119195e0101192b010101010101010101012b",
+  "2b01191921191919015e01300130012021192b3a3a3a3a3a3a3a3a3a3a2b",
+  "2b01010101191919191930013001210101192b010101010101010101012b",
+  "2b01191919010101190101200120015e21192b010101010101010101012b",
+  "2b015e0120010101200121010120191901193b010101012b42523b3a3a3a",
+  "2b01191901195e190119015e01010119010101010101012b333333333333",
+  "2b011901010101190119191919190119010101010101012b333333333333",
+  "2b01011921192119012001010120011901012b010113012b333333333333",
+  "2b01011901190119210101010120011901012b010101012b333333333333",
+  "2b01011901192119015e01191919191901192b010101012b333333333333",
+  "2b010101010101191919300101015e0101192b010101012b333333333333",
+  "2b01010119191919191919191919191919192b010101012b333333333333",
+  "3b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b3a3a3a3a3a333333333333"
+ ]
+}

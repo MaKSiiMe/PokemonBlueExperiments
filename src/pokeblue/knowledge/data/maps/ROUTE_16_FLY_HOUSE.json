@@ -1,0 +1,65 @@
+{
+ "id": 188,
+ "name": "ROUTE_16_FLY_HOUSE",
+ "label": "Route16FlyHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 9
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 9
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 2,
+   "y": 3,
+   "sprite": "SPRITE_BRUNETTE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE16FLYHOUSE_BRUNETTE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE16FLYHOUSE_BRUNETTE_GIRL"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "sprite": "SPRITE_BIRD",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_ROUTE16FLYHOUSE_FEAROW",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "ROUTE16FLYHOUSE_FEAROW"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0e0e003d00340030",
+  "1e1e01010101011e",
+  "0101010101010101",
+  "010112362f120101",
+  "0101123c3a120101",
+  "0101010101010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

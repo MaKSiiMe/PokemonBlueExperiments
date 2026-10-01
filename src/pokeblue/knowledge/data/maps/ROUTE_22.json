@@ -1,0 +1,179 @@
+{
+ "id": 33,
+ "name": "ROUTE_22",
+ "label": "Route22",
+ "tileset": "OVERWORLD",
+ "width": 20,
+ "height": 9,
+ "border_block": 44,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "ROUTE_23",
+   "offset": 0
+  },
+  {
+   "direction": "east",
+   "map": "VIRIDIAN_CITY",
+   "offset": -4
+  }
+ ],
+ "warps": [
+  {
+   "x": 8,
+   "y": 5,
+   "map": "ROUTE_22_GATE",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 7,
+   "y": 11,
+   "text": "TEXT_ROUTE22_POKEMON_LEAGUE_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 25,
+   "y": 5,
+   "sprite": "SPRITE_BLUE",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROUTE22_RIVAL1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE22_RIVAL1"
+  },
+  {
+   "x": 25,
+   "y": 5,
+   "sprite": "SPRITE_BLUE",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROUTE22_RIVAL2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "ROUTE22_RIVAL2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 25,
+  "grass": [
+   [
+    3,
+    "RATTATA"
+   ],
+   [
+    3,
+    "NIDORAN_M"
+   ],
+   [
+    4,
+    "RATTATA"
+   ],
+   [
+    4,
+    "NIDORAN_M"
+   ],
+   [
+    2,
+    "RATTATA"
+   ],
+   [
+    2,
+    "NIDORAN_M"
+   ],
+   [
+    3,
+    "SPEAROW"
+   ],
+   [
+    5,
+    "SPEAROW"
+   ],
+   [
+    3,
+    "NIDORAN_F"
+   ],
+   [
+    4,
+    "NIDORAN_F"
+   ],
+   [
+    3,
+    "NIDORAN_F"
+   ],
+   [
+    4,
+    "RATTATA"
+   ],
+   [
+    4,
+    "NIDORAN_F"
+   ],
+   [
+    2,
+    "RATTATA"
+   ],
+   [
+    2,
+    "NIDORAN_F"
+   ],
+   [
+    3,
+    "SPEAROW"
+   ],
+   [
+    5,
+    "SPEAROW"
+   ],
+   [
+    3,
+    "NIDORAN_M"
+   ],
+   [
+    4,
+    "NIDORAN_M"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 34,
+   "object": 1,
+   "initially_visible": false
+  },
+  {
+   "toggle": 35,
+   "object": 2,
+   "initially_visible": false
+  }
+ ],
+ "tiles": [
+  "3a3a5a12121212121212121212122711111111111111111111111111111111111111111111111111",
+  "3a3a5c17171717171717171717172711111111111111111111111111112437373737373713111111",
+  "11240f4b4b4b4b4b4b4b4b4b4b4b271111111111111111111111111111242c2c2c2c2c2c27111111",
+  "11240f4b4b4b4b4b4b4b4b4b4b4b363737373737373737373737373737373737373c373727111111",
+  "11240f4b4b4b4b4b4b4b4b4b4b4b3a3a5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b27111111",
+  "11244e1a1a1a1a1a1b1a1a1a1a1a3a3a5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b36373737",
+  "11245b5b5b5b5b5b5b5b5b5b5b5b3a3a2c2c2c2c2c2c321414141e1111242c2c2c2c3a3a2c2c2c2c",
+  "11245b5b5b5b5b5b5b5b5b5b5b5b3a3a3737373737373214141427111124373c37373a2c2c2c2c2c",
+  "11242c2c2c2c2c2c2c2c2c2c2c2c3a3a5252525252523214141427111124525252523a2c39233923",
+  "11243737373737373737373c37373a3a5252525252523214141427111124525252523a2c23392339",
+  "11243939393939393939393939393a3a5252525252525b5b5b5b27111124525252523a2c39231e11",
+  "11243939393955565555555555553a3a5252525252525b5b5b5b27111124525252523a2c23392711",
+  "11242c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c271111242c2c2c2c2c2c2c2c2711",
+  "1124373737373737373737373737373737373737373737373737363737373737373c373737372711",
+  "11245b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b2711",
+  "11245b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b2711",
+  "11111111111111111111111111111111111111111111111111111111111111111111111111111111",
+  "11111111111111111111111111111111111111111111111111111111111111111111111111111111"
+ ]
+}

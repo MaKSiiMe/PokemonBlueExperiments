@@ -1,0 +1,93 @@
+{
+ "id": 88,
+ "name": "BILLS_HOUSE",
+ "label": "BillsHouse",
+ "tileset": "INTERIOR",
+ "width": 4,
+ "height": 4,
+ "border_block": 13,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 6,
+   "y": 5,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_BILLSHOUSE_BILL_POKEMON",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "BILLSHOUSE_BILL_POKEMON"
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_BILLSHOUSE_BILL_SS_TICKET",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "BILLSHOUSE_BILL1"
+  },
+  {
+   "x": 6,
+   "y": 5,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_BILLSHOUSE_BILL_CHECK_OUT_MY_RARE_POKEMON",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "BILLSHOUSE_BILL2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 97,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 98,
+   "object": 2,
+   "initially_visible": false
+  },
+  {
+   "toggle": 99,
+   "object": 3,
+   "initially_visible": false
+  }
+ ],
+ "tiles": [
+  "10080a101010080a",
+  "30282a363630282a",
+  "1f010f1f1f1f010f",
+  "1f1f1f1f1f1f1f1f",
+  "1f1b1d1f1f1f1f1f",
+  "1f3b1f1f1f1f1f1f",
+  "1f1f1f1f1f1f1f1f",
+  "1f1f47471f1f1f1f"
+ ]
+}

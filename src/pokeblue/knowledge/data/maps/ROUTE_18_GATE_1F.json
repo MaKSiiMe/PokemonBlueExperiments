@@ -1,0 +1,73 @@
+{
+ "id": 190,
+ "name": "ROUTE_18_GATE_1F",
+ "label": "Route18Gate1F",
+ "tileset": "GATE",
+ "width": 4,
+ "height": 5,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 0,
+   "y": 4,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 7,
+   "y": 5,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "map": "ROUTE_18_GATE_2F",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 1,
+   "sprite": "SPRITE_GUARD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE18GATE1F_GUARD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE18GATE1F_GUARD"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "3232323232323232",
+  "3201010101010132",
+  "3232323232323232",
+  "0101010101010101",
+  "3801010101010138",
+  "5e0101010101015e",
+  "0101010101010101",
+  "3232323232013232",
+  "3201010117011c32",
+  "3232323232323232"
+ ]
+}

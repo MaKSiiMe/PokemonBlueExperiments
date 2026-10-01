@@ -1,0 +1,2011 @@
+{
+ "source_commit": "a1a22aaf84d1675bcdbaeb194592379d586d838e",
+ "tilesets": {
+  "OVERWORLD": {
+   "id": 0,
+   "blockset": "gfx/blocksets/overworld.bst",
+   "passable": [
+    0,
+    16,
+    27,
+    32,
+    33,
+    35,
+    44,
+    45,
+    46,
+    48,
+    49,
+    51,
+    57,
+    60,
+    62,
+    82,
+    84,
+    88,
+    91
+   ],
+   "grass_tile": 82,
+   "counter_tiles": []
+  },
+  "REDS_HOUSE_1": {
+   "id": 1,
+   "blockset": "gfx/blocksets/reds_house.bst",
+   "passable": [
+    1,
+    2,
+    3,
+    17,
+    18,
+    19,
+    20,
+    28,
+    26
+   ],
+   "grass_tile": null,
+   "counter_tiles": []
+  },
+  "MART": {
+   "id": 2,
+   "blockset": "gfx/blocksets/pokecenter.bst",
+   "passable": [
+    17,
+    26,
+    28,
+    60,
+    94
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    24,
+    25,
+    30
+   ]
+  },
+  "FOREST": {
+   "id": 3,
+   "blockset": "gfx/blocksets/forest.bst",
+   "passable": [
+    30,
+    32,
+    46,
+    48,
+    52,
+    55,
+    57,
+    58,
+    64,
+    81,
+    82,
+    90,
+    92,
+    94,
+    95
+   ],
+   "grass_tile": 32,
+   "counter_tiles": []
+  },
+  "REDS_HOUSE_2": {
+   "id": 4,
+   "blockset": "gfx/blocksets/reds_house.bst",
+   "passable": [
+    1,
+    2,
+    3,
+    17,
+    18,
+    19,
+    20,
+    28,
+    26
+   ],
+   "grass_tile": null,
+   "counter_tiles": []
+  },
+  "DOJO": {
+   "id": 5,
+   "blockset": "gfx/blocksets/gym.bst",
+   "passable": [
+    17,
+    22,
+    25,
+    43,
+    60,
+    61,
+    63,
+    74,
+    76,
+    77,
+    3
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    58
+   ]
+  },
+  "POKECENTER": {
+   "id": 6,
+   "blockset": "gfx/blocksets/pokecenter.bst",
+   "passable": [
+    17,
+    26,
+    28,
+    60,
+    94
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    24,
+    25,
+    30
+   ]
+  },
+  "GYM": {
+   "id": 7,
+   "blockset": "gfx/blocksets/gym.bst",
+   "passable": [
+    17,
+    22,
+    25,
+    43,
+    60,
+    61,
+    63,
+    74,
+    76,
+    77,
+    3
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    58
+   ]
+  },
+  "HOUSE": {
+   "id": 8,
+   "blockset": "gfx/blocksets/house.bst",
+   "passable": [
+    1,
+    18,
+    20,
+    40,
+    50,
+    55,
+    68,
+    84,
+    92
+   ],
+   "grass_tile": null,
+   "counter_tiles": []
+  },
+  "FOREST_GATE": {
+   "id": 9,
+   "blockset": "gfx/blocksets/gate.bst",
+   "passable": [
+    1,
+    18,
+    20,
+    26,
+    28,
+    55,
+    56,
+    59,
+    60,
+    94
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    23,
+    50
+   ]
+  },
+  "MUSEUM": {
+   "id": 10,
+   "blockset": "gfx/blocksets/gate.bst",
+   "passable": [
+    1,
+    18,
+    20,
+    26,
+    28,
+    55,
+    56,
+    59,
+    60,
+    94
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    23,
+    50
+   ]
+  },
+  "UNDERGROUND": {
+   "id": 11,
+   "blockset": "gfx/blocksets/underground.bst",
+   "passable": [
+    11,
+    12,
+    19,
+    21,
+    24
+   ],
+   "grass_tile": null,
+   "counter_tiles": []
+  },
+  "GATE": {
+   "id": 12,
+   "blockset": "gfx/blocksets/gate.bst",
+   "passable": [
+    1,
+    18,
+    20,
+    26,
+    28,
+    55,
+    56,
+    59,
+    60,
+    94
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    23,
+    50
+   ]
+  },
+  "SHIP": {
+   "id": 13,
+   "blockset": "gfx/blocksets/ship.bst",
+   "passable": [
+    4,
+    13,
+    23,
+    29,
+    30,
+    35,
+    52,
+    55,
+    57,
+    74
+   ],
+   "grass_tile": null,
+   "counter_tiles": []
+  },
+  "SHIP_PORT": {
+   "id": 14,
+   "blockset": "gfx/blocksets/ship_port.bst",
+   "passable": [
+    10,
+    26,
+    50,
+    59
+   ],
+   "grass_tile": null,
+   "counter_tiles": []
+  },
+  "CEMETERY": {
+   "id": 15,
+   "blockset": "gfx/blocksets/cemetery.bst",
+   "passable": [
+    1,
+    16,
+    19,
+    27,
+    34,
+    66,
+    82
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    18
+   ]
+  },
+  "INTERIOR": {
+   "id": 16,
+   "blockset": "gfx/blocksets/interior.bst",
+   "passable": [
+    4,
+    15,
+    21,
+    31,
+    59,
+    69,
+    71,
+    85,
+    86
+   ],
+   "grass_tile": null,
+   "counter_tiles": []
+  },
+  "CAVERN": {
+   "id": 17,
+   "blockset": "gfx/blocksets/cavern.bst",
+   "passable": [
+    5,
+    21,
+    24,
+    26,
+    32,
+    33,
+    34,
+    42,
+    45,
+    48
+   ],
+   "grass_tile": null,
+   "counter_tiles": []
+  },
+  "LOBBY": {
+   "id": 18,
+   "blockset": "gfx/blocksets/lobby.bst",
+   "passable": [
+    20,
+    23,
+    26,
+    28,
+    32,
+    56,
+    69
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    21,
+    54
+   ]
+  },
+  "MANSION": {
+   "id": 19,
+   "blockset": "gfx/blocksets/mansion.bst",
+   "passable": [
+    1,
+    5,
+    17,
+    18,
+    20,
+    26,
+    28,
+    44,
+    83
+   ],
+   "grass_tile": null,
+   "counter_tiles": []
+  },
+  "LAB": {
+   "id": 20,
+   "blockset": "gfx/blocksets/lab.bst",
+   "passable": [
+    12,
+    38,
+    22,
+    30,
+    52,
+    55
+   ],
+   "grass_tile": null,
+   "counter_tiles": []
+  },
+  "CLUB": {
+   "id": 21,
+   "blockset": "gfx/blocksets/club.bst",
+   "passable": [
+    15,
+    26,
+    31,
+    38,
+    40,
+    41,
+    44,
+    45,
+    46,
+    47,
+    65
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    7,
+    23
+   ]
+  },
+  "FACILITY": {
+   "id": 22,
+   "blockset": "gfx/blocksets/facility.bst",
+   "passable": [
+    1,
+    16,
+    17,
+    19,
+    27,
+    32,
+    33,
+    34,
+    48,
+    49,
+    50,
+    66,
+    67,
+    72,
+    82,
+    85,
+    88,
+    94
+   ],
+   "grass_tile": null,
+   "counter_tiles": [
+    18
+   ]
+  },
+  "PLATEAU": {
+   "id": 23,
+   "blockset": "gfx/blocksets/plateau.bst",
+   "passable": [
+    27,
+    35,
+    44,
+    45,
+    59,
+    69
+   ],
+   "grass_tile": 69,
+   "counter_tiles": []
+  }
+ },
+ "rules": {
+  "ledges": [
+   {
+    "direction": "down",
+    "from_tile": 44,
+    "ledge_tile": 55
+   },
+   {
+    "direction": "down",
+    "from_tile": 57,
+    "ledge_tile": 54
+   },
+   {
+    "direction": "down",
+    "from_tile": 57,
+    "ledge_tile": 55
+   },
+   {
+    "direction": "left",
+    "from_tile": 44,
+    "ledge_tile": 39
+   },
+   {
+    "direction": "left",
+    "from_tile": 57,
+    "ledge_tile": 39
+   },
+   {
+    "direction": "right",
+    "from_tile": 44,
+    "ledge_tile": 13
+   },
+   {
+    "direction": "right",
+    "from_tile": 44,
+    "ledge_tile": 29
+   },
+   {
+    "direction": "right",
+    "from_tile": 57,
+    "ledge_tile": 13
+   }
+  ],
+  "tile_pair_collisions": {
+   "land": [
+    {
+     "tileset": "CAVERN",
+     "tiles": [
+      32,
+      5
+     ]
+    },
+    {
+     "tileset": "CAVERN",
+     "tiles": [
+      65,
+      5
+     ]
+    },
+    {
+     "tileset": "FOREST",
+     "tiles": [
+      48,
+      46
+     ]
+    },
+    {
+     "tileset": "CAVERN",
+     "tiles": [
+      42,
+      5
+     ]
+    },
+    {
+     "tileset": "CAVERN",
+     "tiles": [
+      5,
+      33
+     ]
+    },
+    {
+     "tileset": "FOREST",
+     "tiles": [
+      82,
+      46
+     ]
+    },
+    {
+     "tileset": "FOREST",
+     "tiles": [
+      85,
+      46
+     ]
+    },
+    {
+     "tileset": "FOREST",
+     "tiles": [
+      86,
+      46
+     ]
+    },
+    {
+     "tileset": "FOREST",
+     "tiles": [
+      32,
+      46
+     ]
+    },
+    {
+     "tileset": "FOREST",
+     "tiles": [
+      94,
+      46
+     ]
+    },
+    {
+     "tileset": "FOREST",
+     "tiles": [
+      95,
+      46
+     ]
+    }
+   ],
+   "water": [
+    {
+     "tileset": "FOREST",
+     "tiles": [
+      20,
+      46
+     ]
+    },
+    {
+     "tileset": "FOREST",
+     "tiles": [
+      72,
+      46
+     ]
+    },
+    {
+     "tileset": "CAVERN",
+     "tiles": [
+      20,
+      5
+     ]
+    }
+   ]
+  },
+  "water_tilesets": [
+   "OVERWORLD",
+   "FOREST",
+   "DOJO",
+   "GYM",
+   "SHIP",
+   "SHIP_PORT",
+   "CAVERN",
+   "FACILITY",
+   "PLATEAU"
+  ],
+  "water_tiles": {
+   "tiles": [
+    20,
+    50,
+    72
+   ],
+   "not_in_tilesets": {
+    "0x32": [
+     "SHIP_PORT"
+    ],
+    "0x48": [
+     "SHIP_PORT"
+    ]
+   },
+   "source": "engine/items/item_effects.asm IsNextTileShoreOrWater ; home/overworld.asm CollisionCheckOnWater"
+  },
+  "cut_tree_tiles": {
+   "OVERWORLD": [
+    61
+   ],
+   "GYM": [
+    80
+   ],
+   "source": "engine/overworld/cut.asm UsedCut"
+  },
+  "ledges_only_in": [
+   "OVERWORLD"
+  ],
+  "ledges_source": "engine/overworld/ledges.asm HandleLedges"
+ },
+ "toggles": [
+  {
+   "map": "PALLET_TOWN",
+   "object": 1,
+   "object_name": "PALLETTOWN_OAK",
+   "initially_visible": false
+  },
+  {
+   "map": "VIRIDIAN_CITY",
+   "object": 5,
+   "object_name": "VIRIDIANCITY_OLD_MAN_SLEEPY",
+   "initially_visible": true
+  },
+  {
+   "map": "VIRIDIAN_CITY",
+   "object": 7,
+   "object_name": "VIRIDIANCITY_OLD_MAN",
+   "initially_visible": false
+  },
+  {
+   "map": "PEWTER_CITY",
+   "object": 3,
+   "object_name": "PEWTERCITY_SUPER_NERD1",
+   "initially_visible": true
+  },
+  {
+   "map": "PEWTER_CITY",
+   "object": 5,
+   "object_name": "PEWTERCITY_YOUNGSTER",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CITY",
+   "object": 1,
+   "object_name": "CERULEANCITY_RIVAL",
+   "initially_visible": false
+  },
+  {
+   "map": "CERULEAN_CITY",
+   "object": 2,
+   "object_name": "CERULEANCITY_ROCKET",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CITY",
+   "object": 6,
+   "object_name": "CERULEANCITY_GUARD1",
+   "initially_visible": false
+  },
+  {
+   "map": "CERULEAN_CITY",
+   "object": 10,
+   "object_name": "CERULEANCITY_SUPER_NERD3",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CITY",
+   "object": 11,
+   "object_name": "CERULEANCITY_GUARD2",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 1,
+   "object_name": "SAFFRONCITY_ROCKET1",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 2,
+   "object_name": "SAFFRONCITY_ROCKET2",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 3,
+   "object_name": "SAFFRONCITY_ROCKET3",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 4,
+   "object_name": "SAFFRONCITY_ROCKET4",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 5,
+   "object_name": "SAFFRONCITY_ROCKET5",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 6,
+   "object_name": "SAFFRONCITY_ROCKET6",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 7,
+   "object_name": "SAFFRONCITY_ROCKET7",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 8,
+   "object_name": "SAFFRONCITY_SCIENTIST",
+   "initially_visible": false
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 9,
+   "object_name": "SAFFRONCITY_SILPH_WORKER_M",
+   "initially_visible": false
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 10,
+   "object_name": "SAFFRONCITY_SILPH_WORKER_F",
+   "initially_visible": false
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 11,
+   "object_name": "SAFFRONCITY_GENTLEMAN",
+   "initially_visible": false
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 12,
+   "object_name": "SAFFRONCITY_PIDGEOT",
+   "initially_visible": false
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 13,
+   "object_name": "SAFFRONCITY_ROCKER",
+   "initially_visible": false
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 14,
+   "object_name": "SAFFRONCITY_ROCKET8",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFFRON_CITY",
+   "object": 15,
+   "object_name": "SAFFRONCITY_ROCKET9",
+   "initially_visible": false
+  },
+  {
+   "map": "ROUTE_2",
+   "object": 1,
+   "object_name": "ROUTE2_MOON_STONE",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_2",
+   "object": 2,
+   "object_name": "ROUTE2_HP_UP",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_4",
+   "object": 3,
+   "object_name": "ROUTE4_TM_WHIRLWIND",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_9",
+   "object": 10,
+   "object_name": "ROUTE9_TM_TELEPORT",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_12",
+   "object": 1,
+   "object_name": "ROUTE12_SNORLAX",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_12",
+   "object": 9,
+   "object_name": "ROUTE12_TM_PAY_DAY",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_12",
+   "object": 10,
+   "object_name": "ROUTE12_IRON",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_15",
+   "object": 11,
+   "object_name": "ROUTE15_TM_RAGE",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_16",
+   "object": 7,
+   "object_name": "ROUTE16_SNORLAX",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_22",
+   "object": 1,
+   "object_name": "ROUTE22_RIVAL1",
+   "initially_visible": false
+  },
+  {
+   "map": "ROUTE_22",
+   "object": 2,
+   "object_name": "ROUTE22_RIVAL2",
+   "initially_visible": false
+  },
+  {
+   "map": "ROUTE_24",
+   "object": 1,
+   "object_name": "ROUTE24_COOLTRAINER_M1",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_24",
+   "object": 8,
+   "object_name": "ROUTE24_TM_THUNDER_WAVE",
+   "initially_visible": true
+  },
+  {
+   "map": "ROUTE_25",
+   "object": 10,
+   "object_name": "ROUTE25_TM_SEISMIC_TOSS",
+   "initially_visible": true
+  },
+  {
+   "map": "BLUES_HOUSE",
+   "object": 1,
+   "object_name": "BLUESHOUSE_DAISY1",
+   "initially_visible": true
+  },
+  {
+   "map": "BLUES_HOUSE",
+   "object": 2,
+   "object_name": "BLUESHOUSE_DAISY2",
+   "initially_visible": false
+  },
+  {
+   "map": "BLUES_HOUSE",
+   "object": 3,
+   "object_name": "BLUESHOUSE_TOWN_MAP",
+   "initially_visible": true
+  },
+  {
+   "map": "OAKS_LAB",
+   "object": 1,
+   "object_name": "OAKSLAB_RIVAL",
+   "initially_visible": true
+  },
+  {
+   "map": "OAKS_LAB",
+   "object": 2,
+   "object_name": "OAKSLAB_CHARMANDER_POKE_BALL",
+   "initially_visible": true
+  },
+  {
+   "map": "OAKS_LAB",
+   "object": 3,
+   "object_name": "OAKSLAB_SQUIRTLE_POKE_BALL",
+   "initially_visible": true
+  },
+  {
+   "map": "OAKS_LAB",
+   "object": 4,
+   "object_name": "OAKSLAB_BULBASAUR_POKE_BALL",
+   "initially_visible": true
+  },
+  {
+   "map": "OAKS_LAB",
+   "object": 5,
+   "object_name": "OAKSLAB_OAK1",
+   "initially_visible": false
+  },
+  {
+   "map": "OAKS_LAB",
+   "object": 6,
+   "object_name": "OAKSLAB_POKEDEX1",
+   "initially_visible": true
+  },
+  {
+   "map": "OAKS_LAB",
+   "object": 7,
+   "object_name": "OAKSLAB_POKEDEX2",
+   "initially_visible": true
+  },
+  {
+   "map": "OAKS_LAB",
+   "object": 8,
+   "object_name": "OAKSLAB_OAK2",
+   "initially_visible": false
+  },
+  {
+   "map": "VIRIDIAN_GYM",
+   "object": 1,
+   "object_name": "VIRIDIANGYM_GIOVANNI",
+   "initially_visible": true
+  },
+  {
+   "map": "VIRIDIAN_GYM",
+   "object": 11,
+   "object_name": "VIRIDIANGYM_REVIVE",
+   "initially_visible": true
+  },
+  {
+   "map": "MUSEUM_1F",
+   "object": 5,
+   "object_name": "MUSEUM1F_OLD_AMBER",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CAVE_1F",
+   "object": 1,
+   "object_name": "CERULEANCAVE1F_FULL_RESTORE",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CAVE_1F",
+   "object": 2,
+   "object_name": "CERULEANCAVE1F_MAX_ELIXER",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CAVE_1F",
+   "object": 3,
+   "object_name": "CERULEANCAVE1F_NUGGET",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_2F",
+   "object": 1,
+   "object_name": "POKEMONTOWER2F_RIVAL",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_3F",
+   "object": 4,
+   "object_name": "POKEMONTOWER3F_ESCAPE_ROPE",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_4F",
+   "object": 4,
+   "object_name": "POKEMONTOWER4F_ELIXER",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_4F",
+   "object": 5,
+   "object_name": "POKEMONTOWER4F_AWAKENING",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_4F",
+   "object": 6,
+   "object_name": "POKEMONTOWER4F_HP_UP",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_5F",
+   "object": 6,
+   "object_name": "POKEMONTOWER5F_NUGGET",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_6F",
+   "object": 4,
+   "object_name": "POKEMONTOWER6F_RARE_CANDY",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_6F",
+   "object": 5,
+   "object_name": "POKEMONTOWER6F_X_ACCURACY",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_7F",
+   "object": 1,
+   "object_name": "POKEMONTOWER7F_ROCKET1",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_7F",
+   "object": 2,
+   "object_name": "POKEMONTOWER7F_ROCKET2",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_7F",
+   "object": 3,
+   "object_name": "POKEMONTOWER7F_ROCKET3",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_TOWER_7F",
+   "object": 4,
+   "object_name": "POKEMONTOWER7F_MR_FUJI",
+   "initially_visible": true
+  },
+  {
+   "map": "MR_FUJIS_HOUSE",
+   "object": 5,
+   "object_name": "MRFUJISHOUSE_MR_FUJI",
+   "initially_visible": false
+  },
+  {
+   "map": "CELADON_MANSION_ROOF_HOUSE",
+   "object": 2,
+   "object_name": "CELADONMANSION_ROOF_HOUSE_EEVEE_POKEBALL",
+   "initially_visible": true
+  },
+  {
+   "map": "GAME_CORNER",
+   "object": 11,
+   "object_name": "GAMECORNER_ROCKET",
+   "initially_visible": true
+  },
+  {
+   "map": "WARDENS_HOUSE",
+   "object": 2,
+   "object_name": "WARDENSHOUSE_RARE_CANDY",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_MANSION_1F",
+   "object": 2,
+   "object_name": "POKEMONMANSION1F_ESCAPE_ROPE",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_MANSION_1F",
+   "object": 3,
+   "object_name": "POKEMONMANSION1F_CARBOS",
+   "initially_visible": true
+  },
+  {
+   "map": "FIGHTING_DOJO",
+   "object": 6,
+   "object_name": "FIGHTINGDOJO_HITMONLEE_POKE_BALL",
+   "initially_visible": true
+  },
+  {
+   "map": "FIGHTING_DOJO",
+   "object": 7,
+   "object_name": "FIGHTINGDOJO_HITMONCHAN_POKE_BALL",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_1F",
+   "object": 1,
+   "object_name": "SILPHCO1F_LINK_RECEPTIONIST",
+   "initially_visible": false
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 1,
+   "object_name": "POWERPLANT_VOLTORB1",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 2,
+   "object_name": "POWERPLANT_VOLTORB2",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 3,
+   "object_name": "POWERPLANT_VOLTORB3",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 4,
+   "object_name": "POWERPLANT_ELECTRODE1",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 5,
+   "object_name": "POWERPLANT_VOLTORB4",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 6,
+   "object_name": "POWERPLANT_VOLTORB5",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 7,
+   "object_name": "POWERPLANT_ELECTRODE2",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 8,
+   "object_name": "POWERPLANT_VOLTORB6",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 9,
+   "object_name": "POWERPLANT_ZAPDOS",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 10,
+   "object_name": "POWERPLANT_CARBOS",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 11,
+   "object_name": "POWERPLANT_HP_UP",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 12,
+   "object_name": "POWERPLANT_RARE_CANDY",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 13,
+   "object_name": "POWERPLANT_TM_THUNDER",
+   "initially_visible": true
+  },
+  {
+   "map": "POWER_PLANT",
+   "object": 14,
+   "object_name": "POWERPLANT_TM_REFLECT",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_2F",
+   "object": 6,
+   "object_name": "VICTORYROAD2F_MOLTRES",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_2F",
+   "object": 7,
+   "object_name": "VICTORYROAD2F_TM_SUBMISSION",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_2F",
+   "object": 8,
+   "object_name": "VICTORYROAD2F_FULL_HEAL",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_2F",
+   "object": 9,
+   "object_name": "VICTORYROAD2F_TM_MEGA_KICK",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_2F",
+   "object": 10,
+   "object_name": "VICTORYROAD2F_GUARD_SPEC",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_2F",
+   "object": 13,
+   "object_name": "VICTORYROAD2F_BOULDER3",
+   "initially_visible": true
+  },
+  {
+   "map": "BILLS_HOUSE",
+   "object": 1,
+   "object_name": "BILLSHOUSE_BILL_POKEMON",
+   "initially_visible": true
+  },
+  {
+   "map": "BILLS_HOUSE",
+   "object": 2,
+   "object_name": "BILLSHOUSE_BILL1",
+   "initially_visible": false
+  },
+  {
+   "map": "BILLS_HOUSE",
+   "object": 3,
+   "object_name": "BILLSHOUSE_BILL2",
+   "initially_visible": false
+  },
+  {
+   "map": "VIRIDIAN_FOREST",
+   "object": 5,
+   "object_name": "VIRIDIANFOREST_ANTIDOTE",
+   "initially_visible": true
+  },
+  {
+   "map": "VIRIDIAN_FOREST",
+   "object": 6,
+   "object_name": "VIRIDIANFOREST_POTION",
+   "initially_visible": true
+  },
+  {
+   "map": "VIRIDIAN_FOREST",
+   "object": 7,
+   "object_name": "VIRIDIANFOREST_POKE_BALL",
+   "initially_visible": true
+  },
+  {
+   "map": "MT_MOON_1F",
+   "object": 8,
+   "object_name": "MTMOON1F_POTION1",
+   "initially_visible": true
+  },
+  {
+   "map": "MT_MOON_1F",
+   "object": 9,
+   "object_name": "MTMOON1F_MOON_STONE",
+   "initially_visible": true
+  },
+  {
+   "map": "MT_MOON_1F",
+   "object": 10,
+   "object_name": "MTMOON1F_RARE_CANDY",
+   "initially_visible": true
+  },
+  {
+   "map": "MT_MOON_1F",
+   "object": 11,
+   "object_name": "MTMOON1F_ESCAPE_ROPE",
+   "initially_visible": true
+  },
+  {
+   "map": "MT_MOON_1F",
+   "object": 12,
+   "object_name": "MTMOON1F_POTION2",
+   "initially_visible": true
+  },
+  {
+   "map": "MT_MOON_1F",
+   "object": 13,
+   "object_name": "MTMOON1F_TM_WATER_GUN",
+   "initially_visible": true
+  },
+  {
+   "map": "MT_MOON_B2F",
+   "object": 6,
+   "object_name": "MTMOONB2F_DOME_FOSSIL",
+   "initially_visible": true
+  },
+  {
+   "map": "MT_MOON_B2F",
+   "object": 7,
+   "object_name": "MTMOONB2F_HELIX_FOSSIL",
+   "initially_visible": true
+  },
+  {
+   "map": "MT_MOON_B2F",
+   "object": 8,
+   "object_name": "MTMOONB2F_HP_UP",
+   "initially_visible": true
+  },
+  {
+   "map": "MT_MOON_B2F",
+   "object": 9,
+   "object_name": "MTMOONB2F_TM_MEGA_PUNCH",
+   "initially_visible": true
+  },
+  {
+   "map": "SS_ANNE_2F",
+   "object": 2,
+   "object_name": "SSANNE2F_RIVAL",
+   "initially_visible": false
+  },
+  {
+   "map": "SS_ANNE_1F_ROOMS",
+   "object": 10,
+   "object_name": "SSANNE1FROOMS_TM_BODY_SLAM",
+   "initially_visible": true
+  },
+  {
+   "map": "SS_ANNE_2F_ROOMS",
+   "object": 6,
+   "object_name": "SSANNE2FROOMS_MAX_ETHER",
+   "initially_visible": true
+  },
+  {
+   "map": "SS_ANNE_2F_ROOMS",
+   "object": 9,
+   "object_name": "SSANNE2FROOMS_RARE_CANDY",
+   "initially_visible": true
+  },
+  {
+   "map": "SS_ANNE_B1F_ROOMS",
+   "object": 9,
+   "object_name": "SSANNEB1FROOMS_ETHER",
+   "initially_visible": true
+  },
+  {
+   "map": "SS_ANNE_B1F_ROOMS",
+   "object": 10,
+   "object_name": "SSANNEB1FROOMS_TM_REST",
+   "initially_visible": true
+  },
+  {
+   "map": "SS_ANNE_B1F_ROOMS",
+   "object": 11,
+   "object_name": "SSANNEB1FROOMS_MAX_POTION",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_3F",
+   "object": 5,
+   "object_name": "VICTORYROAD3F_MAX_REVIVE",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_3F",
+   "object": 6,
+   "object_name": "VICTORYROAD3F_TM_EXPLOSION",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_3F",
+   "object": 10,
+   "object_name": "VICTORYROAD3F_BOULDER4",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B1F",
+   "object": 6,
+   "object_name": "ROCKETHIDEOUTB1F_ESCAPE_ROPE",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B1F",
+   "object": 7,
+   "object_name": "ROCKETHIDEOUTB1F_HYPER_POTION",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B2F",
+   "object": 2,
+   "object_name": "ROCKETHIDEOUTB2F_MOON_STONE",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B2F",
+   "object": 3,
+   "object_name": "ROCKETHIDEOUTB2F_NUGGET",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B2F",
+   "object": 4,
+   "object_name": "ROCKETHIDEOUTB2F_TM_HORN_DRILL",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B2F",
+   "object": 5,
+   "object_name": "ROCKETHIDEOUTB2F_SUPER_POTION",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B3F",
+   "object": 3,
+   "object_name": "ROCKETHIDEOUTB3F_TM_DOUBLE_EDGE",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B3F",
+   "object": 4,
+   "object_name": "ROCKETHIDEOUTB3F_RARE_CANDY",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B4F",
+   "object": 1,
+   "object_name": "ROCKETHIDEOUTB4F_GIOVANNI",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B4F",
+   "object": 5,
+   "object_name": "ROCKETHIDEOUTB4F_HP_UP",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B4F",
+   "object": 6,
+   "object_name": "ROCKETHIDEOUTB4F_TM_RAZOR_WIND",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B4F",
+   "object": 7,
+   "object_name": "ROCKETHIDEOUTB4F_IRON",
+   "initially_visible": true
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B4F",
+   "object": 8,
+   "object_name": "ROCKETHIDEOUTB4F_SILPH_SCOPE",
+   "initially_visible": false
+  },
+  {
+   "map": "ROCKET_HIDEOUT_B4F",
+   "object": 9,
+   "object_name": "ROCKETHIDEOUTB4F_LIFT_KEY",
+   "initially_visible": false
+  },
+  {
+   "map": "SILPH_CO_2F",
+   "object": 1,
+   "object_name": "SILPHCO2F_SILPH_WORKER_F",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_2F",
+   "object": 2,
+   "object_name": "SILPHCO2F_SCIENTIST1",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_2F",
+   "object": 3,
+   "object_name": "SILPHCO2F_SCIENTIST2",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_2F",
+   "object": 4,
+   "object_name": "SILPHCO2F_ROCKET1",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_2F",
+   "object": 5,
+   "object_name": "SILPHCO2F_ROCKET2",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_3F",
+   "object": 2,
+   "object_name": "SILPHCO3F_ROCKET",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_3F",
+   "object": 3,
+   "object_name": "SILPHCO3F_SCIENTIST",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_3F",
+   "object": 4,
+   "object_name": "SILPHCO3F_HYPER_POTION",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_4F",
+   "object": 2,
+   "object_name": "SILPHCO4F_ROCKET1",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_4F",
+   "object": 3,
+   "object_name": "SILPHCO4F_SCIENTIST",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_4F",
+   "object": 4,
+   "object_name": "SILPHCO4F_ROCKET2",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_4F",
+   "object": 5,
+   "object_name": "SILPHCO4F_FULL_HEAL",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_4F",
+   "object": 6,
+   "object_name": "SILPHCO4F_MAX_REVIVE",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_4F",
+   "object": 7,
+   "object_name": "SILPHCO4F_ESCAPE_ROPE",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_5F",
+   "object": 2,
+   "object_name": "SILPHCO5F_ROCKET1",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_5F",
+   "object": 3,
+   "object_name": "SILPHCO5F_SCIENTIST",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_5F",
+   "object": 4,
+   "object_name": "SILPHCO5F_ROCKER",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_5F",
+   "object": 5,
+   "object_name": "SILPHCO5F_ROCKET2",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_5F",
+   "object": 6,
+   "object_name": "SILPHCO5F_TM_TAKE_DOWN",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_5F",
+   "object": 7,
+   "object_name": "SILPHCO5F_PROTEIN",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_5F",
+   "object": 8,
+   "object_name": "SILPHCO5F_CARD_KEY",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_6F",
+   "object": 6,
+   "object_name": "SILPHCO6F_ROCKET1",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_6F",
+   "object": 7,
+   "object_name": "SILPHCO6F_SCIENTIST",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_6F",
+   "object": 8,
+   "object_name": "SILPHCO6F_ROCKET2",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_6F",
+   "object": 9,
+   "object_name": "SILPHCO6F_HP_UP",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_6F",
+   "object": 10,
+   "object_name": "SILPHCO6F_X_ACCURACY",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_7F",
+   "object": 5,
+   "object_name": "SILPHCO7F_ROCKET1",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_7F",
+   "object": 6,
+   "object_name": "SILPHCO7F_SCIENTIST",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_7F",
+   "object": 7,
+   "object_name": "SILPHCO7F_ROCKET2",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_7F",
+   "object": 8,
+   "object_name": "SILPHCO7F_ROCKET3",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_7F",
+   "object": 9,
+   "object_name": "SILPHCO7F_RIVAL",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_7F",
+   "object": 10,
+   "object_name": "SILPHCO7F_CALCIUM",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_7F",
+   "object": 11,
+   "object_name": "SILPHCO7F_TM_SWORDS_DANCE",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_7F",
+   "object": 12,
+   "object_name": "SILPHCO7F_UNUSED",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_8F",
+   "object": 2,
+   "object_name": "SILPHCO8F_ROCKET1",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_8F",
+   "object": 3,
+   "object_name": "SILPHCO8F_SCIENTIST",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_8F",
+   "object": 4,
+   "object_name": "SILPHCO8F_ROCKET2",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_9F",
+   "object": 2,
+   "object_name": "SILPHCO9F_ROCKET1",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_9F",
+   "object": 3,
+   "object_name": "SILPHCO9F_SCIENTIST",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_9F",
+   "object": 4,
+   "object_name": "SILPHCO9F_ROCKET2",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_10F",
+   "object": 1,
+   "object_name": "SILPHCO10F_ROCKET",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_10F",
+   "object": 2,
+   "object_name": "SILPHCO10F_SCIENTIST",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_10F",
+   "object": 3,
+   "object_name": "SILPHCO10F_SILPH_WORKER_F",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_10F",
+   "object": 4,
+   "object_name": "SILPHCO10F_TM_EARTHQUAKE",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_10F",
+   "object": 5,
+   "object_name": "SILPHCO10F_RARE_CANDY",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_10F",
+   "object": 6,
+   "object_name": "SILPHCO10F_CARBOS",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_11F",
+   "object": 3,
+   "object_name": "SILPHCO11F_GIOVANNI",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_11F",
+   "object": 4,
+   "object_name": "SILPHCO11F_ROCKET1",
+   "initially_visible": true
+  },
+  {
+   "map": "SILPH_CO_11F",
+   "object": 5,
+   "object_name": "SILPHCO11F_ROCKET2",
+   "initially_visible": true
+  },
+  {
+   "map": "UNUSED_MAP_F4",
+   "object": 2,
+   "object_name": null,
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_MANSION_2F",
+   "object": 2,
+   "object_name": "POKEMONMANSION2F_CALCIUM",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_MANSION_3F",
+   "object": 3,
+   "object_name": "POKEMONMANSION3F_MAX_POTION",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_MANSION_3F",
+   "object": 4,
+   "object_name": "POKEMONMANSION3F_IRON",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_MANSION_B1F",
+   "object": 3,
+   "object_name": "POKEMONMANSIONB1F_RARE_CANDY",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_MANSION_B1F",
+   "object": 4,
+   "object_name": "POKEMONMANSIONB1F_FULL_RESTORE",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_MANSION_B1F",
+   "object": 5,
+   "object_name": "POKEMONMANSIONB1F_TM_BLIZZARD",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_MANSION_B1F",
+   "object": 6,
+   "object_name": "POKEMONMANSIONB1F_TM_SOLARBEAM",
+   "initially_visible": true
+  },
+  {
+   "map": "POKEMON_MANSION_B1F",
+   "object": 8,
+   "object_name": "POKEMONMANSIONB1F_SECRET_KEY",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_EAST",
+   "object": 1,
+   "object_name": "SAFARIZONEEAST_FULL_RESTORE",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_EAST",
+   "object": 2,
+   "object_name": "SAFARIZONEEAST_MAX_RESTORE",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_EAST",
+   "object": 3,
+   "object_name": "SAFARIZONEEAST_CARBOS",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_EAST",
+   "object": 4,
+   "object_name": "SAFARIZONEEAST_TM_EGG_BOMB",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_NORTH",
+   "object": 1,
+   "object_name": "SAFARIZONENORTH_PROTEIN",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_NORTH",
+   "object": 2,
+   "object_name": "SAFARIZONENORTH_TM_SKULL_BASH",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_WEST",
+   "object": 1,
+   "object_name": "SAFARIZONEWEST_MAX_POTION",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_WEST",
+   "object": 2,
+   "object_name": "SAFARIZONEWEST_TM_DOUBLE_TEAM",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_WEST",
+   "object": 3,
+   "object_name": "SAFARIZONEWEST_MAX_REVIVE",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_WEST",
+   "object": 4,
+   "object_name": "SAFARIZONEWEST_GOLD_TEETH",
+   "initially_visible": true
+  },
+  {
+   "map": "SAFARI_ZONE_CENTER",
+   "object": 1,
+   "object_name": "SAFARIZONECENTER_NUGGET",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CAVE_2F",
+   "object": 1,
+   "object_name": "CERULEANCAVE2F_PP_UP",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CAVE_2F",
+   "object": 2,
+   "object_name": "CERULEANCAVE2F_ULTRA_BALL",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CAVE_2F",
+   "object": 3,
+   "object_name": "CERULEANCAVE2F_FULL_RESTORE",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CAVE_B1F",
+   "object": 1,
+   "object_name": "CERULEANCAVEB1F_MEWTWO",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CAVE_B1F",
+   "object": 2,
+   "object_name": "CERULEANCAVEB1F_ULTRA_BALL",
+   "initially_visible": true
+  },
+  {
+   "map": "CERULEAN_CAVE_B1F",
+   "object": 3,
+   "object_name": "CERULEANCAVEB1F_MAX_REVIVE",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_1F",
+   "object": 3,
+   "object_name": "VICTORYROAD1F_TM_SKY_ATTACK",
+   "initially_visible": true
+  },
+  {
+   "map": "VICTORY_ROAD_1F",
+   "object": 4,
+   "object_name": "VICTORYROAD1F_RARE_CANDY",
+   "initially_visible": true
+  },
+  {
+   "map": "CHAMPIONS_ROOM",
+   "object": 2,
+   "object_name": "CHAMPIONSROOM_OAK",
+   "initially_visible": false
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_1F",
+   "object": 1,
+   "object_name": "SEAFOAMISLANDS1F_BOULDER1",
+   "initially_visible": true
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_1F",
+   "object": 2,
+   "object_name": "SEAFOAMISLANDS1F_BOULDER2",
+   "initially_visible": true
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B1F",
+   "object": 1,
+   "object_name": "SEAFOAMISLANDSB1F_BOULDER1",
+   "initially_visible": false
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B1F",
+   "object": 2,
+   "object_name": "SEAFOAMISLANDSB1F_BOULDER2",
+   "initially_visible": false
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B2F",
+   "object": 1,
+   "object_name": "SEAFOAMISLANDSB2F_BOULDER1",
+   "initially_visible": false
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B2F",
+   "object": 2,
+   "object_name": "SEAFOAMISLANDSB2F_BOULDER2",
+   "initially_visible": false
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B3F",
+   "object": 2,
+   "object_name": "SEAFOAMISLANDSB3F_BOULDER2",
+   "initially_visible": true
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B3F",
+   "object": 3,
+   "object_name": "SEAFOAMISLANDSB3F_BOULDER3",
+   "initially_visible": true
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B3F",
+   "object": 5,
+   "object_name": "SEAFOAMISLANDSB3F_BOULDER5",
+   "initially_visible": false
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B3F",
+   "object": 6,
+   "object_name": "SEAFOAMISLANDSB3F_BOULDER6",
+   "initially_visible": false
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B4F",
+   "object": 1,
+   "object_name": "SEAFOAMISLANDSB4F_BOULDER1",
+   "initially_visible": false
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B4F",
+   "object": 2,
+   "object_name": "SEAFOAMISLANDSB4F_BOULDER2",
+   "initially_visible": false
+  },
+  {
+   "map": "SEAFOAM_ISLANDS_B4F",
+   "object": 3,
+   "object_name": "SEAFOAMISLANDSB4F_ARTICUNO",
+   "initially_visible": true
+  }
+ ]
+}

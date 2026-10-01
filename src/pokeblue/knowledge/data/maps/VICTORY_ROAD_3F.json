@@ -1,0 +1,257 @@
+{
+ "id": 198,
+ "name": "VICTORY_ROAD_3F",
+ "label": "VictoryRoad3F",
+ "tileset": "CAVERN",
+ "width": 15,
+ "height": 9,
+ "border_block": 125,
+ "connections": [],
+ "warps": [
+  {
+   "x": 23,
+   "y": 7,
+   "map": "VICTORY_ROAD_2F",
+   "warp": 4
+  },
+  {
+   "x": 26,
+   "y": 8,
+   "map": "VICTORY_ROAD_2F",
+   "warp": 6
+  },
+  {
+   "x": 27,
+   "y": 15,
+   "map": "VICTORY_ROAD_2F",
+   "warp": 5
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "map": "VICTORY_ROAD_2F",
+   "warp": 7
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 28,
+   "y": 5,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_VICTORYROAD3F_COOLTRAINER_M1",
+   "trainer": {
+    "class": "COOLTRAINER_M",
+    "party": 2
+   },
+   "item": null,
+   "index": 1,
+   "name": "VICTORYROAD3F_COOLTRAINER_M1"
+  },
+  {
+   "x": 7,
+   "y": 13,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_VICTORYROAD3F_COOLTRAINER_F1",
+   "trainer": {
+    "class": "COOLTRAINER_F",
+    "party": 2
+   },
+   "item": null,
+   "index": 2,
+   "name": "VICTORYROAD3F_COOLTRAINER_F1"
+  },
+  {
+   "x": 6,
+   "y": 14,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_VICTORYROAD3F_COOLTRAINER_M2",
+   "trainer": {
+    "class": "COOLTRAINER_M",
+    "party": 3
+   },
+   "item": null,
+   "index": 3,
+   "name": "VICTORYROAD3F_COOLTRAINER_M2"
+  },
+  {
+   "x": 13,
+   "y": 3,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_VICTORYROAD3F_COOLTRAINER_F2",
+   "trainer": {
+    "class": "COOLTRAINER_F",
+    "party": 3
+   },
+   "item": null,
+   "index": 4,
+   "name": "VICTORYROAD3F_COOLTRAINER_F2"
+  },
+  {
+   "x": 26,
+   "y": 5,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_VICTORYROAD3F_MAX_REVIVE",
+   "trainer": null,
+   "item": "MAX_REVIVE",
+   "index": 5,
+   "name": "VICTORYROAD3F_MAX_REVIVE"
+  },
+  {
+   "x": 7,
+   "y": 7,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_VICTORYROAD3F_TM_EXPLOSION",
+   "trainer": null,
+   "item": "TM_EXPLOSION",
+   "index": 6,
+   "name": "VICTORYROAD3F_TM_EXPLOSION"
+  },
+  {
+   "x": 22,
+   "y": 3,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_VICTORYROAD3F_BOULDER1",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "VICTORYROAD3F_BOULDER1"
+  },
+  {
+   "x": 13,
+   "y": 12,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_VICTORYROAD3F_BOULDER2",
+   "trainer": null,
+   "item": null,
+   "index": 8,
+   "name": "VICTORYROAD3F_BOULDER2"
+  },
+  {
+   "x": 24,
+   "y": 10,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_VICTORYROAD3F_BOULDER3",
+   "trainer": null,
+   "item": null,
+   "index": 9,
+   "name": "VICTORYROAD3F_BOULDER3"
+  },
+  {
+   "x": 22,
+   "y": 15,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_VICTORYROAD3F_BOULDER4",
+   "trainer": null,
+   "item": null,
+   "index": 10,
+   "name": "VICTORYROAD3F_BOULDER4"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    24,
+    "MACHOP"
+   ],
+   [
+    26,
+    "GEODUDE"
+   ],
+   [
+    22,
+    "ZUBAT"
+   ],
+   [
+    42,
+    "ONIX"
+   ],
+   [
+    40,
+    "VENOMOTH"
+   ],
+   [
+    45,
+    "ONIX"
+   ],
+   [
+    43,
+    "GRAVELER"
+   ],
+   [
+    41,
+    "GOLBAT"
+   ],
+   [
+    42,
+    "MACHOKE"
+   ],
+   [
+    45,
+    "MACHOKE"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 120,
+   "object": 5,
+   "initially_visible": true
+  },
+  {
+   "toggle": 121,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 122,
+   "object": 10,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "121c181212122a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2012",
+  "121c20201c122a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2012",
+  "1212202020202a2a0405050505050505050505172a2a2a2a2a2a20202012",
+  "1220201220122a2a3105050505050505050505172a2a2a2a2a2a12202012",
+  "1220202020122a2a3105050505050505050505172a2a2a2a310512202012",
+  "1220202d12122a2a3105051710101010101510102a2a2a2a281020202012",
+  "20201c1c1c1c2020310505172a2a2a2a2a2a2a2a2a2a2020121212121212",
+  "0405050505051720310505172a2a2a2a2a2a2a2a2a2a2018122020202012",
+  "3105050505051712310505172a2a2a2a2012121220202020122018202012",
+  "2815101026051712310505172a2a2a2a2020122020121212122020202012",
+  "12202a2a31050524050505172a2a2a2a2a2a2a2a20122a2a202012202012",
+  "12202a2a28101010101010102a2a2a2a2a2a2a2a20122a2a122020202012",
+  "12202a2a2a2a2a2a2a2a2a2a122012121212121212122a2a12202a2a2012",
+  "12202a2a2a2a2a2a2a2a2a2a122020202020202020202a2a12202a2a2012",
+  "12202a2a2a2a2a2a2a2a2a2a31052a2a2a2a2a2a2a2a2020122020202012",
+  "12202a2a2a2a2a2a2a2a2a2a28102a2a2a2a2a2a2a2a2022122020182012",
+  "310520202020202020202020202020202020202020202020122020203105",
+  "281012121212121212121212121212121212121212121212121212122810"
+ ]
+}

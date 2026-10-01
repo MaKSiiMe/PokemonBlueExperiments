@@ -1,0 +1,123 @@
+{
+ "id": 92,
+ "name": "VERMILION_GYM",
+ "label": "VermilionGym",
+ "tileset": "GYM",
+ "width": 5,
+ "height": 9,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 5,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 4
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 1,
+   "sprite": "SPRITE_ROCKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_VERMILIONGYM_LT_SURGE",
+   "trainer": {
+    "class": "LT_SURGE",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "VERMILIONGYM_LT_SURGE"
+  },
+  {
+   "x": 9,
+   "y": 6,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_VERMILIONGYM_GENTLEMAN",
+   "trainer": {
+    "class": "GENTLEMAN",
+    "party": 3
+   },
+   "item": null,
+   "index": 2,
+   "name": "VERMILIONGYM_GENTLEMAN"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_VERMILIONGYM_SUPER_NERD",
+   "trainer": {
+    "class": "ROCKER",
+    "party": 1
+   },
+   "item": null,
+   "index": 3,
+   "name": "VERMILIONGYM_SUPER_NERD"
+  },
+  {
+   "x": 0,
+   "y": 10,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_VERMILIONGYM_SAILOR",
+   "trainer": {
+    "class": "SAILOR",
+    "party": 8
+   },
+   "item": null,
+   "index": 4,
+   "name": "VERMILIONGYM_SAILOR"
+  },
+  {
+   "x": 4,
+   "y": 14,
+   "sprite": "SPRITE_GYM_GUIDE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_VERMILIONGYM_GYM_GUIDE",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "VERMILIONGYM_GYM_GUIDE"
+  }
+ ],
+ "gym_leader_no": 3,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "250f56565656560d250f",
+  "250f111111111b1d250f",
+  "250f111111111111250f",
+  "250f111111111111250f",
+  "250f0f0f1111250f0f0f",
+  "54565656111154565656",
+  "11111111111111111111",
+  "111b111b111b111b111b",
+  "11111111111111111111",
+  "111b111b111b111b111b",
+  "11111111111111111111",
+  "111b111b111b111b111b",
+  "11111111111111111111",
+  "11111112111112111111",
+  "11111132111132111111",
+  "11111111111111111111",
+  "11111111111111111111",
+  "11111111161611111111"
+ ]
+}

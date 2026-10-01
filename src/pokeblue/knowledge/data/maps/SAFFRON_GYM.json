@@ -1,0 +1,363 @@
+{
+ "id": 178,
+ "name": "SAFFRON_GYM",
+ "label": "SaffronGym",
+ "tileset": "FACILITY",
+ "width": 10,
+ "height": 9,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 8,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 9,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 1,
+   "y": 3,
+   "map": "SAFFRON_GYM",
+   "warp": 23
+  },
+  {
+   "x": 5,
+   "y": 3,
+   "map": "SAFFRON_GYM",
+   "warp": 16
+  },
+  {
+   "x": 1,
+   "y": 5,
+   "map": "SAFFRON_GYM",
+   "warp": 19
+  },
+  {
+   "x": 5,
+   "y": 5,
+   "map": "SAFFRON_GYM",
+   "warp": 9
+  },
+  {
+   "x": 1,
+   "y": 9,
+   "map": "SAFFRON_GYM",
+   "warp": 28
+  },
+  {
+   "x": 5,
+   "y": 9,
+   "map": "SAFFRON_GYM",
+   "warp": 17
+  },
+  {
+   "x": 1,
+   "y": 11,
+   "map": "SAFFRON_GYM",
+   "warp": 6
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "map": "SAFFRON_GYM",
+   "warp": 14
+  },
+  {
+   "x": 1,
+   "y": 15,
+   "map": "SAFFRON_GYM",
+   "warp": 24
+  },
+  {
+   "x": 5,
+   "y": 15,
+   "map": "SAFFRON_GYM",
+   "warp": 31
+  },
+  {
+   "x": 1,
+   "y": 17,
+   "map": "SAFFRON_GYM",
+   "warp": 18
+  },
+  {
+   "x": 5,
+   "y": 17,
+   "map": "SAFFRON_GYM",
+   "warp": 10
+  },
+  {
+   "x": 9,
+   "y": 3,
+   "map": "SAFFRON_GYM",
+   "warp": 27
+  },
+  {
+   "x": 11,
+   "y": 3,
+   "map": "SAFFRON_GYM",
+   "warp": 4
+  },
+  {
+   "x": 9,
+   "y": 5,
+   "map": "SAFFRON_GYM",
+   "warp": 8
+  },
+  {
+   "x": 11,
+   "y": 5,
+   "map": "SAFFRON_GYM",
+   "warp": 13
+  },
+  {
+   "x": 11,
+   "y": 11,
+   "map": "SAFFRON_GYM",
+   "warp": 5
+  },
+  {
+   "x": 11,
+   "y": 15,
+   "map": "SAFFRON_GYM",
+   "warp": 32
+  },
+  {
+   "x": 15,
+   "y": 3,
+   "map": "SAFFRON_GYM",
+   "warp": 25
+  },
+  {
+   "x": 19,
+   "y": 3,
+   "map": "SAFFRON_GYM",
+   "warp": 29
+  },
+  {
+   "x": 15,
+   "y": 5,
+   "map": "SAFFRON_GYM",
+   "warp": 3
+  },
+  {
+   "x": 19,
+   "y": 5,
+   "map": "SAFFRON_GYM",
+   "warp": 11
+  },
+  {
+   "x": 15,
+   "y": 9,
+   "map": "SAFFRON_GYM",
+   "warp": 21
+  },
+  {
+   "x": 19,
+   "y": 9,
+   "map": "SAFFRON_GYM",
+   "warp": 30
+  },
+  {
+   "x": 15,
+   "y": 11,
+   "map": "SAFFRON_GYM",
+   "warp": 15
+  },
+  {
+   "x": 19,
+   "y": 11,
+   "map": "SAFFRON_GYM",
+   "warp": 7
+  },
+  {
+   "x": 15,
+   "y": 15,
+   "map": "SAFFRON_GYM",
+   "warp": 22
+  },
+  {
+   "x": 19,
+   "y": 15,
+   "map": "SAFFRON_GYM",
+   "warp": 26
+  },
+  {
+   "x": 15,
+   "y": 17,
+   "map": "SAFFRON_GYM",
+   "warp": 12
+  },
+  {
+   "x": 19,
+   "y": 17,
+   "map": "SAFFRON_GYM",
+   "warp": 20
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 9,
+   "y": 8,
+   "sprite": "SPRITE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONGYM_SABRINA",
+   "trainer": {
+    "class": "SABRINA",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "SAFFRONGYM_SABRINA"
+  },
+  {
+   "x": 10,
+   "y": 1,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONGYM_CHANNELER1",
+   "trainer": {
+    "class": "CHANNELER",
+    "party": 22
+   },
+   "item": null,
+   "index": 2,
+   "name": "SAFFRONGYM_CHANNELER1"
+  },
+  {
+   "x": 17,
+   "y": 1,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONGYM_YOUNGSTER1",
+   "trainer": {
+    "class": "PSYCHIC_TR",
+    "party": 1
+   },
+   "item": null,
+   "index": 3,
+   "name": "SAFFRONGYM_YOUNGSTER1"
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONGYM_CHANNELER2",
+   "trainer": {
+    "class": "CHANNELER",
+    "party": 23
+   },
+   "item": null,
+   "index": 4,
+   "name": "SAFFRONGYM_CHANNELER2"
+  },
+  {
+   "x": 17,
+   "y": 7,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONGYM_YOUNGSTER2",
+   "trainer": {
+    "class": "PSYCHIC_TR",
+    "party": 2
+   },
+   "item": null,
+   "index": 5,
+   "name": "SAFFRONGYM_YOUNGSTER2"
+  },
+  {
+   "x": 3,
+   "y": 13,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONGYM_CHANNELER3",
+   "trainer": {
+    "class": "CHANNELER",
+    "party": 24
+   },
+   "item": null,
+   "index": 6,
+   "name": "SAFFRONGYM_CHANNELER3"
+  },
+  {
+   "x": 17,
+   "y": 13,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONGYM_YOUNGSTER3",
+   "trainer": {
+    "class": "PSYCHIC_TR",
+    "party": 3
+   },
+   "item": null,
+   "index": 7,
+   "name": "SAFFRONGYM_YOUNGSTER3"
+  },
+  {
+   "x": 3,
+   "y": 1,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONGYM_YOUNGSTER4",
+   "trainer": {
+    "class": "PSYCHIC_TR",
+    "party": 4
+   },
+   "item": null,
+   "index": 8,
+   "name": "SAFFRONGYM_YOUNGSTER4"
+  },
+  {
+   "x": 10,
+   "y": 15,
+   "sprite": "SPRITE_GYM_GUIDE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONGYM_GYM_GUIDE",
+   "trainer": null,
+   "item": null,
+   "index": 9,
+   "name": "SAFFRONGYM_GYM_GUIDE"
+  }
+ ],
+ "gym_leader_no": 6,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "3a3a3a3a3a3a2b3a3a3a3a3a3a2b3a3a3a3a3a3a",
+  "0101010101012b0101010101012b010101010101",
+  "0101010101012b0101010101012b010101010101",
+  "0120010101202b0101200120012b012001010120",
+  "0101010101012b0101010101012b010101010101",
+  "0120010101202b0101200120012b012001010120",
+  "3a3a3a3a3a3a2b3a3a3a3a3a3a2b3a3a3a3a3a3a",
+  "0101010101012b0101010101012b010101010101",
+  "0101010101012b0101010101012b010101010101",
+  "0120010101202b0101010101012b012001010120",
+  "0101010101012b0101010101012b010101010101",
+  "0120010101202b0101010120012b012001010120",
+  "3a3a3a3a3a3a2b3a3a3a3a3a3a2b3a3a3a3a3a3a",
+  "0101010101012b0101010101012b010101010101",
+  "0101010101012b0101270101012b010101010101",
+  "0120010101202b01013d0120012b012001010120",
+  "0101010101012b0101010101012b010101010101",
+  "0120010101202b0142520101012b012001010120"
+ ]
+}

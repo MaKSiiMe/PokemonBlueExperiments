@@ -1,0 +1,72 @@
+{
+ "id": 247,
+ "name": "AGATHAS_ROOM",
+ "label": "AgathasRoom",
+ "tileset": "CEMETERY",
+ "width": 5,
+ "height": 6,
+ "border_block": 0,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 11,
+   "map": "BRUNOS_ROOM",
+   "warp": 3
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "map": "BRUNOS_ROOM",
+   "warp": 4
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "map": "LANCES_ROOM",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "map": "LANCES_ROOM",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 2,
+   "sprite": "SPRITE_AGATHA",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_AGATHASROOM_AGATHA",
+   "trainer": {
+    "class": "AGATHA",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "AGATHASROOM_AGATHA"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "30303030010130303030",
+  "01010101010101010101",
+  "15010101010101150115",
+  "15150101010101011501",
+  "15150115010101151515",
+  "15150101010115011515",
+  "01151501010101150115",
+  "15011515010115011501",
+  "15150127010101151515",
+  "1515013d010115011515",
+  "15011515010101150115",
+  "15151515010115151515"
+ ]
+}

@@ -1,0 +1,59 @@
+{
+ "id": 164,
+ "name": "FUCHSIA_GOOD_ROD_HOUSE",
+ "label": "FuchsiaGoodRodHouse",
+ "tileset": "SHIP",
+ "width": 4,
+ "height": 4,
+ "border_block": 12,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 9
+  },
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 8
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 8
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 3,
+   "sprite": "SPRITE_FISHING_GURU",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_FUCHSIAGOODRODHOUSE_FISHING_GURU",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "FUCHSIAGOODRODHOUSE_FISHING_GURU"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "12121e1212121212",
+  "1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d17192c",
+  "1d1d1d1d1d1d0b3c",
+  "1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d1d1d1d",
+  "1d1d34341d1d1d58"
+ ]
+}

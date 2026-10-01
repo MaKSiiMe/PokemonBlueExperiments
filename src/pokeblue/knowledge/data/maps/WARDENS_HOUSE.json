@@ -1,0 +1,94 @@
+{
+ "id": 155,
+ "name": "WARDENS_HOUSE",
+ "label": "WardensHouse",
+ "tileset": "LAB",
+ "width": 5,
+ "height": 4,
+ "border_block": 23,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 4
+  }
+ ],
+ "signs": [
+  {
+   "x": 4,
+   "y": 3,
+   "text": "TEXT_WARDENSHOUSE_DISPLAY_LEFT"
+  },
+  {
+   "x": 5,
+   "y": 3,
+   "text": "TEXT_WARDENSHOUSE_DISPLAY_RIGHT"
+  }
+ ],
+ "objects": [
+  {
+   "x": 2,
+   "y": 3,
+   "sprite": "SPRITE_WARDEN",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_WARDENSHOUSE_WARDEN",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "WARDENSHOUSE_WARDEN"
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_WARDENSHOUSE_RARE_CANDY",
+   "trainer": null,
+   "item": "RARE_CANDY",
+   "index": 2,
+   "name": "WARDENSHOUSE_RARE_CANDY"
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "sprite": "SPRITE_BOULDER",
+   "movement": "STAY",
+   "range_or_direction": "BOULDER_MOVEMENT_BYTE_2",
+   "text": "TEXT_WARDENSHOUSE_BOULDER",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "WARDENSHOUSE_BOULDER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 71,
+   "object": 2,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "22222222222222222222",
+  "26262626262626262626",
+  "504926261c4726434343",
+  "162626262a2226432643",
+  "26262626262626262626",
+  "26262626262626262626",
+  "3c26262626262626263c",
+  "3e26262637372626263e"
+ ]
+}

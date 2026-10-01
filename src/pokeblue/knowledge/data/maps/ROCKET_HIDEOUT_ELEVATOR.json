@@ -1,0 +1,46 @@
+{
+ "id": 203,
+ "name": "ROCKET_HIDEOUT_ELEVATOR",
+ "label": "RocketHideoutElevator",
+ "tileset": "LOBBY",
+ "width": 3,
+ "height": 4,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 1,
+   "map": "ROCKET_HIDEOUT_B1F",
+   "warp": 3
+  },
+  {
+   "x": 3,
+   "y": 1,
+   "map": "ROCKET_HIDEOUT_B1F",
+   "warp": 5
+  }
+ ],
+ "signs": [
+  {
+   "x": 1,
+   "y": 1,
+   "text": "TEXT_ROCKETHIDEOUTELEVATOR"
+  }
+ ],
+ "objects": [],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "5d5d5d5d5d5d",
+  "4b213838214b",
+  "4b451414454b",
+  "4b454545454b",
+  "4b454545454b",
+  "4b454545454b",
+  "4b454545454b",
+  "5d5d5d5d5d5d"
+ ]
+}

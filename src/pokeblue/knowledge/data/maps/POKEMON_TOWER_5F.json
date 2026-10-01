@@ -1,0 +1,187 @@
+{
+ "id": 146,
+ "name": "POKEMON_TOWER_5F",
+ "label": "PokemonTower5F",
+ "tileset": "CEMETERY",
+ "width": 10,
+ "height": 9,
+ "border_block": 1,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 9,
+   "map": "POKEMON_TOWER_4F",
+   "warp": 1
+  },
+  {
+   "x": 18,
+   "y": 9,
+   "map": "POKEMON_TOWER_6F",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 12,
+   "y": 8,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONTOWER5F_CHANNELER1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "POKEMONTOWER5F_CHANNELER1"
+  },
+  {
+   "x": 17,
+   "y": 7,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_POKEMONTOWER5F_CHANNELER2",
+   "trainer": {
+    "class": "CHANNELER",
+    "party": 14
+   },
+   "item": null,
+   "index": 2,
+   "name": "POKEMONTOWER5F_CHANNELER2"
+  },
+  {
+   "x": 14,
+   "y": 3,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_POKEMONTOWER5F_CHANNELER3",
+   "trainer": {
+    "class": "CHANNELER",
+    "party": 16
+   },
+   "item": null,
+   "index": 3,
+   "name": "POKEMONTOWER5F_CHANNELER3"
+  },
+  {
+   "x": 6,
+   "y": 10,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_POKEMONTOWER5F_CHANNELER4",
+   "trainer": {
+    "class": "CHANNELER",
+    "party": 17
+   },
+   "item": null,
+   "index": 4,
+   "name": "POKEMONTOWER5F_CHANNELER4"
+  },
+  {
+   "x": 9,
+   "y": 16,
+   "sprite": "SPRITE_CHANNELER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_POKEMONTOWER5F_CHANNELER5",
+   "trainer": {
+    "class": "CHANNELER",
+    "party": 18
+   },
+   "item": null,
+   "index": 5,
+   "name": "POKEMONTOWER5F_CHANNELER5"
+  },
+  {
+   "x": 6,
+   "y": 14,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_POKEMONTOWER5F_NUGGET",
+   "trainer": null,
+   "item": "NUGGET",
+   "index": 6,
+   "name": "POKEMONTOWER5F_NUGGET"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 10,
+  "grass": [
+   [
+    20,
+    "GASTLY"
+   ],
+   [
+    21,
+    "GASTLY"
+   ],
+   [
+    22,
+    "GASTLY"
+   ],
+   [
+    23,
+    "GASTLY"
+   ],
+   [
+    19,
+    "GASTLY"
+   ],
+   [
+    18,
+    "GASTLY"
+   ],
+   [
+    25,
+    "HAUNTER"
+   ],
+   [
+    20,
+    "CUBONE"
+   ],
+   [
+    22,
+    "CUBONE"
+   ],
+   [
+    24,
+    "GASTLY"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 61,
+   "object": 6,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "1111111111111111191919191919111111111111",
+  "1111111111111919190101010119191911111111",
+  "1111111111191919011501010101191919111111",
+  "1111111119191515150101010101010119191111",
+  "1111111919011515151501011515151501191911",
+  "1111111919151501010101010101011515191911",
+  "1111191901010101010101010101010101011919",
+  "1111190101010101151515150101010101010119",
+  "1111190101151515010122220101151515010119",
+  "1111191b01151515010122220101151515011319",
+  "1111190101150101010101011515010101010119",
+  "1111191901150101010115150101010101011919",
+  "1111111919151501010101010101011515191911",
+  "1111111919011515151501011515151501191911",
+  "1111111119190101010101010101010119191111",
+  "1111111111191919010101010101191919111111",
+  "1111111111111919190101010119191911111111",
+  "1111111111111111191919191919111111111111"
+ ]
+}

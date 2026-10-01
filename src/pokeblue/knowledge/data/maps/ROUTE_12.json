@@ -1,0 +1,423 @@
+{
+ "id": 23,
+ "name": "ROUTE_12",
+ "label": "Route12",
+ "tileset": "OVERWORLD",
+ "width": 10,
+ "height": 54,
+ "border_block": 67,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "LAVENDER_TOWN",
+   "offset": 0
+  },
+  {
+   "direction": "south",
+   "map": "ROUTE_13",
+   "offset": -20
+  },
+  {
+   "direction": "west",
+   "map": "ROUTE_11",
+   "offset": 27
+  }
+ ],
+ "warps": [
+  {
+   "x": 10,
+   "y": 15,
+   "map": "ROUTE_12_GATE_1F",
+   "warp": 1
+  },
+  {
+   "x": 11,
+   "y": 15,
+   "map": "ROUTE_12_GATE_1F",
+   "warp": 2
+  },
+  {
+   "x": 10,
+   "y": 21,
+   "map": "ROUTE_12_GATE_1F",
+   "warp": 3
+  },
+  {
+   "x": 11,
+   "y": 77,
+   "map": "ROUTE_12_SUPER_ROD_HOUSE",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 13,
+   "y": 13,
+   "text": "TEXT_ROUTE12_SIGN"
+  },
+  {
+   "x": 11,
+   "y": 63,
+   "text": "TEXT_ROUTE12_SPORT_FISHING_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 10,
+   "y": 62,
+   "sprite": "SPRITE_SNORLAX",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE12_SNORLAX",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE12_SNORLAX"
+  },
+  {
+   "x": 14,
+   "y": 31,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE12_FISHER1",
+   "trainer": {
+    "class": "FISHER",
+    "party": 3
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE12_FISHER1"
+  },
+  {
+   "x": 5,
+   "y": 39,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE12_FISHER2",
+   "trainer": {
+    "class": "FISHER",
+    "party": 4
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE12_FISHER2"
+  },
+  {
+   "x": 11,
+   "y": 92,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE12_COOLTRAINER_M",
+   "trainer": {
+    "class": "JR_TRAINER_M",
+    "party": 9
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE12_COOLTRAINER_M"
+  },
+  {
+   "x": 14,
+   "y": 76,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE12_SUPER_NERD",
+   "trainer": {
+    "class": "ROCKER",
+    "party": 2
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE12_SUPER_NERD"
+  },
+  {
+   "x": 12,
+   "y": 40,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE12_FISHER3",
+   "trainer": {
+    "class": "FISHER",
+    "party": 5
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE12_FISHER3"
+  },
+  {
+   "x": 9,
+   "y": 52,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE12_FISHER4",
+   "trainer": {
+    "class": "FISHER",
+    "party": 6
+   },
+   "item": null,
+   "index": 7,
+   "name": "ROUTE12_FISHER4"
+  },
+  {
+   "x": 6,
+   "y": 87,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE12_FISHER5",
+   "trainer": {
+    "class": "FISHER",
+    "party": 11
+   },
+   "item": null,
+   "index": 8,
+   "name": "ROUTE12_FISHER5"
+  },
+  {
+   "x": 14,
+   "y": 35,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROUTE12_TM_PAY_DAY",
+   "trainer": null,
+   "item": "TM_PAY_DAY",
+   "index": 9,
+   "name": "ROUTE12_TM_PAY_DAY"
+  },
+  {
+   "x": 5,
+   "y": 89,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROUTE12_IRON",
+   "trainer": null,
+   "item": "IRON",
+   "index": 10,
+   "name": "ROUTE12_IRON"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    24,
+    "ODDISH"
+   ],
+   [
+    25,
+    "PIDGEY"
+   ],
+   [
+    23,
+    "PIDGEY"
+   ],
+   [
+    24,
+    "VENONAT"
+   ],
+   [
+    22,
+    "ODDISH"
+   ],
+   [
+    26,
+    "VENONAT"
+   ],
+   [
+    26,
+    "ODDISH"
+   ],
+   [
+    27,
+    "PIDGEY"
+   ],
+   [
+    28,
+    "GLOOM"
+   ],
+   [
+    30,
+    "GLOOM"
+   ],
+   [
+    24,
+    "BELLSPROUT"
+   ],
+   [
+    25,
+    "PIDGEY"
+   ],
+   [
+    23,
+    "PIDGEY"
+   ],
+   [
+    24,
+    "VENONAT"
+   ],
+   [
+    22,
+    "BELLSPROUT"
+   ],
+   [
+    26,
+    "VENONAT"
+   ],
+   [
+    26,
+    "BELLSPROUT"
+   ],
+   [
+    27,
+    "PIDGEY"
+   ],
+   [
+    28,
+    "WEEPINBELL"
+   ],
+   [
+    30,
+    "WEEPINBELL"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 29,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 30,
+   "object": 9,
+   "initially_visible": true
+  },
+  {
+   "toggle": 31,
+   "object": 10,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "1111111111111124393927111111111111111111",
+  "1111111111111124393927111111111111111111",
+  "1111111111111124393927111111111111111111",
+  "1111112437373737393936373737373737373737",
+  "11111124141414143c3c14141414143a14141414",
+  "11111124141414143c3c14141414143a14141414",
+  "11111124141414143c3c14141414143a14141414",
+  "11111124141414143c3c14141414143a3a3a3a3a",
+  "11111124141414143c3c1414141414141414143a",
+  "11111124141414143c3c1414141414141414143a",
+  "111111243c3c3c3c30303c3c141414141414143a",
+  "111111243c3c3c3c30303c3c141414141414143a",
+  "111111243c3c141414143c3c30303c3c3c3c143a",
+  "111111243c3c141414143c3c30563c3c3c3c143a",
+  "111111243c3c141414143c3c141414141414143a",
+  "111111243c3c141414143c3c141414141414143a",
+  "111111243c3c14145a121212121214141414143a",
+  "111111243c3c14145c171717171714141414143a",
+  "11111124141414140f4b4b4b4b4b14141414143a",
+  "11111124141414140f4b4b4b4b4b14141414143a",
+  "11111124141414140f4b4b4b4b4b14141414143a",
+  "111111243a3a3a3a4e1a1b1a1a1a3a3a3a3a3a3a",
+  "111111241414141414143c3c141414141414143a",
+  "111111241414141414143c3c141414141414143a",
+  "111111241414141414143c3c141414141414143a",
+  "111111241414141414143c3c141414141414143a",
+  "111111243c3c3c3c3c3c30303c3c3c3c1414143a",
+  "111111243c3c3c3c3c3c30303c3c3c3c1414143a",
+  "11111124141414141414141414143c3c1414143a",
+  "11111124141414141414141414143c3c1414143a",
+  "111111243c3c141414143c3c3c3c3c3c1414143a",
+  "111111243c3c141414143c3c3c3c3c3c1414143a",
+  "111111243c3c141414143c3c141414141414143a",
+  "111111243c3c141414143c3c141414141414143a",
+  "1111112430303c3c3c3c3c3c14143c3c1414143a",
+  "1111112430303c3c3c3c3c3c14143c3c1414143a",
+  "111111243c3c14141414141414143c3c1414143a",
+  "373737373c3c14141414141414143c3c1414143a",
+  "505050503c3c141414141414141414141414143a",
+  "505050503c3c141414141414141414141414143a",
+  "5050505030303c3c30303c3c3c3c3c3c1414143a",
+  "5050505030303c3c30303c3c3c3c3c3c1414143a",
+  "505050503c3c14143c3c1414141414141414143a",
+  "505050503c3c14143c3c1414141414141414143a",
+  "50505050141414143c3c3c3c3c3c14141414143a",
+  "50505050141414143c3c3c3c3c3c14141414143a",
+  "50505050141414141414141430303c3c1414143a",
+  "50505050141414141414141430303c3c1414143a",
+  "505050503c3c3c3c3c3c14143c3c14141414143a",
+  "505050503c3c3c3c3c3c14143c3c14141414143a",
+  "505050503c3c14143c3c14143c3c3c3c1414143a",
+  "505050503c3c14143c3c14143c3c3c3c1414143a",
+  "505050503c3c14143c3c3c3c30303c3c1414143a",
+  "505050503c3c14143c3c3c3c30303c3c1414143a",
+  "505050503c3c141414141414141414141414143a",
+  "505050503c3c141414141414141414141414143a",
+  "505050503c3c3c3c3c3c30303c3c3c3c1414143a",
+  "505050503c3c3c3c3c3c30303c3c3c3c1414143a",
+  "505050501414141414143c3c141414141414143a",
+  "505050501414141414143c3c141414141414143a",
+  "505050501414141414143c3c141414141414143a",
+  "2c502c503a3a3a3a3a3a3c3c141414141414143a",
+  "2c2c2c2c3939393939393030141414141414143a",
+  "502c502c3a3a3a3a3a3a3056141414141414143a",
+  "505050501414141414143c3c141414141414143a",
+  "505050501414141414143c3c141414141414143a",
+  "505050501414141414143c3c141414141414143a",
+  "505050501414141414143c3c141414141414143a",
+  "505050501414141414143c3c141414141414143a",
+  "505050501414141414143c3c141414141414143a",
+  "505050501414141414143c3c141414141414143a",
+  "505050501414141414143c3c141414141414143a",
+  "2c2c2c501414141414143c3c3c3c3c3c1414143a",
+  "2c2c2c501414141414143c3c3c3c3c3c1414143a",
+  "2c2c2c50141414141414141414143c3c1414143a",
+  "2c2c2c50141414141414141414143c3c1414143a",
+  "2c2c2c503c3c393939391517171839391414143a",
+  "2c2c2c503c3c393939394e1b1a1a39391414143a",
+  "2c2c2c503c3c393939393939393939391414143a",
+  "2c2c2c503c3c555555555555555555551414143a",
+  "2c2c2c503c3c141414141414141414141414143a",
+  "2c2c2c503c3c141414141414141414141414143a",
+  "2c2c2c503c3c3c3c3c3c30303c3c14141414143a",
+  "2c2c2c503c3c3c3c3c3c30303c3c14141414143a",
+  "2c2c2c501414141414143c3c141414141414143a",
+  "2c2c2c501414141414143c3c141414141414143a",
+  "2c2c2c505050505014143c3c141414141414143a",
+  "2c2c2c502c2c2c5014143c3c141414141414143a",
+  "2c2c2c502c2c2c3d3c3c3c3c141414141414143a",
+  "2c2c2c502c2c502c3c3c3c3c141414141414143a",
+  "2c2c2c5050502c2c141430303c3c3c3c1414143a",
+  "2c2c2c502c2c2c2c141430303c3c3c3c1414143a",
+  "2c2c2c503c3c3c3c3c3c3c3c141414141414143a",
+  "2c2c2c503c3c3c3c3c3c3c3c141414141414143a",
+  "2c2c2c501414141414143c3c3c3c3c3c1414143a",
+  "2c2c2c501414141414143c3c3c3c3c3c1414143a",
+  "2c2c2c50141414141414141414143c3c1414143a",
+  "2c2c2c50141414141414141414143c3c1414143a",
+  "2c2c2c505050505050503c3c30303c3c1414143a",
+  "2c2c2c502c2c2c2c2c3d3c3c30303c3c1414143a",
+  "2c2c2c50525252522c5014143c3c14141414143a",
+  "2c2c2c50525252522c5014143c3c14141414143a",
+  "2c2c2c50525252522c5014143c3c14141414143a",
+  "2c2c2c50525252522c5014143c3c14141414143a",
+  "2c2c2c50525252522c503c3c303014141414143a",
+  "2c2c2c50525252522c503c3c303014141414143a",
+  "2c2c2c50525252522c503c3c141414141414143a",
+  "2c2c2c50525252522c503c3c141414141414143a"
+ ]
+}

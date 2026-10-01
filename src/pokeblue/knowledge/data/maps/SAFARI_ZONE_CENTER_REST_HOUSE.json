@@ -1,0 +1,65 @@
+{
+ "id": 221,
+ "name": "SAFARI_ZONE_CENTER_REST_HOUSE",
+ "label": "SafariZoneCenterRestHouse",
+ "tileset": "GATE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "SAFARI_ZONE_CENTER",
+   "warp": 9
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "SAFARI_ZONE_CENTER",
+   "warp": 9
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 2,
+   "sprite": "SPRITE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFARIZONECENTERRESTHOUSE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SAFARIZONECENTERRESTHOUSE_GIRL"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_SAFARIZONECENTERRESTHOUSE_SCIENTIST",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SAFARIZONECENTERRESTHOUSE_SCIENTIST"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0000001522222222",
+  "0101013522222222",
+  "1201011201010101",
+  "0101010101010101",
+  "1201011201173232",
+  "0101010101170101",
+  "0101010101170132",
+  "0101141401170132"
+ ]
+}

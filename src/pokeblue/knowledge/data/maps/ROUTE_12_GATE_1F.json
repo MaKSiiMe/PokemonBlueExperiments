@@ -1,0 +1,71 @@
+{
+ "id": 87,
+ "name": "ROUTE_12_GATE_1F",
+ "label": "Route12Gate1F",
+ "tileset": "GATE",
+ "width": 5,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "map": "ROUTE_12_GATE_2F",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 1,
+   "y": 3,
+   "sprite": "SPRITE_GUARD",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROUTE12GATE1F_GUARD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE12GATE1F_GUARD"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "32223201373801322232",
+  "32221701010101172232",
+  "32011701010101170132",
+  "32011701010101170132",
+  "32011701010101323232",
+  "32011701010101010132",
+  "32011701010101321c32",
+  "32323201373801323232"
+ ]
+}

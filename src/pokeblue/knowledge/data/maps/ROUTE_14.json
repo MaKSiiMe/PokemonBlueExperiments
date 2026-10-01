@@ -1,0 +1,319 @@
+{
+ "id": 25,
+ "name": "ROUTE_14",
+ "label": "Route14",
+ "tileset": "OVERWORLD",
+ "width": 10,
+ "height": 27,
+ "border_block": 67,
+ "connections": [
+  {
+   "direction": "west",
+   "map": "ROUTE_15",
+   "offset": 18
+  },
+  {
+   "direction": "east",
+   "map": "ROUTE_13",
+   "offset": 0
+  }
+ ],
+ "warps": [],
+ "signs": [
+  {
+   "x": 17,
+   "y": 13,
+   "text": "TEXT_ROUTE14_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 4,
+   "y": 4,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE14_COOLTRAINER_M1",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 14
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROUTE14_COOLTRAINER_M1"
+  },
+  {
+   "x": 15,
+   "y": 6,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE14_COOLTRAINER_M2",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 15
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE14_COOLTRAINER_M2"
+  },
+  {
+   "x": 12,
+   "y": 11,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE14_COOLTRAINER_M3",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 16
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE14_COOLTRAINER_M3"
+  },
+  {
+   "x": 14,
+   "y": 15,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE14_COOLTRAINER_M4",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 17
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE14_COOLTRAINER_M4"
+  },
+  {
+   "x": 15,
+   "y": 31,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE14_COOLTRAINER_M5",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 4
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE14_COOLTRAINER_M5"
+  },
+  {
+   "x": 6,
+   "y": 49,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE14_COOLTRAINER_M6",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 5
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE14_COOLTRAINER_M6"
+  },
+  {
+   "x": 5,
+   "y": 39,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE14_BIKER1",
+   "trainer": {
+    "class": "BIKER",
+    "party": 13
+   },
+   "item": null,
+   "index": 7,
+   "name": "ROUTE14_BIKER1"
+  },
+  {
+   "x": 4,
+   "y": 30,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE14_BIKER2",
+   "trainer": {
+    "class": "BIKER",
+    "party": 14
+   },
+   "item": null,
+   "index": 8,
+   "name": "ROUTE14_BIKER2"
+  },
+  {
+   "x": 15,
+   "y": 30,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE14_BIKER3",
+   "trainer": {
+    "class": "BIKER",
+    "party": 15
+   },
+   "item": null,
+   "index": 9,
+   "name": "ROUTE14_BIKER3"
+  },
+  {
+   "x": 4,
+   "y": 31,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE14_BIKER4",
+   "trainer": {
+    "class": "BIKER",
+    "party": 2
+   },
+   "item": null,
+   "index": 10,
+   "name": "ROUTE14_BIKER4"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    24,
+    "ODDISH"
+   ],
+   [
+    26,
+    "PIDGEY"
+   ],
+   [
+    23,
+    "DITTO"
+   ],
+   [
+    24,
+    "VENONAT"
+   ],
+   [
+    22,
+    "ODDISH"
+   ],
+   [
+    26,
+    "VENONAT"
+   ],
+   [
+    26,
+    "ODDISH"
+   ],
+   [
+    30,
+    "GLOOM"
+   ],
+   [
+    24,
+    "BELLSPROUT"
+   ],
+   [
+    26,
+    "PIDGEY"
+   ],
+   [
+    23,
+    "DITTO"
+   ],
+   [
+    24,
+    "VENONAT"
+   ],
+   [
+    22,
+    "BELLSPROUT"
+   ],
+   [
+    26,
+    "VENONAT"
+   ],
+   [
+    26,
+    "BELLSPROUT"
+   ],
+   [
+    30,
+    "WEEPINBELL"
+   ],
+   [
+    28,
+    "PIDGEOTTO"
+   ],
+   [
+    30,
+    "PIDGEOTTO"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [],
+ "tiles": [
+  "2c2c2c3a39393939393939393939393939393939",
+  "2c2c2c3a39393939393939393939393939393939",
+  "2c2c2c3a39393939393939393939393939393939",
+  "2c2c2c3a55555555555555555555555555555555",
+  "2c2c2c3a39393939393939393939393939393939",
+  "2c2c2c3a39395555555555555555555555555555",
+  "2c2c2c3a39393939393939393939393939393939",
+  "2c2c2c3a55555555555555555555393955555555",
+  "2c2c2c3a39393939393939393939393939393939",
+  "2c2c2c3a55553939555555555555555555555555",
+  "2c2c2c3a39393939393939393939393939393939",
+  "2c2c2c3a55555555555555553939555555555555",
+  "2c2c2c3a3939393939392c2c5b5b2c2c39393939",
+  "2c2c2c3a3939393939392c2c5b5b2c2c39565555",
+  "2c2c2c3a3939393939392c2c5b5b2c3a50505050",
+  "2c2c2c3a3939393939392c2c5b5b2c3a50505050",
+  "2c2c2c3a3923392339232c2c5b5b2c3a50505050",
+  "2c2c2c3a5050505050502c2c5b5b2c3a50505050",
+  "2c2c2c3a525252525252502c5b5b2c3a50505050",
+  "2c2c2c3a525252525252502c5b5b2c3a50505050",
+  "2c2c2c3a525252525252502c5b5b2c3a14141414",
+  "2c2c2c3a525252525252502c5b5b2c3a14141414",
+  "2c2c2c3a525252525252502c5b5b2c3a14141414",
+  "2c2c2c3a525252525252502c5b5b2c3a14141414",
+  "2c2c2c3a2c502c2c2c2c502c5b5b2c3a14141414",
+  "2c2c2c3a2c5037373737502c5b5b2c3a14141414",
+  "2c2c2c3a2c3d2c2c5b5b502c5b5b2c3a14141414",
+  "2c2c2c3a502c2c2c5b5b502c5b5b2c3a14141414",
+  "2c2c2c3a2c2c2c2c5b5b502c5b5b2c2c3a3a1414",
+  "2c2c2c3a2c2c2c2c5b5b502c5b5b2c2c2c3a1414",
+  "2c2c2c3a2c2c2c2c5b5b502c5b5b2c2c2c3a1414",
+  "2c2c2c3a2c2c2c2c5b5b502c5b5b2c2c2c3a1414",
+  "2c2c2c3a2c2c2c2c5b5b2c3d5b5b2c2c2c3a1414",
+  "2c2c2c3a2c2c2c2c5b5b502c5b5b2c2c2c3a1414",
+  "2c2c2c3a2c2c2c2c5b5b502c5b5b2c2c2c3a1414",
+  "2c2c2c3a2c2c2c2c5b5b502c5b5b2c2c2c3a1414",
+  "3a3a3a3a2c2c2c2c5b5b502c5b5b2c2c2c3a1414",
+  "3a3a3a3a2c2c2c2c5b5b502c5b5b2c2c2c3a1414",
+  "3a3a3a3a2c2c2c2c5b5b502c5b5b2c2c2c3a1414",
+  "3a3a3a3a2c2c2c2c5b5b502c5b5b2c2c2c3a1414",
+  "5b5b2c505b5b5b5b5b5b2c2c5b5b2c2c2c3a1414",
+  "5b5b2c505b5b5b5b5b5b2c2c5b5b2c2c2c3a1414",
+  "2c2c2c3d2c2c2c2c2c2c2c2c5b5b2c2c2c3a1414",
+  "3737502c2c2c2c2c2c2c2c2c5b5b2c2c2c3a1414",
+  "2c2c2c2c2c2c2c2c2c2c2c2c5b5b2c2c2c3a1414",
+  "2c2c2c2c2c2c2c2c2c2c2c2c5b5b2c2c2c3a1414",
+  "5b5b5b5b5b5b5b5b5b5b5b5b5b5b2c2c2c3a1414",
+  "5b5b5b5b5b5b5b5b5b5b5b5b5b5b2c2c2c3a1414",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c3a1414",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c3a1414",
+  "3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a1414",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c1414",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c1414",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c1414"
+ ]
+}

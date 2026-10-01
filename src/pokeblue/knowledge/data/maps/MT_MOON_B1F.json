@@ -1,0 +1,142 @@
+{
+ "id": 60,
+ "name": "MT_MOON_B1F",
+ "label": "MtMoonB1F",
+ "tileset": "CAVERN",
+ "width": 14,
+ "height": 14,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 5,
+   "y": 5,
+   "map": "MT_MOON_1F",
+   "warp": 3
+  },
+  {
+   "x": 17,
+   "y": 11,
+   "map": "MT_MOON_B2F",
+   "warp": 1
+  },
+  {
+   "x": 25,
+   "y": 9,
+   "map": "MT_MOON_1F",
+   "warp": 4
+  },
+  {
+   "x": 25,
+   "y": 15,
+   "map": "MT_MOON_1F",
+   "warp": 5
+  },
+  {
+   "x": 21,
+   "y": 17,
+   "map": "MT_MOON_B2F",
+   "warp": 2
+  },
+  {
+   "x": 13,
+   "y": 27,
+   "map": "MT_MOON_B2F",
+   "warp": 3
+  },
+  {
+   "x": 23,
+   "y": 3,
+   "map": "MT_MOON_B2F",
+   "warp": 4
+  },
+  {
+   "x": 27,
+   "y": 3,
+   "map": "LAST_MAP",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 10,
+  "grass": [
+   [
+    8,
+    "ZUBAT"
+   ],
+   [
+    7,
+    "ZUBAT"
+   ],
+   [
+    7,
+    "GEODUDE"
+   ],
+   [
+    8,
+    "GEODUDE"
+   ],
+   [
+    9,
+    "ZUBAT"
+   ],
+   [
+    10,
+    "PARAS"
+   ],
+   [
+    10,
+    "ZUBAT"
+   ],
+   [
+    11,
+    "ZUBAT"
+   ],
+   [
+    9,
+    "CLEFAIRY"
+   ],
+   [
+    9,
+    "GEODUDE"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [],
+ "tiles": [
+  "3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c",
+  "3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c1010101010101010",
+  "3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c0505050505050505",
+  "3c3c3c3c101010103c3c3c3c3c3c3c3c3c3c3c3c050505180505051a",
+  "3c3c3c3c050505053c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c",
+  "3c3c3c3c051a05053c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c",
+  "3c3c3c3c050505053c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c",
+  "3c3c3c3c050505053c3c3c3c3c3c1010101010101010101010103c3c",
+  "3c3c3c3c050505053c3c3c3c3c3c0505050505050505050505053c3c",
+  "3c3c3c3c050505053c3c3c3c3c3c05050505050505050505051a3c3c",
+  "3c3c3c3c050505053c3c3c3c3c3c0505050505050505050505053c3c",
+  "3c3c3c3c050505053c3c3c3c3c3c0505051805050505050505053c3c",
+  "3c3c3c3c050505053c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c",
+  "3c3c3c3c050505053c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c10101010",
+  "3c3c3c3c050505053c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c05050505",
+  "3c3c3c3c0505050510101010101010101010101010103c3c051a0505",
+  "3c3c3c3c0505050505050505050505050505050505053c3c05050505",
+  "3c3c3c3c0505050505050505050505050505050505183c3c05050505",
+  "3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c05050505",
+  "3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c05050505",
+  "3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c05050505",
+  "3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c05050505",
+  "3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c05050505",
+  "3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c05050505",
+  "3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c05050505",
+  "3c3c3c3c3c3c3c3c3c3c101010101010101010101010101005050505",
+  "3c3c3c3c3c3c3c3c3c3c050505050505050505050505050505050505",
+  "3c3c3c3c3c3c3c3c3c3c050505180505050505050505050505050505"
+ ]
+}

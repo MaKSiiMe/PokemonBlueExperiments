@@ -1,0 +1,77 @@
+{
+ "id": 47,
+ "name": "VIRIDIAN_FOREST_NORTH_GATE",
+ "label": "ViridianForestNorthGate",
+ "tileset": "FOREST_GATE",
+ "width": 5,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "VIRIDIAN_FOREST",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "map": "VIRIDIAN_FOREST",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 2,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_VIRIDIANFORESTNORTHGATE_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "VIRIDIANFORESTNORTHGATE_SUPER_NERD"
+  },
+  {
+   "x": 2,
+   "y": 5,
+   "sprite": "SPRITE_GRAMPS",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_VIRIDIANFORESTNORTHGATE_GRAMPS",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "VIRIDIANFORESTNORTHGATE_GRAMPS"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "4a4a4a4a4a3b4a4a4a4a",
+  "01010101010101010101",
+  "15010101010117011715",
+  "35010101010132013235",
+  "15010101010101010115",
+  "35010101010117011735",
+  "15010101010132013215",
+  "35010101141401010135"
+ ]
+}

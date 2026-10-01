@@ -1,0 +1,143 @@
+{
+ "id": 12,
+ "name": "ROUTE_1",
+ "label": "Route1",
+ "tileset": "OVERWORLD",
+ "width": 10,
+ "height": 18,
+ "border_block": 11,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "VIRIDIAN_CITY",
+   "offset": -5
+  },
+  {
+   "direction": "south",
+   "map": "PALLET_TOWN",
+   "offset": 0
+  }
+ ],
+ "warps": [],
+ "signs": [
+  {
+   "x": 9,
+   "y": 27,
+   "text": "TEXT_ROUTE1_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 5,
+   "y": 24,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_ROUTE1_YOUNGSTER1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE1_YOUNGSTER1"
+  },
+  {
+   "x": 15,
+   "y": 13,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_ROUTE1_YOUNGSTER2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "ROUTE1_YOUNGSTER2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 25,
+  "grass": [
+   [
+    3,
+    "PIDGEY"
+   ],
+   [
+    3,
+    "RATTATA"
+   ],
+   [
+    3,
+    "RATTATA"
+   ],
+   [
+    2,
+    "RATTATA"
+   ],
+   [
+    2,
+    "PIDGEY"
+   ],
+   [
+    3,
+    "PIDGEY"
+   ],
+   [
+    3,
+    "PIDGEY"
+   ],
+   [
+    4,
+    "RATTATA"
+   ],
+   [
+    4,
+    "PIDGEY"
+   ],
+   [
+    5,
+    "PIDGEY"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [],
+ "tiles": [
+  "2c2c2c3a2c2c2c2c2c3a39393a2c2c2c2c2c3a2c",
+  "2c2c2c3a3a3a3a3a3a3a39393a3a3a3a3a3a3a2c",
+  "2c2c2c3a2c2c2c2c2c2c39392c2c2c2c2c2c3a2c",
+  "2c2c2c3a2c2c2c2c2c2c39392c2c2c2c2c2c3a2c",
+  "2c2c2c3a2c2c2c2c2c5039393939393939393a2c",
+  "2c2c2c3a37373737375036373637393939393a2c",
+  "2c2c2c502c2c2c2c2c505252525252525252502c",
+  "2c2c2c502c2c2c2c2c505252525252525252502c",
+  "2c2c2c502c2c2c2c2c505252525252525252502c",
+  "2c2c2c503737373737505252525252525252502c",
+  "2c2c2c502c2c2c2c2c2c2c2c393939393939502c",
+  "2c2c2c502c2c2c2c2c2c2c2c393939393939502c",
+  "2c2c2c502c2c2c2c2c2c2c2c392352525252502c",
+  "2c2c2c505050373737375050505052525252502c",
+  "2c2c2c3a2c2c2c2c2c2c2c2c3939525252523a2c",
+  "2c2c2c3a2c2c2c2c2c2c2c2c3939525252523a2c",
+  "2c2c2c3a2c2c39393939393939392c2c2c2c3a2c",
+  "2c2c2c3a2c2c39393939393939392c2c2c2c3a2c",
+  "2c2c2c3a2c2c39392c2c2c2c2c2c2c2c2c2c3a2c",
+  "2c2c2c3a373c3637373c37373737373737373a2c",
+  "2c2c2c3a2c2c3939393939393939393939393a2c",
+  "2c2c2c3a2c2c3939393939393939393939393a2c",
+  "2c2c2c3a2c2c2c2c2c2c2c2c5252525239393a2c",
+  "2c2c2c3a50505050505050505252525236373a2c",
+  "2c2c2c3a2c2c2c2c2c2c2c2c5252525239393a2c",
+  "2c2c2c3a2c2c2c2c2c2c2c2c5252525239393a2c",
+  "2c2c2c3a39393939393939393939393939393a2c",
+  "2c2c2c3a36373939395636373637363736373a2c",
+  "2c2c2c502c2c5252525239392c2c52525252502c",
+  "2c2c2c502c2c5252525239392c2c52525252502c",
+  "2c2c2c50525252522c2c3939525252522c2c502c",
+  "2c2c2c50525252522c2c3939525252522c2c502c",
+  "2c2c2c503a3a3a3a3a3a52523a3a3a3a3a3a502c",
+  "2c2c2c502c2c2c2c2c3a52523a2c2c2c2c2c502c",
+  "2c2c2c502c2c2c2c2c3a52523a2c2c2c2c2c502c",
+  "2c2c2c502c2c2c2c2c3a52523a2c2c2c2c2c502c"
+ ]
+}

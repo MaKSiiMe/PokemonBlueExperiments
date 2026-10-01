@@ -1,0 +1,433 @@
+{
+ "id": 10,
+ "name": "SAFFRON_CITY",
+ "label": "SaffronCity",
+ "tileset": "OVERWORLD",
+ "width": 20,
+ "height": 18,
+ "border_block": 15,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "ROUTE_5",
+   "offset": 5
+  },
+  {
+   "direction": "south",
+   "map": "ROUTE_6",
+   "offset": 5
+  },
+  {
+   "direction": "west",
+   "map": "ROUTE_7",
+   "offset": 4
+  },
+  {
+   "direction": "east",
+   "map": "ROUTE_8",
+   "offset": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 5,
+   "map": "COPYCATS_HOUSE_1F",
+   "warp": 1
+  },
+  {
+   "x": 26,
+   "y": 3,
+   "map": "FIGHTING_DOJO",
+   "warp": 1
+  },
+  {
+   "x": 34,
+   "y": 3,
+   "map": "SAFFRON_GYM",
+   "warp": 1
+  },
+  {
+   "x": 13,
+   "y": 11,
+   "map": "SAFFRON_PIDGEY_HOUSE",
+   "warp": 1
+  },
+  {
+   "x": 25,
+   "y": 11,
+   "map": "SAFFRON_MART",
+   "warp": 1
+  },
+  {
+   "x": 18,
+   "y": 21,
+   "map": "SILPH_CO_1F",
+   "warp": 1
+  },
+  {
+   "x": 9,
+   "y": 29,
+   "map": "SAFFRON_POKECENTER",
+   "warp": 1
+  },
+  {
+   "x": 29,
+   "y": 29,
+   "map": "MR_PSYCHICS_HOUSE",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 17,
+   "y": 5,
+   "text": "TEXT_SAFFRONCITY_SIGN"
+  },
+  {
+   "x": 27,
+   "y": 5,
+   "text": "TEXT_SAFFRONCITY_FIGHTING_DOJO_SIGN"
+  },
+  {
+   "x": 35,
+   "y": 5,
+   "text": "TEXT_SAFFRONCITY_GYM_SIGN"
+  },
+  {
+   "x": 26,
+   "y": 11,
+   "text": "TEXT_SAFFRONCITY_MART_SIGN"
+  },
+  {
+   "x": 39,
+   "y": 19,
+   "text": "TEXT_SAFFRONCITY_TRAINER_TIPS1"
+  },
+  {
+   "x": 5,
+   "y": 21,
+   "text": "TEXT_SAFFRONCITY_TRAINER_TIPS2"
+  },
+  {
+   "x": 15,
+   "y": 21,
+   "text": "TEXT_SAFFRONCITY_SILPH_CO_SIGN"
+  },
+  {
+   "x": 10,
+   "y": 29,
+   "text": "TEXT_SAFFRONCITY_POKECENTER_SIGN"
+  },
+  {
+   "x": 27,
+   "y": 29,
+   "text": "TEXT_SAFFRONCITY_MR_PSYCHICS_HOUSE_SIGN"
+  },
+  {
+   "x": 1,
+   "y": 19,
+   "text": "TEXT_SAFFRONCITY_SILPH_CO_LATEST_PRODUCT_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 7,
+   "y": 6,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFFRONCITY_ROCKET1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SAFFRONCITY_ROCKET1"
+  },
+  {
+   "x": 20,
+   "y": 8,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_SAFFRONCITY_ROCKET2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SAFFRONCITY_ROCKET2"
+  },
+  {
+   "x": 34,
+   "y": 4,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFFRONCITY_ROCKET3",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "SAFFRONCITY_ROCKET3"
+  },
+  {
+   "x": 13,
+   "y": 12,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFFRONCITY_ROCKET4",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "SAFFRONCITY_ROCKET4"
+  },
+  {
+   "x": 11,
+   "y": 25,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_SAFFRONCITY_ROCKET5",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "SAFFRONCITY_ROCKET5"
+  },
+  {
+   "x": 32,
+   "y": 13,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_SAFFRONCITY_ROCKET6",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "SAFFRONCITY_ROCKET6"
+  },
+  {
+   "x": 18,
+   "y": 30,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_SAFFRONCITY_ROCKET7",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "SAFFRONCITY_ROCKET7"
+  },
+  {
+   "x": 8,
+   "y": 14,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_SAFFRONCITY_SCIENTIST",
+   "trainer": null,
+   "item": null,
+   "index": 8,
+   "name": "SAFFRONCITY_SCIENTIST"
+  },
+  {
+   "x": 23,
+   "y": 23,
+   "sprite": "SPRITE_SILPH_WORKER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFFRONCITY_SILPH_WORKER_M",
+   "trainer": null,
+   "item": null,
+   "index": 9,
+   "name": "SAFFRONCITY_SILPH_WORKER_M"
+  },
+  {
+   "x": 17,
+   "y": 30,
+   "sprite": "SPRITE_SILPH_WORKER_F",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_SAFFRONCITY_SILPH_WORKER_F",
+   "trainer": null,
+   "item": null,
+   "index": 10,
+   "name": "SAFFRONCITY_SILPH_WORKER_F"
+  },
+  {
+   "x": 30,
+   "y": 12,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONCITY_GENTLEMAN",
+   "trainer": null,
+   "item": null,
+   "index": 11,
+   "name": "SAFFRONCITY_GENTLEMAN"
+  },
+  {
+   "x": 31,
+   "y": 12,
+   "sprite": "SPRITE_BIRD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONCITY_PIDGEOT",
+   "trainer": null,
+   "item": null,
+   "index": 12,
+   "name": "SAFFRONCITY_PIDGEOT"
+  },
+  {
+   "x": 18,
+   "y": 8,
+   "sprite": "SPRITE_ROCKER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SAFFRONCITY_ROCKER",
+   "trainer": null,
+   "item": null,
+   "index": 13,
+   "name": "SAFFRONCITY_ROCKER"
+  },
+  {
+   "x": 18,
+   "y": 22,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONCITY_ROCKET8",
+   "trainer": null,
+   "item": null,
+   "index": 14,
+   "name": "SAFFRONCITY_ROCKET8"
+  },
+  {
+   "x": 19,
+   "y": 22,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONCITY_ROCKET9",
+   "trainer": null,
+   "item": null,
+   "index": 15,
+   "name": "SAFFRONCITY_ROCKET9"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 10,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 11,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 12,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 13,
+   "object": 4,
+   "initially_visible": true
+  },
+  {
+   "toggle": 14,
+   "object": 5,
+   "initially_visible": true
+  },
+  {
+   "toggle": 15,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 16,
+   "object": 7,
+   "initially_visible": true
+  },
+  {
+   "toggle": 17,
+   "object": 8,
+   "initially_visible": false
+  },
+  {
+   "toggle": 18,
+   "object": 9,
+   "initially_visible": false
+  },
+  {
+   "toggle": 19,
+   "object": 10,
+   "initially_visible": false
+  },
+  {
+   "toggle": 20,
+   "object": 11,
+   "initially_visible": false
+  },
+  {
+   "toggle": 21,
+   "object": 12,
+   "initially_visible": false
+  },
+  {
+   "toggle": 22,
+   "object": 13,
+   "initially_visible": false
+  },
+  {
+   "toggle": 23,
+   "object": 14,
+   "initially_visible": true
+  },
+  {
+   "toggle": 24,
+   "object": 15,
+   "initially_visible": false
+  }
+ ],
+ "tiles": [
+  "2c2c2c2c2c2c2c2c2c2c2c3a2c2c2c2c2c2c39393939151212121238151212121212123839233923",
+  "3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a39393939151717171718151717171717171815171718",
+  "3a2c39233923392339233923392339393939393939390f22222222220f222222222222220f224b4b",
+  "3a2c15171718151717181517171839393939393939394e1a1a1a1b1a4e1a1a1a1a1a1b1a4e1a1a1a",
+  "3a2c0f224b4b5c1717170f224b4b3939393939393939393939393939393939393939393939392c3a",
+  "3a2c4e1a1a1a4e1b1a1a4e1a1a1a5555555655553939393955555556555539395555555655552c3a",
+  "3a2c1023232323232323232323232323232323232323232323232323232323232323232323232c3a",
+  "3a2c1023202020202020202020202020202020202020202020202020202020202020202021232c3a",
+  "3a2c102339233923392339233923392339393939393939395a121212392339233923392310232c3a",
+  "3a2c102315171718151717181517171839393939393939395c171717151717181517171810232c3a",
+  "2c2c10230f224b4b0f224b4b5c1717175a121212121212120f4b4b4b0f224b4b0f224b4b10232c3a",
+  "2c2c10234e1a1a1a4e1a1a1a4e1b1a1a5c171717171717174e1b4a1a4e1a1a1a4e1a1a1a10232c3a",
+  "2c2c10232323232323232323232323230f4b4b4b4b4b4b4b23232323232323232323232323232c3a",
+  "2c2c10232020202020202020202020200f4b4b4b4b4b4b4b20202020202020202020202021232c3a",
+  "2c2c10235b5b5b5b5b5b5b5b5b5b5b5b0f4b4b4b4b4b4b4b5b5b5b5b5b5b5b5b5b5b5b5b10232c3a",
+  "2c2c10235b5b5b5b5b5b5b5b5b5b5b5b0f4b4b4b4b4b4b4b5b5b5b5b5b5b5b5b5b5b5b5b10232c3a",
+  "3923102339395a1212125a12121239390f4b4b4b4b4b4b4b5a1212125a1212125a12121210233923",
+  "2339102339395c1717175c17171739390f4b4b4b4b4b4b4b5c1717175c1717175c17171710232339",
+  "3939232339390f4b4b4b0f4b4b4b39390f4b4b4b4b4b4b4b0f4b4b4b0f4b4b4b0f4b4b4b10233939",
+  "5556212339390f4b4b4b0f4b4b4b39390f4b4b4b4b4b4b4b0f4b4b4b0f4b4b4b0f4b4b4b10235556",
+  "2c2c102339390f4b4b4b0f4b4b4b39390f4b4b4b4b4b4b4b0f4b4b4b0f4b4b4b0f4b4b4b10232c3a",
+  "2c2c102355564e1a1a1a4e1a1a1a55564e1a1b1a1a1a1a1a4e1a1a1a4e1a1a1a4e1a1a1a10232c3a",
+  "2c2c1023232323232323232323232323232323232323232323232323232323232323232323232c3a",
+  "2c2c1023202020202020202020202020202020202020202020202020202020202020202021232c3a",
+  "3a2c10235b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b10232c3a",
+  "3a2c10235b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b10232c3a",
+  "3a2c1023392339235a121212392339233923392339233923393939395a1212123923392310232c3a",
+  "3a2c1023151717185c171717151717181517171815171718393939395c1717171517171810232c3a",
+  "3a2c10230f224b4b0f4b4b4b0f224b4b0f224b4b0f224b4b393939390f4b4b4b0f224b4b10232c3a",
+  "3a2c10234e1a1a1a4e1b4a1a4e1a1a1a4e1a1a1a4e1a1a1a555555564e1b1a1a4e1a1a1a10232c3a",
+  "3a2c1023232323232323232323232323232323232323232323232323232323232323232323232c3a",
+  "3a2c2120202020202020202020202020202020202020202020202020202020202020202020202c3a",
+  "5a12121239233923392339233923392339233923393939393923392339233923392339235a121212",
+  "5c17171715171718151717181517171815171718393939391517171815171718151717185c171717",
+  "0f4b4b4b0f224b4b0f224b4b0f224b4b0f224b4b2c2c39390f224b4b0f224b4b0f224b4b0f4b4b4b",
+  "4e1a1a1a4e1a1a1a4e1a1a1a4e1a1a1a4e1a1a1a2c2c55554e1a1a1a4e1a1a1a4e1a1a1a4e1a1a1a"
+ ]
+}

@@ -1,0 +1,204 @@
+{
+ "id": 135,
+ "name": "GAME_CORNER",
+ "label": "GameCorner",
+ "tileset": "LOBBY",
+ "width": 10,
+ "height": 9,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 15,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 8
+  },
+  {
+   "x": 16,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 8
+  },
+  {
+   "x": 17,
+   "y": 4,
+   "map": "ROCKET_HIDEOUT_B1F",
+   "warp": 2
+  }
+ ],
+ "signs": [
+  {
+   "x": 9,
+   "y": 4,
+   "text": "TEXT_GAMECORNER_POSTER"
+  }
+ ],
+ "objects": [
+  {
+   "x": 2,
+   "y": 6,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_GAMECORNER_BEAUTY1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "GAMECORNER_BEAUTY1"
+  },
+  {
+   "x": 5,
+   "y": 6,
+   "sprite": "SPRITE_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_GAMECORNER_CLERK1",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "GAMECORNER_CLERK1"
+  },
+  {
+   "x": 2,
+   "y": 10,
+   "sprite": "SPRITE_MIDDLE_AGED_MAN",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_GAMECORNER_MIDDLE_AGED_MAN1",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "GAMECORNER_MIDDLE_AGED_MAN1"
+  },
+  {
+   "x": 2,
+   "y": 13,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_GAMECORNER_BEAUTY2",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "GAMECORNER_BEAUTY2"
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "sprite": "SPRITE_FISHING_GURU",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_GAMECORNER_FISHING_GURU",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "GAMECORNER_FISHING_GURU"
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "sprite": "SPRITE_MIDDLE_AGED_WOMAN",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_GAMECORNER_MIDDLE_AGED_WOMAN",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "GAMECORNER_MIDDLE_AGED_WOMAN"
+  },
+  {
+   "x": 8,
+   "y": 14,
+   "sprite": "SPRITE_GYM_GUIDE",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_GAMECORNER_GYM_GUIDE",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "GAMECORNER_GYM_GUIDE"
+  },
+  {
+   "x": 11,
+   "y": 15,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_GAMECORNER_GAMBLER",
+   "trainer": null,
+   "item": null,
+   "index": 8,
+   "name": "GAMECORNER_GAMBLER"
+  },
+  {
+   "x": 14,
+   "y": 11,
+   "sprite": "SPRITE_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_GAMECORNER_CLERK2",
+   "trainer": null,
+   "item": null,
+   "index": 9,
+   "name": "GAMECORNER_CLERK2"
+  },
+  {
+   "x": 17,
+   "y": 13,
+   "sprite": "SPRITE_GENTLEMAN",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_GAMECORNER_GENTLEMAN",
+   "trainer": null,
+   "item": null,
+   "index": 10,
+   "name": "GAMECORNER_GENTLEMAN"
+  },
+  {
+   "x": 9,
+   "y": 5,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_GAMECORNER_ROCKET",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 7
+   },
+   "item": null,
+   "index": 11,
+   "name": "GAMECORNER_ROCKET"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 70,
+   "object": 11,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "1010101010101010101010101010101010101010",
+  "1010101010101010101010101010101010101010",
+  "1010101010101010101010101010101010101010",
+  "1010101010101010101010101010101010101010",
+  "3a3c3a3c3a3c3a3c2158212121212121211a2121",
+  "5052505250525052454545454545454545454545",
+  "4545454545454545454545452222222222222222",
+  "1515151515151515454545453232323232323232",
+  "4545454545454545454545454545454545454545",
+  "3636454545453636454545453636454545453636",
+  "3636174545173636174545173636174545173636",
+  "3636174545173636174545173636174545173636",
+  "3636174545173636174545173636174545173636",
+  "3636174545173636174545173636174545173636",
+  "4b4b174545174b4b174545174b4b174545174b4b",
+  "4d4d174545174d4d174545174d4d174545174d4d",
+  "4545454545454545454545454545454545454545",
+  "4545454545454545454545454545451414454545"
+ ]
+}

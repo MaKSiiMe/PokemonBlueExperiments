@@ -1,0 +1,77 @@
+{
+ "id": 62,
+ "name": "CERULEAN_TRASHED_HOUSE",
+ "label": "CeruleanTrashedHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 8
+  }
+ ],
+ "signs": [
+  {
+   "x": 3,
+   "y": 0,
+   "text": "TEXT_CERULEANTRASHEDHOUSE_WALL_HOLE"
+  }
+ ],
+ "objects": [
+  {
+   "x": 2,
+   "y": 1,
+   "sprite": "SPRITE_FISHING_GURU",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CERULEANTRASHEDHOUSE_FISHING_GURU",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CERULEANTRASHEDHOUSE_FISHING_GURU"
+  },
+  {
+   "x": 5,
+   "y": 6,
+   "sprite": "SPRITE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_CERULEANTRASHEDHOUSE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CERULEANTRASHEDHOUSE_GIRL"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "30303f5434003f3f",
+  "1e1e013701010101",
+  "0101372801010101",
+  "010112362f440101",
+  "010144523a120101",
+  "0101010101010101",
+  "0801010101010101",
+  "1801141401010c35"
+ ]
+}

@@ -1,0 +1,221 @@
+{
+ "id": 45,
+ "name": "VIRIDIAN_GYM",
+ "label": "ViridianGym",
+ "tileset": "GYM",
+ "width": 10,
+ "height": 9,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 16,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 17,
+   "y": 17,
+   "map": "LAST_MAP",
+   "warp": 5
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 2,
+   "y": 1,
+   "sprite": "SPRITE_GIOVANNI",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_VIRIDIANGYM_GIOVANNI",
+   "trainer": {
+    "class": "GIOVANNI",
+    "party": 3
+   },
+   "item": null,
+   "index": 1,
+   "name": "VIRIDIANGYM_GIOVANNI"
+  },
+  {
+   "x": 12,
+   "y": 7,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_VIRIDIANGYM_COOLTRAINER_M1",
+   "trainer": {
+    "class": "COOLTRAINER_M",
+    "party": 9
+   },
+   "item": null,
+   "index": 2,
+   "name": "VIRIDIANGYM_COOLTRAINER_M1"
+  },
+  {
+   "x": 11,
+   "y": 11,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_VIRIDIANGYM_HIKER1",
+   "trainer": {
+    "class": "BLACKBELT",
+    "party": 6
+   },
+   "item": null,
+   "index": 3,
+   "name": "VIRIDIANGYM_HIKER1"
+  },
+  {
+   "x": 10,
+   "y": 7,
+   "sprite": "SPRITE_ROCKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_VIRIDIANGYM_ROCKER1",
+   "trainer": {
+    "class": "TAMER",
+    "party": 3
+   },
+   "item": null,
+   "index": 4,
+   "name": "VIRIDIANGYM_ROCKER1"
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_VIRIDIANGYM_HIKER2",
+   "trainer": {
+    "class": "BLACKBELT",
+    "party": 7
+   },
+   "item": null,
+   "index": 5,
+   "name": "VIRIDIANGYM_HIKER2"
+  },
+  {
+   "x": 13,
+   "y": 5,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_VIRIDIANGYM_COOLTRAINER_M2",
+   "trainer": {
+    "class": "COOLTRAINER_M",
+    "party": 10
+   },
+   "item": null,
+   "index": 6,
+   "name": "VIRIDIANGYM_COOLTRAINER_M2"
+  },
+  {
+   "x": 10,
+   "y": 1,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_VIRIDIANGYM_HIKER3",
+   "trainer": {
+    "class": "BLACKBELT",
+    "party": 8
+   },
+   "item": null,
+   "index": 7,
+   "name": "VIRIDIANGYM_HIKER3"
+  },
+  {
+   "x": 2,
+   "y": 16,
+   "sprite": "SPRITE_ROCKER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_VIRIDIANGYM_ROCKER2",
+   "trainer": {
+    "class": "TAMER",
+    "party": 4
+   },
+   "item": null,
+   "index": 8,
+   "name": "VIRIDIANGYM_ROCKER2"
+  },
+  {
+   "x": 6,
+   "y": 5,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_VIRIDIANGYM_COOLTRAINER_M3",
+   "trainer": {
+    "class": "COOLTRAINER_M",
+    "party": 1
+   },
+   "item": null,
+   "index": 9,
+   "name": "VIRIDIANGYM_COOLTRAINER_M3"
+  },
+  {
+   "x": 16,
+   "y": 15,
+   "sprite": "SPRITE_GYM_GUIDE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_VIRIDIANGYM_GYM_GUIDE",
+   "trainer": null,
+   "item": null,
+   "index": 10,
+   "name": "VIRIDIANGYM_GYM_GUIDE"
+  },
+  {
+   "x": 16,
+   "y": 9,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_VIRIDIANGYM_REVIVE",
+   "trainer": null,
+   "item": "REVIVE",
+   "index": 11,
+   "name": "VIRIDIANGYM_REVIVE"
+  }
+ ],
+ "gym_leader_no": 8,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 50,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 51,
+   "object": 11,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2510101010251010101010101010101010101010",
+  "25111111112511111111113f111111111111114c",
+  "25111111112511111111114d11111111113f4c3f",
+  "2511111111421011251011254210421042251111",
+  "2511111111111111421111421111111111251111",
+  "4210421042251125112511111111111111251111",
+  "111111114c251125114242104210101111251111",
+  "3f11111111421125111111111111111111251111",
+  "1111250f11251125111111111111422511251111",
+  "113f250f11251125111111111111112511251111",
+  "1111250f1142112511111111111111254c251111",
+  "1111250f11111125111111111111114211423f3c",
+  "1111250f1142421042104210421011113f111111",
+  "1111250f3f4d111111111111113f111111111111",
+  "1111250f4d11111111111111113f111211111211",
+  "3c3c421042104210421042104210113211113211",
+  "111111111111113f11111111114c111111111111",
+  "113f11111111111111111111114c111116161111"
+ ]
+}

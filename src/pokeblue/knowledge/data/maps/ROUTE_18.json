@@ -1,0 +1,176 @@
+{
+ "id": 29,
+ "name": "ROUTE_18",
+ "label": "Route18",
+ "tileset": "OVERWORLD",
+ "width": 25,
+ "height": 9,
+ "border_block": 67,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "ROUTE_17",
+   "offset": 0
+  },
+  {
+   "direction": "east",
+   "map": "FUCHSIA_CITY",
+   "offset": -4
+  }
+ ],
+ "warps": [
+  {
+   "x": 33,
+   "y": 8,
+   "map": "ROUTE_18_GATE_1F",
+   "warp": 1
+  },
+  {
+   "x": 33,
+   "y": 9,
+   "map": "ROUTE_18_GATE_1F",
+   "warp": 2
+  },
+  {
+   "x": 40,
+   "y": 8,
+   "map": "ROUTE_18_GATE_1F",
+   "warp": 3
+  },
+  {
+   "x": 40,
+   "y": 9,
+   "map": "ROUTE_18_GATE_1F",
+   "warp": 4
+  }
+ ],
+ "signs": [
+  {
+   "x": 43,
+   "y": 7,
+   "text": "TEXT_ROUTE18_SIGN"
+  },
+  {
+   "x": 33,
+   "y": 5,
+   "text": "TEXT_ROUTE18_CYCLING_ROAD_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 36,
+   "y": 11,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE18_COOLTRAINER_M1",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 8
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROUTE18_COOLTRAINER_M1"
+  },
+  {
+   "x": 40,
+   "y": 15,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE18_COOLTRAINER_M2",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 9
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE18_COOLTRAINER_M2"
+  },
+  {
+   "x": 42,
+   "y": 13,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE18_COOLTRAINER_M3",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 10
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE18_COOLTRAINER_M3"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 25,
+  "grass": [
+   [
+    20,
+    "SPEAROW"
+   ],
+   [
+    22,
+    "SPEAROW"
+   ],
+   [
+    25,
+    "RATICATE"
+   ],
+   [
+    24,
+    "DODUO"
+   ],
+   [
+    25,
+    "FEAROW"
+   ],
+   [
+    26,
+    "DODUO"
+   ],
+   [
+    28,
+    "DODUO"
+   ],
+   [
+    29,
+    "RATICATE"
+   ],
+   [
+    27,
+    "FEAROW"
+   ],
+   [
+    29,
+    "FEAROW"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [],
+ "tiles": [
+  "3a141414141439393939393939393214141414143a1414143939393939393939393939393939393939393939393939393939",
+  "3a141414141439393939393939393214141414143a3a3a3a3939393939393939393939393939393939393939393939393939",
+  "3a141414141439392c2c2c2c3939321414141414141414143939393939393939393939393939393939393939393939393939",
+  "3a141414141439392c2c2c2c3939321414141414141414143939393939393939393939393939393939393939393939393939",
+  "3a141414141439392c2c2c2c393932141414141414141414393939393939393939395a121212121239393939393939393939",
+  "3a141414141439392c2c2c2c393932141414141414141414555555555555555555565c171717171739393939393939393939",
+  "3a141414141439392c2c2c2c39392c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c0f4b4b4b4b4b39393939393939393939",
+  "3a141414141439392c2c2c2c39392c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c0f4b4b4b4b4b55555556555555555555",
+  "3a1414141414393939393939393939393939393939393939393939393939393939390f4b4b4b4b4b39233923392339233923",
+  "3a1414141414393939393939393939393939393939393939393939393939393939394e1a1a1a1a1a23392339233923392339",
+  "3a1414141414141414141414141414141414141414141414141414141414141414143a3a3a3a3a3a3a2c2c3a3a3a3a3a3a3a",
+  "3a1414141414141414141414141414141414141414141414141414141414141414143a2c2c2c2c2c2c2c2c3a2c2c2c2c2c3a",
+  "3a1414141414141414141414141414141414141414141414141414141414141414143a2c5252525252522c3a2c2c2c2c2c3a",
+  "3a1414141414141414141414141414141414141414141414141414141414141414143a2c5252525252522c3a2c2c2c2c2c3a",
+  "3a1414141414141414141414141414141414141414141414141414141414141414143a2c5252525252522c3a2c2c2c2c2c3a",
+  "3a1414141414141414141414141414141414141414141414141414141414141414143a2c5252525252522c3a2c2c2c2c2c3a",
+  "3a1414141414141414141414141414141414141414141414141414141414141414143a2c2c2c2c2c2c2c2c3a2c2c2c2c2c3a",
+  "3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a"
+ ]
+}

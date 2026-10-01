@@ -1,0 +1,65 @@
+{
+ "id": 43,
+ "name": "VIRIDIAN_SCHOOL_HOUSE",
+ "label": "ViridianSchoolHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 5,
+   "sprite": "SPRITE_BRUNETTE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_VIRIDIANSCHOOLHOUSE_BRUNETTE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "VIRIDIANSCHOOLHOUSE_BRUNETTE_GIRL"
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_VIRIDIANSCHOOLHOUSE_COOLTRAINER_F",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "VIRIDIANSCHOOLHOUSE_COOLTRAINER_F"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "003400585a000030",
+  "010101010101011e",
+  "0101010101010101",
+  "010101462f010101",
+  "0101013c3a010101",
+  "0101011201010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

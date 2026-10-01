@@ -1,0 +1,184 @@
+{
+ "id": 234,
+ "name": "SILPH_CO_10F",
+ "label": "SilphCo10F",
+ "tileset": "FACILITY",
+ "width": 8,
+ "height": 9,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 8,
+   "y": 0,
+   "map": "SILPH_CO_9F",
+   "warp": 1
+  },
+  {
+   "x": 10,
+   "y": 0,
+   "map": "SILPH_CO_11F",
+   "warp": 1
+  },
+  {
+   "x": 12,
+   "y": 0,
+   "map": "SILPH_CO_ELEVATOR",
+   "warp": 1
+  },
+  {
+   "x": 9,
+   "y": 11,
+   "map": "SILPH_CO_4F",
+   "warp": 4
+  },
+  {
+   "x": 13,
+   "y": 15,
+   "map": "SILPH_CO_4F",
+   "warp": 6
+  },
+  {
+   "x": 13,
+   "y": 7,
+   "map": "SILPH_CO_4F",
+   "warp": 7
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 1,
+   "y": 9,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SILPHCO10F_ROCKET",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 39
+   },
+   "item": null,
+   "index": 1,
+   "name": "SILPHCO10F_ROCKET"
+  },
+  {
+   "x": 10,
+   "y": 2,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SILPHCO10F_SCIENTIST",
+   "trainer": {
+    "class": "SCIENTIST",
+    "party": 11
+   },
+   "item": null,
+   "index": 2,
+   "name": "SILPHCO10F_SCIENTIST"
+  },
+  {
+   "x": 9,
+   "y": 15,
+   "sprite": "SPRITE_SILPH_WORKER_F",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_SILPHCO10F_SILPH_WORKER_F",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "SILPHCO10F_SILPH_WORKER_F"
+  },
+  {
+   "x": 2,
+   "y": 12,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO10F_TM_EARTHQUAKE",
+   "trainer": null,
+   "item": "TM_EARTHQUAKE",
+   "index": 4,
+   "name": "SILPHCO10F_TM_EARTHQUAKE"
+  },
+  {
+   "x": 4,
+   "y": 14,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO10F_RARE_CANDY",
+   "trainer": null,
+   "item": "RARE_CANDY",
+   "index": 5,
+   "name": "SILPHCO10F_RARE_CANDY"
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO10F_CARBOS",
+   "trainer": null,
+   "item": "CARBOS",
+   "index": 6,
+   "name": "SILPHCO10F_CARBOS"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 177,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 178,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 179,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 180,
+   "object": 4,
+   "initially_visible": true
+  },
+  {
+   "toggle": 181,
+   "object": 5,
+   "initially_visible": true
+  },
+  {
+   "toggle": 182,
+   "object": 6,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2b595959595959591b5943595859592b",
+  "2b01010101010101010101010101012b",
+  "2b01010101010101010101010101012b",
+  "2b01010101010101010101010101012b",
+  "2b0101010101012b3a3a01013b3a3a2b",
+  "2b0101010101012b010101010101012b",
+  "2b0101010101012b150101010101012b",
+  "2b0101010101012b170101010120012b",
+  "2b3a3a01013b3a2b3a3a01013b3a3a2b",
+  "2b0101010101012b010101010101012b",
+  "2b0119191919012b010101011d35012b",
+  "2b0119191901012b012001011d35012b",
+  "2b0101191919012b01011d354445012b",
+  "2b0119191919012b01011d350101012b",
+  "2b0119010119012b010144450101012b",
+  "2b0101011919012b010101010120012b",
+  "2b0101010101012b010101010101012b",
+  "3b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a"
+ ]
+}

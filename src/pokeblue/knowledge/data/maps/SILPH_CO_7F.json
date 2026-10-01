@@ -1,0 +1,260 @@
+{
+ "id": 212,
+ "name": "SILPH_CO_7F",
+ "label": "SilphCo7F",
+ "tileset": "FACILITY",
+ "width": 13,
+ "height": 9,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 16,
+   "y": 0,
+   "map": "SILPH_CO_8F",
+   "warp": 2
+  },
+  {
+   "x": 22,
+   "y": 0,
+   "map": "SILPH_CO_6F",
+   "warp": 1
+  },
+  {
+   "x": 18,
+   "y": 0,
+   "map": "SILPH_CO_ELEVATOR",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "map": "SILPH_CO_11F",
+   "warp": 4
+  },
+  {
+   "x": 5,
+   "y": 3,
+   "map": "SILPH_CO_3F",
+   "warp": 9
+  },
+  {
+   "x": 21,
+   "y": 15,
+   "map": "SILPH_CO_5F",
+   "warp": 4
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 1,
+   "y": 5,
+   "sprite": "SPRITE_SILPH_WORKER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO7F_SILPH_WORKER_M1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SILPHCO7F_SILPH_WORKER_M1"
+  },
+  {
+   "x": 13,
+   "y": 13,
+   "sprite": "SPRITE_SILPH_WORKER_M",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SILPHCO7F_SILPH_WORKER_M2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SILPHCO7F_SILPH_WORKER_M2"
+  },
+  {
+   "x": 7,
+   "y": 10,
+   "sprite": "SPRITE_SILPH_WORKER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO7F_SILPH_WORKER_M3",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "SILPHCO7F_SILPH_WORKER_M3"
+  },
+  {
+   "x": 10,
+   "y": 8,
+   "sprite": "SPRITE_SILPH_WORKER_F",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO7F_SILPH_WORKER_M4",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "SILPHCO7F_SILPH_WORKER_M4"
+  },
+  {
+   "x": 13,
+   "y": 1,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SILPHCO7F_ROCKET1",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 32
+   },
+   "item": null,
+   "index": 5,
+   "name": "SILPHCO7F_ROCKET1"
+  },
+  {
+   "x": 2,
+   "y": 13,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SILPHCO7F_SCIENTIST",
+   "trainer": {
+    "class": "SCIENTIST",
+    "party": 8
+   },
+   "item": null,
+   "index": 6,
+   "name": "SILPHCO7F_SCIENTIST"
+  },
+  {
+   "x": 20,
+   "y": 2,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SILPHCO7F_ROCKET2",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 33
+   },
+   "item": null,
+   "index": 7,
+   "name": "SILPHCO7F_ROCKET2"
+  },
+  {
+   "x": 19,
+   "y": 14,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SILPHCO7F_ROCKET3",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 34
+   },
+   "item": null,
+   "index": 8,
+   "name": "SILPHCO7F_ROCKET3"
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "sprite": "SPRITE_BLUE",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SILPHCO7F_RIVAL",
+   "trainer": null,
+   "item": null,
+   "index": 9,
+   "name": "SILPHCO7F_RIVAL"
+  },
+  {
+   "x": 1,
+   "y": 9,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO7F_CALCIUM",
+   "trainer": null,
+   "item": "CALCIUM",
+   "index": 10,
+   "name": "SILPHCO7F_CALCIUM"
+  },
+  {
+   "x": 24,
+   "y": 11,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO7F_TM_SWORDS_DANCE",
+   "trainer": null,
+   "item": "TM_SWORDS_DANCE",
+   "index": 11,
+   "name": "SILPHCO7F_TM_SWORDS_DANCE"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 163,
+   "object": 5,
+   "initially_visible": true
+  },
+  {
+   "toggle": 164,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 165,
+   "object": 7,
+   "initially_visible": true
+  },
+  {
+   "toggle": 166,
+   "object": 8,
+   "initially_visible": true
+  },
+  {
+   "toggle": 167,
+   "object": 9,
+   "initially_visible": true
+  },
+  {
+   "toggle": 168,
+   "object": 10,
+   "initially_visible": true
+  },
+  {
+   "toggle": 169,
+   "object": 11,
+   "initially_visible": true
+  },
+  {
+   "toggle": 170,
+   "object": 12,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2b3a3a3a0d0d2b0d3a3a3a3a3a3a3a2b4359585959591b59592b",
+  "2b0101014c4c2b1d010101011d01012b0101010101010101012b",
+  "2b01010101012b1d010101011d01013b0101010101010101012b",
+  "2b01010101202b4c12121212120101010101010101010101012b",
+  "2b0101011d352b01010101010101152b012b3a3a01013b3a3a2b",
+  "2b01010144452b01010101010101172b012b010101010101012b",
+  "2b01010101012b3a3a3a01013b3a3a2b012b150101010101012b",
+  "2b01010101202b01010101010101012b012b170101011d35012b",
+  "2b3a0d0d0d0d2b01010101010101012b012b150101011d35012b",
+  "2b014c4c4c4c2b011d3501011d35012b012b170101011d35012b",
+  "2b01010101012b011d3501011d35012b012b150101014445012b",
+  "2b01010101012b011d3501011d35012b012b170101010101012b",
+  "2b01011515012b01444501014445012b012b3a3a01013b3a3a2b",
+  "2b01011717012b01010101010101012b012b010101010101012b",
+  "2b01010101012b01010101010101012b012b010101010101012b",
+  "2b01010101013b3a3a3a3a3a3a3a3a3a012b010101200101012b",
+  "2b010101010101010101010101010101012b010101010101012b",
+  "3b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b3a3a3a3a3a3a3a"
+ ]
+}

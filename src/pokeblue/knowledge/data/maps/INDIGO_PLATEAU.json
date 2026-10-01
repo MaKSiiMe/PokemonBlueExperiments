@@ -1,0 +1,56 @@
+{
+ "id": 9,
+ "name": "INDIGO_PLATEAU",
+ "label": "IndigoPlateau",
+ "tileset": "PLATEAU",
+ "width": 10,
+ "height": 9,
+ "border_block": 14,
+ "connections": [
+  {
+   "direction": "south",
+   "map": "ROUTE_23",
+   "offset": 0
+  }
+ ],
+ "warps": [
+  {
+   "x": 9,
+   "y": 5,
+   "map": "INDIGO_PLATEAU_LOBBY",
+   "warp": 1
+  },
+  {
+   "x": 10,
+   "y": 5,
+   "map": "INDIGO_PLATEAU_LOBBY",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "2e0303030303030303030303030303030303032e",
+  "280d0d0d0d0d20030303030303200d0d0d0d0d28",
+  "050f0f0f050f2e0303030303032e0f050f0f0f05",
+  "150e0e0e150e280d0d0d0d0d0d280e150e0e0e15",
+  "2d232d232d23050f0f0f0f0f0f052d232d232d23",
+  "232d232d232d150e0e1b1b0e0e15232d232d232d",
+  "2323232323232d23282323282d23232323232323",
+  "2e232e232e23232d30232330232d232e232e232e",
+  "050f050f050f0f0f282323280f0f0f050f050f05",
+  "300e300e300e0e0e302323300e0e0e300e300e30",
+  "2323232323232d23282323282d23232323232323",
+  "2e232e232e23232d30232330232d232e232e232e",
+  "050f050f050f0f0f282323280f0f0f050f050f05",
+  "300e300e300e0e0e302323300e0e0e300e300e30",
+  "2323232323232d23282323282d23232323232323",
+  "2e232e232e23232d30232330232d232e232e232e",
+  "050f050f050f0f0f282323280f0f0f050f050f05",
+  "300e300e300e0e0e302323300e0e0e300e300e30"
+ ]
+}

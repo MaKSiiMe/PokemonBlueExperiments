@@ -1,0 +1,106 @@
+{
+ "id": 53,
+ "name": "MUSEUM_2F",
+ "label": "Museum2F",
+ "tileset": "MUSEUM",
+ "width": 7,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 7,
+   "y": 7,
+   "map": "MUSEUM_1F",
+   "warp": 5
+  }
+ ],
+ "signs": [
+  {
+   "x": 11,
+   "y": 2,
+   "text": "TEXT_MUSEUM2F_SPACE_SHUTTLE_SIGN"
+  },
+  {
+   "x": 2,
+   "y": 5,
+   "text": "TEXT_MUSEUM2F_MOON_STONE_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 1,
+   "y": 7,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_MUSEUM2F_YOUNGSTER",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "MUSEUM2F_YOUNGSTER"
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "sprite": "SPRITE_GRAMPS",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_MUSEUM2F_GRAMPS",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "MUSEUM2F_GRAMPS"
+  },
+  {
+   "x": 7,
+   "y": 5,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_MUSEUM2F_SCIENTIST",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "MUSEUM2F_SCIENTIST"
+  },
+  {
+   "x": 11,
+   "y": 5,
+   "sprite": "SPRITE_BRUNETTE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_MUSEUM2F_BRUNETTE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "MUSEUM2F_BRUNETTE_GIRL"
+  },
+  {
+   "x": 12,
+   "y": 5,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_MUSEUM2F_HIKER",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "MUSEUM2F_HIKER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "4a4a4a4a4a4a4a4a4a4a4a4a4a4a",
+  "0101010101010101010150525401",
+  "0101010101010101010132323201",
+  "0101010101010101010101010101",
+  "01302e3a2e010101010101010101",
+  "0132323232010101170101010101",
+  "0101010101010101170101010101",
+  "010101010101011a170101010101"
+ ]
+}

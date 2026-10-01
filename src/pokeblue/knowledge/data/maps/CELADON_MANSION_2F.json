@@ -1,0 +1,62 @@
+{
+ "id": 129,
+ "name": "CELADON_MANSION_2F",
+ "label": "CeladonMansion2F",
+ "tileset": "MANSION",
+ "width": 4,
+ "height": 6,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 6,
+   "y": 1,
+   "map": "CELADON_MANSION_3F",
+   "warp": 1
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "map": "CELADON_MANSION_1F",
+   "warp": 4
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "map": "CELADON_MANSION_1F",
+   "warp": 5
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "map": "CELADON_MANSION_3F",
+   "warp": 4
+  }
+ ],
+ "signs": [
+  {
+   "x": 4,
+   "y": 9,
+   "text": "TEXT_CELADONMANSION2F_MEETING_ROOM_SIGN"
+  }
+ ],
+ "objects": [],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "10105050504a5050",
+  "10101a011c4a1c1a",
+  "2222222222580101",
+  "32323232324a0101",
+  "11111111114a0101",
+  "40421111114a0101",
+  "12111108084a0101",
+  "3d111118185a0101",
+  "3f11111101010101",
+  "1e1e1e1e161e0101",
+  "0101010101010101",
+  "0101010101010101"
+ ]
+}

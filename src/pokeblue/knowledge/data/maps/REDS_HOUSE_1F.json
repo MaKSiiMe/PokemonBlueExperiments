@@ -1,0 +1,65 @@
+{
+ "id": 37,
+ "name": "REDS_HOUSE_1F",
+ "label": "RedsHouse1F",
+ "tileset": "REDS_HOUSE_1",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "map": "REDS_HOUSE_2F",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 3,
+   "y": 1,
+   "text": "TEXT_REDSHOUSE1F_TV"
+  }
+ ],
+ "objects": [
+  {
+   "x": 5,
+   "y": 4,
+   "sprite": "SPRITE_MOM",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_REDSHOUSE1F_MOM",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "REDSHOUSE1F_MOM"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "3030003400340034",
+  "323201160101011c",
+  "0101010101010101",
+  "0101010101010101",
+  "0101123638120101",
+  "0101123c3a120101",
+  "0101010101010101",
+  "0101141401010101"
+ ]
+}

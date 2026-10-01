@@ -1,0 +1,113 @@
+{
+ "id": 99,
+ "name": "SS_ANNE_BOW",
+ "label": "SSAnneBow",
+ "tileset": "SHIP",
+ "width": 10,
+ "height": 7,
+ "border_block": 35,
+ "connections": [],
+ "warps": [
+  {
+   "x": 13,
+   "y": 6,
+   "map": "SS_ANNE_3F",
+   "warp": 1
+  },
+  {
+   "x": 13,
+   "y": 7,
+   "map": "SS_ANNE_3F",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 2,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SSANNEBOW_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SSANNEBOW_SUPER_NERD"
+  },
+  {
+   "x": 4,
+   "y": 9,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNEBOW_SAILOR1",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SSANNEBOW_SAILOR1"
+  },
+  {
+   "x": 7,
+   "y": 11,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNEBOW_COOLTRAINER_M",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "SSANNEBOW_COOLTRAINER_M"
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNEBOW_SAILOR2",
+   "trainer": {
+    "class": "SAILOR",
+    "party": 1
+   },
+   "item": null,
+   "index": 4,
+   "name": "SSANNEBOW_SAILOR2"
+  },
+  {
+   "x": 10,
+   "y": 8,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SSANNEBOW_SAILOR3",
+   "trainer": {
+    "class": "SAILOR",
+    "party": 2
+   },
+   "item": null,
+   "index": 5,
+   "name": "SSANNEBOW_SAILOR3"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "1414141414141414141414141414141414141414",
+  "141414143e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e",
+  "1414143e3e230404040404041501010101010101",
+  "14143e3e23040404040404041501010101010101",
+  "143e3e2304043d04040404043211010101010101",
+  "3e3e230404043d04040404043012150101010101",
+  "3e23040404040404040404040404150101010101",
+  "3e23040404040404040404040404150101010101",
+  "3e3e230404043d04040404041501010101010101",
+  "013e3e2304043d04040404041501010101010101",
+  "01013e3e23040404040404041501010101010101",
+  "1401013e3e230404040404041501010101010101",
+  "141401013e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e",
+  "1414140101010101010101010101010101010101"
+ ]
+}

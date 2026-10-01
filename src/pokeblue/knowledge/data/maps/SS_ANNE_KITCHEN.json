@@ -1,0 +1,127 @@
+{
+ "id": 100,
+ "name": "SS_ANNE_KITCHEN",
+ "label": "SSAnneKitchen",
+ "tileset": "SHIP",
+ "width": 7,
+ "height": 8,
+ "border_block": 12,
+ "connections": [],
+ "warps": [
+  {
+   "x": 6,
+   "y": 0,
+   "map": "SS_ANNE_1F",
+   "warp": 11
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 1,
+   "y": 8,
+   "sprite": "SPRITE_COOK",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_SSANNEKITCHEN_COOK1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SSANNEKITCHEN_COOK1"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "sprite": "SPRITE_COOK",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_SSANNEKITCHEN_COOK2",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SSANNEKITCHEN_COOK2"
+  },
+  {
+   "x": 9,
+   "y": 7,
+   "sprite": "SPRITE_COOK",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_SSANNEKITCHEN_COOK3",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "SSANNEKITCHEN_COOK3"
+  },
+  {
+   "x": 13,
+   "y": 6,
+   "sprite": "SPRITE_COOK",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNEKITCHEN_COOK4",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "SSANNEKITCHEN_COOK4"
+  },
+  {
+   "x": 13,
+   "y": 8,
+   "sprite": "SPRITE_COOK",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNEKITCHEN_COOK5",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "SSANNEKITCHEN_COOK5"
+  },
+  {
+   "x": 13,
+   "y": 10,
+   "sprite": "SPRITE_COOK",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNEKITCHEN_COOK6",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "SSANNEKITCHEN_COOK6"
+  },
+  {
+   "x": 11,
+   "y": 13,
+   "sprite": "SPRITE_COOK",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SSANNEKITCHEN_COOK7",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "SSANNEKITCHEN_COOK7"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "1212121212121e12121212121212",
+  "1d1d1d1d1d1d1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d1d1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d1d1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d1d1d1d1d1d1d1d1d1d",
+  "1d1d192c1d1d192c1d1d192c1d58",
+  "1d1d19511d1d19511d1d19511d1d",
+  "1d1d192c1d1d192c1d1d192c1d58",
+  "1d1d19511d1d19511d1d19511d1d",
+  "1d1d192c1d1d192c1d1d192c1d58",
+  "1d1d0b3c1d1d0b3c1d1d0b3c1d1d",
+  "1d1d1d1d1d1d1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d1d1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d1d1d1d1d1d1d1d1d1d",
+  "2c412c352c412c352c412c352c41",
+  "2c1a2c2c2c1a2c2c2c1a2c2c2c1a"
+ ]
+}

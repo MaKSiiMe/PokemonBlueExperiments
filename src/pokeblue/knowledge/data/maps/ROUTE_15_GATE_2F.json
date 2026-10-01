@@ -1,0 +1,53 @@
+{
+ "id": 185,
+ "name": "ROUTE_15_GATE_2F",
+ "label": "Route15Gate2F",
+ "tileset": "GATE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 7,
+   "y": 7,
+   "map": "ROUTE_15_GATE_1F",
+   "warp": 5
+  }
+ ],
+ "signs": [
+  {
+   "x": 6,
+   "y": 2,
+   "text": "TEXT_ROUTE15GATE2F_BINOCULARS"
+  }
+ ],
+ "objects": [
+  {
+   "x": 4,
+   "y": 2,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE15GATE2F_OAKS_AIDE",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE15GATE2F_OAKS_AIDE"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "3a3d3a3d3a3d3e3d",
+  "3d3a3d3a3d3a3e3a",
+  "0134010101013401",
+  "0101010101010101",
+  "0112120101121201",
+  "0101010101010101",
+  "1501010101010101",
+  "350101010101011a"
+ ]
+}

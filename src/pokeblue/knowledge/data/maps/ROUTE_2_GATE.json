@@ -1,0 +1,77 @@
+{
+ "id": 49,
+ "name": "ROUTE_2_GATE",
+ "label": "Route2Gate",
+ "tileset": "GATE",
+ "width": 5,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 5
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 1,
+   "y": 4,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE2GATE_OAKS_AIDE",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE2GATE_OAKS_AIDE"
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_ROUTE2GATE_YOUNGSTER",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "ROUTE2GATE_YOUNGSTER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "4a4a4a4a4a3b4a4a4a4a",
+  "01010101010101010101",
+  "15010101010117011715",
+  "35010101010132013235",
+  "15010101010101010115",
+  "35010101010117011735",
+  "15010101010132013215",
+  "35010101141401010135"
+ ]
+}

@@ -1,0 +1,263 @@
+{
+ "id": 104,
+ "name": "SS_ANNE_B1F_ROOMS",
+ "label": "SSAnneB1FRooms",
+ "tileset": "SHIP",
+ "width": 12,
+ "height": 8,
+ "border_block": 12,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 5,
+   "map": "SS_ANNE_B1F",
+   "warp": 5
+  },
+  {
+   "x": 3,
+   "y": 5,
+   "map": "SS_ANNE_B1F",
+   "warp": 5
+  },
+  {
+   "x": 12,
+   "y": 5,
+   "map": "SS_ANNE_B1F",
+   "warp": 4
+  },
+  {
+   "x": 13,
+   "y": 5,
+   "map": "SS_ANNE_B1F",
+   "warp": 4
+  },
+  {
+   "x": 22,
+   "y": 5,
+   "map": "SS_ANNE_B1F",
+   "warp": 3
+  },
+  {
+   "x": 23,
+   "y": 5,
+   "map": "SS_ANNE_B1F",
+   "warp": 3
+  },
+  {
+   "x": 2,
+   "y": 15,
+   "map": "SS_ANNE_B1F",
+   "warp": 2
+  },
+  {
+   "x": 3,
+   "y": 15,
+   "map": "SS_ANNE_B1F",
+   "warp": 2
+  },
+  {
+   "x": 12,
+   "y": 15,
+   "map": "SS_ANNE_B1F",
+   "warp": 1
+  },
+  {
+   "x": 13,
+   "y": 15,
+   "map": "SS_ANNE_B1F",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 0,
+   "y": 13,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNEB1FROOMS_SAILOR1",
+   "trainer": {
+    "class": "SAILOR",
+    "party": 3
+   },
+   "item": null,
+   "index": 1,
+   "name": "SSANNEB1FROOMS_SAILOR1"
+  },
+  {
+   "x": 2,
+   "y": 11,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNEB1FROOMS_SAILOR2",
+   "trainer": {
+    "class": "SAILOR",
+    "party": 4
+   },
+   "item": null,
+   "index": 2,
+   "name": "SSANNEB1FROOMS_SAILOR2"
+  },
+  {
+   "x": 12,
+   "y": 3,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SSANNEB1FROOMS_SAILOR3",
+   "trainer": {
+    "class": "SAILOR",
+    "party": 5
+   },
+   "item": null,
+   "index": 3,
+   "name": "SSANNEB1FROOMS_SAILOR3"
+  },
+  {
+   "x": 22,
+   "y": 2,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SSANNEB1FROOMS_SAILOR4",
+   "trainer": {
+    "class": "SAILOR",
+    "party": 6
+   },
+   "item": null,
+   "index": 4,
+   "name": "SSANNEB1FROOMS_SAILOR4"
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "sprite": "SPRITE_SAILOR",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SSANNEB1FROOMS_SAILOR5",
+   "trainer": {
+    "class": "SAILOR",
+    "party": 7
+   },
+   "item": null,
+   "index": 5,
+   "name": "SSANNEB1FROOMS_SAILOR5"
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SSANNEB1FROOMS_FISHER",
+   "trainer": {
+    "class": "FISHER",
+    "party": 2
+   },
+   "item": null,
+   "index": 6,
+   "name": "SSANNEB1FROOMS_FISHER"
+  },
+  {
+   "x": 10,
+   "y": 13,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SSANNEB1FROOMS_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "SSANNEB1FROOMS_SUPER_NERD"
+  },
+  {
+   "x": 11,
+   "y": 12,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNEB1FROOMS_MACHOKE",
+   "trainer": null,
+   "item": null,
+   "index": 8,
+   "name": "SSANNEB1FROOMS_MACHOKE"
+  },
+  {
+   "x": 20,
+   "y": 2,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNEB1FROOMS_ETHER",
+   "trainer": null,
+   "item": "ETHER",
+   "index": 9,
+   "name": "SSANNEB1FROOMS_ETHER"
+  },
+  {
+   "x": 10,
+   "y": 2,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNEB1FROOMS_TM_REST",
+   "trainer": null,
+   "item": "TM_REST",
+   "index": 10,
+   "name": "SSANNEB1FROOMS_TM_REST"
+  },
+  {
+   "x": 12,
+   "y": 11,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SSANNEB1FROOMS_MAX_POTION",
+   "trainer": null,
+   "item": "MAX_POTION",
+   "index": 11,
+   "name": "SSANNEB1FROOMS_MAX_POTION"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 117,
+   "object": 9,
+   "initially_visible": true
+  },
+  {
+   "toggle": 118,
+   "object": 10,
+   "initially_visible": true
+  },
+  {
+   "toggle": 119,
+   "object": 11,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "090a1212010101010101090a1212010101010101090a1212",
+  "0b0b1d560101010101010b0b1d560101010101010b0b1d56",
+  "1d1d1d3b0101010101011d1d1d3b0101010101011d1d1d3b",
+  "171d1d1d010101010101171d1d1d010101010101171d1d1d",
+  "1d1d1d1d0101010101011d1d1d1d0101010101011d1d1d1d",
+  "1d1d34340101010101011d1d34340101010101011d1d3434",
+  "010101010101010101010101010101010101010101010101",
+  "010101010101010101010101010101010101010101010101",
+  "010101010101010101010101010101010101010101010101",
+  "010101010101010101010101010101010101010101010101",
+  "090a1212010101010101090a1212010101010101090a1212",
+  "0b0b1d560101010101010b0b1d560101010101010b0b1d56",
+  "1d1d1d3b0101010101011d1d1d3b0101010101011d1d1d3b",
+  "171d1d1d010101010101171d1d1d010101010101171d1d1d",
+  "1d1d1d1d0101010101011d1d1d1d0101010101011d1d1d1d",
+  "1d1d34340101010101011d1d34340101010101011d1d3434"
+ ]
+}

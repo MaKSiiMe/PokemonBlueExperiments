@@ -1,0 +1,318 @@
+{
+ "id": 7,
+ "name": "FUCHSIA_CITY",
+ "label": "FuchsiaCity",
+ "tileset": "OVERWORLD",
+ "width": 20,
+ "height": 18,
+ "border_block": 15,
+ "connections": [
+  {
+   "direction": "south",
+   "map": "ROUTE_19",
+   "offset": 5
+  },
+  {
+   "direction": "west",
+   "map": "ROUTE_18",
+   "offset": 4
+  },
+  {
+   "direction": "east",
+   "map": "ROUTE_15",
+   "offset": 4
+  }
+ ],
+ "warps": [
+  {
+   "x": 5,
+   "y": 13,
+   "map": "FUCHSIA_MART",
+   "warp": 1
+  },
+  {
+   "x": 11,
+   "y": 27,
+   "map": "FUCHSIA_BILLS_GRANDPAS_HOUSE",
+   "warp": 1
+  },
+  {
+   "x": 19,
+   "y": 27,
+   "map": "FUCHSIA_POKECENTER",
+   "warp": 1
+  },
+  {
+   "x": 27,
+   "y": 27,
+   "map": "WARDENS_HOUSE",
+   "warp": 1
+  },
+  {
+   "x": 18,
+   "y": 3,
+   "map": "SAFARI_ZONE_GATE",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 27,
+   "map": "FUCHSIA_GYM",
+   "warp": 1
+  },
+  {
+   "x": 22,
+   "y": 13,
+   "map": "FUCHSIA_MEETING_ROOM",
+   "warp": 1
+  },
+  {
+   "x": 31,
+   "y": 27,
+   "map": "FUCHSIA_GOOD_ROD_HOUSE",
+   "warp": 2
+  },
+  {
+   "x": 31,
+   "y": 24,
+   "map": "FUCHSIA_GOOD_ROD_HOUSE",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 15,
+   "y": 23,
+   "text": "TEXT_FUCHSIACITY_SIGN1"
+  },
+  {
+   "x": 25,
+   "y": 15,
+   "text": "TEXT_FUCHSIACITY_SIGN2"
+  },
+  {
+   "x": 17,
+   "y": 5,
+   "text": "TEXT_FUCHSIACITY_SAFARI_GAME_SIGN"
+  },
+  {
+   "x": 6,
+   "y": 13,
+   "text": "TEXT_FUCHSIACITY_MART_SIGN"
+  },
+  {
+   "x": 20,
+   "y": 27,
+   "text": "TEXT_FUCHSIACITY_POKECENTER_SIGN"
+  },
+  {
+   "x": 27,
+   "y": 29,
+   "text": "TEXT_FUCHSIACITY_WARDENS_HOME_SIGN"
+  },
+  {
+   "x": 21,
+   "y": 15,
+   "text": "TEXT_FUCHSIACITY_SAFARI_ZONE_SIGN"
+  },
+  {
+   "x": 5,
+   "y": 29,
+   "text": "TEXT_FUCHSIACITY_GYM_SIGN"
+  },
+  {
+   "x": 33,
+   "y": 7,
+   "text": "TEXT_FUCHSIACITY_CHANSEY_SIGN"
+  },
+  {
+   "x": 27,
+   "y": 7,
+   "text": "TEXT_FUCHSIACITY_VOLTORB_SIGN"
+  },
+  {
+   "x": 13,
+   "y": 7,
+   "text": "TEXT_FUCHSIACITY_KANGASKHAN_SIGN"
+  },
+  {
+   "x": 31,
+   "y": 13,
+   "text": "TEXT_FUCHSIACITY_SLOWPOKE_SIGN"
+  },
+  {
+   "x": 13,
+   "y": 15,
+   "text": "TEXT_FUCHSIACITY_LAPRAS_SIGN"
+  },
+  {
+   "x": 7,
+   "y": 7,
+   "text": "TEXT_FUCHSIACITY_FOSSIL_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 10,
+   "y": 12,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_FUCHSIACITY_YOUNGSTER1",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "FUCHSIACITY_YOUNGSTER1"
+  },
+  {
+   "x": 28,
+   "y": 17,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_FUCHSIACITY_GAMBLER",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "FUCHSIACITY_GAMBLER"
+  },
+  {
+   "x": 30,
+   "y": 14,
+   "sprite": "SPRITE_FISHER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_FUCHSIACITY_ERIK",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "FUCHSIACITY_ERIK"
+  },
+  {
+   "x": 24,
+   "y": 8,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_FUCHSIACITY_YOUNGSTER2",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "FUCHSIACITY_YOUNGSTER2"
+  },
+  {
+   "x": 31,
+   "y": 5,
+   "sprite": "SPRITE_FAIRY",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_FUCHSIACITY_CHANSEY",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "FUCHSIACITY_CHANSEY"
+  },
+  {
+   "x": 25,
+   "y": 6,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_FUCHSIACITY_VOLTORB",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "FUCHSIACITY_VOLTORB"
+  },
+  {
+   "x": 12,
+   "y": 6,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_FUCHSIACITY_KANGASKHAN",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "FUCHSIACITY_KANGASKHAN"
+  },
+  {
+   "x": 30,
+   "y": 12,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_FUCHSIACITY_SLOWPOKE",
+   "trainer": null,
+   "item": null,
+   "index": 8,
+   "name": "FUCHSIACITY_SLOWPOKE"
+  },
+  {
+   "x": 8,
+   "y": 17,
+   "sprite": "SPRITE_SEEL",
+   "movement": "WALK",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_FUCHSIACITY_LAPRAS",
+   "trainer": null,
+   "item": null,
+   "index": 9,
+   "name": "FUCHSIACITY_LAPRAS"
+  },
+  {
+   "x": 6,
+   "y": 5,
+   "sprite": "SPRITE_FOSSIL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_FUCHSIACITY_FOSSIL",
+   "trainer": null,
+   "item": null,
+   "index": 10,
+   "name": "FUCHSIACITY_FOSSIL"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "505050505050505050505050505050505a1212121212505050505050505050505050505050505050",
+  "505050505050505050505050505050505c1717171717505050505050505050505050505050505050",
+  "505030302c2c2c2c2c2c2c2c2c2c30300f4b4b4b4b4b30302c2c2c2c2c2c2c2c2c2c2c2c30305050",
+  "505030305050505050505050505030304e1a1b1a1a1a303050505050505050505050505030305050",
+  "50502c503214141450502c2c2c2c502c39395b5b39392c50392339235050392339233923502c5050",
+  "50502c503214141450502c2c2c2c502c55565b5b55552c50233923395050233923392339502c5050",
+  "50502c5039393939505039393939502c30302c2c2c2c2c50393939395050393939393939502c5050",
+  "50502c5055555556505055555556502c3030505050503d50555555565050555555565555502c5050",
+  "505030303030303030303030303030302c5030303030303030303030303030303030303030305050",
+  "505030303030303030303030303030302c5030303030303030303030303030303030303030305050",
+  "505030305a1212122c2c2c2c2c2c2c2c2c5030305a12121212122c50505050505050502c30305050",
+  "505030305c17171750505050505050503d5030305c17171717172c502c2c2c2c2c2c502c30305050",
+  "505030300f4b4b4b3030303030303030303030300f4b4b4b4b4b2c50393939393939502c30305050",
+  "505030304e1b4a1a3030303030303030303030304e1a1b1a1a1a3d50555555565555502c30305050",
+  "50502c2c2c2c2c2c2c2c2c2c3030303030302c5039395b5b3939303030303030303030302c2c5050",
+  "5050505050505050505050503056303030302c5055565b5b55563030303030303030303050505050",
+  "392339233a14141414141414502c303030302c5039235b5b39235050505050505050505039393939",
+  "233923393a14141414141414502c303030302c5023395b5b23392c2c2c2c2c2c2c2c2c2c39393939",
+  "3a2c39233a141414141414143a2c2c2c2c2c2c5039235b5b39233939393939393939393939395050",
+  "3a2c23393a3a3a3a3a3a3a3a3a3a3a3a3a3a3d5023395b5b23395555555555555555393939395050",
+  "3a2c39233923392339233923392339233923392339235b5b23552c2c32141414141455232c505050",
+  "3a2c23392339233923392339233923392339233923395b5b23552c2c32141414141455232c505050",
+  "3a2c1e11111111111111111111111111111111111111112423552c2c2c2c2c2c2c2c55232c505050",
+  "3a2c2711111111111111111111111111111111111111112423552c2c2c2c2c2c2c2c55232c505050",
+  "3a2c27115a121212121211111111111111115a12121211242355392339233923392355232c505050",
+  "3a2c36375c171717171737373737373737375c17171737372355151717181517171855232c505050",
+  "3a2c272c0f4b22224b4b15171718151717180f4b4b4b2c1d39395c1717175c17171739392c505050",
+  "3a2c272c4e1b1a1a1a1a4e1b1a1a4e1a1a1a4e1b4a1a2c1d39394e1b1a1a4e1b1a1a39392c505050",
+  "3a2c272c3939393939393939393939393939393939392c1d2355393939393939393955232c505050",
+  "3a2c272c3956393939393939393939393939393939392c1d2355555655553939555555232c505050",
+  "3a2c272c2c2c2c2c39392c2c2c2c2c2c39392c2c2c2c2c1d3923392339233923393939392c505050",
+  "3a2c3637373737373c365050505050503c363737373737372339233923392339393939392c505050",
+  "3a2c2c2c2c2c2c2c2c2c1e11111111242c2c2c2c2c2c2c2c3a2c2c2c2c2c2c2c2c2c2c2c2c505050",
+  "3a3a3a3a3a3a3a3a3a3a2711111111242c2c2c2c2c2c2c2c3a3a3a3a3a3a3a3a3a3a3a3a2c505050",
+  "3939393939393939393927111111112439393939393939391e111111112450505050505050505050",
+  "39393939393939393939271111111124393939393939393927111111112450505050505050505050"
+ ]
+}

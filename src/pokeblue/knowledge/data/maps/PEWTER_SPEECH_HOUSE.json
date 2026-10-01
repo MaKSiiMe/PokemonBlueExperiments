@@ -1,0 +1,65 @@
+{
+ "id": 57,
+ "name": "PEWTER_SPEECH_HOUSE",
+ "label": "PewterSpeechHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 6
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 6
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 2,
+   "y": 3,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_PEWTERSPEECHHOUSE_GAMBLER",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "PEWTERSPEECHHOUSE_GAMBLER"
+  },
+  {
+   "x": 4,
+   "y": 5,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_PEWTERSPEECHHOUSE_YOUNGSTER",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "PEWTERSPEECHHOUSE_YOUNGSTER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0e0e003d00340030",
+  "1e1e01010101011e",
+  "0101010101010101",
+  "010112362f120101",
+  "0101123c3a120101",
+  "0101010101010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

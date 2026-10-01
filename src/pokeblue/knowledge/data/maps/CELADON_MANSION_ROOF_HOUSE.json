@@ -1,0 +1,71 @@
+{
+ "id": 132,
+ "name": "CELADON_MANSION_ROOF_HOUSE",
+ "label": "CeladonMansionRoofHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "CELADON_MANSION_ROOF",
+   "warp": 3
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "CELADON_MANSION_ROOF",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 2,
+   "y": 2,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CELADONMANSION_ROOF_HOUSE_HIKER",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CELADONMANSION_ROOF_HOUSE_HIKER"
+  },
+  {
+   "x": 4,
+   "y": 3,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CELADONMANSION_ROOF_HOUSE_EEVEE_POKEBALL",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CELADONMANSION_ROOF_HOUSE_EEVEE_POKEBALL"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 69,
+   "object": 2,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "003400585a000030",
+  "010101010101011e",
+  "0101010101010101",
+  "010101462f010101",
+  "0101013c3a010101",
+  "0101011201010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

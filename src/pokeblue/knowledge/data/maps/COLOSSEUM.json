@@ -1,0 +1,40 @@
+{
+ "id": 240,
+ "name": "COLOSSEUM",
+ "label": "Colosseum",
+ "tileset": "CLUB",
+ "width": 5,
+ "height": 4,
+ "border_block": 14,
+ "connections": [],
+ "warps": [],
+ "signs": [],
+ "objects": [
+  {
+   "x": 2,
+   "y": 2,
+   "sprite": "SPRITE_RED",
+   "movement": "STAY",
+   "range_or_direction": "ANY_DIR",
+   "text": "TEXT_COLOSSEUM_OPPONENT",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "COLOSSEUM_OPPONENT"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "34060634063334060634",
+  "1f1f1f1f1f1f1f1f1f1f",
+  "1f1f1f292c2c281f1f1f",
+  "1f1f290f0f410f281f1f",
+  "1f1f2e263739262f1f1f",
+  "1f1f1f280f0f0f291f1f",
+  "1f1f1f1f2d2d291f1f1f",
+  "1f1f1f1f1f1f1f1f1f1f"
+ ]
+}

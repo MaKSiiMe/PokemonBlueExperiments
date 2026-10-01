@@ -1,0 +1,34 @@
+{
+ "id": 38,
+ "name": "REDS_HOUSE_2F",
+ "label": "RedsHouse2F",
+ "tileset": "REDS_HOUSE_2",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 7,
+   "y": 1,
+   "map": "REDS_HOUSE_1F",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "2026270000340034",
+  "323c3a010101011a",
+  "0101010101010101",
+  "0101010101010101",
+  "0101011601010101",
+  "0101011e01010101",
+  "3d01010101010801",
+  "3f01010101011801"
+ ]
+}

@@ -1,0 +1,148 @@
+{
+ "id": 235,
+ "name": "SILPH_CO_11F",
+ "label": "SilphCo11F",
+ "tileset": "INTERIOR",
+ "width": 9,
+ "height": 9,
+ "border_block": 13,
+ "connections": [],
+ "warps": [
+  {
+   "x": 9,
+   "y": 0,
+   "map": "SILPH_CO_10F",
+   "warp": 2
+  },
+  {
+   "x": 13,
+   "y": 0,
+   "map": "SILPH_CO_ELEVATOR",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 5,
+   "map": "LAST_MAP",
+   "warp": 10
+  },
+  {
+   "x": 3,
+   "y": 2,
+   "map": "SILPH_CO_7F",
+   "warp": 4
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 7,
+   "y": 5,
+   "sprite": "SPRITE_SILPH_PRESIDENT",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SILPHCO11F_SILPH_PRESIDENT",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SILPHCO11F_SILPH_PRESIDENT"
+  },
+  {
+   "x": 10,
+   "y": 5,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SILPHCO11F_BEAUTY",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SILPHCO11F_BEAUTY"
+  },
+  {
+   "x": 6,
+   "y": 9,
+   "sprite": "SPRITE_GIOVANNI",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SILPHCO11F_GIOVANNI",
+   "trainer": {
+    "class": "GIOVANNI",
+    "party": 2
+   },
+   "item": null,
+   "index": 3,
+   "name": "SILPHCO11F_GIOVANNI"
+  },
+  {
+   "x": 3,
+   "y": 16,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SILPHCO11F_ROCKET1",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 41
+   },
+   "item": null,
+   "index": 4,
+   "name": "SILPHCO11F_ROCKET1"
+  },
+  {
+   "x": 15,
+   "y": 9,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SILPHCO11F_ROCKET2",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 40
+   },
+   "item": null,
+   "index": 5,
+   "name": "SILPHCO11F_ROCKET2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 183,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 184,
+   "object": 4,
+   "initially_visible": true
+  },
+  {
+   "toggle": 185,
+   "object": 5,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "59101010591010101015101010041010592f",
+  "591f1f1f591f1f1f1f1f1f1f1f1f1f1f592f",
+  "591f1f55591f1f1f1f1f1f1f1f1f1f1f592f",
+  "591f1f1f592d57575757575757591f1f592f",
+  "591f1f1f594444323344234444591f1f592f",
+  "591f1f1f591f1f1f1f1f1f1f1f591f1f592f",
+  "591f1f1f591f484012401f1f1f591f1f592f",
+  "591f1f1f591f4d405c401f1f1f591f1f592f",
+  "591f1f1f591f4f4040511f1f1f591f1f592f",
+  "591f1f1f591f1f1f1f1f1f1f1f591f1f592f",
+  "591f1f1f591f1f1f1f1f1f1f1f591f1f592f",
+  "591f1f1f591f1f1f1f1f1f1f1f591f1f592f",
+  "591f1f1f591f1f1f1f1f1b1d1f591f1f592f",
+  "591f1f1f5b581f1f591f3b1f1f591f1f592f",
+  "591f1f1f1f1f1f1f591f1f1f1f591f1f592f",
+  "591f1f1f1f1f1f1f591f1f1f1f591f1f592f",
+  "591f1f1f1f1f1f1f591f1f1f1f591f1f592f",
+  "5b585858585858585b585858585b5858582f"
+ ]
+}

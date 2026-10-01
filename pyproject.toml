@@ -70,6 +70,9 @@ Documentation = "https://github.com/MaKSiiMe/PokemonBlueExperiments/tree/main/do
 where = ["src"]
 include = ["pokeblue*"]
 
+[tool.setuptools.package-data]
+"pokeblue.knowledge" = ["data/*.json", "data/maps/*.json", "*.yaml"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py312"

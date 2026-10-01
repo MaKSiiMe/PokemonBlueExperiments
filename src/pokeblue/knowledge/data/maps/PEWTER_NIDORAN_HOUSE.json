@@ -1,0 +1,77 @@
+{
+ "id": 55,
+ "name": "PEWTER_NIDORAN_HOUSE",
+ "label": "PewterNidoranHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 4
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 5,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_PEWTERNIDORANHOUSE_NIDORAN",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "PEWTERNIDORANHOUSE_NIDORAN"
+  },
+  {
+   "x": 3,
+   "y": 5,
+   "sprite": "SPRITE_LITTLE_BOY",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_PEWTERNIDORANHOUSE_LITTLE_BOY",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "PEWTERNIDORANHOUSE_LITTLE_BOY"
+  },
+  {
+   "x": 1,
+   "y": 2,
+   "sprite": "SPRITE_MIDDLE_AGED_MAN",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_PEWTERNIDORANHOUSE_MIDDLE_AGED_MAN",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "PEWTERNIDORANHOUSE_MIDDLE_AGED_MAN"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0e0e003d00340030",
+  "1e1e01010101011e",
+  "0101010101010101",
+  "010112362f120101",
+  "0101123c3a120101",
+  "0101010101010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

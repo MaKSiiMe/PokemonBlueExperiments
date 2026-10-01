@@ -1,0 +1,77 @@
+{
+ "id": 168,
+ "name": "CINNABAR_LAB_TRADE_ROOM",
+ "label": "CinnabarLabTradeRoom",
+ "tileset": "LAB",
+ "width": 4,
+ "height": 4,
+ "border_block": 23,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "CINNABAR_LAB",
+   "warp": 3
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "CINNABAR_LAB",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 3,
+   "y": 2,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CINNABARLABTRADEROOM_SUPER_NERD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CINNABARLABTRADEROOM_SUPER_NERD"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "sprite": "SPRITE_GRAMPS",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CINNABARLABTRADEROOM_GRAMPS",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "CINNABARLABTRADEROOM_GRAMPS"
+  },
+  {
+   "x": 5,
+   "y": 5,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_CINNABARLABTRADEROOM_BEAUTY",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "CINNABARLABTRADEROOM_BEAUTY"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "3c2222202222223c",
+  "3e2626262626263e",
+  "2626261e261e2626",
+  "2626265051512626",
+  "262626533a3a2626",
+  "2626261e261e2626",
+  "3c2626262626263c",
+  "3e2637372626263e"
+ ]
+}

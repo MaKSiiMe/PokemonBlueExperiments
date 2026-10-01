@@ -1,0 +1,42 @@
+{
+ "id": 127,
+ "name": "CELADON_MART_ELEVATOR",
+ "label": "CeladonMartElevator",
+ "tileset": "LOBBY",
+ "width": 2,
+ "height": 2,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 1,
+   "y": 3,
+   "map": "CELADON_MART_1F",
+   "warp": 6
+  },
+  {
+   "x": 2,
+   "y": 3,
+   "map": "CELADON_MART_1F",
+   "warp": 6
+  }
+ ],
+ "signs": [
+  {
+   "x": 3,
+   "y": 0,
+   "text": "TEXT_CELADONMARTELEVATOR"
+  }
+ ],
+ "objects": [],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "2121213f",
+  "45454545",
+  "45454545",
+  "45141445"
+ ]
+}

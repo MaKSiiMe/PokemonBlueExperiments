@@ -1,0 +1,89 @@
+{
+ "id": 54,
+ "name": "PEWTER_GYM",
+ "label": "PewterGym",
+ "tileset": "GYM",
+ "width": 5,
+ "height": 7,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 13,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 5,
+   "y": 13,
+   "map": "LAST_MAP",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 1,
+   "sprite": "SPRITE_SUPER_NERD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_PEWTERGYM_BROCK",
+   "trainer": {
+    "class": "BROCK",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "PEWTERGYM_BROCK"
+  },
+  {
+   "x": 3,
+   "y": 6,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_PEWTERGYM_COOLTRAINER_M",
+   "trainer": {
+    "class": "JR_TRAINER_M",
+    "party": 1
+   },
+   "item": null,
+   "index": 2,
+   "name": "PEWTERGYM_COOLTRAINER_M"
+  },
+  {
+   "x": 7,
+   "y": 10,
+   "sprite": "SPRITE_GYM_GUIDE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_PEWTERGYM_GYM_GUIDE",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "PEWTERGYM_GYM_GUIDE"
+  }
+ ],
+ "gym_leader_no": 1,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "17171717171717171717",
+  "17111111111111111117",
+  "17111111111111111117",
+  "17171717111117171717",
+  "17111111111111111117",
+  "17111711111717171117",
+  "17111111111111111117",
+  "17111711111717171117",
+  "17111111111111111117",
+  "17171712111112171717",
+  "11111132111132111111",
+  "11111111111111111111",
+  "11111111111111111111",
+  "11111111161611111111"
+ ]
+}

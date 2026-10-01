@@ -1,0 +1,77 @@
+{
+ "id": 66,
+ "name": "BIKE_SHOP",
+ "label": "BikeShop",
+ "tileset": "CLUB",
+ "width": 4,
+ "height": 4,
+ "border_block": 14,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 5
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 6,
+   "y": 2,
+   "sprite": "SPRITE_BIKE_SHOP_CLERK",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_BIKESHOP_CLERK",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "BIKESHOP_CLERK"
+  },
+  {
+   "x": 5,
+   "y": 6,
+   "sprite": "SPRITE_MIDDLE_AGED_WOMAN",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_BIKESHOP_MIDDLE_AGED_WOMAN",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "BIKESHOP_MIDDLE_AGED_WOMAN"
+  },
+  {
+   "x": 1,
+   "y": 3,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_BIKESHOP_YOUNGSTER",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "BIKESHOP_YOUNGSTER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0612061113070606",
+  "1b091e1c1f071f1f",
+  "1e1c1e1c1f071f1f",
+  "1f1f1f1f1f171717",
+  "1e1c1f1f1f1f1f1f",
+  "1e1c1f1f1f1f1f1f",
+  "1f1f1f1f1f1f151f",
+  "1f1f1a1a1f1f1f15"
+ ]
+}

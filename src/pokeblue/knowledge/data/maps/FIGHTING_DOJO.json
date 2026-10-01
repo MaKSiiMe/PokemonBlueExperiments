@@ -1,0 +1,155 @@
+{
+ "id": 177,
+ "name": "FIGHTING_DOJO",
+ "label": "FightingDojo",
+ "tileset": "DOJO",
+ "width": 5,
+ "height": 6,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 11,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "map": "LAST_MAP",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 3,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_FIGHTINGDOJO_KARATE_MASTER",
+   "trainer": {
+    "class": "BLACKBELT",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "FIGHTINGDOJO_KARATE_MASTER"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_FIGHTINGDOJO_BLACKBELT1",
+   "trainer": {
+    "class": "BLACKBELT",
+    "party": 2
+   },
+   "item": null,
+   "index": 2,
+   "name": "FIGHTINGDOJO_BLACKBELT1"
+  },
+  {
+   "x": 3,
+   "y": 6,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_FIGHTINGDOJO_BLACKBELT2",
+   "trainer": {
+    "class": "BLACKBELT",
+    "party": 3
+   },
+   "item": null,
+   "index": 3,
+   "name": "FIGHTINGDOJO_BLACKBELT2"
+  },
+  {
+   "x": 5,
+   "y": 5,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_FIGHTINGDOJO_BLACKBELT3",
+   "trainer": {
+    "class": "BLACKBELT",
+    "party": 4
+   },
+   "item": null,
+   "index": 4,
+   "name": "FIGHTINGDOJO_BLACKBELT3"
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_FIGHTINGDOJO_BLACKBELT4",
+   "trainer": {
+    "class": "BLACKBELT",
+    "party": 5
+   },
+   "item": null,
+   "index": 5,
+   "name": "FIGHTINGDOJO_BLACKBELT4"
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_FIGHTINGDOJO_HITMONLEE_POKE_BALL",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "FIGHTINGDOJO_HITMONLEE_POKE_BALL"
+  },
+  {
+   "x": 5,
+   "y": 1,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_FIGHTINGDOJO_HITMONCHAN_POKE_BALL",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "FIGHTINGDOJO_HITMONCHAN_POKE_BALL"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 74,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 75,
+   "object": 7,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "25101025525225101025",
+  "25111125111125111125",
+  "25111125111125111125",
+  "25111142111142111125",
+  "25111111111111111125",
+  "25111111111111111125",
+  "25111111111111111125",
+  "25111111111111111125",
+  "25111112111112111125",
+  "25111132111132111125",
+  "25111111111111111125",
+  "42104210161642104210"
+ ]
+}

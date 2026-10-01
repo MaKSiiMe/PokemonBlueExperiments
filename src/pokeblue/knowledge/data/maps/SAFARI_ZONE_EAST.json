@@ -1,0 +1,248 @@
+{
+ "id": 217,
+ "name": "SAFARI_ZONE_EAST",
+ "label": "SafariZoneEast",
+ "tileset": "FOREST",
+ "width": 15,
+ "height": 13,
+ "border_block": 0,
+ "connections": [],
+ "warps": [
+  {
+   "x": 0,
+   "y": 4,
+   "map": "SAFARI_ZONE_NORTH",
+   "warp": 7
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "map": "SAFARI_ZONE_NORTH",
+   "warp": 8
+  },
+  {
+   "x": 0,
+   "y": 22,
+   "map": "SAFARI_ZONE_CENTER",
+   "warp": 7
+  },
+  {
+   "x": 0,
+   "y": 23,
+   "map": "SAFARI_ZONE_CENTER",
+   "warp": 7
+  },
+  {
+   "x": 25,
+   "y": 9,
+   "map": "SAFARI_ZONE_EAST_REST_HOUSE",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 26,
+   "y": 10,
+   "text": "TEXT_SAFARIZONEEAST_REST_HOUSE_SIGN"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "text": "TEXT_SAFARIZONEEAST_TRAINER_TIPS"
+  },
+  {
+   "x": 5,
+   "y": 23,
+   "text": "TEXT_SAFARIZONEEAST_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 21,
+   "y": 10,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFARIZONEEAST_FULL_RESTORE",
+   "trainer": null,
+   "item": "FULL_RESTORE",
+   "index": 1,
+   "name": "SAFARIZONEEAST_FULL_RESTORE"
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFARIZONEEAST_MAX_RESTORE",
+   "trainer": null,
+   "item": "MAX_POTION",
+   "index": 2,
+   "name": "SAFARIZONEEAST_MAX_RESTORE"
+  },
+  {
+   "x": 20,
+   "y": 13,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFARIZONEEAST_CARBOS",
+   "trainer": null,
+   "item": "CARBOS",
+   "index": 3,
+   "name": "SAFARIZONEEAST_CARBOS"
+  },
+  {
+   "x": 15,
+   "y": 12,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFARIZONEEAST_TM_EGG_BOMB",
+   "trainer": null,
+   "item": "TM_EGG_BOMB",
+   "index": 4,
+   "name": "SAFARIZONEEAST_TM_EGG_BOMB"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 30,
+  "grass": [
+   [
+    24,
+    "NIDORAN_M"
+   ],
+   [
+    26,
+    "DODUO"
+   ],
+   [
+    22,
+    "PARAS"
+   ],
+   [
+    25,
+    "EXEGGCUTE"
+   ],
+   [
+    33,
+    "NIDORINO"
+   ],
+   [
+    23,
+    "EXEGGCUTE"
+   ],
+   [
+    24,
+    "NIDORAN_F"
+   ],
+   [
+    25,
+    "PARASECT"
+   ],
+   [
+    25,
+    "KANGASKHAN"
+   ],
+   [
+    28,
+    "SCYTHER"
+   ],
+   [
+    24,
+    "NIDORAN_F"
+   ],
+   [
+    26,
+    "DODUO"
+   ],
+   [
+    22,
+    "PARAS"
+   ],
+   [
+    25,
+    "EXEGGCUTE"
+   ],
+   [
+    33,
+    "NIDORINA"
+   ],
+   [
+    23,
+    "EXEGGCUTE"
+   ],
+   [
+    24,
+    "NIDORAN_M"
+   ],
+   [
+    25,
+    "PARASECT"
+   ],
+   [
+    25,
+    "KANGASKHAN"
+   ],
+   [
+    28,
+    "PINSIR"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 195,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 196,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 197,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 198,
+   "object": 4,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "121256565656565612121212121212121212121256561212121212121212",
+  "123030303030303020202020202020202020202030302020202020203012",
+  "123030303030303020202020202020202020303030202020202020202012",
+  "121256565656303030202020202020202030303020202020202020202012",
+  "523030303030313030301d2e2e2e2e2e2e2e2e2f20202020202020202012",
+  "303030303030303030302d2e2e2e2e2e2e2e2e2f30202020202020202012",
+  "121256565656565656562d2e2e2e2e2e2e2e2e2f20202020202020203056",
+  "123030303030303030303d3e403e3e3e3e403e3e30203020203020303056",
+  "563030205e5e5e5e20303030303023163930303039303030181919193056",
+  "563020205e5e5e5e20203030303000363030303730303037383a29293056",
+  "12205e5e20202020345e3048141414141414141430303030303031303056",
+  "12205e5e202020205e5e3048141414141414141430303030303030303056",
+  "12205e5e202020205e5e20202020202048141d2e2e2e2e2e2e2e2e2f2316",
+  "12205e5e202020205e5e20202020202048142d2e2e2e2e2e2e2e2e2f0036",
+  "563020205e5e5e5e202030481414141414142d2e2e2e2e2e2e2e2e2f2316",
+  "563030205e5e5e5e203030481414141414143d3e0e2e2e2f403e3e3e0036",
+  "12303030303039303030304814141414141414142d2e2e2f393030303056",
+  "12125656565630303030304814141414141414142d2e2e2f303030303056",
+  "231623162316563039301d2e2e2e2e2e2e2e2e2e2e2e2e2f303030303056",
+  "003600360036563030302d2e2e2e2e2e2e2e2e2e2e2e2e2f303030303056",
+  "565656565656563039302d2e2e2e2e2e2e2e2e2e2e2e2e2f202020303056",
+  "303030303030563030303d3e403e3e3e3e3e3e3e403e3e3e202020203056",
+  "523039303030123030303030303030305630202020202020202020203056",
+  "303030303031121256565656565656565630302020202020202020303056",
+  "303030303030303030303030303020202020202020202020202030303012",
+  "565656565656565656565656565612121212121212121212121256561212"
+ ]
+}

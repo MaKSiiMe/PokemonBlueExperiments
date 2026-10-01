@@ -1,0 +1,113 @@
+{
+ "id": 186,
+ "name": "ROUTE_16_GATE_1F",
+ "label": "Route16Gate1F",
+ "tileset": "GATE",
+ "width": 4,
+ "height": 7,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 0,
+   "y": 8,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 0,
+   "y": 9,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 7,
+   "y": 9,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "map": "LAST_MAP",
+   "warp": 5
+  },
+  {
+   "x": 0,
+   "y": 3,
+   "map": "LAST_MAP",
+   "warp": 6
+  },
+  {
+   "x": 7,
+   "y": 2,
+   "map": "LAST_MAP",
+   "warp": 7
+  },
+  {
+   "x": 7,
+   "y": 3,
+   "map": "LAST_MAP",
+   "warp": 8
+  },
+  {
+   "x": 6,
+   "y": 12,
+   "map": "ROUTE_16_GATE_2F",
+   "warp": 1
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 5,
+   "sprite": "SPRITE_GUARD",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE16GATE1F_GUARD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE16GATE1F_GUARD"
+  },
+  {
+   "x": 4,
+   "y": 3,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROUTE16GATE1F_GAMBLER",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "ROUTE16GATE1F_GAMBLER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "1010101010101010",
+  "3232323232323232",
+  "3801010101010138",
+  "5e0101010101015e",
+  "3232323232323232",
+  "3201010101010132",
+  "3232323232323232",
+  "0101010101010101",
+  "3801010101010138",
+  "5e0101010101015e",
+  "0101010101010101",
+  "3232323232013232",
+  "3201010117011c32",
+  "3232323232323232"
+ ]
+}

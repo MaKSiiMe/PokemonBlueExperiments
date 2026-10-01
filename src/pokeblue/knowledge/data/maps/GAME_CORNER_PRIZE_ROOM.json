@@ -1,0 +1,81 @@
+{
+ "id": 137,
+ "name": "GAME_CORNER_PRIZE_ROOM",
+ "label": "GameCornerPrizeRoom",
+ "tileset": "LOBBY",
+ "width": 5,
+ "height": 4,
+ "border_block": 15,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 10
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 10
+  }
+ ],
+ "signs": [
+  {
+   "x": 2,
+   "y": 2,
+   "text": "TEXT_GAMECORNERPRIZEROOM_PRIZE_VENDOR_1"
+  },
+  {
+   "x": 4,
+   "y": 2,
+   "text": "TEXT_GAMECORNERPRIZEROOM_PRIZE_VENDOR_2"
+  },
+  {
+   "x": 6,
+   "y": 2,
+   "text": "TEXT_GAMECORNERPRIZEROOM_PRIZE_VENDOR_3"
+  }
+ ],
+ "objects": [
+  {
+   "x": 1,
+   "y": 4,
+   "sprite": "SPRITE_BALDING_GUY",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_GAMECORNERPRIZEROOM_BALDING_GUY",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "GAMECORNERPRIZEROOM_BALDING_GUY"
+  },
+  {
+   "x": 7,
+   "y": 3,
+   "sprite": "SPRITE_GAMBLER",
+   "movement": "WALK",
+   "range_or_direction": "LEFT_RIGHT",
+   "text": "TEXT_GAMECORNERPRIZEROOM_GAMBLER",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "GAMECORNERPRIZEROOM_GAMBLER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "37373737373737373737",
+  "5b5b0a5b0a5b0a5b5b5b",
+  "15151515151515151515",
+  "45454545454545454545",
+  "45454545454545454545",
+  "45454545454545454545",
+  "22222222454522222222",
+  "32323232141432323232"
+ ]
+}

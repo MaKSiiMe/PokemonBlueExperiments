@@ -1,0 +1,58 @@
+{
+ "id": 101,
+ "name": "SS_ANNE_CAPTAINS_ROOM",
+ "label": "SSAnneCaptainsRoom",
+ "tileset": "SHIP",
+ "width": 3,
+ "height": 4,
+ "border_block": 12,
+ "connections": [],
+ "warps": [
+  {
+   "x": 0,
+   "y": 7,
+   "map": "SS_ANNE_2F",
+   "warp": 9
+  }
+ ],
+ "signs": [
+  {
+   "x": 4,
+   "y": 1,
+   "text": "TEXT_SSANNECAPTAINSROOM_TRASH"
+  },
+  {
+   "x": 1,
+   "y": 2,
+   "text": "TEXT_SSANNECAPTAINSROOM_SEASICK_BOOK"
+  }
+ ],
+ "objects": [
+  {
+   "x": 4,
+   "y": 2,
+   "sprite": "SPRITE_CAPTAIN",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SSANNECAPTAINSROOM_CAPTAIN",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SSANNECAPTAINSROOM_CAPTAIN"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "125412121236",
+  "1d171d1d5836",
+  "19442c1d1d1d",
+  "3b0b3b1d1d17",
+  "1d1d1d1d1d1d",
+  "1d1d1d1d1d17",
+  "1d1d1d1d1d1d",
+  "371d1d1d1d1d"
+ ]
+}

@@ -1,0 +1,287 @@
+{
+ "id": 30,
+ "name": "ROUTE_19",
+ "label": "Route19",
+ "tileset": "OVERWORLD",
+ "width": 10,
+ "height": 27,
+ "border_block": 67,
+ "connections": [
+  {
+   "direction": "north",
+   "map": "FUCHSIA_CITY",
+   "offset": -5
+  },
+  {
+   "direction": "west",
+   "map": "ROUTE_20",
+   "offset": 18
+  }
+ ],
+ "warps": [],
+ "signs": [
+  {
+   "x": 11,
+   "y": 9,
+   "text": "TEXT_ROUTE19_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 8,
+   "y": 7,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE19_COOLTRAINER_M1",
+   "trainer": {
+    "class": "SWIMMER",
+    "party": 2
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROUTE19_COOLTRAINER_M1"
+  },
+  {
+   "x": 13,
+   "y": 7,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE19_COOLTRAINER_M2",
+   "trainer": {
+    "class": "SWIMMER",
+    "party": 3
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE19_COOLTRAINER_M2"
+  },
+  {
+   "x": 13,
+   "y": 25,
+   "sprite": "SPRITE_SWIMMER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE19_SWIMMER1",
+   "trainer": {
+    "class": "SWIMMER",
+    "party": 4
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE19_SWIMMER1"
+  },
+  {
+   "x": 4,
+   "y": 27,
+   "sprite": "SPRITE_SWIMMER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE19_SWIMMER2",
+   "trainer": {
+    "class": "SWIMMER",
+    "party": 5
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE19_SWIMMER2"
+  },
+  {
+   "x": 16,
+   "y": 31,
+   "sprite": "SPRITE_SWIMMER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE19_SWIMMER3",
+   "trainer": {
+    "class": "SWIMMER",
+    "party": 6
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE19_SWIMMER3"
+  },
+  {
+   "x": 9,
+   "y": 11,
+   "sprite": "SPRITE_SWIMMER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE19_SWIMMER4",
+   "trainer": {
+    "class": "SWIMMER",
+    "party": 7
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE19_SWIMMER4"
+  },
+  {
+   "x": 8,
+   "y": 43,
+   "sprite": "SPRITE_SWIMMER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE19_SWIMMER5",
+   "trainer": {
+    "class": "BEAUTY",
+    "party": 12
+   },
+   "item": null,
+   "index": 7,
+   "name": "ROUTE19_SWIMMER5"
+  },
+  {
+   "x": 11,
+   "y": 43,
+   "sprite": "SPRITE_SWIMMER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE19_SWIMMER6",
+   "trainer": {
+    "class": "BEAUTY",
+    "party": 13
+   },
+   "item": null,
+   "index": 8,
+   "name": "ROUTE19_SWIMMER6"
+  },
+  {
+   "x": 9,
+   "y": 42,
+   "sprite": "SPRITE_SWIMMER",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE19_SWIMMER7",
+   "trainer": {
+    "class": "SWIMMER",
+    "party": 8
+   },
+   "item": null,
+   "index": 9,
+   "name": "ROUTE19_SWIMMER7"
+  },
+  {
+   "x": 10,
+   "y": 44,
+   "sprite": "SPRITE_SWIMMER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE19_SWIMMER8",
+   "trainer": {
+    "class": "BEAUTY",
+    "party": 14
+   },
+   "item": null,
+   "index": 10,
+   "name": "ROUTE19_SWIMMER8"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 0,
+  "grass": [],
+  "water_rate": 5,
+  "water": [
+   [
+    5,
+    "TENTACOOL"
+   ],
+   [
+    10,
+    "TENTACOOL"
+   ],
+   [
+    15,
+    "TENTACOOL"
+   ],
+   [
+    5,
+    "TENTACOOL"
+   ],
+   [
+    10,
+    "TENTACOOL"
+   ],
+   [
+    15,
+    "TENTACOOL"
+   ],
+   [
+    20,
+    "TENTACOOL"
+   ],
+   [
+    30,
+    "TENTACOOL"
+   ],
+   [
+    35,
+    "TENTACOOL"
+   ],
+   [
+    40,
+    "TENTACOOL"
+   ]
+  ]
+ },
+ "toggles": [],
+ "tiles": [
+  "2711111111243939393939395523271111111124",
+  "2711111111243637363736375523271111111124",
+  "2711111111243939393939395523271111111124",
+  "2711111111243637363736375523363737373737",
+  "27111111112439393939393955233a1414141414",
+  "36373737373736373637363755233a1414141414",
+  "1414143a393939393939393939393a1414141414",
+  "1414143a393939393939393939393a1414141414",
+  "1414143a393939393939393939393a1414141414",
+  "3a3a3a3a393939393939395639393a3a3a3a3a3a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a1414141414141414141414141414141414143a",
+  "3a3a14141414141414141414141414141414143a",
+  "3a3a14141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "141414141414141414141414141414141414143a",
+  "1414141414141414141414141414141414143a3a",
+  "3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a"
+ ]
+}

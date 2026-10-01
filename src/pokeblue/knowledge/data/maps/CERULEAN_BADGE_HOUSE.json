@@ -1,0 +1,59 @@
+{
+ "id": 230,
+ "name": "CERULEAN_BADGE_HOUSE",
+ "label": "CeruleanBadgeHouse",
+ "tileset": "SHIP",
+ "width": 4,
+ "height": 4,
+ "border_block": 12,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 10
+  },
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 9
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 9
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 3,
+   "sprite": "SPRITE_MIDDLE_AGED_MAN",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_CERULEANBADGEHOUSE_MIDDLE_AGED_MAN",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "CERULEANBADGEHOUSE_MIDDLE_AGED_MAN"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "12121e1212121212",
+  "1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d17192c",
+  "1d1d1d1d1d1d0b3c",
+  "1d1d1d1d1d1d1d1d",
+  "1d1d1d1d1d1d1d1d",
+  "1d1d34341d1d1d58"
+ ]
+}

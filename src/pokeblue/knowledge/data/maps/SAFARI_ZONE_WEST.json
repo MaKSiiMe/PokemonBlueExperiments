@@ -1,0 +1,259 @@
+{
+ "id": 219,
+ "name": "SAFARI_ZONE_WEST",
+ "label": "SafariZoneWest",
+ "tileset": "FOREST",
+ "width": 15,
+ "height": 13,
+ "border_block": 0,
+ "connections": [],
+ "warps": [
+  {
+   "x": 20,
+   "y": 0,
+   "map": "SAFARI_ZONE_NORTH",
+   "warp": 1
+  },
+  {
+   "x": 21,
+   "y": 0,
+   "map": "SAFARI_ZONE_NORTH",
+   "warp": 2
+  },
+  {
+   "x": 26,
+   "y": 0,
+   "map": "SAFARI_ZONE_NORTH",
+   "warp": 3
+  },
+  {
+   "x": 27,
+   "y": 0,
+   "map": "SAFARI_ZONE_NORTH",
+   "warp": 4
+  },
+  {
+   "x": 29,
+   "y": 22,
+   "map": "SAFARI_ZONE_CENTER",
+   "warp": 3
+  },
+  {
+   "x": 29,
+   "y": 23,
+   "map": "SAFARI_ZONE_CENTER",
+   "warp": 4
+  },
+  {
+   "x": 3,
+   "y": 3,
+   "map": "SAFARI_ZONE_SECRET_HOUSE",
+   "warp": 1
+  },
+  {
+   "x": 11,
+   "y": 11,
+   "map": "SAFARI_ZONE_WEST_REST_HOUSE",
+   "warp": 1
+  }
+ ],
+ "signs": [
+  {
+   "x": 12,
+   "y": 12,
+   "text": "TEXT_SAFARIZONEWEST_REST_HOUSE_SIGN"
+  },
+  {
+   "x": 17,
+   "y": 3,
+   "text": "TEXT_SAFARIZONEWEST_FIND_WARDENS_TEETH_SIGN"
+  },
+  {
+   "x": 26,
+   "y": 4,
+   "text": "TEXT_SAFARIZONEWEST_TRAINER_TIPS"
+  },
+  {
+   "x": 24,
+   "y": 22,
+   "text": "TEXT_SAFARIZONEWEST_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 8,
+   "y": 20,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFARIZONEWEST_MAX_POTION",
+   "trainer": null,
+   "item": "MAX_POTION",
+   "index": 1,
+   "name": "SAFARIZONEWEST_MAX_POTION"
+  },
+  {
+   "x": 9,
+   "y": 7,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFARIZONEWEST_TM_DOUBLE_TEAM",
+   "trainer": null,
+   "item": "TM_DOUBLE_TEAM",
+   "index": 2,
+   "name": "SAFARIZONEWEST_TM_DOUBLE_TEAM"
+  },
+  {
+   "x": 18,
+   "y": 18,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFARIZONEWEST_MAX_REVIVE",
+   "trainer": null,
+   "item": "MAX_REVIVE",
+   "index": 3,
+   "name": "SAFARIZONEWEST_MAX_REVIVE"
+  },
+  {
+   "x": 19,
+   "y": 7,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFARIZONEWEST_GOLD_TEETH",
+   "trainer": null,
+   "item": "GOLD_TEETH",
+   "index": 4,
+   "name": "SAFARIZONEWEST_GOLD_TEETH"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 30,
+  "grass": [
+   [
+    25,
+    "NIDORAN_M"
+   ],
+   [
+    26,
+    "DODUO"
+   ],
+   [
+    23,
+    "VENONAT"
+   ],
+   [
+    24,
+    "EXEGGCUTE"
+   ],
+   [
+    33,
+    "NIDORINO"
+   ],
+   [
+    26,
+    "EXEGGCUTE"
+   ],
+   [
+    25,
+    "NIDORAN_F"
+   ],
+   [
+    25,
+    "NIDORAN_F"
+   ],
+   [
+    26,
+    "DODUO"
+   ],
+   [
+    23,
+    "VENONAT"
+   ],
+   [
+    24,
+    "EXEGGCUTE"
+   ],
+   [
+    33,
+    "NIDORINA"
+   ],
+   [
+    26,
+    "EXEGGCUTE"
+   ],
+   [
+    25,
+    "NIDORAN_M"
+   ],
+   [
+    31,
+    "VENOMOTH"
+   ],
+   [
+    26,
+    "TAUROS"
+   ],
+   [
+    28,
+    "KANGASKHAN"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 201,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 202,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 203,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 204,
+   "object": 4,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "231630303030231630303030303030303030231630302316231630302316",
+  "003630303030003656565656565656565656003630300036003630300036",
+  "300a181919190a3030303030303030303030303030303030563030303056",
+  "304b383a29294b3030303030303030303031303030303030563030373056",
+  "300a303030300a3030303030303030303030303030303030563031303056",
+  "304b303030304b3030303030303030303030303730303030563030303056",
+  "300a30303030303030301d2e2e2e2e2e2e2f303030303030563030303056",
+  "304b30303030303030302d2e2e2e2e2e2e2f303730303030563030373056",
+  "300a30303030303030302d2e2e2e2e2e2e2f303030303030563030303056",
+  "304b30303030303030303d3e3e3e0e2e2e2f303030373037563030303056",
+  "30564814141414141414181919192d2e2e2f303030303030563030303056",
+  "30564814141414141414383a29292d2e2e2f303030303030563030303056",
+  "30564814141414141414303031302d2e2e2f303030303030563030303056",
+  "30564814141414141414303030302d2e2e2f303030303030563030373056",
+  "23163030303030303030303030302d2e2e2e2e2e2e2e2e2f303030303056",
+  "00363030303030303030303030302d2e2e2e2e2e2e2e2e2f303030303056",
+  "563030301d2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2f303039303056",
+  "563030302d2e2e2e2e2e2e2e2e2e2e2e2e2f3e3e3e403e3e303030303056",
+  "563030202d2e2e2e2e2e2e2e2e2e2e2e2e2f303030303030303030303056",
+  "563020203d3e403e3e3e3e3e3e3e3e3e3e3e303030303030303030303056",
+  "563020202020202020202020202020202020563039303030393030303056",
+  "563020202020202020202020202020202020563030303030303030303056",
+  "563030302020202020202020202020203030563030303030313030303030",
+  "563030303020202020202030302020303030563030303030303030303030",
+  "231656565656565656563030303030305656303030305656565656565656",
+  "003630303030303030305656565656563030565656563030303030303030"
+ ]
+}

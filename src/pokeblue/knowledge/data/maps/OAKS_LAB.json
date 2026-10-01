@@ -1,0 +1,221 @@
+{
+ "id": 40,
+ "name": "OAKS_LAB",
+ "label": "OaksLab",
+ "tileset": "DOJO",
+ "width": 5,
+ "height": 6,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 11,
+   "map": "LAST_MAP",
+   "warp": 3
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "map": "LAST_MAP",
+   "warp": 3
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 3,
+   "sprite": "SPRITE_BLUE",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_OAKSLAB_RIVAL",
+   "trainer": {
+    "class": "RIVAL1",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "OAKSLAB_RIVAL"
+  },
+  {
+   "x": 6,
+   "y": 3,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_OAKSLAB_CHARMANDER_POKE_BALL",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "OAKSLAB_CHARMANDER_POKE_BALL"
+  },
+  {
+   "x": 7,
+   "y": 3,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_OAKSLAB_SQUIRTLE_POKE_BALL",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "OAKSLAB_SQUIRTLE_POKE_BALL"
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_OAKSLAB_BULBASAUR_POKE_BALL",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "OAKSLAB_BULBASAUR_POKE_BALL"
+  },
+  {
+   "x": 5,
+   "y": 2,
+   "sprite": "SPRITE_OAK",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_OAKSLAB_OAK1",
+   "trainer": null,
+   "item": null,
+   "index": 5,
+   "name": "OAKSLAB_OAK1"
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "sprite": "SPRITE_POKEDEX",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_OAKSLAB_POKEDEX1",
+   "trainer": null,
+   "item": null,
+   "index": 6,
+   "name": "OAKSLAB_POKEDEX1"
+  },
+  {
+   "x": 3,
+   "y": 1,
+   "sprite": "SPRITE_POKEDEX",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_OAKSLAB_POKEDEX2",
+   "trainer": null,
+   "item": null,
+   "index": 7,
+   "name": "OAKSLAB_POKEDEX2"
+  },
+  {
+   "x": 5,
+   "y": 10,
+   "sprite": "SPRITE_OAK",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_OAKSLAB_OAK2",
+   "trainer": null,
+   "item": null,
+   "index": 8,
+   "name": "OAKSLAB_OAK2"
+  },
+  {
+   "x": 1,
+   "y": 9,
+   "sprite": "SPRITE_GIRL",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_OAKSLAB_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 9,
+   "name": "OAKSLAB_GIRL"
+  },
+  {
+   "x": 2,
+   "y": 10,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_OAKSLAB_SCIENTIST1",
+   "trainer": null,
+   "item": null,
+   "index": 10,
+   "name": "OAKSLAB_SCIENTIST1"
+  },
+  {
+   "x": 8,
+   "y": 10,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_OAKSLAB_SCIENTIST2",
+   "trainer": null,
+   "item": null,
+   "index": 11,
+   "name": "OAKSLAB_SCIENTIST2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 42,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 43,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 44,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 45,
+   "object": 4,
+   "initially_visible": true
+  },
+  {
+   "toggle": 46,
+   "object": 5,
+   "initially_visible": false
+  },
+  {
+   "toggle": 47,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 48,
+   "object": 7,
+   "initially_visible": true
+  },
+  {
+   "toggle": 49,
+   "object": 8,
+   "initially_visible": false
+  }
+ ],
+ "tiles": [
+  "1010101052520d0d0d0d",
+  "36554e3911111d1d1d1d",
+  "11111111111111111111",
+  "1111111111114e393911",
+  "11111111111111111111",
+  "11111111111111111111",
+  "0d0d0d0d11110d0d0d0d",
+  "1d1d1d1d11111d1d1d1d",
+  "11111111111111111111",
+  "11111111111111111111",
+  "11111111111111111111",
+  "11111111161611111111"
+ ]
+}

@@ -1,0 +1,179 @@
+{
+ "id": 207,
+ "name": "SILPH_CO_2F",
+ "label": "SilphCo2F",
+ "tileset": "FACILITY",
+ "width": 15,
+ "height": 9,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 24,
+   "y": 0,
+   "map": "SILPH_CO_1F",
+   "warp": 3
+  },
+  {
+   "x": 26,
+   "y": 0,
+   "map": "SILPH_CO_3F",
+   "warp": 1
+  },
+  {
+   "x": 20,
+   "y": 0,
+   "map": "SILPH_CO_ELEVATOR",
+   "warp": 1
+  },
+  {
+   "x": 3,
+   "y": 3,
+   "map": "SILPH_CO_3F",
+   "warp": 7
+  },
+  {
+   "x": 13,
+   "y": 3,
+   "map": "SILPH_CO_8F",
+   "warp": 5
+  },
+  {
+   "x": 27,
+   "y": 15,
+   "map": "SILPH_CO_8F",
+   "warp": 6
+  },
+  {
+   "x": 9,
+   "y": 15,
+   "map": "SILPH_CO_6F",
+   "warp": 5
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 10,
+   "y": 1,
+   "sprite": "SPRITE_SILPH_WORKER_F",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SILPHCO2F_SILPH_WORKER_F",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SILPHCO2F_SILPH_WORKER_F"
+  },
+  {
+   "x": 5,
+   "y": 12,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SILPHCO2F_SCIENTIST1",
+   "trainer": {
+    "class": "SCIENTIST",
+    "party": 2
+   },
+   "item": null,
+   "index": 2,
+   "name": "SILPHCO2F_SCIENTIST1"
+  },
+  {
+   "x": 24,
+   "y": 13,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SILPHCO2F_SCIENTIST2",
+   "trainer": {
+    "class": "SCIENTIST",
+    "party": 3
+   },
+   "item": null,
+   "index": 3,
+   "name": "SILPHCO2F_SCIENTIST2"
+  },
+  {
+   "x": 16,
+   "y": 11,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SILPHCO2F_ROCKET1",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 23
+   },
+   "item": null,
+   "index": 4,
+   "name": "SILPHCO2F_ROCKET1"
+  },
+  {
+   "x": 24,
+   "y": 7,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_SILPHCO2F_ROCKET2",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 24
+   },
+   "item": null,
+   "index": 5,
+   "name": "SILPHCO2F_ROCKET2"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 137,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 138,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 139,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 140,
+   "object": 4,
+   "initially_visible": true
+  },
+  {
+   "toggle": 141,
+   "object": 5,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2b3a0d0d0d0d0d0d0d0d3a2b5959595959595959585959591b594359592b",
+  "2b014c4c4c4c4c4c4c4c012b01010101010101010101010101010101012b",
+  "2b010101010101010101012b01010101010101010101010101010101012b",
+  "2b010120010101010101012b01200101010101010101010101010101012b",
+  "2b3a3a3a01013b3a0d0d0d0d0d0d0d0d0d0d0d0d3a3a3a3a01013b3a3a2b",
+  "2b010101010101014c4c4c4c4c4c4c4c4c4c4c4c0101010101010101012b",
+  "2b010101010101010101010101010101010101010101010101010101012b",
+  "2b010101010101010101010101010101010101010101010101010101012b",
+  "2b010101010101010101010101011d3501011d3501152b3a0d0d0d0d0d2b",
+  "2b010101010101010101010101011d3501011d3501172b014c4c4c4c1d2b",
+  "2b3a3a3a01013b3a3a3a3a2b01011d3501011d3501152b01010101011d2b",
+  "2b010101010101010101012b01011d3501011d3501173b01010101014c2b",
+  "2b011d35010115151515012b01011d3501011d350101010101010101012b",
+  "2b011d35010117171717012b01011d3501011d350101010101010101012b",
+  "2b014445010101010101012b010144450101444501012b011d350101012b",
+  "2b010101010101010120012b010101010101010101012b0144450120012b",
+  "2b010101010101010101012b010101010101010101012b0101010101012b",
+  "3b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3b3a3a3a3a3a3a3a"
+ ]
+}

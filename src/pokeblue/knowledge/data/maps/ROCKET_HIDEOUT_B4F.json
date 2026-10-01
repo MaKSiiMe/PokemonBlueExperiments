@@ -1,0 +1,214 @@
+{
+ "id": 202,
+ "name": "ROCKET_HIDEOUT_B4F",
+ "label": "RocketHideoutB4F",
+ "tileset": "FACILITY",
+ "width": 15,
+ "height": 12,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 19,
+   "y": 10,
+   "map": "ROCKET_HIDEOUT_B3F",
+   "warp": 2
+  },
+  {
+   "x": 24,
+   "y": 15,
+   "map": "ROCKET_HIDEOUT_ELEVATOR",
+   "warp": 1
+  },
+  {
+   "x": 25,
+   "y": 15,
+   "map": "ROCKET_HIDEOUT_ELEVATOR",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 25,
+   "y": 3,
+   "sprite": "SPRITE_GIOVANNI",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROCKETHIDEOUTB4F_GIOVANNI",
+   "trainer": {
+    "class": "GIOVANNI",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROCKETHIDEOUTB4F_GIOVANNI"
+  },
+  {
+   "x": 23,
+   "y": 12,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROCKETHIDEOUTB4F_ROCKET1",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 16
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROCKETHIDEOUTB4F_ROCKET1"
+  },
+  {
+   "x": 26,
+   "y": 12,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROCKETHIDEOUTB4F_ROCKET2",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 17
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROCKETHIDEOUTB4F_ROCKET2"
+  },
+  {
+   "x": 11,
+   "y": 2,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROCKETHIDEOUTB4F_ROCKET3",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 18
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROCKETHIDEOUTB4F_ROCKET3"
+  },
+  {
+   "x": 10,
+   "y": 12,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB4F_HP_UP",
+   "trainer": null,
+   "item": "HP_UP",
+   "index": 5,
+   "name": "ROCKETHIDEOUTB4F_HP_UP"
+  },
+  {
+   "x": 9,
+   "y": 4,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB4F_TM_RAZOR_WIND",
+   "trainer": null,
+   "item": "TM_RAZOR_WIND",
+   "index": 6,
+   "name": "ROCKETHIDEOUTB4F_TM_RAZOR_WIND"
+  },
+  {
+   "x": 12,
+   "y": 20,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB4F_IRON",
+   "trainer": null,
+   "item": "IRON",
+   "index": 7,
+   "name": "ROCKETHIDEOUTB4F_IRON"
+  },
+  {
+   "x": 25,
+   "y": 2,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB4F_SILPH_SCOPE",
+   "trainer": null,
+   "item": "SILPH_SCOPE",
+   "index": 8,
+   "name": "ROCKETHIDEOUTB4F_SILPH_SCOPE"
+  },
+  {
+   "x": 10,
+   "y": 2,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROCKETHIDEOUTB4F_LIFT_KEY",
+   "trainer": null,
+   "item": "LIFT_KEY",
+   "index": 9,
+   "name": "ROCKETHIDEOUTB4F_LIFT_KEY"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 131,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 132,
+   "object": 5,
+   "initially_visible": true
+  },
+  {
+   "toggle": 133,
+   "object": 6,
+   "initially_visible": true
+  },
+  {
+   "toggle": 134,
+   "object": 7,
+   "initially_visible": true
+  },
+  {
+   "toggle": 135,
+   "object": 8,
+   "initially_visible": false
+  },
+  {
+   "toggle": 136,
+   "object": 9,
+   "initially_visible": false
+  }
+ ],
+ "tiles": [
+  "33333333333333332b0d0d0d0d0d0d0d2b3a3a3a3a2b0d0d0d0d0d0d3a2b",
+  "33333333333333332b1d4c4c4c4c4c4c2b010101012b4c4c4c4c4c4c012b",
+  "33333333333333332b1d0101010101013b010101012b010101010101012b",
+  "33333333333333332b4c01010101010101010101012b010101010101012b",
+  "33333333333333332b011d351d35010101010101012b01011d351d35012b",
+  "33333333333333332b014445444501012b010101012b010144454445012b",
+  "33333333333333332b010101010101012b010101012b150101010101012b",
+  "33333333333333332b3a3a3a3a3a3a3a2b010101012b170101010101012b",
+  "33333333333333332b010101010115152b010101012b1501010101011d2b",
+  "33333333333333332b010101010117172b010101012b1701010101014c2b",
+  "33333333333333332b011d35010101152b010113012b010101010101012b",
+  "33333333333333332b014445010101172b010101012b3a3a01013b3a3a2b",
+  "33333333333333332b011d3501013b3a3b010101012b010101010101012b",
+  "33333333333333332b014445010101010101012b3a3a010101010101012b",
+  "33333333333333332b010101010101010101012b0101010101010101012b",
+  "33333333333333332b010101010101010101012b0101012b42523b3a3a3a",
+  "33333333333333332b0d0d0d0d0d0d0d0d0d3a3a0101012b333333333333",
+  "33333333333333332b1d4c4c4c4c4c4c4c4c01010101012b333333333333",
+  "33333333333333332b1d010101010101010101010101012b333333333333",
+  "33333333333333332b4c010101010101010101010101012b333333333333",
+  "33333333333333332b0101011d351d35151515010101012b333333333333",
+  "33333333333333332b01010144454445171717010101012b333333333333",
+  "33333333333333332b01010101010101010101010101012b333333333333",
+  "33333333333333333b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a333333333333"
+ ]
+}

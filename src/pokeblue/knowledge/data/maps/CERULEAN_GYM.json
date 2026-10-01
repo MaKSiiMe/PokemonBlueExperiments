@@ -1,0 +1,104 @@
+{
+ "id": 65,
+ "name": "CERULEAN_GYM",
+ "label": "CeruleanGym",
+ "tileset": "GYM",
+ "width": 5,
+ "height": 7,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 13,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 5,
+   "y": 13,
+   "map": "LAST_MAP",
+   "warp": 4
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 4,
+   "y": 2,
+   "sprite": "SPRITE_BRUNETTE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CERULEANGYM_MISTY",
+   "trainer": {
+    "class": "MISTY",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "CERULEANGYM_MISTY"
+  },
+  {
+   "x": 2,
+   "y": 3,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_CERULEANGYM_COOLTRAINER_F",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 1
+   },
+   "item": null,
+   "index": 2,
+   "name": "CERULEANGYM_COOLTRAINER_F"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "sprite": "SPRITE_SWIMMER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_CERULEANGYM_SWIMMER",
+   "trainer": {
+    "class": "SWIMMER",
+    "party": 1
+   },
+   "item": null,
+   "index": 3,
+   "name": "CERULEANGYM_SWIMMER"
+  },
+  {
+   "x": 7,
+   "y": 10,
+   "sprite": "SPRITE_GYM_GUIDE",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CERULEANGYM_GYM_GUIDE",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "CERULEANGYM_GYM_GUIDE"
+  }
+ ],
+ "gym_leader_no": 2,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "10101010101010101010",
+  "19191919141419191919",
+  "19141414111114141419",
+  "19141111111111111419",
+  "19141414141414111419",
+  "19141111111111111419",
+  "19141114141114141419",
+  "19141114141114141419",
+  "19141111111114141419",
+  "19141414111114141419",
+  "19141412111112111419",
+  "19141432111132111419",
+  "19191919111119191919",
+  "19191919161619191919"
+ ]
+}

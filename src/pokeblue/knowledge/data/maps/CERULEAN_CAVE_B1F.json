@@ -1,0 +1,150 @@
+{
+ "id": 227,
+ "name": "CERULEAN_CAVE_B1F",
+ "label": "CeruleanCaveB1F",
+ "tileset": "CAVERN",
+ "width": 15,
+ "height": 9,
+ "border_block": 125,
+ "connections": [],
+ "warps": [
+  {
+   "x": 3,
+   "y": 6,
+   "map": "CERULEAN_CAVE_1F",
+   "warp": 9
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 27,
+   "y": 13,
+   "sprite": "SPRITE_MONSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_CERULEANCAVEB1F_MEWTWO",
+   "trainer": {
+    "class": "MEWTWO",
+    "party": 70
+   },
+   "item": null,
+   "index": 1,
+   "name": "CERULEANCAVEB1F_MEWTWO"
+  },
+  {
+   "x": 16,
+   "y": 9,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CERULEANCAVEB1F_ULTRA_BALL",
+   "trainer": null,
+   "item": "ULTRA_BALL",
+   "index": 2,
+   "name": "CERULEANCAVEB1F_ULTRA_BALL"
+  },
+  {
+   "x": 18,
+   "y": 1,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_CERULEANCAVEB1F_MAX_REVIVE",
+   "trainer": null,
+   "item": "MAX_REVIVE",
+   "index": 3,
+   "name": "CERULEANCAVEB1F_MAX_REVIVE"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 25,
+  "grass": [
+   [
+    55,
+    "RHYDON"
+   ],
+   [
+    55,
+    "MAROWAK"
+   ],
+   [
+    55,
+    "ELECTRODE"
+   ],
+   [
+    64,
+    "CHANSEY"
+   ],
+   [
+    64,
+    "PARASECT"
+   ],
+   [
+    64,
+    "RAICHU"
+   ],
+   [
+    57,
+    "ARBOK"
+   ],
+   [
+    57,
+    "SANDSLASH"
+   ],
+   [
+    65,
+    "DITTO"
+   ],
+   [
+    63,
+    "DITTO"
+   ],
+   [
+    67,
+    "DITTO"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 209,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 210,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 211,
+   "object": 3,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "040505050505050505050505050505170405050505170405050505050517",
+  "310505050505050505050505050505173105050505173105050505050517",
+  "310505050505050505050505050505173105050505173105050512120517",
+  "3105050505171010101010101015101028101015101031050505121c0517",
+  "31050505051712121212202020201212202020201c123105051726050517",
+  "310505050517122020202020202020202020121212123105051731050517",
+  "3105051a0517122004050505050505050517040505051212051731050517",
+  "281010101010202031050505050505050517310505051212051728151010",
+  "121212202020201231050505050531050517310505050505051714143105",
+  "122020202012121231051710260531050517310505171010101014142810",
+  "202031050505310531051712310531050517310505171414141414141212",
+  "201228101010310531051712310528100517281510101414141414141212",
+  "202020123105310531051712310505050517141431051414040505050517",
+  "122020122810281028151012281510101010141431051414310505050517",
+  "310520201212202020201212141414141212141431051414310505050517",
+  "31052020122020201c1c1c12141414141c12141428101414281015151010",
+  "3105202020202020310531050505141414141414121c1414141414141414",
+  "281012202020201228102810101014141414141412121414141414141414"
+ ]
+}

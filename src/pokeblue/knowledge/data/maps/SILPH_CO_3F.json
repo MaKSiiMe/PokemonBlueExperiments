@@ -1,0 +1,169 @@
+{
+ "id": 208,
+ "name": "SILPH_CO_3F",
+ "label": "SilphCo3F",
+ "tileset": "FACILITY",
+ "width": 15,
+ "height": 9,
+ "border_block": 46,
+ "connections": [],
+ "warps": [
+  {
+   "x": 26,
+   "y": 0,
+   "map": "SILPH_CO_2F",
+   "warp": 2
+  },
+  {
+   "x": 24,
+   "y": 0,
+   "map": "SILPH_CO_4F",
+   "warp": 1
+  },
+  {
+   "x": 20,
+   "y": 0,
+   "map": "SILPH_CO_ELEVATOR",
+   "warp": 1
+  },
+  {
+   "x": 23,
+   "y": 11,
+   "map": "SILPH_CO_3F",
+   "warp": 10
+  },
+  {
+   "x": 3,
+   "y": 3,
+   "map": "SILPH_CO_5F",
+   "warp": 6
+  },
+  {
+   "x": 3,
+   "y": 15,
+   "map": "SILPH_CO_5F",
+   "warp": 7
+  },
+  {
+   "x": 27,
+   "y": 3,
+   "map": "SILPH_CO_2F",
+   "warp": 4
+  },
+  {
+   "x": 3,
+   "y": 11,
+   "map": "SILPH_CO_9F",
+   "warp": 4
+  },
+  {
+   "x": 11,
+   "y": 11,
+   "map": "SILPH_CO_7F",
+   "warp": 5
+  },
+  {
+   "x": 27,
+   "y": 15,
+   "map": "SILPH_CO_3F",
+   "warp": 4
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 24,
+   "y": 8,
+   "sprite": "SPRITE_SILPH_WORKER_M",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO3F_SILPH_WORKER_M",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SILPHCO3F_SILPH_WORKER_M"
+  },
+  {
+   "x": 20,
+   "y": 7,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_SILPHCO3F_ROCKET",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 25
+   },
+   "item": null,
+   "index": 2,
+   "name": "SILPHCO3F_ROCKET"
+  },
+  {
+   "x": 7,
+   "y": 9,
+   "sprite": "SPRITE_SCIENTIST",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SILPHCO3F_SCIENTIST",
+   "trainer": {
+    "class": "SCIENTIST",
+    "party": 4
+   },
+   "item": null,
+   "index": 3,
+   "name": "SILPHCO3F_SCIENTIST"
+  },
+  {
+   "x": 8,
+   "y": 5,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SILPHCO3F_HYPER_POTION",
+   "trainer": null,
+   "item": "HYPER_POTION",
+   "index": 4,
+   "name": "SILPHCO3F_HYPER_POTION"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 142,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 143,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 144,
+   "object": 4,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2b595959595959595959595959595959595959595859595943591b59592b",
+  "2b010101010101010101010101010101010101010101010101010101012b",
+  "2b010101010101010101010101010101010101010101010101010101012b",
+  "2b010120010101010101010101010101010101010101010101010120012b",
+  "2b0d0d0d0d0d3a3a3a2b0d0d3a3a0d0d3a2b0101012b0d0d0d0d0d0d0d2b",
+  "2b1d4c4c4c4c0101012b4c4c01014c4c012b0101012b4c4c4c4c4c4c1d2b",
+  "2b1d010101010101012b010101010101012b0101012b0101010101011d2b",
+  "2b4c01011d350101013b010101010101013b0101013b0101010101014c2b",
+  "2b0101011d350101010101011d350101010101010101010101011d35012b",
+  "2b0101011d3501010101010144450101010101010101010101014445012b",
+  "2b01010144450101012b010101010101012b0101012b010138013801012b",
+  "2b01012001010101012b012001010101012b0101012b012019011901012b",
+  "2b01010101010101012b010101010101012b0101012b010101010101012b",
+  "2b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a0101013b3a3a3a3a3a3a3a2b",
+  "2b010101010101010101010101010101010101010101010101010101012b",
+  "2b010120010101010101010101010101010101010101010101010120012b",
+  "2b010101010101010101010101010101010101010101010101010101012b",
+  "3b3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a"
+ ]
+}

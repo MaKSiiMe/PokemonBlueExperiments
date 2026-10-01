@@ -1,0 +1,65 @@
+{
+ "id": 193,
+ "name": "ROUTE_22_GATE",
+ "label": "Route22Gate",
+ "tileset": "GATE",
+ "width": 5,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "map": "LAST_MAP",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 6,
+   "y": 2,
+   "sprite": "SPRITE_GUARD",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE22GATE_GUARD",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "ROUTE22GATE_GUARD"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0000000e3b3b0e000000",
+  "01010132373832010101",
+  "01010101373801010101",
+  "01010101373801010101",
+  "01010101373801010101",
+  "01010101373801010101",
+  "0101010e37380e010101",
+  "01010132373832010101"
+ ]
+}

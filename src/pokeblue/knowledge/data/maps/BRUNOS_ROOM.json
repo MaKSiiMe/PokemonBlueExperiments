@@ -1,0 +1,72 @@
+{
+ "id": 246,
+ "name": "BRUNOS_ROOM",
+ "label": "BrunosRoom",
+ "tileset": "GYM",
+ "width": 5,
+ "height": 6,
+ "border_block": 3,
+ "connections": [],
+ "warps": [
+  {
+   "x": 4,
+   "y": 11,
+   "map": "LORELEIS_ROOM",
+   "warp": 3
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "map": "LORELEIS_ROOM",
+   "warp": 4
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "map": "AGATHAS_ROOM",
+   "warp": 1
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "map": "AGATHAS_ROOM",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 5,
+   "y": 2,
+   "sprite": "SPRITE_BRUNO",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_BRUNOSROOM_BRUNO",
+   "trainer": {
+    "class": "BRUNO",
+    "party": 1
+   },
+   "item": null,
+   "index": 1,
+   "name": "BRUNOSROOM_BRUNO"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "10101010111110101010",
+  "11111111111111111111",
+  "17171111111111111717",
+  "17111111111111111111",
+  "17111111111111111117",
+  "17171711111111171717",
+  "17111717111111111711",
+  "17171111111117171717",
+  "17171111111117111717",
+  "17111712111117171711",
+  "11171132111117171117",
+  "17171111111111111717"
+ ]
+}

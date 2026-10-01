@@ -1,0 +1,89 @@
+{
+ "id": 179,
+ "name": "SAFFRON_PIDGEY_HOUSE",
+ "label": "SaffronPidgeyHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 4
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 4
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 2,
+   "y": 3,
+   "sprite": "SPRITE_BRUNETTE_GIRL",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_SAFFRONPIDGEYHOUSE_BRUNETTE_GIRL",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "SAFFRONPIDGEYHOUSE_BRUNETTE_GIRL"
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "sprite": "SPRITE_BIRD",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_SAFFRONPIDGEYHOUSE_PIDGEY",
+   "trainer": null,
+   "item": null,
+   "index": 2,
+   "name": "SAFFRONPIDGEYHOUSE_PIDGEY"
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_SAFFRONPIDGEYHOUSE_YOUNGSTER",
+   "trainer": null,
+   "item": null,
+   "index": 3,
+   "name": "SAFFRONPIDGEYHOUSE_YOUNGSTER"
+  },
+  {
+   "x": 3,
+   "y": 3,
+   "sprite": "SPRITE_PAPER",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_SAFFRONPIDGEYHOUSE_PAPER",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "SAFFRONPIDGEYHOUSE_PAPER"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [],
+ "tiles": [
+  "0e0e003d00340030",
+  "1e1e01010101011e",
+  "0101010101010101",
+  "010112362f120101",
+  "0101123c3a120101",
+  "0101010101010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

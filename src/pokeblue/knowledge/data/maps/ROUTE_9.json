@@ -1,0 +1,282 @@
+{
+ "id": 20,
+ "name": "ROUTE_9",
+ "label": "Route9",
+ "tileset": "OVERWORLD",
+ "width": 30,
+ "height": 9,
+ "border_block": 44,
+ "connections": [
+  {
+   "direction": "west",
+   "map": "CERULEAN_CITY",
+   "offset": -4
+  },
+  {
+   "direction": "east",
+   "map": "ROUTE_10",
+   "offset": 0
+  }
+ ],
+ "warps": [],
+ "signs": [
+  {
+   "x": 25,
+   "y": 7,
+   "text": "TEXT_ROUTE9_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 13,
+   "y": 10,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE9_COOLTRAINER_F1",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 5
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROUTE9_COOLTRAINER_F1"
+  },
+  {
+   "x": 24,
+   "y": 7,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE9_COOLTRAINER_M1",
+   "trainer": {
+    "class": "JR_TRAINER_M",
+    "party": 7
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE9_COOLTRAINER_M1"
+  },
+  {
+   "x": 31,
+   "y": 7,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE9_COOLTRAINER_M2",
+   "trainer": {
+    "class": "JR_TRAINER_M",
+    "party": 8
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE9_COOLTRAINER_M2"
+  },
+  {
+   "x": 48,
+   "y": 8,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE9_COOLTRAINER_F2",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 6
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE9_COOLTRAINER_F2"
+  },
+  {
+   "x": 16,
+   "y": 15,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE9_HIKER1",
+   "trainer": {
+    "class": "HIKER",
+    "party": 11
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE9_HIKER1"
+  },
+  {
+   "x": 43,
+   "y": 3,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE9_HIKER2",
+   "trainer": {
+    "class": "HIKER",
+    "party": 6
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE9_HIKER2"
+  },
+  {
+   "x": 22,
+   "y": 2,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE9_YOUNGSTER1",
+   "trainer": {
+    "class": "BUG_CATCHER",
+    "party": 13
+   },
+   "item": null,
+   "index": 7,
+   "name": "ROUTE9_YOUNGSTER1"
+  },
+  {
+   "x": 45,
+   "y": 15,
+   "sprite": "SPRITE_HIKER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE9_HIKER3",
+   "trainer": {
+    "class": "HIKER",
+    "party": 5
+   },
+   "item": null,
+   "index": 8,
+   "name": "ROUTE9_HIKER3"
+  },
+  {
+   "x": 40,
+   "y": 8,
+   "sprite": "SPRITE_YOUNGSTER",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE9_YOUNGSTER2",
+   "trainer": {
+    "class": "BUG_CATCHER",
+    "party": 14
+   },
+   "item": null,
+   "index": 9,
+   "name": "ROUTE9_YOUNGSTER2"
+  },
+  {
+   "x": 10,
+   "y": 15,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROUTE9_TM_TELEPORT",
+   "trainer": null,
+   "item": "TM_TELEPORT",
+   "index": 10,
+   "name": "ROUTE9_TM_TELEPORT"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    16,
+    "RATTATA"
+   ],
+   [
+    16,
+    "SPEAROW"
+   ],
+   [
+    14,
+    "RATTATA"
+   ],
+   [
+    11,
+    "EKANS"
+   ],
+   [
+    13,
+    "SPEAROW"
+   ],
+   [
+    15,
+    "EKANS"
+   ],
+   [
+    17,
+    "RATTATA"
+   ],
+   [
+    17,
+    "SPEAROW"
+   ],
+   [
+    13,
+    "EKANS"
+   ],
+   [
+    17,
+    "EKANS"
+   ],
+   [
+    11,
+    "SANDSHREW"
+   ],
+   [
+    13,
+    "SPEAROW"
+   ],
+   [
+    15,
+    "SANDSHREW"
+   ],
+   [
+    17,
+    "RATTATA"
+   ],
+   [
+    17,
+    "SPEAROW"
+   ],
+   [
+    13,
+    "SANDSHREW"
+   ],
+   [
+    17,
+    "SANDSHREW"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 28,
+   "object": 10,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "271111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+  "363737373737373737373737373737373737373737373737373737373737373737371311112437373737373737373737373737371311111111111124",
+  "2c2c2c2c2c3a525252525252525252522c2c2c2c2c2c2c2c2c2c1e11112452525252271111242c2c2c2c2c2c2c2c2c2c2c2c2c2c2711111111111124",
+  "2c2c2c2c2c3a525252525252525252522c2c2c2c2c2c2c2c2c2c2711112452525252271111242c2c2c2c2c2c2c2c2c2c2c2c2c2c2711111111111124",
+  "2c2c2c2c2c3a525252525252525252521e1111242c2c2c2c2c2c271111242c2c2c2c271111242c2c2c2c2c2c2c2c1e1111242c2c2711111111111124",
+  "2c2c2c2c2c3a525252525252525252522711112437373737373c27111124373c373736373737373c3737373737372711112437372711111111111124",
+  "2c2c2c2c2c3a2c2c2c2c2c2c2c2c2c2c2711112439393939393927111124393939393939393939393939393939392711112439392711111111111124",
+  "3a3a3a3a3a3a3737373737373737502c2711112439393939395636373737393939393939393939393939393939393637373739393637373737373737",
+  "2c2c2c2c2c3d39393939393939391e11111111243939393939392c2c2c2c1e11112439391e11112439391e1111243939393939393939393939393939",
+  "2c2c2c2c502c39393939393939392711111111243637363736373737373c271111243939271111243939271111243939393939393939393939393939",
+  "3a3a3a3a3a3a1e1111243939393927111111112439393939393939392c2c271111242c2c271111242c2c2711112439391e11112439391e1111111111",
+  "2c2c2c2c2c3a271111243637363736373737373739393939393939392c2c36373737373736373737373c271111243637271111243637271111111111",
+  "2c2c2c2c2c3a271111242c2c2c2c2c2c2c2c2c2c393939391e1111242c2c2c2c2c2c2c2c2c2c2c2c2c2c271111243939271111243939271111111111",
+  "2c2c2c2c2c3a271111243737373737373737373c3637363727111124373c373737373737373737373737363737373637363737373637271111111111",
+  "2c2c2c2c2c3a271111243939393939393939393939393939271111242c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c271111111111",
+  "2c2c2c2c2c3a271111243939393939393939393939393939271111242c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c271111111111",
+  "2c2c2c2c2c3a271111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+  "2c2c2c2c2c3a271111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+ ]
+}

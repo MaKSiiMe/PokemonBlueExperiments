@@ -1,0 +1,169 @@
+{
+ "id": 148,
+ "name": "POKEMON_TOWER_7F",
+ "label": "PokemonTower7F",
+ "tileset": "CEMETERY",
+ "width": 10,
+ "height": 9,
+ "border_block": 1,
+ "connections": [],
+ "warps": [
+  {
+   "x": 9,
+   "y": 16,
+   "map": "POKEMON_TOWER_6F",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 9,
+   "y": 11,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_POKEMONTOWER7F_ROCKET1",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 19
+   },
+   "item": null,
+   "index": 1,
+   "name": "POKEMONTOWER7F_ROCKET1"
+  },
+  {
+   "x": 12,
+   "y": 9,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_POKEMONTOWER7F_ROCKET2",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 20
+   },
+   "item": null,
+   "index": 2,
+   "name": "POKEMONTOWER7F_ROCKET2"
+  },
+  {
+   "x": 9,
+   "y": 7,
+   "sprite": "SPRITE_ROCKET",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_POKEMONTOWER7F_ROCKET3",
+   "trainer": {
+    "class": "ROCKET",
+    "party": 21
+   },
+   "item": null,
+   "index": 3,
+   "name": "POKEMONTOWER7F_ROCKET3"
+  },
+  {
+   "x": 10,
+   "y": 3,
+   "sprite": "SPRITE_MR_FUJI",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_POKEMONTOWER7F_MR_FUJI",
+   "trainer": null,
+   "item": null,
+   "index": 4,
+   "name": "POKEMONTOWER7F_MR_FUJI"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    21,
+    "GASTLY"
+   ],
+   [
+    22,
+    "GASTLY"
+   ],
+   [
+    23,
+    "GASTLY"
+   ],
+   [
+    24,
+    "GASTLY"
+   ],
+   [
+    20,
+    "GASTLY"
+   ],
+   [
+    28,
+    "HAUNTER"
+   ],
+   [
+    22,
+    "CUBONE"
+   ],
+   [
+    24,
+    "CUBONE"
+   ],
+   [
+    28,
+    "HAUNTER"
+   ],
+   [
+    30,
+    "HAUNTER"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 64,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 65,
+   "object": 2,
+   "initially_visible": true
+  },
+  {
+   "toggle": 66,
+   "object": 3,
+   "initially_visible": true
+  },
+  {
+   "toggle": 67,
+   "object": 4,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "1111111111111111191919191919111111111111",
+  "1111111111111919191919191919191911111111",
+  "1111111111191919192701012719191919111111",
+  "1111111119191919193d01013d19191919191111",
+  "1111111919191919190101010119191919191911",
+  "1111111919191919190101010119191919191911",
+  "1111191919191919190101010119191919191919",
+  "1111191919191919190101010119191919191919",
+  "1111191919191919190101010119191919191919",
+  "1111191919191919190101010119191919191919",
+  "1111191919191919190101010119191919191919",
+  "1111191919191919190101010119191919191919",
+  "1111111919191919190101010119191919191911",
+  "1111111919191919191901011919191919191911",
+  "1111111119191919191901011919191919191111",
+  "1111111111191919191901011919191919111111",
+  "1111111111111919191b01010119191911111111",
+  "1111111111111111191919191919111111111111"
+ ]
+}

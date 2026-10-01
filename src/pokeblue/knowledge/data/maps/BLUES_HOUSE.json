@@ -1,0 +1,93 @@
+{
+ "id": 39,
+ "name": "BLUES_HOUSE",
+ "label": "BluesHouse",
+ "tileset": "HOUSE",
+ "width": 4,
+ "height": 4,
+ "border_block": 10,
+ "connections": [],
+ "warps": [
+  {
+   "x": 2,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 2
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "map": "LAST_MAP",
+   "warp": 2
+  }
+ ],
+ "signs": [],
+ "objects": [
+  {
+   "x": 2,
+   "y": 3,
+   "sprite": "SPRITE_DAISY",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_BLUESHOUSE_DAISY_SITTING",
+   "trainer": null,
+   "item": null,
+   "index": 1,
+   "name": "BLUESHOUSE_DAISY1"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "sprite": "SPRITE_DAISY",
+   "movement": "WALK",
+   "range_or_direction": "UP_DOWN",
+   "text": "TEXT_BLUESHOUSE_DAISY_WALKING",
+   "trainer": null,
+   "item": "0",
+   "index": 2,
+   "name": "BLUESHOUSE_DAISY2"
+  },
+  {
+   "x": 3,
+   "y": 3,
+   "sprite": "SPRITE_POKEDEX",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_BLUESHOUSE_TOWN_MAP",
+   "trainer": null,
+   "item": "0",
+   "index": 3,
+   "name": "BLUESHOUSE_TOWN_MAP"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": null,
+ "toggles": [
+  {
+   "toggle": 39,
+   "object": 1,
+   "initially_visible": true
+  },
+  {
+   "toggle": 40,
+   "object": 2,
+   "initially_visible": false
+  },
+  {
+   "toggle": 41,
+   "object": 3,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "0e0e003d00340030",
+  "1e1e01010101011e",
+  "0101010101010101",
+  "010112362f120101",
+  "0101123c3a120101",
+  "0101010101010101",
+  "0801010101010108",
+  "1801141401010118"
+ ]
+}

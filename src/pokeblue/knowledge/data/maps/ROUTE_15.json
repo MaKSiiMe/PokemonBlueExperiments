@@ -1,0 +1,326 @@
+{
+ "id": 26,
+ "name": "ROUTE_15",
+ "label": "Route15",
+ "tileset": "OVERWORLD",
+ "width": 30,
+ "height": 9,
+ "border_block": 67,
+ "connections": [
+  {
+   "direction": "west",
+   "map": "FUCHSIA_CITY",
+   "offset": -4
+  },
+  {
+   "direction": "east",
+   "map": "ROUTE_14",
+   "offset": -18
+  }
+ ],
+ "warps": [
+  {
+   "x": 7,
+   "y": 8,
+   "map": "ROUTE_15_GATE_1F",
+   "warp": 1
+  },
+  {
+   "x": 7,
+   "y": 9,
+   "map": "ROUTE_15_GATE_1F",
+   "warp": 2
+  },
+  {
+   "x": 14,
+   "y": 8,
+   "map": "ROUTE_15_GATE_1F",
+   "warp": 3
+  },
+  {
+   "x": 14,
+   "y": 9,
+   "map": "ROUTE_15_GATE_1F",
+   "warp": 4
+  }
+ ],
+ "signs": [
+  {
+   "x": 39,
+   "y": 9,
+   "text": "TEXT_ROUTE15_SIGN"
+  }
+ ],
+ "objects": [
+  {
+   "x": 41,
+   "y": 11,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE15_COOLTRAINER_F1",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 20
+   },
+   "item": null,
+   "index": 1,
+   "name": "ROUTE15_COOLTRAINER_F1"
+  },
+  {
+   "x": 53,
+   "y": 10,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "LEFT",
+   "text": "TEXT_ROUTE15_COOLTRAINER_F2",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 21
+   },
+   "item": null,
+   "index": 2,
+   "name": "ROUTE15_COOLTRAINER_F2"
+  },
+  {
+   "x": 31,
+   "y": 13,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE15_COOLTRAINER_M1",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 6
+   },
+   "item": null,
+   "index": 3,
+   "name": "ROUTE15_COOLTRAINER_M1"
+  },
+  {
+   "x": 35,
+   "y": 13,
+   "sprite": "SPRITE_COOLTRAINER_M",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE15_COOLTRAINER_M2",
+   "trainer": {
+    "class": "BIRD_KEEPER",
+    "party": 7
+   },
+   "item": null,
+   "index": 4,
+   "name": "ROUTE15_COOLTRAINER_M2"
+  },
+  {
+   "x": 53,
+   "y": 11,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE15_BEAUTY1",
+   "trainer": {
+    "class": "BEAUTY",
+    "party": 9
+   },
+   "item": null,
+   "index": 5,
+   "name": "ROUTE15_BEAUTY1"
+  },
+  {
+   "x": 41,
+   "y": 10,
+   "sprite": "SPRITE_BEAUTY",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE15_BEAUTY2",
+   "trainer": {
+    "class": "BEAUTY",
+    "party": 10
+   },
+   "item": null,
+   "index": 6,
+   "name": "ROUTE15_BEAUTY2"
+  },
+  {
+   "x": 48,
+   "y": 10,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE15_BIKER1",
+   "trainer": {
+    "class": "BIKER",
+    "party": 3
+   },
+   "item": null,
+   "index": 7,
+   "name": "ROUTE15_BIKER1"
+  },
+  {
+   "x": 46,
+   "y": 10,
+   "sprite": "SPRITE_BIKER",
+   "movement": "STAY",
+   "range_or_direction": "DOWN",
+   "text": "TEXT_ROUTE15_BIKER2",
+   "trainer": {
+    "class": "BIKER",
+    "party": 4
+   },
+   "item": null,
+   "index": 8,
+   "name": "ROUTE15_BIKER2"
+  },
+  {
+   "x": 37,
+   "y": 5,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "RIGHT",
+   "text": "TEXT_ROUTE15_COOLTRAINER_F3",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 22
+   },
+   "item": null,
+   "index": 9,
+   "name": "ROUTE15_COOLTRAINER_F3"
+  },
+  {
+   "x": 18,
+   "y": 13,
+   "sprite": "SPRITE_COOLTRAINER_F",
+   "movement": "STAY",
+   "range_or_direction": "UP",
+   "text": "TEXT_ROUTE15_COOLTRAINER_F4",
+   "trainer": {
+    "class": "JR_TRAINER_F",
+    "party": 23
+   },
+   "item": null,
+   "index": 10,
+   "name": "ROUTE15_COOLTRAINER_F4"
+  },
+  {
+   "x": 18,
+   "y": 5,
+   "sprite": "SPRITE_POKE_BALL",
+   "movement": "STAY",
+   "range_or_direction": "NONE",
+   "text": "TEXT_ROUTE15_TM_RAGE",
+   "trainer": null,
+   "item": "TM_RAGE",
+   "index": 11,
+   "name": "ROUTE15_TM_RAGE"
+  }
+ ],
+ "gym_leader_no": null,
+ "padded_blocks": 0,
+ "wild": {
+  "grass_rate": 15,
+  "grass": [
+   [
+    24,
+    "ODDISH"
+   ],
+   [
+    26,
+    "DITTO"
+   ],
+   [
+    23,
+    "PIDGEY"
+   ],
+   [
+    26,
+    "VENONAT"
+   ],
+   [
+    22,
+    "ODDISH"
+   ],
+   [
+    28,
+    "VENONAT"
+   ],
+   [
+    26,
+    "ODDISH"
+   ],
+   [
+    30,
+    "GLOOM"
+   ],
+   [
+    24,
+    "BELLSPROUT"
+   ],
+   [
+    26,
+    "DITTO"
+   ],
+   [
+    23,
+    "PIDGEY"
+   ],
+   [
+    26,
+    "VENONAT"
+   ],
+   [
+    22,
+    "BELLSPROUT"
+   ],
+   [
+    28,
+    "VENONAT"
+   ],
+   [
+    26,
+    "BELLSPROUT"
+   ],
+   [
+    30,
+    "WEEPINBELL"
+   ],
+   [
+    28,
+    "PIDGEOTTO"
+   ],
+   [
+    30,
+    "PIDGEOTTO"
+   ]
+  ],
+  "water_rate": 0,
+  "water": []
+ },
+ "toggles": [
+  {
+   "toggle": 32,
+   "object": 11,
+   "initially_visible": true
+  }
+ ],
+ "tiles": [
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c3a3a3a3a",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c3a3a3a3a",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c3a3a3a3a",
+  "5050502c2c2c2c2c2c2c2c2c2c2c3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a",
+  "505050502c2c2c2c2c2c2c2c2c2c3a2c5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b",
+  "505050502c2c2c2c2c2c2c2c2c2c3a2c5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b",
+  "505050502c2c2c2c5a12121212123a2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c",
+  "505050503a3a3a3a5c17171717173a3a3737373737373737373737373737373737373737373737373737373737373737373737373737373737373737",
+  "39393939393939390f4b4b4b4b4b5b5b5b5b5252525252522c2c2c2c2c2c5252525252523939393939392c2c2c2c525252522c2c5252525252522c2c",
+  "39393939393939394e1a1a1a1a1a5b5b5b5b5252525252522c2c2c2c2c2c5252525252523939395639392c2c2c2c525252522c2c5252525252522c2c",
+  "505050503a3a3a3a2c2c2c2c2c2c3a2c5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b",
+  "505050502c2c2c2c2c2c2c2c2c2c3a2c5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b",
+  "505050502c2c2c2c2c2c2c2c2c2c3a2c3939393939393939393939393939393939393939393939393939393939393939393939393939393939393939",
+  "505050502c2c2c2c2c2c2c2c2c2c3a2c3939393939393939393939393939393939393939393939393939393939393939393939393939393939393939",
+  "50502c2c2c2c2c2c2c2c2c2c2c2c3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a3a",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c",
+  "2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c"
+ ]
+}
