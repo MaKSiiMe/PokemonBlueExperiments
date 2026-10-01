@@ -157,7 +157,16 @@ git clone https://github.com/MaKSiiMe/PokemonBlueExperiments.git
 cd PokemonBlueExperiments
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -e ".[dev]"          # add ".[tools]" for interactive debug tools, ".[puffer]" for PufferLib
+```
+
+RAM addresses and Gen 1 data are generated from [pret/pokered](https://github.com/pret/pokered)
+(pinned commits) and committed; regenerate them with:
+
+```bash
+python scripts/gen_ram_symbols.py   # src/pokeblue/state/ram_symbols.py
+python scripts/gen_gen1_data.py     # src/pokeblue/knowledge/gen1_data/tables.py
+pytest                              # ROM-dependent tests are skipped if the ROM is absent
 ```
 
 ### Train
@@ -217,10 +226,16 @@ PokemonBlueExperiments/
 ├── logs/
 │   ├── exploration/              # TensorBoard logs
 │   └── videos/                   # GIF recordings (VideoRecorderCallback)
+├── scripts/
+│   ├── gen_ram_symbols.py        # pokeblue.sym → ram_symbols.py
+│   └── gen_gen1_data.py          # pokered data → gen1_data/tables.py
 ├── src/
+│   ├── pokeblue/                 # New modular package (refactor in progress)
+│   │   ├── state/ram_symbols.py  # GENERATED — the only source of RAM addresses
+│   │   └── knowledge/gen1_data/  # GENERATED Gen 1 types, moves, species, maps
 │   ├── emulator/
 │   │   ├── pokemon_env.py        # Gymnasium Dict environment
-│   │   └── ram_map.py            # RAM addresses (single source of truth)
+│   │   └── ram_map.py            # Legacy aliases derived from ram_symbols
 │   ├── agent/
 │   │   ├── exploration_agent.py  # MaskablePPO training orchestration
 │   │   ├── custom_policy.py      # PokemonGRUPolicy + PokemonFeaturesExtractor
@@ -233,17 +248,14 @@ PokemonBlueExperiments/
 │   ├── knowledge/
 │   │   ├── graph.py              # PokemonKnowledgeGraph
 │   │   ├── builder.py            # Graph construction from gen1_data
-│   │   └── gen1_data.py          # Type chart, move types, Pokédex
+│   │   └── gen1_data.py          # Legacy views over pokeblue.knowledge.gen1_data
 │   └── utils/
 │       ├── create_checkpoints.py # Save state tool
 │       └── debug_visualizer.py   # Live RAM overlay
-├── test_battle.py                # Battle agent integration test
+├── tests/
+│   └── manual/battle_manual.py   # Interactive battle agent test (not run by pytest)
 └── docs/
-    ├── stage1_report.md
-    ├── stage2_charter.md
-    ├── stage3_technical.md
-    ├── stage4_mvp.md
-    └── ram_map.md
+    └── archive/                  # First-version docs (obsolete, kept for history)
 ```
 
 ---
