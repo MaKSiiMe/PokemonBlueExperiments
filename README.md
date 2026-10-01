@@ -169,6 +169,13 @@ python scripts/gen_gen1_data.py     # src/pokeblue/knowledge/gen1_data/tables.py
 pytest                              # ROM-dependent tests are skipped if the ROM is absent
 ```
 
+Game state, mode detection and debug tools (see [docs/state.md](docs/state.md)):
+
+```bash
+pokeblue make-states                # labelled savestates from configs/states/modes.yaml
+pokeblue overlay --state states/37_pewter_city.state   # live GameState + detected mode
+```
+
 ### Train
 
 ```bash
@@ -231,8 +238,11 @@ PokemonBlueExperiments/
 │   └── gen_gen1_data.py          # pokered data → gen1_data/tables.py
 ├── src/
 │   ├── pokeblue/                 # New modular package (refactor in progress)
-│   │   ├── state/ram_symbols.py  # GENERATED — the only source of RAM addresses
-│   │   └── knowledge/gen1_data/  # GENERATED Gen 1 types, moves, species, maps
+│   │   ├── emulator/             # PyBoy wrapper, input recipes
+│   │   ├── state/                # GameState, mode detector, ram_symbols.py (GENERATED)
+│   │   ├── knowledge/gen1_data/  # GENERATED Gen 1 types, moves, species, maps, items, events
+│   │   ├── tools/                # make-states, overlay
+│   │   └── cli.py                # `pokeblue` command
 │   ├── emulator/
 │   │   ├── pokemon_env.py        # Gymnasium Dict environment
 │   │   └── ram_map.py            # Legacy aliases derived from ram_symbols
@@ -254,7 +264,9 @@ PokemonBlueExperiments/
 │       └── debug_visualizer.py   # Live RAM overlay
 ├── tests/
 │   └── manual/battle_manual.py   # Interactive battle agent test (not run by pytest)
+├── configs/states/modes.yaml     # Labelled savestate recipes (mode detection)
 └── docs/
+    ├── state.md                  # GameState and mode detection
     └── archive/                  # First-version docs (obsolete, kept for history)
 ```
 
