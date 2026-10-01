@@ -746,8 +746,12 @@ class PokemonBlueEnv(gym.Env):
         return 30.0 + (total - 15) / 4.0
 
     def _blacked_out(self) -> bool:
-        max_hp = self._r16(RAM_PLAYER_MHP_H)
-        return max_hp > 0 and self._r16(RAM_PLAYER_HP_H) == 0 and self._r(RAM_BATTLE) == 0
+        """Toute l'équipe est K.O. hors combat (pas seulement le Pokémon n°1)."""
+        return (
+            self._total_party_max_hp() > 0
+            and self._total_party_hp() == 0
+            and self._r(RAM_BATTLE) == 0
+        )
 
     # ── Action Masking (requis par MaskablePPO / sb3-contrib) ────────────────
 
