@@ -45,6 +45,7 @@ import numpy as np
 from gymnasium import spaces
 from pyboy import PyBoy
 
+from pokeblue.emulator import HOLD_FRAMES, PRESS_FRAMES
 from pokeblue.knowledge.gen1_data import MAP_IDS, type_multiplier
 from pokeblue.state import ram_symbols as sym
 from src.emulator.ram_map import (
@@ -120,7 +121,7 @@ _MS_MAPS: dict[str, int] = {
 _BOULDER_BADGE = 1 << sym.BIT_BOULDERBADGE
 
 ACTIONS          = ['up', 'down', 'left', 'right', 'a', 'b', 'start']
-TICKS_PER_ACTION = 24   # ~0.4s à 60fps — durée d'une animation de déplacement Gen 1
+TICKS_PER_ACTION = 24   # ~0.4s à 60fps : un pas (16 frames) et sa fin
 
 _DIRECTION_MAP = {
     sym.SPRITE_FACING_DOWN:  0.0,
@@ -267,15 +268,12 @@ class PokemonBlueEnv(gym.Env):
     def step(self, action_idx: int):
         action = ACTIONS[action_idx]
 
-        if action in ('up', 'down', 'left', 'right'):
-            self.pyboy.button_press(action)
-            self.pyboy.tick(TICKS_PER_ACTION - 1, render=False)
-            self.pyboy.tick(1, render=True)
-            self.pyboy.button_release(action)
-        else:
-            self.pyboy.button(action)
-            self.pyboy.tick(TICKS_PER_ACTION - 1, render=False)
-            self.pyboy.tick(1, render=True)
+        # Appui court puis relâche (voir pokeblue.emulator.core) : une direction fait
+        # exactement un pas, un bouton n'est jamais perdu.
+        hold = HOLD_FRAMES if action in ('up', 'down', 'left', 'right') else PRESS_FRAMES
+        self.pyboy.button(action, delay=hold)
+        self.pyboy.tick(TICKS_PER_ACTION - 1, render=False)
+        self.pyboy.tick(1, render=True)
 
         self._frame_buffer.append(self._get_screen())
 

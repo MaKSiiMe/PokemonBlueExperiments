@@ -24,6 +24,7 @@ import time
 from pyboy import PyBoy
 from pynput import keyboard as kb
 
+from pokeblue.emulator import PRESS_FRAMES
 from pokeblue.state import ram_symbols as sym
 from src.agent.battle_agent import BattleAgent
 from src.emulator.pokemon_env import TICKS_PER_ACTION
@@ -115,7 +116,7 @@ def main():
             if battle > 0:
                 action = battle_agent.act(pyboy)
                 if action:
-                    pyboy.button(action)
+                    pyboy.button(action, delay=PRESS_FRAMES)
                 for _ in range(TICKS_PER_ACTION):
                     pyboy.tick()
             else:

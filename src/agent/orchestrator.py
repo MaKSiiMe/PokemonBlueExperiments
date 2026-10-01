@@ -14,6 +14,7 @@ validée sur savestates étiquetés, arrive en Phase 1 avec un orchestrateur ré
 
 from pyboy import PyBoy
 
+from pokeblue.emulator import HOLD_FRAMES, PRESS_FRAMES
 from pokeblue.state import ram_symbols as sym
 from src.emulator.pokemon_env import ACTIONS, TICKS_PER_ACTION
 from src.emulator.ram_map import RAM_BATTLE
@@ -52,37 +53,23 @@ class Orchestrator:
             return GameState.BATTLE_TRAINER
         return GameState.UNKNOWN
 
+    def _press(self, btn: str | None) -> None:
+        """Une action : appui court (voir pokeblue.emulator.core) puis TICKS_PER_ACTION frames."""
+        if btn:
+            hold = HOLD_FRAMES if btn in ('up', 'down', 'left', 'right') else PRESS_FRAMES
+            self.pyboy.button(btn, delay=hold)
+        self.pyboy.tick(TICKS_PER_ACTION)
+
     def step(self, obs) -> str:
         state = self.get_game_state()
 
         if state in (GameState.BATTLE_WILD, GameState.BATTLE_TRAINER):
-            btn = self.battle.act(self.pyboy)
-            if btn:
-                self.pyboy.button(btn)
-            for _ in range(TICKS_PER_ACTION):
-                self.pyboy.tick()
-
+            self._press(self.battle.act(self.pyboy))
         elif state == GameState.OVERWORLD:
             action = self.exploration.act(obs)
-            if action is not None:
-                btn = ACTIONS[action]
-                if btn in ('up', 'down', 'left', 'right'):
-                    self.pyboy.button_press(btn)
-                    for _ in range(TICKS_PER_ACTION):
-                        self.pyboy.tick()
-                    self.pyboy.button_release(btn)
-                else:
-                    self.pyboy.button(btn)
-                    for _ in range(TICKS_PER_ACTION):
-                        self.pyboy.tick()
-            else:
-                for _ in range(TICKS_PER_ACTION):
-                    self.pyboy.tick()
-
+            self._press(ACTIONS[action] if action is not None else None)
         else:
-            self.pyboy.button('b')
-            for _ in range(TICKS_PER_ACTION):
-                self.pyboy.tick()
+            self._press('b')
 
         if state != self._prev_state:
             print(f"[Orchestrator] {self._prev_state} → {state}")

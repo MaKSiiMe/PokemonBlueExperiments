@@ -57,3 +57,17 @@ def test_obs_ranges(env):
     assert obs['screen'].min() >= 0.0 and obs['screen'].max() <= 1.0, "screen hors [0,1]"
     assert obs['visited_mask'].min() >= 0.0 and obs['visited_mask'].max() <= 1.0
     assert obs['ram'].min() >= 0.0 and obs['ram'].max() <= 1.0, "ram hors [0,1]"
+
+
+def test_direction_action_moves_exactly_one_tile(env, state_path):
+    """Régression : maintenir la direction 23 frames faisait deux pas par action."""
+    from src.emulator.pokemon_env import ACTIONS
+    from src.emulator.ram_map import RAM_PLAYER_X
+
+    with open(state_path('37_pewter_city.state'), 'rb') as f:
+        env.reset_from_state(f.read())
+    env.pyboy.tick(30)
+    x0 = env._r(RAM_PLAYER_X)
+    for step in range(1, 4):
+        env.step(ACTIONS.index('left'))
+        assert env._r(RAM_PLAYER_X) == x0 - step
