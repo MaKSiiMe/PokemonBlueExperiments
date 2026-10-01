@@ -35,6 +35,7 @@ dependencies = [
     "requests>=2.31",        # cache PokéAPI (src/knowledge/builder.py)
     "imageio>=2.34",         # GIF de debug
     "pillow>=10.0",
+    "pyyaml>=6.0",           # configs et manifestes de savestates
 ]
 
 [project.optional-dependencies]
