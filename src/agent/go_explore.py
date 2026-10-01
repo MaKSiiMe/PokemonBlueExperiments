@@ -110,6 +110,9 @@ class CellArchive:
                 visit_count=0,
                 discovery_step=self._global_step,
             )
+            unique_maps_now = len({k[0] for k in self._cells})
+            print(f"[Archive] NEW CELL map=0x{map_id:02X} pos=({x},{y}) "
+                  f"| archive_size={len(self._cells)} | unique_maps={unique_maps_now}")
             return True
 
         entry = self._cells[key]
@@ -261,9 +264,10 @@ class GoExploreWrapper(gym.Wrapper):
         """
         if self.archive.size > 0 and random.random() < self.use_archive_prob:
             if random.random() < 0.7:
-                _, savestate_bytes = self.archive.sample_frontier(n=20)
+                key, savestate_bytes = self.archive.sample_frontier(n=20)
             else:
-                _, savestate_bytes = self.archive.sample()
+                key, savestate_bytes = self.archive.sample()
+            print(f"[GoExplore] TELEPORT to cell map=0x{key[0]:02X} pos=({key[1]},{key[2]})")
             obs, info = self.env.reset_from_state(savestate_bytes)
             self._prev_map_id = info.get('map_id', -1)
             return obs, info

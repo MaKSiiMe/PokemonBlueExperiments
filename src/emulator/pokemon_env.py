@@ -632,9 +632,13 @@ class PokemonBlueEnv(gym.Env):
         r_level                 = current_level_reward - self._prev_level_reward
         self._prev_level_reward = current_level_reward
 
-        # Pénalité progressive de stagnation (activée au-delà de 50 steps immobiles)
-        if self._steps_stuck > 50:
+        # Pénalité de stagnation en overworld : progressive, max -1.0/step
+        if self._steps_stuck > 50 and self._r(RAM_BATTLE) == 0:
             r_stuck = max(-0.01 * (self._steps_stuck - 50), -1.0)
+
+        # Pénalité fixe en combat : encourage à attaquer vite sans être catastrophique
+        if self._r(RAM_BATTLE) > 0:
+            r_stuck -= 0.05
 
         # Signal directionnel : bonus quand le joueur atteint un nouveau Y minimal sur
         # les maps du chemin critique (Y décroissant = avancer vers le nord = vers Brock).
@@ -786,6 +790,7 @@ class PokemonBlueEnv(gym.Env):
             mask[1] = False  # down
             mask[2] = False  # left
             mask[3] = False  # right
+            mask[5] = False  # b — empêche la fuite systématique
             mask[6] = False  # start (sans effet en combat Gen 1)
 
             enemy_type1 = self._r(RAM_ENEMY_TYPE1)

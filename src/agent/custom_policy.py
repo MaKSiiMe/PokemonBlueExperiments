@@ -261,6 +261,7 @@ class PokemonGRUPolicy(MaskableActorCriticPolicy):
         """Réinitialise le hidden state pour les envs dont l'épisode vient de finir."""
         if self._gru_hidden is None:
             return
+        print(f"[GRU] Reset hidden for envs: {env_indices}")
         for idx in env_indices:
             self._gru_hidden[0, idx, :] = 0.0
 

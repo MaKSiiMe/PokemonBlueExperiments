@@ -18,6 +18,8 @@ import os
 import random
 from functools import partial
 
+import numpy as np
+
 from sb3_contrib import MaskablePPO
 from stable_baselines3.common.monitor import Monitor
 
@@ -55,6 +57,8 @@ def parse_args():
     p.add_argument('--compile',  action='store_true',
                    help='Active torch.compile sur la politique (CUDA requis)')
     p.add_argument('--render',   action='store_true', help='Afficher la fenêtre SDL2')
+    p.add_argument('--gif',      type=str, default=None, metavar='FILE',
+                   help='Enregistrer un GIF (ex: demo.gif). Implique --render.')
     p.add_argument('--speed',    type=int, default=0, help='Vitesse émulateur (0=max)')
     p.add_argument('--no-go-explore', action='store_true',
                    help='Désactive Go-Explore')
@@ -150,7 +154,7 @@ def run_train(args):
     ) if use_go_explore else {}
 
     # ── Phase 1 — exploration large ───────────────────────────────────────────
-    max_ep_p1 = 6000
+    max_ep_p1 = 3000
     steps_p1  = int(args.steps * 0.6)
     print(f"[Train] Objectif    : battre Brock (Badge Pierre)")
     print(f"[Train] Mode        : {'RAM-only MLP' if args.ram_only else 'CNN+GRU'}")
@@ -224,6 +228,11 @@ def run_train(args):
 def run_inference(args):
     from src.agent.exploration_agent import ExplorationAgent
 
+    gif_path  = args.gif
+    recording = gif_path is not None
+    if recording:
+        args.render = True          # on a besoin du rendu pour capturer
+
     state    = args.state or INIT_STATE
     headless = not args.render
 
@@ -242,9 +251,14 @@ def run_inference(args):
         agent = None
 
     print(f"[Run] State : {state}  |  max steps : {MAX_STEPS}")
+    if recording:
+        print(f"[Run] Enregistrement GIF → {gif_path}")
     print("[Run] Ctrl+C pour arrêter.\n")
 
     from src.emulator.ram_map import RAM_MAP_ID, RAM_PLAYER_X, RAM_PLAYER_Y
+
+    gif_frames  = []
+    GIF_EVERY   = 4   # capture 1 frame sur 4 (~15 fps à vitesse ×1)
 
     step = 0
     try:
@@ -257,6 +271,10 @@ def run_inference(args):
                 action = agent.act(obs, action_masks=masks)
             obs, reward, terminated, truncated, info = env.step(action)
             step += 1
+
+            if recording and step % GIF_EVERY == 0:
+                raw = base_env.pyboy.screen.ndarray  # (144, 160, 4) RGBA uint8
+                gif_frames.append(raw[:, :, :3].copy())  # drop alpha
 
             if terminated or truncated:
                 obs, _ = env.reset()
@@ -275,6 +293,24 @@ def run_inference(args):
 
     env.close()
     print(f"[Run] Terminé en {step} steps.")
+
+    if recording and gif_frames:
+        _save_gif(gif_frames, gif_path)
+
+
+def _save_gif(frames: list, path: str, fps: int = 15) -> None:
+    import imageio
+    from PIL import Image
+
+    print(f"[GIF] Export de {len(frames)} frames → {path} …")
+    # Réduction optionnelle ×2 pour alléger le fichier (144×160 → 72×80)
+    resized = [
+        Image.fromarray(f).resize((160, 144), Image.NEAREST)
+        for f in frames
+    ]
+    imageio.mimsave(path, [np.array(img) for img in resized], fps=fps, loop=0)
+    size_kb = os.path.getsize(path) // 1024
+    print(f"[GIF] Sauvegardé : {path}  ({size_kb} Ko, {len(frames)} frames)")
 
 
 if __name__ == '__main__':
