@@ -7,6 +7,10 @@ Tables produites (commit épinglé dans `pokeblue.knowledge.pokered.source`) :
   - MOVES                            data/moves/moves.asm
   - SPECIES                          data/pokemon/base_stats/*.asm, data/pokemon/dex_order.asm
   - MAPS                             constants/map_constants.asm
+  - ITEMS                            constants/item_constants.asm (objets, étages, CT/CS)
+  - EVENTS                           constants/event_constants.asm (indices de wEventFlags)
+  - CHARMAP                          constants/charmap.asm (caractère → tuile)
+  - FADE_PALETTES                    home/fade.asm (palettes rBGP/rOBP0/rOBP1 des fondus)
 
 Usage :
     python scripts/gen_gen1_data.py           # télécharge (cache .cache/pokered) puis écrit
@@ -15,6 +19,8 @@ Usage :
 
 from __future__ import annotations
 
+import json
+import re
 import sys
 from pathlib import Path
 
@@ -104,6 +110,49 @@ def species_table(root: Path, consts: AsmConstants, enumerated: list[str]) -> di
     return species
 
 
+_CHARMAP = re.compile(r'^\s*charmap\s+"((?:[^"\\]|\\.)+)",\s*\$([0-9A-Fa-f]{2})\b')
+
+
+def charmap_table(root: Path) -> dict[str, int]:
+    """Caractère (ou balise de contrôle `<...>`) → numéro de tuile, dans l'ordre du fichier."""
+    table: dict[str, int] = {}
+    for line in (root / "constants/charmap.asm").read_text(encoding="utf-8").splitlines():
+        if m := _CHARMAP.match(line):
+            table[m.group(1)] = int(m.group(2), 16)
+    if not table:
+        raise AsmError("charmap.asm : aucune entrée")
+    return table
+
+
+_FADE_PAL = re.compile(r"^FadePal(\d)::\s*dc\s+(.*)$")
+
+
+def fade_palettes(root: Path) -> list[tuple[int, int, int]]:
+    """FadePal1..8 : (rBGP, rOBP0, rOBP1). Macro `dc` : 4 valeurs de 2 bits par octet."""
+    palettes = {}
+    for line in logical_lines(root / "home/fade.asm"):
+        if m := _FADE_PAL.match(line):
+            crumbs = [int(v) for v in m.group(2).split(",")]
+            packed = [
+                (a << 6) | (b << 4) | (c << 2) | d
+                for a, b, c, d in zip(*[iter(crumbs)] * 4, strict=True)
+            ]
+            palettes[int(m.group(1))] = tuple(packed)
+    if sorted(palettes) != list(range(1, 9)):
+        raise AsmError("home/fade.asm : FadePal1..8 attendus")
+    return [palettes[i] for i in range(1, 9)]
+
+
+def _unique_values(consts: AsmConstants, names: list[str], label: str) -> dict[int, str]:
+    table: dict[int, str] = {}
+    for name in names:
+        value = consts[name]
+        if value in table:
+            raise AsmError(f"{label} : {name} et {table[value]} partagent la valeur {value:#x}")
+        table[value] = name
+    return table
+
+
 def render(root: Path) -> str:
     consts, enumerated = load_constants(root)
     type_names, special_start, effects = type_tables(
@@ -112,6 +161,10 @@ def render(root: Path) -> str:
     species = species_table(root, consts, enumerated["constants/pokemon_constants.asm"])
     maps = {consts[n]: (n, consts[f"{n}_WIDTH"], consts[f"{n}_HEIGHT"])
             for n in enumerated["constants/map_constants.asm"]}
+    items = _unique_values(consts, enumerated["constants/item_constants.asm"], "items")
+    events = _unique_values(consts, enumerated["constants/event_constants.asm"], "events")
+    charmap = charmap_table(root)
+    fades = fade_palettes(root)
 
     out = [
         '"""Données Gen 1 de Pokémon Bleu — FICHIER GÉNÉRÉ, NE PAS MODIFIER.',
@@ -163,6 +216,27 @@ def render(root: Path) -> str:
         "MAPS: dict[int, MapInfo] = {",
         *(f'    0x{mid:02X}: MapInfo("{n}", {w}, {h}),' for mid, (n, w, h) in sorted(maps.items())),
         "}",
+        "",
+        "# constants/item_constants.asm — objets, étages d'ascenseur, CS (HM_*) et CT (TM_*)",
+        "ITEMS: dict[int, str] = {",
+        *(f'    0x{iid:02X}: "{n}",' for iid, n in sorted(items.items())),
+        "}",
+        "",
+        "# constants/event_constants.asm — indice du drapeau dans wEventFlags",
+        "EVENTS: dict[int, str] = {",
+        *(f'    0x{eid:03X}: "{n}",' for eid, n in sorted(events.items())),
+        "}",
+        "",
+        "# constants/charmap.asm — caractère (ou balise <...>) → tuile, dans l'ordre du fichier",
+        "CHARMAP: dict[str, int] = {",
+        *(f"    {json.dumps(c, ensure_ascii=False)}: 0x{t:02X}," for c, t in charmap.items()),
+        "}",
+        "",
+        "# home/fade.asm — FadePal1..8 : (rBGP, rOBP0, rOBP1), du noir (1) au blanc (8).",
+        "# Palette stable d'une carte : LoadGBPal lit FadePal4 décalée de wMapPalOffset octets.",
+        "FADE_PALETTES: tuple[tuple[int, int, int], ...] = (",
+        *(f"    (0x{b:02X}, 0x{o0:02X}, 0x{o1:02X}),  # FadePal{i}" for i, (b, o0, o1) in enumerate(fades, 1)),
+        ")",
         "# fmt: on",
         "",
     ]

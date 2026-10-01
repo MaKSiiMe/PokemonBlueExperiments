@@ -7,10 +7,15 @@ comme clé (`MOVES[move_id]`, `SPECIES[species_id]`, `TYPE_NAMES[type_id]`).
 
 from __future__ import annotations
 
+import unicodedata
 from collections.abc import Iterable
 
 from pokeblue.knowledge.gen1_data.models import MapInfo, Move, Species
 from pokeblue.knowledge.gen1_data.tables import (
+    CHARMAP,
+    EVENTS,
+    FADE_PALETTES,
+    ITEMS,
     MAPS,
     MOVES,
     SOURCE_COMMIT,
@@ -25,6 +30,18 @@ MOVE_IDS: dict[str, int] = {move.name: mid for mid, move in MOVES.items()}
 SPECIES_IDS: dict[str, int] = {s.name: sid for sid, s in SPECIES.items()}
 MAP_IDS: dict[str, int] = {m.name: mid for mid, m in MAPS.items()}
 DEX_TO_SPECIES: dict[int, int] = {s.dex: sid for sid, s in SPECIES.items()}
+ITEM_IDS: dict[str, int] = {name: iid for iid, name in ITEMS.items()}
+EVENT_IDS: dict[str, int] = {name: eid for eid, name in EVENTS.items()}
+
+# Tuile de police (>= 0x60) → caractère affiché par la version US. Plusieurs caractères
+# partagent une tuile selon le graphisme chargé (▲ de la carte et ▶, kana japonais du
+# texte non traduit) : on ignore les kana (pleine chasse) et le dernier défini l'emporte.
+TILE_CHARS: dict[int, str] = {
+    tile: char
+    for char, tile in CHARMAP.items()
+    if tile >= 0x60 and not char.startswith("<")
+    and unicodedata.east_asian_width(char[0]) not in ("W", "F")
+}
 
 # Ordre d'action (engine/battle/core.asm, MainInBattleLoop) : Vive-Attaque passe avant,
 # Riposte après ; sinon la Vitesse décide. Aucune autre attaque n'a de priorité en Gen 1.
@@ -61,8 +78,19 @@ def move_priority(move_id: int) -> int:
     return MOVE_PRIORITY.get(move_id, 0)
 
 
+def decode_tiles(tiles: bytes, unknown: str = "·") -> str:
+    """Texte affiché par une suite de tuiles (les tuiles de décor deviennent `unknown`)."""
+    return "".join(TILE_CHARS.get(t, unknown) for t in tiles)
+
+
 __all__ = [
+    "CHARMAP",
     "DEX_TO_SPECIES",
+    "EVENTS",
+    "EVENT_IDS",
+    "FADE_PALETTES",
+    "ITEMS",
+    "ITEM_IDS",
     "MAPS",
     "MAP_IDS",
     "MOVES",
@@ -74,10 +102,12 @@ __all__ = [
     "SPECIES_IDS",
     "TYPE_EFFECTS",
     "TYPE_IDS",
+    "TILE_CHARS",
     "TYPE_NAMES",
     "MapInfo",
     "Move",
     "Species",
+    "decode_tiles",
     "is_damaging",
     "is_special_type",
     "move_priority",

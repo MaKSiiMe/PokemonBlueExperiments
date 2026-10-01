@@ -1,6 +1,6 @@
 """Règles de projet vérifiées automatiquement.
 
-1. Aucune adresse RAM (WRAM C000–DFFF, HRAM FF80–FFFE) n'est écrite en dur hors de
+1. Aucune adresse RAM (WRAM, registres IO, HRAM) n'est écrite en dur hors de
    `src/pokeblue/state/ram_symbols.py` : tout passe par les symboles générés.
    Seules exceptions : les lignes marquées `# allow-ram-literal` (bornes de régions).
 2. Les fichiers générés correspondent à leurs générateurs (sauté si les sources
@@ -15,6 +15,8 @@ from pathlib import Path
 
 import pytest
 
+from pokeblue.state import ram_symbols as sym
+
 ROOT = Path(__file__).resolve().parents[1]
 GENERATED_RAM = ROOT / "src" / "pokeblue" / "state" / "ram_symbols.py"
 SCANNED_DIRS = ("src", "tests", "scripts", "utils")
@@ -25,7 +27,8 @@ _HEX = re.compile(r"0[xX]([0-9A-Fa-f]{4})(?![0-9A-Fa-f])")
 
 
 def _is_ram_address(value: int) -> bool:
-    return 0xC000 <= value <= 0xDFFF or 0xFF80 <= value <= 0xFFFE  # allow-ram-literal
+    """WRAM, registres IO et HRAM (la VRAM n'est pas surveillée : 0x8000 est un masque courant)."""
+    return sym.WRAM_START <= value <= sym.WRAM_END or sym.IO_START <= value <= sym.HIGH_END
 
 
 def _python_files():

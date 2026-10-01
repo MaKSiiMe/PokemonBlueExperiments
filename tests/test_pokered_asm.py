@@ -110,6 +110,18 @@ def test_map_const_and_macro_bodies(tmp_path):
     assert (consts["ROUTE_1_WIDTH"], consts["ROUTE_1_HEIGHT"]) == (10, 18)
 
 
+def test_tm_hm_item_macros(tmp_path):
+    consts, names = _load(tmp_path, """
+        const_def
+        const_next $C4
+        add_hm CUT
+        add_hm FLY
+        add_tm MEGA_PUNCH
+    """)
+    assert names == ["HM_CUT", "HM_FLY", "TM_MEGA_PUNCH"]
+    assert consts.require("HM_CUT", "TM_MEGA_PUNCH") == {"HM_CUT": 0xC4, "TM_MEGA_PUNCH": 0xC6}
+
+
 def test_unresolved_definition_is_absent_not_wrong(tmp_path):
     consts, _ = _load(tmp_path, "DEF A EQU UNKNOWN | 1\nDEF B EQU 2\n")
     assert "A" not in consts.values

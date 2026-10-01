@@ -1,4 +1,5 @@
 # --- ÉMULATEUR & JEU ---
+states/modes/
 *.gb
 *.gbc
 *.state

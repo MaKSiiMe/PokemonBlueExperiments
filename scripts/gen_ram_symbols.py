@@ -12,6 +12,7 @@ Usage :
 
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -36,6 +37,15 @@ REGIONS = {
     "WRAM": (0xC000, 0xDFFF),  # allow-ram-literal
     "HRAM": (0xFF80, 0xFFFE),  # allow-ram-literal
 }
+IO_REGION = (0xFF00, 0xFF7F)   # allow-ram-literal — registres matériels
+HIGH_END = 0xFFFF              # allow-ram-literal — registre IE, fin de l'espace d'adressage
+
+# Registres matériels : définitions simples `def rXXX equ $FFxx` de constants/hardware.inc
+# (le fichier contient des conditionnelles, on n'en lit donc que ces lignes).
+HARDWARE_INC = "constants/hardware.inc"
+_HW_REGISTER = re.compile(r"^def\s+(r[A-Z0-9_]+)\s+equ\s+\$([0-9A-Fa-f]{4})\s*(?:;.*)?$", re.IGNORECASE)
+_HW_BIT = re.compile(r"^\s*def\s+(B_LCDC_[A-Z0-9_]+|SCREEN_WIDTH|SCREEN_HEIGHT)\s+equ\s+([0-9]+)\b",
+                     re.IGNORECASE)
 
 # Constantes de disposition mémoire nécessaires pour lire la RAM, par fichier source.
 LAYOUT_CONSTANTS = {
@@ -51,6 +61,8 @@ LAYOUT_CONSTANTS = {
         "NUM_MOVES", "WILD_BATTLE", "TRAINER_BATTLE", "LOST_BATTLE",
         "BATTLE_TYPE_NORMAL", "BATTLE_TYPE_OLD_MAN", "BATTLE_TYPE_SAFARI",
         "SLP_MASK", "PSN", "BRN", "FRZ", "PAR",
+        "MOD_ATTACK", "MOD_DEFENSE", "MOD_SPEED", "MOD_SPECIAL", "MOD_ACCURACY", "MOD_EVASION",
+        "NUM_STAT_MODS", "BASE_STAT_LEVEL", "MAX_STAT_LEVEL",
     ),
     "constants/ram_constants.asm": (
         "BIT_BOULDERBADGE", "BIT_CASCADEBADGE", "BIT_THUNDERBADGE", "BIT_RAINBOWBADGE",
@@ -78,6 +90,21 @@ def _region(addr: int) -> str | None:
         if lo <= addr <= hi:
             return name
     return None
+
+
+def _hardware(pokered: Path) -> tuple[list[tuple[str, int]], list[tuple[str, int]]]:
+    """Registres IO (FF00–FF7F, FFFF), bits de rLCDC et taille de l'écran (hardware.inc)."""
+    registers, bits = [], []
+    for line in (pokered / HARDWARE_INC).read_text(encoding="utf-8").splitlines():
+        if m := _HW_REGISTER.match(line.strip()):
+            addr = int(m.group(2), 16)
+            if IO_REGION[0] <= addr <= IO_REGION[1] or addr == HIGH_END:
+                registers.append((m.group(1), addr))
+        elif m := _HW_BIT.match(line):
+            bits.append((m.group(1), int(m.group(2))))
+    if not registers or not bits:
+        raise AsmError(f"{HARDWARE_INC} : aucun registre trouvé")
+    return registers, bits
 
 
 def _value(name: str, value: int) -> str:
@@ -126,6 +153,21 @@ def render(sym_path: Path, pokered: Path) -> str:
         const = claim(constant_name(name), name)
         entries.append((name, const))
         lines.append(f"{const} = 0x{addr:04X}  # {name}")
+
+    registers, lcdc_bits = _hardware(pokered)
+    lines += ["", f"# ── Registres matériels ({HARDWARE_INC}) " + "─" * 38]
+    for name, addr in sorted(registers, key=lambda r: (r[1], r[0])):
+        lines.append(f"{claim(constant_name(name), name)} = 0x{addr:04X}  # {name}")
+    for name, bit in lcdc_bits:
+        lines.append(f"{claim(name, HARDWARE_INC)} = {bit}")
+    lines.append(f"{claim('SCREEN_AREA', HARDWARE_INC)} = SCREEN_WIDTH * SCREEN_HEIGHT  # taille de wTileMap")
+
+    lines += ["", "# ── Carte mémoire du Game Boy (DMG) " + "─" * 44]
+    bounds = {f"{region}_START": lo for region, (lo, _) in REGIONS.items()}
+    bounds |= {f"{region}_END": hi for region, (_, hi) in REGIONS.items()}
+    bounds |= {"IO_START": IO_REGION[0], "IO_END": IO_REGION[1], "HIGH_END": HIGH_END}
+    for name in sorted(bounds, key=lambda n: (bounds[n], n)):
+        lines.append(f"{claim(name, 'carte mémoire')} = 0x{bounds[name]:04X}")
 
     lines += ["", "# ── Disposition mémoire (constants/*.asm) " + "─" * 39]
     for rel, names in LAYOUT_CONSTANTS.items():
