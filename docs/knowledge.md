@@ -112,5 +112,6 @@ Résultats :
   réputé fait une fois la CS01 obtenue.
 - **Niveaux conseillés** : ils valent le niveau maximal de l'équipe à battre, sans
   marge. La Phase 6 les remplacera par une stratégie apprise.
-- **Ancien graphe** : le graphe NetworkX alimenté par PokéAPI (`src/knowledge/`) est
-  remplacé par ce module. Il ne sert plus qu'à l'environnement RL historique.
+- **Ancien graphe** : le graphe NetworkX alimenté par PokéAPI (`src/knowledge/`) a été
+  supprimé. L'environnement RL historique utilise désormais ce module. Ses pages de
+  visualisation sont archivées dans `docs/archive/`.

@@ -46,7 +46,8 @@ from gymnasium import spaces
 from pyboy import PyBoy
 
 from pokeblue.emulator import HOLD_FRAMES, PRESS_FRAMES
-from pokeblue.knowledge.gen1_data import MAP_IDS, type_multiplier
+from pokeblue.knowledge.gen1_data import EVOLUTIONS, MAP_IDS, MOVES, is_damaging, type_multiplier
+from pokeblue.knowledge.maps import map_by_id
 from pokeblue.state import ram_symbols as sym
 from src.emulator.ram_map import (
     RAM_BADGES,
@@ -79,12 +80,9 @@ from src.emulator.ram_map import (
     RAM_POKEDEX_OWNED,
     RAM_PP_MASK,
 )
-from src.knowledge import PokemonKnowledgeGraph
-from src.knowledge.gen1_data import (
-    GEN1_INTERNAL_TO_DEX,
-    MOVE_TYPES,
-    STATUS_MOVES,
-)
+
+MOVE_TYPES: dict[int, int] = {mid: move.type for mid, move in MOVES.items()}
+STATUS_MOVES: frozenset[int] = frozenset(mid for mid in MOVES if not is_damaging(mid))
 
 # ── Constantes d'observation ──────────────────────────────────────────────────
 SCREEN_H     = 72    # hauteur après sous-échantillonnage ×2 (144 → 72)
@@ -131,6 +129,15 @@ _DIRECTION_MAP = {
 }
 
 
+def _wild_species_count(map_id: int) -> int:
+    """Nombre d'espèces rencontrables dans l'herbe de la carte (données pokered)."""
+    try:
+        wild = map_by_id(map_id).wild
+    except KeyError:
+        return 0
+    return len({species for _, species in wild.grass}) if wild else 0
+
+
 class PokemonBlueEnv(gym.Env):
     """Environnement Gymnasium pour Pokémon Bleu — espace d'observation hybride Dict."""
 
@@ -143,7 +150,6 @@ class PokemonBlueEnv(gym.Env):
         headless: bool = True,
         speed: int = 0,
         max_steps: int = 10_000,
-        kg: PokemonKnowledgeGraph | None = None,
         ram_only: bool = False,
     ):
         super().__init__()
@@ -153,25 +159,10 @@ class PokemonBlueEnv(gym.Env):
         self.max_steps  = max_steps
         self.ram_only   = ram_only
 
-        # Graphe de connaissances — partagé entre envs parallèles pour éviter
-        # de charger N fois le même fichier JSON.
-        self._kg: PokemonKnowledgeGraph = kg or PokemonKnowledgeGraph()
-
-        # Cache dex → can_evolve pour un lookup O(1) à chaque step
-        self._dex_can_evolve: dict[int, bool] = {
-            data["dex"]: bool(self._kg.evolutions(data["name"]))
-            for _, data in self._kg._G.nodes(data=True)
-            if data.get("kind") == "pokemon"
-        }
-
         self._escaped_lab        = False
         self._min_y_progress     = 255
         self._entered_building   = False
         self._steps_on_current_map = 0
-
-        # Chemin optimal Bourg Palette → Arène de Pierre (carte une fois pour toutes)
-        _path = self._kg.zone_path(MAP_IDS["PALLET_TOWN"], MAP_IDS["PEWTER_GYM"])
-        self._optimal_path_zones: frozenset[int] = frozenset(_path)
 
         window = 'null' if headless else 'SDL2'
         self.pyboy = PyBoy(rom_path, window=window, sound=False)
@@ -434,9 +425,7 @@ class PokemonBlueEnv(gym.Env):
 
         type_advantage, enemy_can_evolve = self._kg_battle_signals()
         if map_id not in self._zone_density_cache:
-            self._zone_density_cache[map_id] = min(
-                len(self._kg.encounters_in_zone(map_id)) / 8.0, 1.0
-            )
+            self._zone_density_cache[map_id] = min(_wild_species_count(map_id) / 8.0, 1.0)
         zone_density = self._zone_density_cache[map_id]
 
         battle_mon_hp_pct = 0.0
@@ -545,9 +534,7 @@ class PokemonBlueEnv(gym.Env):
 
         type_advantage = min(best_mult / 4.0, 1.0)
 
-        internal_id      = self._r(RAM_ENEMY_SPECIES)
-        dex_number       = GEN1_INTERNAL_TO_DEX.get(internal_id)
-        enemy_can_evolve = 1.0 if self._dex_can_evolve.get(dex_number, False) else 0.0
+        enemy_can_evolve = 1.0 if EVOLUTIONS.get(self._r(RAM_ENEMY_SPECIES)) else 0.0
 
         return type_advantage, enemy_can_evolve
 

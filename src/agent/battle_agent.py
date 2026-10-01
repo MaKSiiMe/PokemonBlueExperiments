@@ -20,7 +20,7 @@ Gen 1 move menu layout (liste verticale, 1 colonne) :
     Move 2
     Move 3
 
-Scoring des moves (via PokemonKnowledgeGraph) :
+Scoring des moves (pokeblue.knowledge.gen1_data) :
   - Multiplicateur de type exact Gen 1 : 0.0 / 0.25 / 0.5 / 1.0 / 2.0 / 4.0
     (inclut immunités et résistances ; un mono-type n'est compté qu'une fois)
   - Bonus +0.5 pour Quick Attack si ennemi < 30% HP (finisher avant contre-attaque)
@@ -33,7 +33,8 @@ import logging
 
 from pyboy import PyBoy
 
-from pokeblue.knowledge.gen1_data import MOVE_IDS
+from pokeblue.knowledge.gen1_data import MOVE_IDS, type_multiplier
+from src.emulator.pokemon_env import MOVE_TYPES, STATUS_MOVES
 from src.emulator.ram_map import (
     RAM_ENEMY_HP_H,
     RAM_ENEMY_HP_L,
@@ -45,13 +46,9 @@ from src.emulator.ram_map import (
     RAM_MOVE_PP,
     RAM_PP_MASK,
 )
-from src.knowledge import PokemonKnowledgeGraph
-from src.knowledge.gen1_data import MOVE_TYPES, STATUS_MOVES
 
 logger = logging.getLogger(__name__)
 
-# MOVE_TYPES et STATUS_MOVES sont maintenant dans src.knowledge.gen1_data
-# (source unique de vérité, partagée avec pokemon_env.py sans circular import)
 
 # Vive-Attaque (priorité +1 en Gen 1)
 _QUICK_ATTACK_ID = MOVE_IDS["QUICK_ATTACK"]
@@ -60,7 +57,7 @@ _QUICK_ATTACK_ID = MOVE_IDS["QUICK_ATTACK"]
 class BattleAgent:
     """Heuristic battle agent for Gen 1 Pokémon.
 
-    Utilise PokemonKnowledgeGraph pour le scoring des types :
+    Utilise le multiplicateur de type Gen 1 (pokeblue.knowledge.gen1_data) :
     multiplicateurs exacts Gen 1 (0.0 / 0.5 / 1.0 / 2.0 / 4.0)
     au lieu du TYPE_CHART binaire précédent.
     """
@@ -68,13 +65,7 @@ class BattleAgent:
     _INTRO_PRESSES = 8    # A à spammer pour les dialogs d'intro
     _POST_PRESSES  = 12   # A après le move (animations + tour ennemi)
 
-    def __init__(self, kg: PokemonKnowledgeGraph | None = None) -> None:
-        """
-        Args:
-            kg: Instance de PokemonKnowledgeGraph. Si None, en crée une
-                automatiquement (charge le graphe depuis le disque).
-        """
-        self._kg: PokemonKnowledgeGraph = kg or PokemonKnowledgeGraph()
+    def __init__(self) -> None:
         self._queue: list[str] = []
         self._turn: int = 0
 
@@ -129,7 +120,7 @@ class BattleAgent:
             if move_id in STATUS_MOVES:
                 score = -1.0 if enemy_hp_pct < 0.25 else 0.0
             else:
-                score = self._kg.type_multiplier_from_ram(MOVE_TYPES[move_id], enemy_type_bytes)
+                score = type_multiplier(MOVE_TYPES[move_id], enemy_type_bytes)
                 # Quick Attack finisher : agit avant la contre-attaque ennemie
                 if move_id == _QUICK_ATTACK_ID and enemy_hp_pct < 0.3:
                     score += 0.5

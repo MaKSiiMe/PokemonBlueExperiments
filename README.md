@@ -256,10 +256,6 @@ PokemonBlueExperiments/
 │   │   ├── go_explore.py         # Go-Explore archive (future)
 │   │   ├── orchestrator.py       # RAM state machine
 │   │   └── vectorization.py      # SubprocVecEnv helpers
-│   ├── knowledge/
-│   │   ├── graph.py              # PokemonKnowledgeGraph
-│   │   ├── builder.py            # Graph construction from gen1_data
-│   │   └── gen1_data.py          # Legacy views over pokeblue.knowledge.gen1_data
 │   └── utils/
 │       ├── create_checkpoints.py # Save state tool
 │       └── debug_visualizer.py   # Live RAM overlay

@@ -83,7 +83,6 @@ def make_env(
     speed:            int   = 0,
     max_steps:        int   = 2000,
     monitor:          bool  = True,
-    kg               = None,
     archive          = None,
     use_archive_prob: float = 0.5,
     capture_every:    int   = 10,
@@ -111,7 +110,6 @@ def make_env(
         headless   = headless,
         speed      = speed,
         max_steps  = max_steps,
-        kg         = kg,
         ram_only   = ram_only,
     )
 
