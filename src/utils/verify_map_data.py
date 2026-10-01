@@ -4,6 +4,7 @@ import glob
 import cv2
 import numpy as np
 from pyboy import PyBoy
+from pokeblue.state import ram_symbols as sym
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
@@ -11,13 +12,13 @@ ROM_PATH = "PokemonBlue.gb"
 STATE_DIR = "states"
 
 # Adresses mémoire
-MEM_MAP_ID = 0xD35E
-MEM_PLAYER_X = 0xD362
-MEM_PLAYER_Y = 0xD361
-MEM_WARP_COUNT = 0xD3AE
-MEM_WARP_DATA = 0xD3AF
-MEM_SIGN_COUNT = 0xD4B0
-MEM_SIGN_DATA = 0xD4B1
+MEM_MAP_ID = sym.W_CUR_MAP
+MEM_PLAYER_X = sym.W_X_COORD
+MEM_PLAYER_Y = sym.W_Y_COORD
+MEM_WARP_COUNT = sym.W_NUMBER_OF_WARPS
+MEM_WARP_DATA = sym.W_WARP_ENTRIES
+MEM_SIGN_COUNT = sym.W_NUM_SIGNS
+MEM_SIGN_DATA = sym.W_SIGN_COORDS
 
 # Position du joueur à l'écran
 # Écran = 160x144 = 10x9 tiles

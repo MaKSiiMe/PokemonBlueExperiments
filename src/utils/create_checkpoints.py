@@ -16,6 +16,7 @@ import os
 import threading
 
 from pyboy import PyBoy
+from pokeblue.state import ram_symbols as sym
 
 ROM_PATH   = 'ROMs/PokemonBlue.gb'
 STATES_DIR = 'states'
@@ -96,9 +97,9 @@ def run_auto():
         with open(out, 'wb') as f:
             pyboy.save_state(f)
 
-        mid = pyboy.memory[0xD35E]
-        x   = pyboy.memory[0xD362]
-        y   = pyboy.memory[0xD361]
+        mid = pyboy.memory[sym.W_CUR_MAP]
+        x   = pyboy.memory[sym.W_X_COORD]
+        y   = pyboy.memory[sym.W_Y_COORD]
         print(f"[OK] {out}  —  map=0x{mid:02X}  ({x},{y})  {recipe['desc']}")
 
     pyboy.stop()
@@ -124,8 +125,8 @@ def _input_thread(pyboy):
                 path = _state_path(name)
                 with open(path, 'wb') as f:
                     pyboy.save_state(f)
-                mid = pyboy.memory[0xD35E]
-                x, y = pyboy.memory[0xD362], pyboy.memory[0xD361]
+                mid = pyboy.memory[sym.W_CUR_MAP]
+                x, y = pyboy.memory[sym.W_X_COORD], pyboy.memory[sym.W_Y_COORD]
                 print(f'Sauvegardé : {path}  (map=0x{mid:02X}  x={x}  y={y})\n')
 
 

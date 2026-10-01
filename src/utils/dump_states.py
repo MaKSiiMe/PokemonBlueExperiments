@@ -9,13 +9,14 @@ Usage:
 import os
 import glob
 from pyboy import PyBoy
+from pokeblue.state import ram_symbols as sym
 
 ROM_PATH   = 'ROMs/PokemonBlue.gb'
 STATES_DIR = 'states/'
 
-RAM_MAP_ID   = 0xD35E
-RAM_PLAYER_X = 0xD362
-RAM_PLAYER_Y = 0xD361
+RAM_MAP_ID   = sym.W_CUR_MAP
+RAM_PLAYER_X = sym.W_X_COORD
+RAM_PLAYER_Y = sym.W_Y_COORD
 
 
 def dump_state(pyboy: PyBoy, state_path: str) -> tuple[int, int, int]:

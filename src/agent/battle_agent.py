@@ -4,7 +4,8 @@ Battle Agent — Combat heuristique Gen 1 (sans ML).
 Lit la RAM directement pour naviguer les menus de combat.
 
 Stratégie (A-spam avec sélection de move) :
-  0xD11C n'est pas fiable en combat — on utilise une file d'actions à la place.
+  Il n'existe pas d'octet RAM « dialogue actif » en Gen 1 — on utilise une file
+  d'actions à la place (la détection de mode arrive en Phase 1).
 
   Séquence par tour :
     1. A × _INTRO_PRESSES   → passe les dialogs d'intro / "What will X do?"
@@ -20,8 +21,8 @@ Gen 1 move menu layout (liste verticale, 1 colonne) :
     Move 3
 
 Scoring des moves (via PokemonKnowledgeGraph) :
-  - Multiplicateur de type exact Gen 1 : 0.0 / 0.5 / 1.0 / 2.0 / 4.0
-    (inclut immunités et résistances, absentes de l'ancien TYPE_CHART binaire)
+  - Multiplicateur de type exact Gen 1 : 0.0 / 0.25 / 0.5 / 1.0 / 2.0 / 4.0
+    (inclut immunités et résistances ; un mono-type n'est compté qu'une fois)
   - Bonus +0.5 pour Quick Attack si ennemi < 30% HP (finisher avant contre-attaque)
   - Moves de statut : score 0.0 (ou -1.0 si ennemi presque KO)
 """
@@ -32,25 +33,23 @@ import logging
 
 from pyboy import PyBoy
 
+from pokeblue.knowledge.gen1_data import MOVE_IDS
 from src.emulator.ram_map import (
     RAM_ENEMY_HP_H, RAM_ENEMY_HP_L,
     RAM_ENEMY_MHP_H, RAM_ENEMY_MHP_L,
     RAM_ENEMY_TYPE1, RAM_ENEMY_TYPE2,
-    RAM_MOVE_IDS, RAM_MOVE_PP,
+    RAM_MOVE_IDS, RAM_MOVE_PP, RAM_PP_MASK,
 )
 from src.knowledge import PokemonKnowledgeGraph
-from src.knowledge.gen1_data import (
-    MOVE_TYPES, STATUS_MOVES,
-    RAM_TYPE_BYTE_TO_NAME,
-)
+from src.knowledge.gen1_data import MOVE_TYPES, STATUS_MOVES
 
 logger = logging.getLogger(__name__)
 
 # MOVE_TYPES et STATUS_MOVES sont maintenant dans src.knowledge.gen1_data
 # (source unique de vérité, partagée avec pokemon_env.py sans circular import)
 
-# ID du move Quick Attack en Gen 1 (priorité +1)
-_QUICK_ATTACK_ID = 0x62
+# Vive-Attaque (priorité +1 en Gen 1)
+_QUICK_ATTACK_ID = MOVE_IDS["QUICK_ATTACK"]
 
 
 class BattleAgent:
@@ -116,16 +115,16 @@ class BattleAgent:
         best_idx, best_score = 0, -999.0
 
         for i in range(4):
-            pp      = pyboy.memory[RAM_MOVE_PP[i]]
+            # Les 2 bits de poids fort de l'octet de PP comptent les PP Plus.
+            pp      = pyboy.memory[RAM_MOVE_PP[i]] & RAM_PP_MASK
             move_id = pyboy.memory[RAM_MOVE_IDS[i]]
-            if pp == 0 or move_id == 0:
+            if pp == 0 or move_id not in MOVE_TYPES:
                 continue
 
             if move_id in STATUS_MOVES:
                 score = -1.0 if enemy_hp_pct < 0.25 else 0.0
             else:
-                move_type_byte = MOVE_TYPES.get(move_id, T_NORMAL)
-                score = self._kg.type_multiplier_from_ram(move_type_byte, enemy_type_bytes)
+                score = self._kg.type_multiplier_from_ram(MOVE_TYPES[move_id], enemy_type_bytes)
                 # Quick Attack finisher : agit avant la contre-attaque ennemie
                 if move_id == _QUICK_ATTACK_ID and enemy_hp_pct < 0.3:
                     score += 0.5
