@@ -48,7 +48,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "POKEMONMANSION2F_SUPER_NERD"
+   "name": "POKEMONMANSION2F_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 28,
@@ -60,7 +61,8 @@
    "trainer": null,
    "item": "CALCIUM",
    "index": 2,
-   "name": "POKEMONMANSION2F_CALCIUM"
+   "name": "POKEMONMANSION2F_CALCIUM",
+   "mart": null
   },
   {
    "x": 18,
@@ -72,7 +74,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "POKEMONMANSION2F_DIARY1"
+   "name": "POKEMONMANSION2F_DIARY1",
+   "mart": null
   },
   {
    "x": 3,
@@ -84,7 +87,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "POKEMONMANSION2F_DIARY2"
+   "name": "POKEMONMANSION2F_DIARY2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -36,7 +36,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "VERMILIONGYM_LT_SURGE"
+   "name": "VERMILIONGYM_LT_SURGE",
+   "mart": null
   },
   {
    "x": 9,
@@ -51,7 +52,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "VERMILIONGYM_GENTLEMAN"
+   "name": "VERMILIONGYM_GENTLEMAN",
+   "mart": null
   },
   {
    "x": 3,
@@ -66,7 +68,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "VERMILIONGYM_SUPER_NERD"
+   "name": "VERMILIONGYM_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 0,
@@ -81,7 +84,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "VERMILIONGYM_SAILOR"
+   "name": "VERMILIONGYM_SAILOR",
+   "mart": null
   },
   {
    "x": 4,
@@ -93,7 +97,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "VERMILIONGYM_GYM_GUIDE"
+   "name": "VERMILIONGYM_GYM_GUIDE",
+   "mart": null
   }
  ],
  "gym_leader_no": 3,

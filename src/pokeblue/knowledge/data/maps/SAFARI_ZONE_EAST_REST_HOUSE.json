@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SAFARIZONEEASTRESTHOUSE_SCIENTIST"
+   "name": "SAFARIZONEEASTRESTHOUSE_SCIENTIST",
+   "mart": null
   },
   {
    "x": 4,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "SAFARIZONEEASTRESTHOUSE_ROCKER"
+   "name": "SAFARIZONEEASTRESTHOUSE_ROCKER",
+   "mart": null
   },
   {
    "x": 5,
@@ -57,7 +59,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "SAFARIZONEEASTRESTHOUSE_SILPH_WORKER_M"
+   "name": "SAFARIZONEEASTRESTHOUSE_SILPH_WORKER_M",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -65,7 +65,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROUTE17_BIKER1"
+   "name": "ROUTE17_BIKER1",
+   "mart": null
   },
   {
    "x": 11,
@@ -80,7 +81,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROUTE17_BIKER2"
+   "name": "ROUTE17_BIKER2",
+   "mart": null
   },
   {
    "x": 4,
@@ -95,7 +97,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROUTE17_BIKER3"
+   "name": "ROUTE17_BIKER3",
+   "mart": null
   },
   {
    "x": 7,
@@ -110,7 +113,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROUTE17_BIKER4"
+   "name": "ROUTE17_BIKER4",
+   "mart": null
   },
   {
    "x": 14,
@@ -125,7 +129,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROUTE17_BIKER5"
+   "name": "ROUTE17_BIKER5",
+   "mart": null
   },
   {
    "x": 17,
@@ -140,7 +145,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROUTE17_BIKER6"
+   "name": "ROUTE17_BIKER6",
+   "mart": null
   },
   {
    "x": 2,
@@ -155,7 +161,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "ROUTE17_BIKER7"
+   "name": "ROUTE17_BIKER7",
+   "mart": null
   },
   {
    "x": 14,
@@ -170,7 +177,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "ROUTE17_BIKER8"
+   "name": "ROUTE17_BIKER8",
+   "mart": null
   },
   {
    "x": 5,
@@ -185,7 +193,8 @@
    },
    "item": null,
    "index": 9,
-   "name": "ROUTE17_BIKER9"
+   "name": "ROUTE17_BIKER9",
+   "mart": null
   },
   {
    "x": 10,
@@ -200,7 +209,8 @@
    },
    "item": null,
    "index": 10,
-   "name": "ROUTE17_BIKER10"
+   "name": "ROUTE17_BIKER10",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "VIRIDIANPOKECENTER_NURSE"
+   "name": "VIRIDIANPOKECENTER_NURSE",
+   "mart": null
   },
   {
    "x": 10,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "VIRIDIANPOKECENTER_GENTLEMAN"
+   "name": "VIRIDIANPOKECENTER_GENTLEMAN",
+   "mart": null
   },
   {
    "x": 4,
@@ -57,7 +59,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "VIRIDIANPOKECENTER_COOLTRAINER_M"
+   "name": "VIRIDIANPOKECENTER_COOLTRAINER_M",
+   "mart": null
   },
   {
    "x": 11,
@@ -69,7 +72,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "VIRIDIANPOKECENTER_LINK_RECEPTIONIST"
+   "name": "VIRIDIANPOKECENTER_LINK_RECEPTIONIST",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

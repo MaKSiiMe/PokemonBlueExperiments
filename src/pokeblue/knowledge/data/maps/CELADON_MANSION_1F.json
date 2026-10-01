@@ -57,7 +57,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONMANSION1F_MEOWTH"
+   "name": "CELADONMANSION1F_MEOWTH",
+   "mart": null
   },
   {
    "x": 1,
@@ -69,7 +70,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CELADONMANSION1F_GRANNY"
+   "name": "CELADONMANSION1F_GRANNY",
+   "mart": null
   },
   {
    "x": 1,
@@ -81,7 +83,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "CELADONMANSION1F_CLEFAIRY"
+   "name": "CELADONMANSION1F_CLEFAIRY",
+   "mart": null
   },
   {
    "x": 4,
@@ -93,7 +96,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "CELADONMANSION1F_NIDORANF"
+   "name": "CELADONMANSION1F_NIDORANF",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

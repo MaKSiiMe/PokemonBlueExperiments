@@ -51,6 +51,7 @@ class MapObject:
     text: str
     trainer: tuple[str, int] | None   # (classe, n° d'équipe à partir de 1)
     item: str | None                  # objet ramassable
+    mart: tuple[str, ...] | None = None   # vendeur : objets en vente (data/items/marts.asm)
 
 
 @dataclass(frozen=True, slots=True)
@@ -123,7 +124,7 @@ def _from_json(raw: dict) -> MapData:
             index=o["index"], name=o["name"], x=o["x"], y=o["y"], sprite=o["sprite"],
             movement=o["movement"], range_or_direction=o["range_or_direction"], text=o["text"],
             trainer=(o["trainer"]["class"], o["trainer"]["party"]) if o["trainer"] else None,
-            item=o["item"],
+            item=o["item"], mart=tuple(o["mart"]) if o.get("mart") else None,
         ) for o in raw["objects"]),
         toggles=tuple(Toggle(**t) for t in raw["toggles"]),
         wild=WildTable(

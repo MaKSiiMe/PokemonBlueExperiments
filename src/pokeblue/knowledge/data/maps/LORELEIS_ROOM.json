@@ -48,7 +48,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "LORELEISROOM_LORELEI"
+   "name": "LORELEISROOM_LORELEI",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

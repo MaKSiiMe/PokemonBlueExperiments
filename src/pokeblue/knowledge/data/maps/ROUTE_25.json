@@ -42,7 +42,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROUTE25_YOUNGSTER1"
+   "name": "ROUTE25_YOUNGSTER1",
+   "mart": null
   },
   {
    "x": 18,
@@ -57,7 +58,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROUTE25_YOUNGSTER2"
+   "name": "ROUTE25_YOUNGSTER2",
+   "mart": null
   },
   {
    "x": 24,
@@ -72,7 +74,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROUTE25_COOLTRAINER_M"
+   "name": "ROUTE25_COOLTRAINER_M",
+   "mart": null
   },
   {
    "x": 18,
@@ -87,7 +90,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROUTE25_COOLTRAINER_F1"
+   "name": "ROUTE25_COOLTRAINER_F1",
+   "mart": null
   },
   {
    "x": 32,
@@ -102,7 +106,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROUTE25_YOUNGSTER3"
+   "name": "ROUTE25_YOUNGSTER3",
+   "mart": null
   },
   {
    "x": 37,
@@ -117,7 +122,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROUTE25_COOLTRAINER_F2"
+   "name": "ROUTE25_COOLTRAINER_F2",
+   "mart": null
   },
   {
    "x": 8,
@@ -132,7 +138,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "ROUTE25_HIKER1"
+   "name": "ROUTE25_HIKER1",
+   "mart": null
   },
   {
    "x": 23,
@@ -147,7 +154,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "ROUTE25_HIKER2"
+   "name": "ROUTE25_HIKER2",
+   "mart": null
   },
   {
    "x": 13,
@@ -162,7 +170,8 @@
    },
    "item": null,
    "index": 9,
-   "name": "ROUTE25_HIKER3"
+   "name": "ROUTE25_HIKER3",
+   "mart": null
   },
   {
    "x": 22,
@@ -174,7 +183,8 @@
    "trainer": null,
    "item": "TM_SEISMIC_TOSS",
    "index": 10,
-   "name": "ROUTE25_TM_SEISMIC_TOSS"
+   "name": "ROUTE25_TM_SEISMIC_TOSS",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

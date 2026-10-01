@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SSANNEBOW_SUPER_NERD"
+   "name": "SSANNEBOW_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 4,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "SSANNEBOW_SAILOR1"
+   "name": "SSANNEBOW_SAILOR1",
+   "mart": null
   },
   {
    "x": 7,
@@ -57,7 +59,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "SSANNEBOW_COOLTRAINER_M"
+   "name": "SSANNEBOW_COOLTRAINER_M",
+   "mart": null
   },
   {
    "x": 4,
@@ -72,7 +75,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "SSANNEBOW_SAILOR2"
+   "name": "SSANNEBOW_SAILOR2",
+   "mart": null
   },
   {
    "x": 10,
@@ -87,7 +91,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "SSANNEBOW_SAILOR3"
+   "name": "SSANNEBOW_SAILOR3",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

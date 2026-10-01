@@ -48,7 +48,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONMARTROOF_SUPER_NERD"
+   "name": "CELADONMARTROOF_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 5,
@@ -60,7 +61,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CELADONMARTROOF_LITTLE_GIRL"
+   "name": "CELADONMARTROOF_LITTLE_GIRL",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

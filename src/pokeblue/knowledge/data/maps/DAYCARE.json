@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "DAYCARE_GENTLEMAN"
+   "name": "DAYCARE_GENTLEMAN",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

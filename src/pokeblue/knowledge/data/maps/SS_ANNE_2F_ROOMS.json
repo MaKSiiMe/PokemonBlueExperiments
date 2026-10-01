@@ -96,7 +96,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "SSANNE2FROOMS_GENTLEMAN1"
+   "name": "SSANNE2FROOMS_GENTLEMAN1",
+   "mart": null
   },
   {
    "x": 13,
@@ -111,7 +112,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "SSANNE2FROOMS_FISHER"
+   "name": "SSANNE2FROOMS_FISHER",
+   "mart": null
   },
   {
    "x": 0,
@@ -126,7 +128,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "SSANNE2FROOMS_GENTLEMAN2"
+   "name": "SSANNE2FROOMS_GENTLEMAN2",
+   "mart": null
   },
   {
    "x": 2,
@@ -141,7 +144,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "SSANNE2FROOMS_COOLTRAINER_F"
+   "name": "SSANNE2FROOMS_COOLTRAINER_F",
+   "mart": null
   },
   {
    "x": 1,
@@ -153,7 +157,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "SSANNE2FROOMS_GENTLEMAN3"
+   "name": "SSANNE2FROOMS_GENTLEMAN3",
+   "mart": null
   },
   {
    "x": 12,
@@ -165,7 +170,8 @@
    "trainer": null,
    "item": "MAX_ETHER",
    "index": 6,
-   "name": "SSANNE2FROOMS_MAX_ETHER"
+   "name": "SSANNE2FROOMS_MAX_ETHER",
+   "mart": null
   },
   {
    "x": 21,
@@ -177,7 +183,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "SSANNE2FROOMS_GENTLEMAN4"
+   "name": "SSANNE2FROOMS_GENTLEMAN4",
+   "mart": null
   },
   {
    "x": 22,
@@ -189,7 +196,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "SSANNE2FROOMS_GRAMPS"
+   "name": "SSANNE2FROOMS_GRAMPS",
+   "mart": null
   },
   {
    "x": 0,
@@ -201,7 +209,8 @@
    "trainer": null,
    "item": "RARE_CANDY",
    "index": 9,
-   "name": "SSANNE2FROOMS_RARE_CANDY"
+   "name": "SSANNE2FROOMS_RARE_CANDY",
+   "mart": null
   },
   {
    "x": 12,
@@ -213,7 +222,8 @@
    "trainer": null,
    "item": null,
    "index": 10,
-   "name": "SSANNE2FROOMS_GENTLEMAN5"
+   "name": "SSANNE2FROOMS_GENTLEMAN5",
+   "mart": null
   },
   {
    "x": 11,
@@ -225,7 +235,8 @@
    "trainer": null,
    "item": null,
    "index": 11,
-   "name": "SSANNE2FROOMS_LITTLE_BOY"
+   "name": "SSANNE2FROOMS_LITTLE_BOY",
+   "mart": null
   },
   {
    "x": 22,
@@ -237,7 +248,8 @@
    "trainer": null,
    "item": null,
    "index": 12,
-   "name": "SSANNE2FROOMS_BRUNETTE_GIRL"
+   "name": "SSANNE2FROOMS_BRUNETTE_GIRL",
+   "mart": null
   },
   {
    "x": 20,
@@ -249,7 +261,8 @@
    "trainer": null,
    "item": null,
    "index": 13,
-   "name": "SSANNE2FROOMS_BEAUTY"
+   "name": "SSANNE2FROOMS_BEAUTY",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

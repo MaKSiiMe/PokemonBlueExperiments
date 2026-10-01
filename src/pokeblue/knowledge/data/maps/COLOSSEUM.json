@@ -20,7 +20,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "COLOSSEUM_OPPONENT"
+   "name": "COLOSSEUM_OPPONENT",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

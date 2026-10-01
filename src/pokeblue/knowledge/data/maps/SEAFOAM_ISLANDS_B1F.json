@@ -63,7 +63,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SEAFOAMISLANDSB1F_BOULDER1"
+   "name": "SEAFOAMISLANDSB1F_BOULDER1",
+   "mart": null
   },
   {
    "x": 22,
@@ -75,7 +76,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "SEAFOAMISLANDSB1F_BOULDER2"
+   "name": "SEAFOAMISLANDSB1F_BOULDER2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

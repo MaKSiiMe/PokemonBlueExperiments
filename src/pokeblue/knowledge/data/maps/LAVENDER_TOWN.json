@@ -104,7 +104,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "LAVENDERTOWN_LITTLE_GIRL"
+   "name": "LAVENDERTOWN_LITTLE_GIRL",
+   "mart": null
   },
   {
    "x": 9,
@@ -116,7 +117,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "LAVENDERTOWN_COOLTRAINER_M"
+   "name": "LAVENDERTOWN_COOLTRAINER_M",
+   "mart": null
   },
   {
    "x": 8,
@@ -128,7 +130,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "LAVENDERTOWN_SUPER_NERD"
+   "name": "LAVENDERTOWN_SUPER_NERD",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

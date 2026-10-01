@@ -101,7 +101,8 @@
    "trainer": null,
    "item": "PROTEIN",
    "index": 1,
-   "name": "SAFARIZONENORTH_PROTEIN"
+   "name": "SAFARIZONENORTH_PROTEIN",
+   "mart": null
   },
   {
    "x": 19,
@@ -113,7 +114,8 @@
    "trainer": null,
    "item": "TM_SKULL_BASH",
    "index": 2,
-   "name": "SAFARIZONENORTH_TM_SKULL_BASH"
+   "name": "SAFARIZONENORTH_TM_SKULL_BASH",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

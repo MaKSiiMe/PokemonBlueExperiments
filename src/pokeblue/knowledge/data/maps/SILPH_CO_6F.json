@@ -51,7 +51,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SILPHCO6F_SILPH_WORKER_M1"
+   "name": "SILPHCO6F_SILPH_WORKER_M1",
+   "mart": null
   },
   {
    "x": 20,
@@ -63,7 +64,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "SILPHCO6F_SILPH_WORKER_M2"
+   "name": "SILPHCO6F_SILPH_WORKER_M2",
+   "mart": null
   },
   {
    "x": 21,
@@ -75,7 +77,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "SILPHCO6F_SILPH_WORKER_F1"
+   "name": "SILPHCO6F_SILPH_WORKER_F1",
+   "mart": null
   },
   {
    "x": 11,
@@ -87,7 +90,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "SILPHCO6F_SILPH_WORKER_F2"
+   "name": "SILPHCO6F_SILPH_WORKER_F2",
+   "mart": null
   },
   {
    "x": 18,
@@ -99,7 +103,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "SILPHCO6F_SILPH_WORKER_M3"
+   "name": "SILPHCO6F_SILPH_WORKER_M3",
+   "mart": null
   },
   {
    "x": 17,
@@ -114,7 +119,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "SILPHCO6F_ROCKET1"
+   "name": "SILPHCO6F_ROCKET1",
+   "mart": null
   },
   {
    "x": 7,
@@ -129,7 +135,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "SILPHCO6F_SCIENTIST"
+   "name": "SILPHCO6F_SCIENTIST",
+   "mart": null
   },
   {
    "x": 14,
@@ -144,7 +151,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "SILPHCO6F_ROCKET2"
+   "name": "SILPHCO6F_ROCKET2",
+   "mart": null
   },
   {
    "x": 3,
@@ -156,7 +164,8 @@
    "trainer": null,
    "item": "HP_UP",
    "index": 9,
-   "name": "SILPHCO6F_HP_UP"
+   "name": "SILPHCO6F_HP_UP",
+   "mart": null
   },
   {
    "x": 2,
@@ -168,7 +177,8 @@
    "trainer": null,
    "item": "X_ACCURACY",
    "index": 10,
-   "name": "SILPHCO6F_X_ACCURACY"
+   "name": "SILPHCO6F_X_ACCURACY",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

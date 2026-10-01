@@ -36,7 +36,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "POKEMONTOWER3F_CHANNELER1"
+   "name": "POKEMONTOWER3F_CHANNELER1",
+   "mart": null
   },
   {
    "x": 9,
@@ -51,7 +52,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "POKEMONTOWER3F_CHANNELER2"
+   "name": "POKEMONTOWER3F_CHANNELER2",
+   "mart": null
   },
   {
    "x": 10,
@@ -66,7 +68,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "POKEMONTOWER3F_CHANNELER3"
+   "name": "POKEMONTOWER3F_CHANNELER3",
+   "mart": null
   },
   {
    "x": 12,
@@ -78,7 +81,8 @@
    "trainer": null,
    "item": "ESCAPE_ROPE",
    "index": 4,
-   "name": "POKEMONTOWER3F_ESCAPE_ROPE"
+   "name": "POKEMONTOWER3F_ESCAPE_ROPE",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

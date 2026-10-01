@@ -38,7 +38,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "MUSEUM2F_YOUNGSTER"
+   "name": "MUSEUM2F_YOUNGSTER",
+   "mart": null
   },
   {
    "x": 0,
@@ -50,7 +51,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "MUSEUM2F_GRAMPS"
+   "name": "MUSEUM2F_GRAMPS",
+   "mart": null
   },
   {
    "x": 7,
@@ -62,7 +64,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "MUSEUM2F_SCIENTIST"
+   "name": "MUSEUM2F_SCIENTIST",
+   "mart": null
   },
   {
    "x": 11,
@@ -74,7 +77,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "MUSEUM2F_BRUNETTE_GIRL"
+   "name": "MUSEUM2F_BRUNETTE_GIRL",
+   "mart": null
   },
   {
    "x": 12,
@@ -86,7 +90,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "MUSEUM2F_HIKER"
+   "name": "MUSEUM2F_HIKER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

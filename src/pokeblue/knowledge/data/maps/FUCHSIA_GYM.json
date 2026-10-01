@@ -36,7 +36,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "FUCHSIAGYM_KOGA"
+   "name": "FUCHSIAGYM_KOGA",
+   "mart": null
   },
   {
    "x": 8,
@@ -51,7 +52,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "FUCHSIAGYM_ROCKER1"
+   "name": "FUCHSIAGYM_ROCKER1",
+   "mart": null
   },
   {
    "x": 7,
@@ -66,7 +68,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "FUCHSIAGYM_ROCKER2"
+   "name": "FUCHSIAGYM_ROCKER2",
+   "mart": null
   },
   {
    "x": 1,
@@ -81,7 +84,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "FUCHSIAGYM_ROCKER3"
+   "name": "FUCHSIAGYM_ROCKER3",
+   "mart": null
   },
   {
    "x": 3,
@@ -96,7 +100,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "FUCHSIAGYM_ROCKER4"
+   "name": "FUCHSIAGYM_ROCKER4",
+   "mart": null
   },
   {
    "x": 8,
@@ -111,7 +116,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "FUCHSIAGYM_ROCKER5"
+   "name": "FUCHSIAGYM_ROCKER5",
+   "mart": null
   },
   {
    "x": 2,
@@ -126,7 +132,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "FUCHSIAGYM_ROCKER6"
+   "name": "FUCHSIAGYM_ROCKER6",
+   "mart": null
   },
   {
    "x": 7,
@@ -138,7 +145,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "FUCHSIAGYM_GYM_GUIDE"
+   "name": "FUCHSIAGYM_GYM_GUIDE",
+   "mart": null
   }
  ],
  "gym_leader_no": 5,

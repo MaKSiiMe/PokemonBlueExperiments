@@ -38,7 +38,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE16GATE2F_LITTLE_BOY"
+   "name": "ROUTE16GATE2F_LITTLE_BOY",
+   "mart": null
   },
   {
    "x": 2,
@@ -50,7 +51,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "ROUTE16GATE2F_LITTLE_GIRL"
+   "name": "ROUTE16GATE2F_LITTLE_GIRL",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

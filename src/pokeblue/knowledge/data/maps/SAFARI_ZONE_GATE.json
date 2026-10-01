@@ -45,7 +45,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SAFARIZONEGATE_SAFARI_ZONE_WORKER1"
+   "name": "SAFARIZONEGATE_SAFARI_ZONE_WORKER1",
+   "mart": null
   },
   {
    "x": 1,
@@ -57,7 +58,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "SAFARIZONEGATE_SAFARI_ZONE_WORKER2"
+   "name": "SAFARIZONEGATE_SAFARI_ZONE_WORKER2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

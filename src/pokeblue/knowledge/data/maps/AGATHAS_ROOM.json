@@ -48,7 +48,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "AGATHASROOM_AGATHA"
+   "name": "AGATHASROOM_AGATHA",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

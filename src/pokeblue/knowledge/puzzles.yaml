@@ -1,0 +1,45 @@
+# Énigmes résolues par la baseline scriptée (Phase 3). Données recopiées de pokered et
+# vérifiées contre les sources par tests/test_puzzles.py.
+
+vermilion_trash_cans:
+  map: VERMILION_GYM
+  # hidden_event x, y, GymTrashScript, n° — data/events/hidden_events.asm
+  cans:
+    - [1, 7]
+    - [1, 9]
+    - [1, 11]
+    - [3, 7]
+    - [3, 9]
+    - [3, 11]
+    - [5, 7]
+    - [5, 9]
+    - [5, 11]
+    - [7, 7]
+    - [7, 9]
+    - [7, 11]
+    - [9, 7]
+    - [9, 9]
+    - [9, 11]
+  # GymTrashCans (engine/events/hidden_events/vermilion_gym_trash.asm) : poubelles
+  # pouvant contenir le 2e interrupteur selon celle du 1er. À cause d'un bug du jeu,
+  # la poubelle 0 est toujours possible aussi (voir le commentaire de pokered).
+  second_lock_candidates:
+    - [1, 3]
+    - [0, 2, 4]
+    - [1, 5]
+    - [0, 4, 6]
+    - [1, 3, 5, 7]
+    - [2, 4, 8]
+    - [3, 7, 9]
+    - [4, 6, 8, 10]
+    - [5, 7, 11]
+    - [6, 10, 12]
+    - [7, 9, 11, 13]
+    - [8, 10, 14]
+    - [9, 13]
+    - [10, 12, 14]
+    - [11, 13]
+  second_lock_bug_can: 0
+  # Après un échec, le 1er interrupteur est retiré au sort : `call Random / and $e`,
+  # donc dans une poubelle d'indice pair.
+  first_lock_after_reset: even

@@ -156,7 +156,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONCITY_LITTLE_GIRL"
+   "name": "CELADONCITY_LITTLE_GIRL",
+   "mart": null
   },
   {
    "x": 11,
@@ -168,7 +169,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CELADONCITY_GRAMPS1"
+   "name": "CELADONCITY_GRAMPS1",
+   "mart": null
   },
   {
    "x": 14,
@@ -180,7 +182,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "CELADONCITY_GIRL"
+   "name": "CELADONCITY_GIRL",
+   "mart": null
   },
   {
    "x": 25,
@@ -192,7 +195,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "CELADONCITY_GRAMPS2"
+   "name": "CELADONCITY_GRAMPS2",
+   "mart": null
   },
   {
    "x": 22,
@@ -204,7 +208,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "CELADONCITY_GRAMPS3"
+   "name": "CELADONCITY_GRAMPS3",
+   "mart": null
   },
   {
    "x": 32,
@@ -216,7 +221,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "CELADONCITY_FISHER"
+   "name": "CELADONCITY_FISHER",
+   "mart": null
   },
   {
    "x": 30,
@@ -228,7 +234,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "CELADONCITY_POLIWRATH"
+   "name": "CELADONCITY_POLIWRATH",
+   "mart": null
   },
   {
    "x": 32,
@@ -240,7 +247,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "CELADONCITY_ROCKET1"
+   "name": "CELADONCITY_ROCKET1",
+   "mart": null
   },
   {
    "x": 42,
@@ -252,7 +260,8 @@
    "trainer": null,
    "item": null,
    "index": 9,
-   "name": "CELADONCITY_ROCKET2"
+   "name": "CELADONCITY_ROCKET2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

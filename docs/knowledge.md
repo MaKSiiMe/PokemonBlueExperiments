@@ -20,7 +20,7 @@ trainer_team("BROCK", 1)                      # Racaillou N12, Onix N14 (avec Pa
 | :--- | :--- | :--- |
 | `state/ram_symbols.py` | `scripts/gen_ram_symbols.py` | adresses RAM, registres, structures |
 | `knowledge/gen1_data/tables.py` | `scripts/gen_gen1_data.py` | types, attaques, espèces, évolutions, attaques apprises, dresseurs et équipes, objets, événements, charmap, palettes |
-| `knowledge/data/maps/*.json` | `scripts/gen_maps.py` | 222 cartes : blocs et tuile de chaque case, connexions, warps, panneaux, objets, objets activables, rencontres sauvages, n° d'arène |
+| `knowledge/data/maps/*.json` | `scripts/gen_maps.py` | 222 cartes : blocs et tuile de chaque case, connexions, warps, panneaux, objets (avec l'inventaire des vendeurs, `data/items/marts.asm`), objets activables, rencontres sauvages, n° d'arène. Chaque carte prend le header que `MapHeaderPointers` associe à son identifiant |
 | `knowledge/data/tilesets.json` | `scripts/gen_maps.py` | tuiles praticables, contenu des blocs, règles de déplacement |
 
 Pour tout régénérer : `pokeblue build-knowledge`. Pour vérifier que les fichiers
@@ -73,6 +73,18 @@ sont décrites en YAML, chaque entrée citant son script, et testées :
   Tous les verrous de l'histoire y figurent : Coupe, Flash (optionnel), Surf, Force,
   Scope Sylphe, Pokéflûte et Ronflex, Dents d'Or et Parc Safari, Carte Magnétique,
   Route Victoire.
+
+  Les champs `approach` et `steps` décrivent comment déclencher chaque jalon. Ils
+  servent à la baseline scriptée (voir [baseline.md](baseline.md)) :
+  - case qui déclenche un script, relevée dans `scripts/*.asm` ;
+  - objet à aborder ;
+  - skill dédié.
+- **`puzzles.yaml`** : l'énigme des poubelles de Carmin. On y trouve :
+  - la position des poubelles ;
+  - la table `GymTrashCans` ;
+  - le tirage après échec.
+
+  Le tout est recoupé avec les sources pokered par `tests/test_puzzles.py`.
 
 ## Navigation
 

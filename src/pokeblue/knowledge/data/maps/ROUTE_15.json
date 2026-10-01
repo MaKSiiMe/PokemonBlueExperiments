@@ -65,7 +65,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROUTE15_COOLTRAINER_F1"
+   "name": "ROUTE15_COOLTRAINER_F1",
+   "mart": null
   },
   {
    "x": 53,
@@ -80,7 +81,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROUTE15_COOLTRAINER_F2"
+   "name": "ROUTE15_COOLTRAINER_F2",
+   "mart": null
   },
   {
    "x": 31,
@@ -95,7 +97,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROUTE15_COOLTRAINER_M1"
+   "name": "ROUTE15_COOLTRAINER_M1",
+   "mart": null
   },
   {
    "x": 35,
@@ -110,7 +113,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROUTE15_COOLTRAINER_M2"
+   "name": "ROUTE15_COOLTRAINER_M2",
+   "mart": null
   },
   {
    "x": 53,
@@ -125,7 +129,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROUTE15_BEAUTY1"
+   "name": "ROUTE15_BEAUTY1",
+   "mart": null
   },
   {
    "x": 41,
@@ -140,7 +145,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROUTE15_BEAUTY2"
+   "name": "ROUTE15_BEAUTY2",
+   "mart": null
   },
   {
    "x": 48,
@@ -155,7 +161,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "ROUTE15_BIKER1"
+   "name": "ROUTE15_BIKER1",
+   "mart": null
   },
   {
    "x": 46,
@@ -170,7 +177,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "ROUTE15_BIKER2"
+   "name": "ROUTE15_BIKER2",
+   "mart": null
   },
   {
    "x": 37,
@@ -185,7 +193,8 @@
    },
    "item": null,
    "index": 9,
-   "name": "ROUTE15_COOLTRAINER_F3"
+   "name": "ROUTE15_COOLTRAINER_F3",
+   "mart": null
   },
   {
    "x": 18,
@@ -200,7 +209,8 @@
    },
    "item": null,
    "index": 10,
-   "name": "ROUTE15_COOLTRAINER_F4"
+   "name": "ROUTE15_COOLTRAINER_F4",
+   "mart": null
   },
   {
    "x": 18,
@@ -212,7 +222,8 @@
    "trainer": null,
    "item": "TM_RAGE",
    "index": 11,
-   "name": "ROUTE15_TM_RAGE"
+   "name": "ROUTE15_TM_RAGE",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

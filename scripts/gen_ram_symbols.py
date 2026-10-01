@@ -44,7 +44,7 @@ HIGH_END = 0xFFFF              # allow-ram-literal — registre IE, fin de l'esp
 # (le fichier contient des conditionnelles, on n'en lit donc que ces lignes).
 HARDWARE_INC = "constants/hardware.inc"
 _HW_REGISTER = re.compile(r"^def\s+(r[A-Z0-9_]+)\s+equ\s+\$([0-9A-Fa-f]{4})\s*(?:;.*)?$", re.IGNORECASE)
-_HW_BIT = re.compile(r"^\s*def\s+(B_LCDC_[A-Z0-9_]+|SCREEN_WIDTH|SCREEN_HEIGHT)\s+equ\s+([0-9]+)\b",
+_HW_BIT = re.compile(r"^\s*def\s+(B_LCDC_[A-Z0-9_]+|B_PAD_(?:DOWN|UP|LEFT|RIGHT|START|SELECT|B|A)|SCREEN_WIDTH|SCREEN_HEIGHT)\s+equ\s+([0-9]+)\b",
                      re.IGNORECASE)
 
 # Constantes de disposition mémoire nécessaires pour lire la RAM, par fichier source.
@@ -100,7 +100,7 @@ def _region(addr: int) -> str | None:
 
 
 def _hardware(pokered: Path) -> tuple[list[tuple[str, int]], list[tuple[str, int]]]:
-    """Registres IO (FF00–FF7F, FFFF), bits de rLCDC et taille de l'écran (hardware.inc)."""
+    """Registres IO (FF00–FF7F, FFFF), bits de rLCDC et de la manette, taille de l'écran (hardware.inc)."""
     registers, bits = [], []
     for line in (pokered / HARDWARE_INC).read_text(encoding="utf-8").splitlines():
         if m := _HW_REGISTER.match(line.strip()):

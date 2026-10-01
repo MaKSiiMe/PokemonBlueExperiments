@@ -79,7 +79,8 @@
    "trainer": null,
    "item": "MOON_STONE",
    "index": 1,
-   "name": "ROUTE2_MOON_STONE"
+   "name": "ROUTE2_MOON_STONE",
+   "mart": null
   },
   {
    "x": 13,
@@ -91,7 +92,8 @@
    "trainer": null,
    "item": "HP_UP",
    "index": 2,
-   "name": "ROUTE2_HP_UP"
+   "name": "ROUTE2_HP_UP",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

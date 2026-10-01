@@ -72,7 +72,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE12_SNORLAX"
+   "name": "ROUTE12_SNORLAX",
+   "mart": null
   },
   {
    "x": 14,
@@ -87,7 +88,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROUTE12_FISHER1"
+   "name": "ROUTE12_FISHER1",
+   "mart": null
   },
   {
    "x": 5,
@@ -102,7 +104,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROUTE12_FISHER2"
+   "name": "ROUTE12_FISHER2",
+   "mart": null
   },
   {
    "x": 11,
@@ -117,7 +120,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROUTE12_COOLTRAINER_M"
+   "name": "ROUTE12_COOLTRAINER_M",
+   "mart": null
   },
   {
    "x": 14,
@@ -132,7 +136,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROUTE12_SUPER_NERD"
+   "name": "ROUTE12_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 12,
@@ -147,7 +152,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROUTE12_FISHER3"
+   "name": "ROUTE12_FISHER3",
+   "mart": null
   },
   {
    "x": 9,
@@ -162,7 +168,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "ROUTE12_FISHER4"
+   "name": "ROUTE12_FISHER4",
+   "mart": null
   },
   {
    "x": 6,
@@ -177,7 +184,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "ROUTE12_FISHER5"
+   "name": "ROUTE12_FISHER5",
+   "mart": null
   },
   {
    "x": 14,
@@ -189,7 +197,8 @@
    "trainer": null,
    "item": "TM_PAY_DAY",
    "index": 9,
-   "name": "ROUTE12_TM_PAY_DAY"
+   "name": "ROUTE12_TM_PAY_DAY",
+   "mart": null
   },
   {
    "x": 5,
@@ -201,7 +210,8 @@
    "trainer": null,
    "item": "IRON",
    "index": 10,
-   "name": "ROUTE12_IRON"
+   "name": "ROUTE12_IRON",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

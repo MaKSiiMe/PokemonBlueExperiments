@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONHOTEL_GRANNY"
+   "name": "CELADONHOTEL_GRANNY",
+   "mart": null
   },
   {
    "x": 2,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CELADONHOTEL_BEAUTY"
+   "name": "CELADONHOTEL_BEAUTY",
+   "mart": null
   },
   {
    "x": 8,
@@ -57,7 +59,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "CELADONHOTEL_SUPER_NERD"
+   "name": "CELADONHOTEL_SUPER_NERD",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

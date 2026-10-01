@@ -30,7 +30,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "POKEMONMANSIONB1F_BURGLAR"
+   "name": "POKEMONMANSIONB1F_BURGLAR",
+   "mart": null
   },
   {
    "x": 27,
@@ -45,7 +46,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "POKEMONMANSIONB1F_SCIENTIST"
+   "name": "POKEMONMANSIONB1F_SCIENTIST",
+   "mart": null
   },
   {
    "x": 10,
@@ -57,7 +59,8 @@
    "trainer": null,
    "item": "RARE_CANDY",
    "index": 3,
-   "name": "POKEMONMANSIONB1F_RARE_CANDY"
+   "name": "POKEMONMANSIONB1F_RARE_CANDY",
+   "mart": null
   },
   {
    "x": 1,
@@ -69,7 +72,8 @@
    "trainer": null,
    "item": "FULL_RESTORE",
    "index": 4,
-   "name": "POKEMONMANSIONB1F_FULL_RESTORE"
+   "name": "POKEMONMANSIONB1F_FULL_RESTORE",
+   "mart": null
   },
   {
    "x": 19,
@@ -81,7 +85,8 @@
    "trainer": null,
    "item": "TM_BLIZZARD",
    "index": 5,
-   "name": "POKEMONMANSIONB1F_TM_BLIZZARD"
+   "name": "POKEMONMANSIONB1F_TM_BLIZZARD",
+   "mart": null
   },
   {
    "x": 5,
@@ -93,7 +98,8 @@
    "trainer": null,
    "item": "TM_SOLARBEAM",
    "index": 6,
-   "name": "POKEMONMANSIONB1F_TM_SOLARBEAM"
+   "name": "POKEMONMANSIONB1F_TM_SOLARBEAM",
+   "mart": null
   },
   {
    "x": 16,
@@ -105,7 +111,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "POKEMONMANSIONB1F_DIARY"
+   "name": "POKEMONMANSIONB1F_DIARY",
+   "mart": null
   },
   {
    "x": 5,
@@ -117,7 +124,8 @@
    "trainer": null,
    "item": "SECRET_KEY",
    "index": 8,
-   "name": "POKEMONMANSIONB1F_SECRET_KEY"
+   "name": "POKEMONMANSIONB1F_SECRET_KEY",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE12SUPERRODHOUSE_FISHING_GURU"
+   "name": "ROUTE12SUPERRODHOUSE_FISHING_GURU",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

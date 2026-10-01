@@ -45,7 +45,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CERULEANTRASHEDHOUSE_FISHING_GURU"
+   "name": "CERULEANTRASHEDHOUSE_FISHING_GURU",
+   "mart": null
   },
   {
    "x": 5,
@@ -57,7 +58,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CERULEANTRASHEDHOUSE_GIRL"
+   "name": "CERULEANTRASHEDHOUSE_GIRL",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

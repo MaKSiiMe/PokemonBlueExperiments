@@ -10,7 +10,9 @@ from pokeblue.knowledge.gen1_data import EVENT_IDS, ITEM_IDS
 from pokeblue.knowledge.maps import load_map, map_names, world_rules
 from pokeblue.knowledge.navigation import (
     Ability,
+    Navigator,
     Progress,
+    Square,
     _last_map_candidates,
     block_events,
     gate_squares,
@@ -155,3 +157,12 @@ def test_block_events_agree_with_simple_script_extraction():
     for label, entries in extracted.items():
         for event, when, coords, block in entries:
             assert (label, event, when, coords, block) in curated, (label, event, coords)
+
+
+def test_underground_path_to_route_7_uses_the_real_header():
+    """UndergroundPathRoute7Copy déclare aussi UNDERGROUND_PATH_ROUTE_7 : les données
+    doivent venir du header que MapHeaderPointers associe à la carte (warp 5 de Route 7)."""
+    assert {w.warp for w in load_map("UNDERGROUND_PATH_ROUTE_7").warps if w.map == "LAST_MAP"} == {5}
+    nav = Navigator(Progress())          # sans boisson pour les gardes de Safrania
+    found = nav.search([Square("UNDERGROUND_PATH_WEST_EAST", 47, 2)], lambda sq: sq.map == "ROUTE_7")
+    assert found is not None and "SAFFRON_CITY" not in found.maps

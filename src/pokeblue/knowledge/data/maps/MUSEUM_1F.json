@@ -51,7 +51,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "MUSEUM1F_SCIENTIST1"
+   "name": "MUSEUM1F_SCIENTIST1",
+   "mart": null
   },
   {
    "x": 1,
@@ -63,7 +64,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "MUSEUM1F_GAMBLER"
+   "name": "MUSEUM1F_GAMBLER",
+   "mart": null
   },
   {
    "x": 15,
@@ -75,7 +77,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "MUSEUM1F_SCIENTIST2"
+   "name": "MUSEUM1F_SCIENTIST2",
+   "mart": null
   },
   {
    "x": 17,
@@ -87,7 +90,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "MUSEUM1F_SCIENTIST3"
+   "name": "MUSEUM1F_SCIENTIST3",
+   "mart": null
   },
   {
    "x": 16,
@@ -99,7 +103,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "MUSEUM1F_OLD_AMBER"
+   "name": "MUSEUM1F_OLD_AMBER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

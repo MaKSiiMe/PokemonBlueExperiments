@@ -67,7 +67,8 @@
    "trainer": null,
    "item": "FULL_RESTORE",
    "index": 1,
-   "name": "SAFARIZONEEAST_FULL_RESTORE"
+   "name": "SAFARIZONEEAST_FULL_RESTORE",
+   "mart": null
   },
   {
    "x": 3,
@@ -79,7 +80,8 @@
    "trainer": null,
    "item": "MAX_POTION",
    "index": 2,
-   "name": "SAFARIZONEEAST_MAX_RESTORE"
+   "name": "SAFARIZONEEAST_MAX_RESTORE",
+   "mart": null
   },
   {
    "x": 20,
@@ -91,7 +93,8 @@
    "trainer": null,
    "item": "CARBOS",
    "index": 3,
-   "name": "SAFARIZONEEAST_CARBOS"
+   "name": "SAFARIZONEEAST_CARBOS",
+   "mart": null
   },
   {
    "x": 15,
@@ -103,7 +106,8 @@
    "trainer": null,
    "item": "TM_EGG_BOMB",
    "index": 4,
-   "name": "SAFARIZONEEAST_TM_EGG_BOMB"
+   "name": "SAFARIZONEEAST_TM_EGG_BOMB",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

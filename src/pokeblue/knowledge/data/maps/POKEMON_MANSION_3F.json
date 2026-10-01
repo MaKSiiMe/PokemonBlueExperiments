@@ -42,7 +42,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "POKEMONMANSION3F_SUPER_NERD"
+   "name": "POKEMONMANSION3F_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 20,
@@ -57,7 +58,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "POKEMONMANSION3F_SCIENTIST"
+   "name": "POKEMONMANSION3F_SCIENTIST",
+   "mart": null
   },
   {
    "x": 1,
@@ -69,7 +71,8 @@
    "trainer": null,
    "item": "MAX_POTION",
    "index": 3,
-   "name": "POKEMONMANSION3F_MAX_POTION"
+   "name": "POKEMONMANSION3F_MAX_POTION",
+   "mart": null
   },
   {
    "x": 25,
@@ -81,7 +84,8 @@
    "trainer": null,
    "item": "IRON",
    "index": 4,
-   "name": "POKEMONMANSION3F_IRON"
+   "name": "POKEMONMANSION3F_IRON",
+   "mart": null
   },
   {
    "x": 6,
@@ -93,7 +97,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "POKEMONMANSION3F_DIARY"
+   "name": "POKEMONMANSION3F_DIARY",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

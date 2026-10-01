@@ -71,7 +71,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROUTE11_GAMBLER1"
+   "name": "ROUTE11_GAMBLER1",
+   "mart": null
   },
   {
    "x": 26,
@@ -86,7 +87,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROUTE11_GAMBLER2"
+   "name": "ROUTE11_GAMBLER2",
+   "mart": null
   },
   {
    "x": 13,
@@ -101,7 +103,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROUTE11_YOUNGSTER1"
+   "name": "ROUTE11_YOUNGSTER1",
+   "mart": null
   },
   {
    "x": 36,
@@ -116,7 +119,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROUTE11_SUPER_NERD1"
+   "name": "ROUTE11_SUPER_NERD1",
+   "mart": null
   },
   {
    "x": 22,
@@ -131,7 +135,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROUTE11_YOUNGSTER2"
+   "name": "ROUTE11_YOUNGSTER2",
+   "mart": null
   },
   {
    "x": 45,
@@ -146,7 +151,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROUTE11_GAMBLER3"
+   "name": "ROUTE11_GAMBLER3",
+   "mart": null
   },
   {
    "x": 33,
@@ -161,7 +167,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "ROUTE11_GAMBLER4"
+   "name": "ROUTE11_GAMBLER4",
+   "mart": null
   },
   {
    "x": 43,
@@ -176,7 +183,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "ROUTE11_YOUNGSTER3"
+   "name": "ROUTE11_YOUNGSTER3",
+   "mart": null
   },
   {
    "x": 45,
@@ -191,7 +199,8 @@
    },
    "item": null,
    "index": 9,
-   "name": "ROUTE11_SUPER_NERD2"
+   "name": "ROUTE11_SUPER_NERD2",
+   "mart": null
   },
   {
    "x": 22,
@@ -206,7 +215,8 @@
    },
    "item": null,
    "index": 10,
-   "name": "ROUTE11_YOUNGSTER4"
+   "name": "ROUTE11_YOUNGSTER4",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

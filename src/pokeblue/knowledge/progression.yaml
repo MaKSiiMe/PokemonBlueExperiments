@@ -13,6 +13,13 @@
 #                     c'est le niveau maximal de son équipe ; sinon hérité du jalon
 #                     précédent
 #   optional        : jalon utile mais non bloquant
+#   approach        : comment déclencher l'action (baseline scriptée, Phase 3) :
+#                     map (défaut : carte cible), squares (cases de déclenchement d'un
+#                     script, relevées dans scripts/*.asm), object (objet à aborder),
+#                     face, interact ; ou skill (skill dédié : énigme…). Sans `approach`, on va parler au dresseur ciblé,
+#                     ou à défaut on entre dans la carte cible.
+#   steps           : jalon en plusieurs temps : liste de {done_when, approach} ; on
+#                     suit la première étape dont `done_when` n'est pas vérifié.
 #
 # Les noms (événements, objets, badges, cartes, classes) sont ceux de pokered et sont
 # vérifiés par tests/test_progression.py.
@@ -24,12 +31,19 @@ milestones:
     target: {map: OAKS_LAB}
     completes_when: {events: [EVENT_GOT_STARTER]}
     recommended_level: 5
+    steps:
+      # Le Prof. Chen intercepte le joueur à la sortie nord de Bourg Palette.
+      - done_when: {events: [EVENT_FOLLOWED_OAK_INTO_LAB]}
+        approach: {map: ROUTE_1}
+      # Choix de la baseline : Bulbizarre (efficace contre Pierre et Ondine, apprend Coupe).
+      - approach: {object: OAKSLAB_BULBASAUR_POKE_BALL, interact: true}
 
   - id: rival_oaks_lab
     description: Premier combat contre le rival au labo
     requires: {milestones: [get_starter]}
     target: {map: OAKS_LAB, trainer: {class: RIVAL1, rival_base: 1}}
     completes_when: {events: [EVENT_BATTLED_RIVAL_IN_OAKS_LAB]}
+    approach: {map: PALLET_TOWN}   # le rival attaque quand on quitte le labo
 
   - id: get_oaks_parcel
     description: Récupérer le colis du Prof. Chen à la boutique de Jadielle
@@ -42,6 +56,7 @@ milestones:
     requires: {milestones: [get_oaks_parcel]}
     target: {map: OAKS_LAB}
     completes_when: {events: [EVENT_GOT_POKEDEX]}
+    approach: {object: OAKSLAB_OAK1, interact: true}
 
   # ── Argenta, Mont Sélénite, Azuria ───────────────────────────────────────────
   - id: beat_brock
@@ -58,12 +73,14 @@ milestones:
       - {events: [EVENT_GOT_DOME_FOSSIL]}
       - {events: [EVENT_GOT_HELIX_FOSSIL]}
     recommended_level: 14
+    approach: {object: MTMOONB2F_DOME_FOSSIL, interact: true}
 
   - id: beat_cerulean_rival
     description: Battre le rival sur le pont au nord d'Azuria
     requires: {milestones: [cross_mt_moon]}
     target: {map: CERULEAN_CITY, trainer: {class: RIVAL1, rival_base: 7}}
     completes_when: {events: [EVENT_BEAT_CERULEAN_RIVAL]}
+    approach: {squares: [[20, 6], [21, 6]]}   # CeruleanCityCoords2
 
   - id: beat_misty
     description: Battre Ondine (Badge Cascade, Coupe utilisable)
@@ -76,6 +93,13 @@ milestones:
     requires: {milestones: [beat_cerulean_rival]}
     target: {map: BILLS_HOUSE}
     completes_when: {events: [EVENT_GOT_SS_TICKET]}
+    steps:
+      - done_when: {events: [EVENT_BILL_SAID_USE_CELL_SEPARATOR]}
+        approach: {object: BILLSHOUSE_BILL_POKEMON, interact: true}
+      # hidden_event 1, 4, BillsHousePC, SPRITE_FACING_UP : la case devant le joueur.
+      - done_when: {events: [EVENT_USED_CELL_SEPARATOR_ON_BILL]}
+        approach: {squares: [[1, 5]], face: up, interact: true}
+      - approach: {object: BILLSHOUSE_BILL1, interact: true}
 
   - id: beat_cerulean_rocket
     description: Battre le voleur Rocket de la maison cambriolée
@@ -93,18 +117,29 @@ milestones:
     requires: {milestones: [get_ss_ticket]}
     target: {map: SS_ANNE_2F, trainer: {class: RIVAL2, rival_base: 1}}
     completes_when: {events: [EVENT_GOT_HM01]}
+    approach: {squares: [[36, 8], [37, 8]]}   # SSAnne2F .PlayerCoordinatesArray
 
   - id: get_hm01_cut
     description: Recevoir la CS01 Coupe du capitaine de l'Océane
     requires: {milestones: [get_ss_ticket]}
     target: {map: SS_ANNE_CAPTAINS_ROOM}
     completes_when: {events: [EVENT_GOT_HM01]}
+    steps:
+      # Après une défaite, le rival reste affiché devant la porte du capitaine : on
+      # repasse sur la case qui relance le combat (SSAnne2F .PlayerCoordinatesArray).
+      - done_when: {objects_hidden: [TOGGLE_SS_ANNE_2F_RIVAL]}
+        approach: {map: SS_ANNE_2F, squares: [[36, 8], [37, 8]]}
+      - approach: {object: SSANNECAPTAINSROOM_CAPTAIN, interact: true}
 
   - id: beat_lt_surge
     description: "Battre le Major Bob (Badge Foudre) — arbre à couper devant l'arène"
     requires: {milestones: [get_hm01_cut, beat_misty], abilities: [CUT]}
     target: {map: VERMILION_GYM, trainer: {class: LT_SURGE, party: 1}}
     completes_when: {events: [EVENT_BEAT_LT_SURGE], badges: [THUNDERBADGE]}
+    steps:
+      # Les portes électriques s'ouvrent avec les deux interrupteurs des poubelles.
+      - done_when: {events: [EVENT_2ND_LOCK_OPENED]}
+        approach: {skill: trash_cans}
 
   - id: get_bike_voucher
     description: Bon pour le vélo au Fan Club Pokémon
@@ -133,6 +168,7 @@ milestones:
     requires: {milestones: [beat_lt_surge], abilities: [CUT]}
     target: {map: POKEMON_TOWER_2F, trainer: {class: RIVAL2, rival_base: 4}}
     completes_when: {events: [EVENT_BEAT_POKEMON_TOWER_RIVAL]}
+    approach: {squares: [[15, 5], [14, 6]]}   # PokemonTower2FRivalEncounterEventCoords
 
   - id: beat_erika
     description: Battre Erika (Badge Prisme, Force utilisable)

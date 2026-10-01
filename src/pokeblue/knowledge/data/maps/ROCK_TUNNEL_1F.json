@@ -78,7 +78,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROCKTUNNEL1F_HIKER1"
+   "name": "ROCKTUNNEL1F_HIKER1",
+   "mart": null
   },
   {
    "x": 5,
@@ -93,7 +94,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROCKTUNNEL1F_HIKER2"
+   "name": "ROCKTUNNEL1F_HIKER2",
+   "mart": null
   },
   {
    "x": 17,
@@ -108,7 +110,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROCKTUNNEL1F_HIKER3"
+   "name": "ROCKTUNNEL1F_HIKER3",
+   "mart": null
   },
   {
    "x": 23,
@@ -123,7 +126,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROCKTUNNEL1F_SUPER_NERD"
+   "name": "ROCKTUNNEL1F_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 37,
@@ -138,7 +142,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROCKTUNNEL1F_COOLTRAINER_F1"
+   "name": "ROCKTUNNEL1F_COOLTRAINER_F1",
+   "mart": null
   },
   {
    "x": 22,
@@ -153,7 +158,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROCKTUNNEL1F_COOLTRAINER_F2"
+   "name": "ROCKTUNNEL1F_COOLTRAINER_F2",
+   "mart": null
   },
   {
    "x": 32,
@@ -168,7 +174,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "ROCKTUNNEL1F_COOLTRAINER_F3"
+   "name": "ROCKTUNNEL1F_COOLTRAINER_F3",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

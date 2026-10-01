@@ -36,7 +36,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "OAKSLAB_RIVAL"
+   "name": "OAKSLAB_RIVAL",
+   "mart": null
   },
   {
    "x": 6,
@@ -48,7 +49,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "OAKSLAB_CHARMANDER_POKE_BALL"
+   "name": "OAKSLAB_CHARMANDER_POKE_BALL",
+   "mart": null
   },
   {
    "x": 7,
@@ -60,7 +62,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "OAKSLAB_SQUIRTLE_POKE_BALL"
+   "name": "OAKSLAB_SQUIRTLE_POKE_BALL",
+   "mart": null
   },
   {
    "x": 8,
@@ -72,7 +75,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "OAKSLAB_BULBASAUR_POKE_BALL"
+   "name": "OAKSLAB_BULBASAUR_POKE_BALL",
+   "mart": null
   },
   {
    "x": 5,
@@ -84,7 +88,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "OAKSLAB_OAK1"
+   "name": "OAKSLAB_OAK1",
+   "mart": null
   },
   {
    "x": 2,
@@ -96,7 +101,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "OAKSLAB_POKEDEX1"
+   "name": "OAKSLAB_POKEDEX1",
+   "mart": null
   },
   {
    "x": 3,
@@ -108,7 +114,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "OAKSLAB_POKEDEX2"
+   "name": "OAKSLAB_POKEDEX2",
+   "mart": null
   },
   {
    "x": 5,
@@ -120,7 +127,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "OAKSLAB_OAK2"
+   "name": "OAKSLAB_OAK2",
+   "mart": null
   },
   {
    "x": 1,
@@ -132,7 +140,8 @@
    "trainer": null,
    "item": null,
    "index": 9,
-   "name": "OAKSLAB_GIRL"
+   "name": "OAKSLAB_GIRL",
+   "mart": null
   },
   {
    "x": 2,
@@ -144,7 +153,8 @@
    "trainer": null,
    "item": null,
    "index": 10,
-   "name": "OAKSLAB_SCIENTIST1"
+   "name": "OAKSLAB_SCIENTIST1",
+   "mart": null
   },
   {
    "x": 8,
@@ -156,7 +166,8 @@
    "trainer": null,
    "item": null,
    "index": 11,
-   "name": "OAKSLAB_SCIENTIST2"
+   "name": "OAKSLAB_SCIENTIST2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -36,7 +36,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "CELADONGYM_ERIKA"
+   "name": "CELADONGYM_ERIKA",
+   "mart": null
   },
   {
    "x": 2,
@@ -51,7 +52,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "CELADONGYM_COOLTRAINER_F1"
+   "name": "CELADONGYM_COOLTRAINER_F1",
+   "mart": null
   },
   {
    "x": 7,
@@ -66,7 +68,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "CELADONGYM_BEAUTY1"
+   "name": "CELADONGYM_BEAUTY1",
+   "mart": null
   },
   {
    "x": 9,
@@ -81,7 +84,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "CELADONGYM_COOLTRAINER_F2"
+   "name": "CELADONGYM_COOLTRAINER_F2",
+   "mart": null
   },
   {
    "x": 1,
@@ -96,7 +100,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "CELADONGYM_BEAUTY2"
+   "name": "CELADONGYM_BEAUTY2",
+   "mart": null
   },
   {
    "x": 6,
@@ -111,7 +116,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "CELADONGYM_COOLTRAINER_F3"
+   "name": "CELADONGYM_COOLTRAINER_F3",
+   "mart": null
   },
   {
    "x": 3,
@@ -126,7 +132,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "CELADONGYM_BEAUTY3"
+   "name": "CELADONGYM_BEAUTY3",
+   "mart": null
   },
   {
    "x": 5,
@@ -141,7 +148,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "CELADONGYM_COOLTRAINER_F4"
+   "name": "CELADONGYM_COOLTRAINER_F4",
+   "mart": null
   }
  ],
  "gym_leader_no": 4,

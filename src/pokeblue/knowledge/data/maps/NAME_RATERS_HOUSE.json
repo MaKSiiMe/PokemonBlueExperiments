@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "NAMERATERSHOUSE_NAME_RATER"
+   "name": "NAMERATERSHOUSE_NAME_RATER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

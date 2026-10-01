@@ -68,7 +68,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONMART1F_RECEPTIONIST"
+   "name": "CELADONMART1F_RECEPTIONIST",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

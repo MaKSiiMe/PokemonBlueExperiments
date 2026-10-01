@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE16FLYHOUSE_BRUNETTE_GIRL"
+   "name": "ROUTE16FLYHOUSE_BRUNETTE_GIRL",
+   "mart": null
   },
   {
    "x": 6,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "ROUTE16FLYHOUSE_FEAROW"
+   "name": "ROUTE16FLYHOUSE_FEAROW",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

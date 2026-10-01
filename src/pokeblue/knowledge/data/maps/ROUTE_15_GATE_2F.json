@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE15GATE2F_OAKS_AIDE"
+   "name": "ROUTE15GATE2F_OAKS_AIDE",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

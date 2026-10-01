@@ -42,7 +42,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROCKETHIDEOUTB4F_GIOVANNI"
+   "name": "ROCKETHIDEOUTB4F_GIOVANNI",
+   "mart": null
   },
   {
    "x": 23,
@@ -57,7 +58,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROCKETHIDEOUTB4F_ROCKET1"
+   "name": "ROCKETHIDEOUTB4F_ROCKET1",
+   "mart": null
   },
   {
    "x": 26,
@@ -72,7 +74,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROCKETHIDEOUTB4F_ROCKET2"
+   "name": "ROCKETHIDEOUTB4F_ROCKET2",
+   "mart": null
   },
   {
    "x": 11,
@@ -87,7 +90,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROCKETHIDEOUTB4F_ROCKET3"
+   "name": "ROCKETHIDEOUTB4F_ROCKET3",
+   "mart": null
   },
   {
    "x": 10,
@@ -99,7 +103,8 @@
    "trainer": null,
    "item": "HP_UP",
    "index": 5,
-   "name": "ROCKETHIDEOUTB4F_HP_UP"
+   "name": "ROCKETHIDEOUTB4F_HP_UP",
+   "mart": null
   },
   {
    "x": 9,
@@ -111,7 +116,8 @@
    "trainer": null,
    "item": "TM_RAZOR_WIND",
    "index": 6,
-   "name": "ROCKETHIDEOUTB4F_TM_RAZOR_WIND"
+   "name": "ROCKETHIDEOUTB4F_TM_RAZOR_WIND",
+   "mart": null
   },
   {
    "x": 12,
@@ -123,7 +129,8 @@
    "trainer": null,
    "item": "IRON",
    "index": 7,
-   "name": "ROCKETHIDEOUTB4F_IRON"
+   "name": "ROCKETHIDEOUTB4F_IRON",
+   "mart": null
   },
   {
    "x": 25,
@@ -135,7 +142,8 @@
    "trainer": null,
    "item": "SILPH_SCOPE",
    "index": 8,
-   "name": "ROCKETHIDEOUTB4F_SILPH_SCOPE"
+   "name": "ROCKETHIDEOUTB4F_SILPH_SCOPE",
+   "mart": null
   },
   {
    "x": 10,
@@ -147,7 +155,8 @@
    "trainer": null,
    "item": "LIFT_KEY",
    "index": 9,
-   "name": "ROCKETHIDEOUTB4F_LIFT_KEY"
+   "name": "ROCKETHIDEOUTB4F_LIFT_KEY",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

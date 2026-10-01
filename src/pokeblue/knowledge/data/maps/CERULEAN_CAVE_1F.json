@@ -75,7 +75,8 @@
    "trainer": null,
    "item": "FULL_RESTORE",
    "index": 1,
-   "name": "CERULEANCAVE1F_FULL_RESTORE"
+   "name": "CERULEANCAVE1F_FULL_RESTORE",
+   "mart": null
   },
   {
    "x": 19,
@@ -87,7 +88,8 @@
    "trainer": null,
    "item": "MAX_ELIXER",
    "index": 2,
-   "name": "CERULEANCAVE1F_MAX_ELIXER"
+   "name": "CERULEANCAVE1F_MAX_ELIXER",
+   "mart": null
   },
   {
    "x": 5,
@@ -99,7 +101,8 @@
    "trainer": null,
    "item": "NUGGET",
    "index": 3,
-   "name": "CERULEANCAVE1F_NUGGET"
+   "name": "CERULEANCAVE1F_NUGGET",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

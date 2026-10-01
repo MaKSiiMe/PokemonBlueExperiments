@@ -39,7 +39,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "UNDERGROUNDPATHROUTE5_LITTLE_GIRL"
+   "name": "UNDERGROUNDPATHROUTE5_LITTLE_GIRL",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

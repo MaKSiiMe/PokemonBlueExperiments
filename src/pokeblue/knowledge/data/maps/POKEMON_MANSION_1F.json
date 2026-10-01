@@ -72,7 +72,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "POKEMONMANSION1F_SCIENTIST"
+   "name": "POKEMONMANSION1F_SCIENTIST",
+   "mart": null
   },
   {
    "x": 14,
@@ -84,7 +85,8 @@
    "trainer": null,
    "item": "ESCAPE_ROPE",
    "index": 2,
-   "name": "POKEMONMANSION1F_ESCAPE_ROPE"
+   "name": "POKEMONMANSION1F_ESCAPE_ROPE",
+   "mart": null
   },
   {
    "x": 18,
@@ -96,7 +98,8 @@
    "trainer": null,
    "item": "CARBOS",
    "index": 3,
-   "name": "POKEMONMANSION1F_CARBOS"
+   "name": "POKEMONMANSION1F_CARBOS",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

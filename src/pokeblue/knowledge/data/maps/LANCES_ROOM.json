@@ -42,7 +42,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "LANCESROOM_LANCE"
+   "name": "LANCESROOM_LANCE",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

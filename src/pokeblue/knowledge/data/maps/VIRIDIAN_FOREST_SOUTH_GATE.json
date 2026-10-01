@@ -45,7 +45,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "VIRIDIANFORESTSOUTHGATE_GIRL"
+   "name": "VIRIDIANFORESTSOUTHGATE_GIRL",
+   "mart": null
   },
   {
    "x": 2,
@@ -57,7 +58,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "VIRIDIANFORESTSOUTHGATE_LITTLE_GIRL"
+   "name": "VIRIDIANFORESTSOUTHGATE_LITTLE_GIRL",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

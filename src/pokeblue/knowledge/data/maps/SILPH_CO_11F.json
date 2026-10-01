@@ -45,7 +45,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SILPHCO11F_SILPH_PRESIDENT"
+   "name": "SILPHCO11F_SILPH_PRESIDENT",
+   "mart": null
   },
   {
    "x": 10,
@@ -57,7 +58,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "SILPHCO11F_BEAUTY"
+   "name": "SILPHCO11F_BEAUTY",
+   "mart": null
   },
   {
    "x": 6,
@@ -72,7 +74,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "SILPHCO11F_GIOVANNI"
+   "name": "SILPHCO11F_GIOVANNI",
+   "mart": null
   },
   {
    "x": 3,
@@ -87,7 +90,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "SILPHCO11F_ROCKET1"
+   "name": "SILPHCO11F_ROCKET1",
+   "mart": null
   },
   {
    "x": 15,
@@ -102,7 +106,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "SILPHCO11F_ROCKET2"
+   "name": "SILPHCO11F_ROCKET2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

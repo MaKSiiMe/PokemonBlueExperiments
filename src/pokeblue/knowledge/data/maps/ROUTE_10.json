@@ -80,7 +80,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROUTE10_SUPER_NERD1"
+   "name": "ROUTE10_SUPER_NERD1",
+   "mart": null
   },
   {
    "x": 3,
@@ -95,7 +96,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROUTE10_HIKER1"
+   "name": "ROUTE10_HIKER1",
+   "mart": null
   },
   {
    "x": 14,
@@ -110,7 +112,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROUTE10_SUPER_NERD2"
+   "name": "ROUTE10_SUPER_NERD2",
+   "mart": null
   },
   {
    "x": 7,
@@ -125,7 +128,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROUTE10_COOLTRAINER_F1"
+   "name": "ROUTE10_COOLTRAINER_F1",
+   "mart": null
   },
   {
    "x": 3,
@@ -140,7 +144,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROUTE10_HIKER2"
+   "name": "ROUTE10_HIKER2",
+   "mart": null
   },
   {
    "x": 7,
@@ -155,7 +160,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROUTE10_COOLTRAINER_F2"
+   "name": "ROUTE10_COOLTRAINER_F2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONCHIEFHOUSE_CHIEF"
+   "name": "CELADONCHIEFHOUSE_CHIEF",
+   "mart": null
   },
   {
    "x": 1,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CELADONCHIEFHOUSE_ROCKET"
+   "name": "CELADONCHIEFHOUSE_ROCKET",
+   "mart": null
   },
   {
    "x": 5,
@@ -57,7 +59,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "CELADONCHIEFHOUSE_SAILOR"
+   "name": "CELADONCHIEFHOUSE_SAILOR",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

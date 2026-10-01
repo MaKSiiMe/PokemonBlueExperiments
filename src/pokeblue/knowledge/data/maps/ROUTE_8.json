@@ -71,7 +71,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROUTE8_SUPER_NERD1"
+   "name": "ROUTE8_SUPER_NERD1",
+   "mart": null
   },
   {
    "x": 13,
@@ -86,7 +87,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROUTE8_GAMBLER1"
+   "name": "ROUTE8_GAMBLER1",
+   "mart": null
   },
   {
    "x": 42,
@@ -101,7 +103,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROUTE8_SUPER_NERD2"
+   "name": "ROUTE8_SUPER_NERD2",
+   "mart": null
   },
   {
    "x": 26,
@@ -116,7 +119,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROUTE8_COOLTRAINER_F1"
+   "name": "ROUTE8_COOLTRAINER_F1",
+   "mart": null
   },
   {
    "x": 26,
@@ -131,7 +135,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROUTE8_SUPER_NERD3"
+   "name": "ROUTE8_SUPER_NERD3",
+   "mart": null
   },
   {
    "x": 26,
@@ -146,7 +151,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROUTE8_COOLTRAINER_F2"
+   "name": "ROUTE8_COOLTRAINER_F2",
+   "mart": null
   },
   {
    "x": 26,
@@ -161,7 +167,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "ROUTE8_COOLTRAINER_F3"
+   "name": "ROUTE8_COOLTRAINER_F3",
+   "mart": null
   },
   {
    "x": 46,
@@ -176,7 +183,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "ROUTE8_GAMBLER2"
+   "name": "ROUTE8_GAMBLER2",
+   "mart": null
   },
   {
    "x": 51,
@@ -191,7 +199,8 @@
    },
    "item": null,
    "index": 9,
-   "name": "ROUTE8_COOLTRAINER_F4"
+   "name": "ROUTE8_COOLTRAINER_F4",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

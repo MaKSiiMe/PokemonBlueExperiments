@@ -33,7 +33,13 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "VIRIDIANMART_CLERK"
+   "name": "VIRIDIANMART_CLERK",
+   "mart": [
+    "POKE_BALL",
+    "ANTIDOTE",
+    "PARLYZ_HEAL",
+    "BURN_HEAL"
+   ]
   },
   {
    "x": 5,
@@ -45,7 +51,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "VIRIDIANMART_YOUNGSTER"
+   "name": "VIRIDIANMART_YOUNGSTER",
+   "mart": null
   },
   {
    "x": 3,
@@ -57,7 +64,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "VIRIDIANMART_COOLTRAINER_M"
+   "name": "VIRIDIANMART_COOLTRAINER_M",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

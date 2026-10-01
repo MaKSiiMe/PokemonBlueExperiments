@@ -33,7 +33,15 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "FUCHSIAMART_CLERK"
+   "name": "FUCHSIAMART_CLERK",
+   "mart": [
+    "ULTRA_BALL",
+    "GREAT_BALL",
+    "SUPER_POTION",
+    "REVIVE",
+    "FULL_HEAL",
+    "SUPER_REPEL"
+   ]
   },
   {
    "x": 4,
@@ -45,7 +53,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "FUCHSIAMART_MIDDLE_AGED_MAN"
+   "name": "FUCHSIAMART_MIDDLE_AGED_MAN",
+   "mart": null
   },
   {
    "x": 6,
@@ -57,7 +66,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "FUCHSIAMART_COOLTRAINER_F"
+   "name": "FUCHSIAMART_COOLTRAINER_F",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -88,7 +88,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "VIRIDIANFOREST_YOUNGSTER1"
+   "name": "VIRIDIANFOREST_YOUNGSTER1",
+   "mart": null
   },
   {
    "x": 30,
@@ -103,7 +104,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "VIRIDIANFOREST_YOUNGSTER2"
+   "name": "VIRIDIANFOREST_YOUNGSTER2",
+   "mart": null
   },
   {
    "x": 30,
@@ -118,7 +120,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "VIRIDIANFOREST_YOUNGSTER3"
+   "name": "VIRIDIANFOREST_YOUNGSTER3",
+   "mart": null
   },
   {
    "x": 2,
@@ -133,7 +136,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "VIRIDIANFOREST_YOUNGSTER4"
+   "name": "VIRIDIANFOREST_YOUNGSTER4",
+   "mart": null
   },
   {
    "x": 25,
@@ -145,7 +149,8 @@
    "trainer": null,
    "item": "ANTIDOTE",
    "index": 5,
-   "name": "VIRIDIANFOREST_ANTIDOTE"
+   "name": "VIRIDIANFOREST_ANTIDOTE",
+   "mart": null
   },
   {
    "x": 12,
@@ -157,7 +162,8 @@
    "trainer": null,
    "item": "POTION",
    "index": 6,
-   "name": "VIRIDIANFOREST_POTION"
+   "name": "VIRIDIANFOREST_POTION",
+   "mart": null
   },
   {
    "x": 1,
@@ -169,7 +175,8 @@
    "trainer": null,
    "item": "POKE_BALL",
    "index": 7,
-   "name": "VIRIDIANFOREST_POKE_BALL"
+   "name": "VIRIDIANFOREST_POKE_BALL",
+   "mart": null
   },
   {
    "x": 27,
@@ -181,7 +188,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "VIRIDIANFOREST_YOUNGSTER5"
+   "name": "VIRIDIANFOREST_YOUNGSTER5",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

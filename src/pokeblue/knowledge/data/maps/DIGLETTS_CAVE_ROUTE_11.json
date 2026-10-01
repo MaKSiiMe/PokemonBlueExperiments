@@ -39,7 +39,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "DIGLETTSCAVEROUTE11_GAMBLER"
+   "name": "DIGLETTSCAVEROUTE11_GAMBLER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -39,7 +39,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "INDIGOPLATEAULOBBY_NURSE"
+   "name": "INDIGOPLATEAULOBBY_NURSE",
+   "mart": null
   },
   {
    "x": 4,
@@ -51,7 +52,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "INDIGOPLATEAULOBBY_GYM_GUIDE"
+   "name": "INDIGOPLATEAULOBBY_GYM_GUIDE",
+   "mart": null
   },
   {
    "x": 5,
@@ -63,7 +65,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "INDIGOPLATEAULOBBY_COOLTRAINER_F"
+   "name": "INDIGOPLATEAULOBBY_COOLTRAINER_F",
+   "mart": null
   },
   {
    "x": 0,
@@ -75,7 +78,16 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "INDIGOPLATEAULOBBY_CLERK"
+   "name": "INDIGOPLATEAULOBBY_CLERK",
+   "mart": [
+    "ULTRA_BALL",
+    "GREAT_BALL",
+    "FULL_RESTORE",
+    "MAX_POTION",
+    "FULL_HEAL",
+    "REVIVE",
+    "MAX_REPEL"
+   ]
   },
   {
    "x": 13,
@@ -87,7 +99,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "INDIGOPLATEAULOBBY_LINK_RECEPTIONIST"
+   "name": "INDIGOPLATEAULOBBY_LINK_RECEPTIONIST",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

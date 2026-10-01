@@ -57,7 +57,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SILPHCO7F_SILPH_WORKER_M1"
+   "name": "SILPHCO7F_SILPH_WORKER_M1",
+   "mart": null
   },
   {
    "x": 13,
@@ -69,7 +70,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "SILPHCO7F_SILPH_WORKER_M2"
+   "name": "SILPHCO7F_SILPH_WORKER_M2",
+   "mart": null
   },
   {
    "x": 7,
@@ -81,7 +83,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "SILPHCO7F_SILPH_WORKER_M3"
+   "name": "SILPHCO7F_SILPH_WORKER_M3",
+   "mart": null
   },
   {
    "x": 10,
@@ -93,7 +96,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "SILPHCO7F_SILPH_WORKER_M4"
+   "name": "SILPHCO7F_SILPH_WORKER_M4",
+   "mart": null
   },
   {
    "x": 13,
@@ -108,7 +112,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "SILPHCO7F_ROCKET1"
+   "name": "SILPHCO7F_ROCKET1",
+   "mart": null
   },
   {
    "x": 2,
@@ -123,7 +128,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "SILPHCO7F_SCIENTIST"
+   "name": "SILPHCO7F_SCIENTIST",
+   "mart": null
   },
   {
    "x": 20,
@@ -138,7 +144,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "SILPHCO7F_ROCKET2"
+   "name": "SILPHCO7F_ROCKET2",
+   "mart": null
   },
   {
    "x": 19,
@@ -153,7 +160,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "SILPHCO7F_ROCKET3"
+   "name": "SILPHCO7F_ROCKET3",
+   "mart": null
   },
   {
    "x": 3,
@@ -165,7 +173,8 @@
    "trainer": null,
    "item": null,
    "index": 9,
-   "name": "SILPHCO7F_RIVAL"
+   "name": "SILPHCO7F_RIVAL",
+   "mart": null
   },
   {
    "x": 1,
@@ -177,7 +186,8 @@
    "trainer": null,
    "item": "CALCIUM",
    "index": 10,
-   "name": "SILPHCO7F_CALCIUM"
+   "name": "SILPHCO7F_CALCIUM",
+   "mart": null
   },
   {
    "x": 24,
@@ -189,7 +199,8 @@
    "trainer": null,
    "item": "TM_SWORDS_DANCE",
    "index": 11,
-   "name": "SILPHCO7F_TM_SWORDS_DANCE"
+   "name": "SILPHCO7F_TM_SWORDS_DANCE",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -30,7 +30,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "CERULEANCAVEB1F_MEWTWO"
+   "name": "CERULEANCAVEB1F_MEWTWO",
+   "mart": null
   },
   {
    "x": 16,
@@ -42,7 +43,8 @@
    "trainer": null,
    "item": "ULTRA_BALL",
    "index": 2,
-   "name": "CERULEANCAVEB1F_ULTRA_BALL"
+   "name": "CERULEANCAVEB1F_ULTRA_BALL",
+   "mart": null
   },
   {
    "x": 18,
@@ -54,7 +56,8 @@
    "trainer": null,
    "item": "MAX_REVIVE",
    "index": 3,
-   "name": "CERULEANCAVEB1F_MAX_REVIVE"
+   "name": "CERULEANCAVEB1F_MAX_REVIVE",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

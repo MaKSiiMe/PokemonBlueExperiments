@@ -33,7 +33,15 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "VERMILIONMART_CLERK"
+   "name": "VERMILIONMART_CLERK",
+   "mart": [
+    "POKE_BALL",
+    "SUPER_POTION",
+    "ICE_HEAL",
+    "AWAKENING",
+    "PARLYZ_HEAL",
+    "REPEL"
+   ]
   },
   {
    "x": 5,
@@ -45,7 +53,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "VERMILIONMART_COOLTRAINER_M"
+   "name": "VERMILIONMART_COOLTRAINER_M",
+   "mart": null
   },
   {
    "x": 3,
@@ -57,7 +66,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "VERMILIONMART_COOLTRAINER_F"
+   "name": "VERMILIONMART_COOLTRAINER_F",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

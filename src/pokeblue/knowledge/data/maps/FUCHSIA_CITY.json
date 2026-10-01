@@ -162,7 +162,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "FUCHSIACITY_YOUNGSTER1"
+   "name": "FUCHSIACITY_YOUNGSTER1",
+   "mart": null
   },
   {
    "x": 28,
@@ -174,7 +175,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "FUCHSIACITY_GAMBLER"
+   "name": "FUCHSIACITY_GAMBLER",
+   "mart": null
   },
   {
    "x": 30,
@@ -186,7 +188,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "FUCHSIACITY_ERIK"
+   "name": "FUCHSIACITY_ERIK",
+   "mart": null
   },
   {
    "x": 24,
@@ -198,7 +201,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "FUCHSIACITY_YOUNGSTER2"
+   "name": "FUCHSIACITY_YOUNGSTER2",
+   "mart": null
   },
   {
    "x": 31,
@@ -210,7 +214,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "FUCHSIACITY_CHANSEY"
+   "name": "FUCHSIACITY_CHANSEY",
+   "mart": null
   },
   {
    "x": 25,
@@ -222,7 +227,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "FUCHSIACITY_VOLTORB"
+   "name": "FUCHSIACITY_VOLTORB",
+   "mart": null
   },
   {
    "x": 12,
@@ -234,7 +240,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "FUCHSIACITY_KANGASKHAN"
+   "name": "FUCHSIACITY_KANGASKHAN",
+   "mart": null
   },
   {
    "x": 30,
@@ -246,7 +253,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "FUCHSIACITY_SLOWPOKE"
+   "name": "FUCHSIACITY_SLOWPOKE",
+   "mart": null
   },
   {
    "x": 8,
@@ -258,7 +266,8 @@
    "trainer": null,
    "item": null,
    "index": 9,
-   "name": "FUCHSIACITY_LAPRAS"
+   "name": "FUCHSIACITY_LAPRAS",
+   "mart": null
   },
   {
    "x": 6,
@@ -270,7 +279,8 @@
    "trainer": null,
    "item": null,
    "index": 10,
-   "name": "FUCHSIACITY_FOSSIL"
+   "name": "FUCHSIACITY_FOSSIL",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

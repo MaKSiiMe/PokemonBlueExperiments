@@ -36,7 +36,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "CERULEANGYM_MISTY"
+   "name": "CERULEANGYM_MISTY",
+   "mart": null
   },
   {
    "x": 2,
@@ -51,7 +52,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "CERULEANGYM_COOLTRAINER_F"
+   "name": "CERULEANGYM_COOLTRAINER_F",
+   "mart": null
   },
   {
    "x": 8,
@@ -66,7 +68,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "CERULEANGYM_SWIMMER"
+   "name": "CERULEANGYM_SWIMMER",
+   "mart": null
   },
   {
    "x": 7,
@@ -78,7 +81,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "CERULEANGYM_GYM_GUIDE"
+   "name": "CERULEANGYM_GYM_GUIDE",
+   "mart": null
   }
  ],
  "gym_leader_no": 2,

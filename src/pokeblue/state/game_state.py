@@ -17,6 +17,8 @@ NUM_USED_STAT_MODS = sym.MOD_EVASION + 1
 # wSpriteStateData2 MAPY/MAPX valent la coordonnée + 4 (object_event : `db \2 + 4`,
 # macros/scripts/maps.asm).
 SPRITE_MAP_COORD_OFFSET = 4
+# Directions de la manette (bits B_PAD_* de hardware.inc), pour wJoyIgnore.
+PAD_DIRECTIONS = sum(1 << getattr(sym, f"B_PAD_{d}") for d in ("UP", "DOWN", "LEFT", "RIGHT"))
 
 
 # ── Décodage ──────────────────────────────────────────────────────────────────
@@ -118,6 +120,7 @@ class Battle:
     enemy: BattleMon
     player_party_index: int      # wPlayerMonNumber : Pokémon de l'équipe au combat
     enemy_party_count: int       # wEnemyPartyCount (combats de dresseur)
+    player_disabled_slot: int = -1   # attaque sous Entrave (wPlayerDisabledMove, quartet haut − 1)
 
     @property
     def is_wild(self) -> bool:
@@ -230,6 +233,7 @@ class GameState:
                 enemy=_read_battle_mon(mem, "W_ENEMY_MON", sym.W_ENEMY_MON_STAT_MODS),
                 player_party_index=mem[sym.W_PLAYER_MON_NUMBER],
                 enemy_party_count=mem[sym.W_ENEMY_PARTY_COUNT],
+                player_disabled_slot=(mem[sym.W_PLAYER_DISABLED_MOVE] >> 4) - 1,
             )
         return cls(
             map_id=mem[sym.W_CUR_MAP],
@@ -294,6 +298,11 @@ class GameState:
     @property
     def in_battle(self) -> bool:
         return self.battle is not None
+
+    @property
+    def scripted(self) -> bool:
+        """Un script ignore les directions (wJoyIgnore) : déplacement imposé, scène."""
+        return bool(self.joy_ignore & PAD_DIRECTIONS)
 
     @property
     def party_hp(self) -> int:

@@ -66,7 +66,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONMANSION3F_PROGRAMMER"
+   "name": "CELADONMANSION3F_PROGRAMMER",
+   "mart": null
   },
   {
    "x": 3,
@@ -78,7 +79,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CELADONMANSION3F_GRAPHIC_ARTIST"
+   "name": "CELADONMANSION3F_GRAPHIC_ARTIST",
+   "mart": null
   },
   {
    "x": 0,
@@ -90,7 +92,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "CELADONMANSION3F_WRITER"
+   "name": "CELADONMANSION3F_WRITER",
+   "mart": null
   },
   {
    "x": 2,
@@ -102,7 +105,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "CELADONMANSION3F_GAME_DESIGNER"
+   "name": "CELADONMANSION3F_GAME_DESIGNER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

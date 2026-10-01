@@ -63,7 +63,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SEAFOAMISLANDSB3F_BOULDER1"
+   "name": "SEAFOAMISLANDSB3F_BOULDER1",
+   "mart": null
   },
   {
    "x": 3,
@@ -75,7 +76,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "SEAFOAMISLANDSB3F_BOULDER2"
+   "name": "SEAFOAMISLANDSB3F_BOULDER2",
+   "mart": null
   },
   {
    "x": 8,
@@ -87,7 +89,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "SEAFOAMISLANDSB3F_BOULDER3"
+   "name": "SEAFOAMISLANDSB3F_BOULDER3",
+   "mart": null
   },
   {
    "x": 9,
@@ -99,7 +102,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "SEAFOAMISLANDSB3F_BOULDER4"
+   "name": "SEAFOAMISLANDSB3F_BOULDER4",
+   "mart": null
   },
   {
    "x": 18,
@@ -111,7 +115,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "SEAFOAMISLANDSB3F_BOULDER5"
+   "name": "SEAFOAMISLANDSB3F_BOULDER5",
+   "mart": null
   },
   {
    "x": 19,
@@ -123,7 +128,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "SEAFOAMISLANDSB3F_BOULDER6"
+   "name": "SEAFOAMISLANDSB3F_BOULDER6",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

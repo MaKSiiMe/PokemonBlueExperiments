@@ -51,7 +51,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SILPHCO9F_NURSE"
+   "name": "SILPHCO9F_NURSE",
+   "mart": null
   },
   {
    "x": 2,
@@ -66,7 +67,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "SILPHCO9F_ROCKET1"
+   "name": "SILPHCO9F_ROCKET1",
+   "mart": null
   },
   {
    "x": 21,
@@ -81,7 +83,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "SILPHCO9F_SCIENTIST"
+   "name": "SILPHCO9F_SCIENTIST",
+   "mart": null
   },
   {
    "x": 13,
@@ -96,7 +99,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "SILPHCO9F_ROCKET2"
+   "name": "SILPHCO9F_ROCKET2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

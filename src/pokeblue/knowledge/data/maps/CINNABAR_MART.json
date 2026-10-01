@@ -33,7 +33,16 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CINNABARMART_CLERK"
+   "name": "CINNABARMART_CLERK",
+   "mart": [
+    "ULTRA_BALL",
+    "GREAT_BALL",
+    "HYPER_POTION",
+    "MAX_REPEL",
+    "ESCAPE_ROPE",
+    "FULL_HEAL",
+    "REVIVE"
+   ]
   },
   {
    "x": 6,
@@ -45,7 +54,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CINNABARMART_SILPH_WORKER_F"
+   "name": "CINNABARMART_SILPH_WORKER_F",
+   "mart": null
   },
   {
    "x": 3,
@@ -57,7 +67,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "CINNABARMART_SCIENTIST"
+   "name": "CINNABARMART_SCIENTIST",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

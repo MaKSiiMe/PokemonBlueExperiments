@@ -84,7 +84,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "SSANNEB1FROOMS_SAILOR1"
+   "name": "SSANNEB1FROOMS_SAILOR1",
+   "mart": null
   },
   {
    "x": 2,
@@ -99,7 +100,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "SSANNEB1FROOMS_SAILOR2"
+   "name": "SSANNEB1FROOMS_SAILOR2",
+   "mart": null
   },
   {
    "x": 12,
@@ -114,7 +116,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "SSANNEB1FROOMS_SAILOR3"
+   "name": "SSANNEB1FROOMS_SAILOR3",
+   "mart": null
   },
   {
    "x": 22,
@@ -129,7 +132,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "SSANNEB1FROOMS_SAILOR4"
+   "name": "SSANNEB1FROOMS_SAILOR4",
+   "mart": null
   },
   {
    "x": 0,
@@ -144,7 +148,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "SSANNEB1FROOMS_SAILOR5"
+   "name": "SSANNEB1FROOMS_SAILOR5",
+   "mart": null
   },
   {
    "x": 0,
@@ -159,7 +164,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "SSANNEB1FROOMS_FISHER"
+   "name": "SSANNEB1FROOMS_FISHER",
+   "mart": null
   },
   {
    "x": 10,
@@ -171,7 +177,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "SSANNEB1FROOMS_SUPER_NERD"
+   "name": "SSANNEB1FROOMS_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 11,
@@ -183,7 +190,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "SSANNEB1FROOMS_MACHOKE"
+   "name": "SSANNEB1FROOMS_MACHOKE",
+   "mart": null
   },
   {
    "x": 20,
@@ -195,7 +203,8 @@
    "trainer": null,
    "item": "ETHER",
    "index": 9,
-   "name": "SSANNEB1FROOMS_ETHER"
+   "name": "SSANNEB1FROOMS_ETHER",
+   "mart": null
   },
   {
    "x": 10,
@@ -207,7 +216,8 @@
    "trainer": null,
    "item": "TM_REST",
    "index": 10,
-   "name": "SSANNEB1FROOMS_TM_REST"
+   "name": "SSANNEB1FROOMS_TM_REST",
+   "mart": null
   },
   {
    "x": 12,
@@ -219,7 +229,8 @@
    "trainer": null,
    "item": "MAX_POTION",
    "index": 11,
-   "name": "SSANNEB1FROOMS_MAX_POTION"
+   "name": "SSANNEB1FROOMS_MAX_POTION",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

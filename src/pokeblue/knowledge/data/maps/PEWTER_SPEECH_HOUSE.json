@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "PEWTERSPEECHHOUSE_GAMBLER"
+   "name": "PEWTERSPEECHHOUSE_GAMBLER",
+   "mart": null
   },
   {
    "x": 4,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "PEWTERSPEECHHOUSE_YOUNGSTER"
+   "name": "PEWTERSPEECHHOUSE_YOUNGSTER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

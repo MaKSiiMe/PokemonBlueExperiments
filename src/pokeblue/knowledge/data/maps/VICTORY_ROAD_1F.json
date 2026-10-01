@@ -42,7 +42,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "VICTORYROAD1F_COOLTRAINER_F"
+   "name": "VICTORYROAD1F_COOLTRAINER_F",
+   "mart": null
   },
   {
    "x": 3,
@@ -57,7 +58,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "VICTORYROAD1F_COOLTRAINER_M"
+   "name": "VICTORYROAD1F_COOLTRAINER_M",
+   "mart": null
   },
   {
    "x": 11,
@@ -69,7 +71,8 @@
    "trainer": null,
    "item": "TM_SKY_ATTACK",
    "index": 3,
-   "name": "VICTORYROAD1F_TM_SKY_ATTACK"
+   "name": "VICTORYROAD1F_TM_SKY_ATTACK",
+   "mart": null
   },
   {
    "x": 9,
@@ -81,7 +84,8 @@
    "trainer": null,
    "item": "RARE_CANDY",
    "index": 4,
-   "name": "VICTORYROAD1F_RARE_CANDY"
+   "name": "VICTORYROAD1F_RARE_CANDY",
+   "mart": null
   },
   {
    "x": 5,
@@ -93,7 +97,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "VICTORYROAD1F_BOULDER1"
+   "name": "VICTORYROAD1F_BOULDER1",
+   "mart": null
   },
   {
    "x": 14,
@@ -105,7 +110,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "VICTORYROAD1F_BOULDER2"
+   "name": "VICTORYROAD1F_BOULDER2",
+   "mart": null
   },
   {
    "x": 2,
@@ -117,7 +123,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "VICTORYROAD1F_BOULDER3"
+   "name": "VICTORYROAD1F_BOULDER3",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

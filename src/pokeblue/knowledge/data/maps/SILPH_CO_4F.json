@@ -63,7 +63,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SILPHCO4F_SILPH_WORKER_M"
+   "name": "SILPHCO4F_SILPH_WORKER_M",
+   "mart": null
   },
   {
    "x": 9,
@@ -78,7 +79,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "SILPHCO4F_ROCKET1"
+   "name": "SILPHCO4F_ROCKET1",
+   "mart": null
   },
   {
    "x": 14,
@@ -93,7 +95,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "SILPHCO4F_SCIENTIST"
+   "name": "SILPHCO4F_SCIENTIST",
+   "mart": null
   },
   {
    "x": 26,
@@ -108,7 +111,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "SILPHCO4F_ROCKET2"
+   "name": "SILPHCO4F_ROCKET2",
+   "mart": null
   },
   {
    "x": 3,
@@ -120,7 +124,8 @@
    "trainer": null,
    "item": "FULL_HEAL",
    "index": 5,
-   "name": "SILPHCO4F_FULL_HEAL"
+   "name": "SILPHCO4F_FULL_HEAL",
+   "mart": null
   },
   {
    "x": 4,
@@ -132,7 +137,8 @@
    "trainer": null,
    "item": "MAX_REVIVE",
    "index": 6,
-   "name": "SILPHCO4F_MAX_REVIVE"
+   "name": "SILPHCO4F_MAX_REVIVE",
+   "mart": null
   },
   {
    "x": 5,
@@ -144,7 +150,8 @@
    "trainer": null,
    "item": "ESCAPE_ROPE",
    "index": 7,
-   "name": "SILPHCO4F_ESCAPE_ROPE"
+   "name": "SILPHCO4F_ESCAPE_ROPE",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

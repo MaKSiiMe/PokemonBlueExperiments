@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CERULEANTRADEHOUSE_GRANNY"
+   "name": "CERULEANTRADEHOUSE_GRANNY",
+   "mart": null
   },
   {
    "x": 1,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CERULEANTRADEHOUSE_GAMBLER"
+   "name": "CERULEANTRADEHOUSE_GAMBLER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -39,7 +39,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "UNDERGROUNDPATHROUTE8_GIRL"
+   "name": "UNDERGROUNDPATHROUTE8_GIRL",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

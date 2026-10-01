@@ -39,7 +39,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "POKEMONTOWER1F_RECEPTIONIST"
+   "name": "POKEMONTOWER1F_RECEPTIONIST",
+   "mart": null
   },
   {
    "x": 6,
@@ -51,7 +52,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "POKEMONTOWER1F_MIDDLE_AGED_WOMAN"
+   "name": "POKEMONTOWER1F_MIDDLE_AGED_WOMAN",
+   "mart": null
   },
   {
    "x": 8,
@@ -63,7 +65,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "POKEMONTOWER1F_BALDING_GUY"
+   "name": "POKEMONTOWER1F_BALDING_GUY",
+   "mart": null
   },
   {
    "x": 13,
@@ -75,7 +78,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "POKEMONTOWER1F_GIRL"
+   "name": "POKEMONTOWER1F_GIRL",
+   "mart": null
   },
   {
    "x": 17,
@@ -87,7 +91,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "POKEMONTOWER1F_CHANNELER"
+   "name": "POKEMONTOWER1F_CHANNELER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

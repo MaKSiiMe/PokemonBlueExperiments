@@ -51,7 +51,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE12GATE1F_GUARD"
+   "name": "ROUTE12GATE1F_GUARD",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

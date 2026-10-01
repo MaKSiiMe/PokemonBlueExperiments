@@ -88,7 +88,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CINNABARISLAND_GIRL"
+   "name": "CINNABARISLAND_GIRL",
+   "mart": null
   },
   {
    "x": 14,
@@ -100,7 +101,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CINNABARISLAND_GAMBLER"
+   "name": "CINNABARISLAND_GAMBLER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

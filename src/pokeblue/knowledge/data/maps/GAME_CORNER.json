@@ -45,7 +45,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "GAMECORNER_BEAUTY1"
+   "name": "GAMECORNER_BEAUTY1",
+   "mart": null
   },
   {
    "x": 5,
@@ -57,7 +58,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "GAMECORNER_CLERK1"
+   "name": "GAMECORNER_CLERK1",
+   "mart": null
   },
   {
    "x": 2,
@@ -69,7 +71,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "GAMECORNER_MIDDLE_AGED_MAN1"
+   "name": "GAMECORNER_MIDDLE_AGED_MAN1",
+   "mart": null
   },
   {
    "x": 2,
@@ -81,7 +84,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "GAMECORNER_BEAUTY2"
+   "name": "GAMECORNER_BEAUTY2",
+   "mart": null
   },
   {
    "x": 5,
@@ -93,7 +97,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "GAMECORNER_FISHING_GURU"
+   "name": "GAMECORNER_FISHING_GURU",
+   "mart": null
   },
   {
    "x": 8,
@@ -105,7 +110,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "GAMECORNER_MIDDLE_AGED_WOMAN"
+   "name": "GAMECORNER_MIDDLE_AGED_WOMAN",
+   "mart": null
   },
   {
    "x": 8,
@@ -117,7 +123,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "GAMECORNER_GYM_GUIDE"
+   "name": "GAMECORNER_GYM_GUIDE",
+   "mart": null
   },
   {
    "x": 11,
@@ -129,7 +136,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "GAMECORNER_GAMBLER"
+   "name": "GAMECORNER_GAMBLER",
+   "mart": null
   },
   {
    "x": 14,
@@ -141,7 +149,8 @@
    "trainer": null,
    "item": null,
    "index": 9,
-   "name": "GAMECORNER_CLERK2"
+   "name": "GAMECORNER_CLERK2",
+   "mart": null
   },
   {
    "x": 17,
@@ -153,7 +162,8 @@
    "trainer": null,
    "item": null,
    "index": 10,
-   "name": "GAMECORNER_GENTLEMAN"
+   "name": "GAMECORNER_GENTLEMAN",
+   "mart": null
   },
   {
    "x": 9,
@@ -168,7 +178,8 @@
    },
    "item": null,
    "index": 11,
-   "name": "GAMECORNER_ROCKET"
+   "name": "GAMECORNER_ROCKET",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -45,7 +45,14 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONMART4F_CLERK"
+   "name": "CELADONMART4F_CLERK",
+   "mart": [
+    "POKE_DOLL",
+    "FIRE_STONE",
+    "THUNDER_STONE",
+    "WATER_STONE",
+    "LEAF_STONE"
+   ]
   },
   {
    "x": 15,
@@ -57,7 +64,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CELADONMART4F_SUPER_NERD"
+   "name": "CELADONMART4F_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 5,
@@ -69,7 +77,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "CELADONMART4F_YOUNGSTER"
+   "name": "CELADONMART4F_YOUNGSTER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

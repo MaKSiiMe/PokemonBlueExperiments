@@ -34,9 +34,18 @@ class Milestone:
     requires: dict = field(default_factory=dict)  # objets / badges exigés
     recommended_level: int | None = None
     optional: bool = False
+    approach: dict | None = None                 # voir l'en-tête de progression.yaml
+    steps: tuple[dict, ...] = ()
 
     def done(self, progress: Progress) -> bool:
         return any(progress.satisfies(cond) for cond in self.completes_when)
+
+    def current_approach(self, progress: Progress) -> dict | None:
+        """Façon de déclencher l'action : celle de la première étape non faite."""
+        for step in self.steps:
+            if "done_when" not in step or not progress.satisfies(step["done_when"]):
+                return step.get("approach")
+        return self.approach
 
     def trainer_team(self, rival_starter: str | None = None) -> tuple[TrainerMon, ...] | None:
         if self.trainer_class is None:
@@ -66,6 +75,7 @@ def milestones() -> tuple[Milestone, ...]:
             requires_milestones=tuple(requires.pop("milestones", [])),
             requires_abilities=abilities, requires=requires,
             recommended_level=m.get("recommended_level"), optional=m.get("optional", False),
+            approach=m.get("approach"), steps=tuple(m.get("steps", ())),
         ))
     return tuple(out)
 

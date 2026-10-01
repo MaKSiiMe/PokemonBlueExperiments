@@ -133,7 +133,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CERULEANCITY_RIVAL"
+   "name": "CERULEANCITY_RIVAL",
+   "mart": null
   },
   {
    "x": 30,
@@ -148,7 +149,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "CERULEANCITY_ROCKET"
+   "name": "CERULEANCITY_ROCKET",
+   "mart": null
   },
   {
    "x": 31,
@@ -160,7 +162,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "CERULEANCITY_COOLTRAINER_M"
+   "name": "CERULEANCITY_COOLTRAINER_M",
+   "mart": null
   },
   {
    "x": 15,
@@ -172,7 +175,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "CERULEANCITY_SUPER_NERD1"
+   "name": "CERULEANCITY_SUPER_NERD1",
+   "mart": null
   },
   {
    "x": 9,
@@ -184,7 +188,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "CERULEANCITY_SUPER_NERD2"
+   "name": "CERULEANCITY_SUPER_NERD2",
+   "mart": null
   },
   {
    "x": 28,
@@ -196,7 +201,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "CERULEANCITY_GUARD1"
+   "name": "CERULEANCITY_GUARD1",
+   "mart": null
   },
   {
    "x": 29,
@@ -208,7 +214,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "CERULEANCITY_COOLTRAINER_F1"
+   "name": "CERULEANCITY_COOLTRAINER_F1",
+   "mart": null
   },
   {
    "x": 28,
@@ -220,7 +227,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "CERULEANCITY_SLOWBRO"
+   "name": "CERULEANCITY_SLOWBRO",
+   "mart": null
   },
   {
    "x": 9,
@@ -232,7 +240,8 @@
    "trainer": null,
    "item": null,
    "index": 9,
-   "name": "CERULEANCITY_COOLTRAINER_F2"
+   "name": "CERULEANCITY_COOLTRAINER_F2",
+   "mart": null
   },
   {
    "x": 4,
@@ -244,7 +253,8 @@
    "trainer": null,
    "item": null,
    "index": 10,
-   "name": "CERULEANCITY_SUPER_NERD3"
+   "name": "CERULEANCITY_SUPER_NERD3",
+   "mart": null
   },
   {
    "x": 27,
@@ -256,7 +266,8 @@
    "trainer": null,
    "item": null,
    "index": 11,
-   "name": "CERULEANCITY_GUARD2"
+   "name": "CERULEANCITY_GUARD2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -62,7 +62,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE23_GUARD1"
+   "name": "ROUTE23_GUARD1",
+   "mart": null
   },
   {
    "x": 10,
@@ -74,7 +75,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "ROUTE23_GUARD2"
+   "name": "ROUTE23_GUARD2",
+   "mart": null
   },
   {
    "x": 8,
@@ -86,7 +88,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "ROUTE23_SWIMMER1"
+   "name": "ROUTE23_SWIMMER1",
+   "mart": null
   },
   {
    "x": 11,
@@ -98,7 +101,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "ROUTE23_SWIMMER2"
+   "name": "ROUTE23_SWIMMER2",
+   "mart": null
   },
   {
    "x": 12,
@@ -110,7 +114,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "ROUTE23_GUARD3"
+   "name": "ROUTE23_GUARD3",
+   "mart": null
   },
   {
    "x": 8,
@@ -122,7 +127,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "ROUTE23_GUARD4"
+   "name": "ROUTE23_GUARD4",
+   "mart": null
   },
   {
    "x": 8,
@@ -134,7 +140,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "ROUTE23_GUARD5"
+   "name": "ROUTE23_GUARD5",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

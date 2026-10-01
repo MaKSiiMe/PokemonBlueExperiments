@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "POKEMONTOWER5F_CHANNELER1"
+   "name": "POKEMONTOWER5F_CHANNELER1",
+   "mart": null
   },
   {
    "x": 17,
@@ -48,7 +49,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "POKEMONTOWER5F_CHANNELER2"
+   "name": "POKEMONTOWER5F_CHANNELER2",
+   "mart": null
   },
   {
    "x": 14,
@@ -63,7 +65,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "POKEMONTOWER5F_CHANNELER3"
+   "name": "POKEMONTOWER5F_CHANNELER3",
+   "mart": null
   },
   {
    "x": 6,
@@ -78,7 +81,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "POKEMONTOWER5F_CHANNELER4"
+   "name": "POKEMONTOWER5F_CHANNELER4",
+   "mart": null
   },
   {
    "x": 9,
@@ -93,7 +97,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "POKEMONTOWER5F_CHANNELER5"
+   "name": "POKEMONTOWER5F_CHANNELER5",
+   "mart": null
   },
   {
    "x": 6,
@@ -105,7 +110,8 @@
    "trainer": null,
    "item": "NUGGET",
    "index": 6,
-   "name": "POKEMONTOWER5F_NUGGET"
+   "name": "POKEMONTOWER5F_NUGGET",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

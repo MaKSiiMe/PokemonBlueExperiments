@@ -30,7 +30,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "POKEMONTOWER7F_ROCKET1"
+   "name": "POKEMONTOWER7F_ROCKET1",
+   "mart": null
   },
   {
    "x": 12,
@@ -45,7 +46,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "POKEMONTOWER7F_ROCKET2"
+   "name": "POKEMONTOWER7F_ROCKET2",
+   "mart": null
   },
   {
    "x": 9,
@@ -60,7 +62,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "POKEMONTOWER7F_ROCKET3"
+   "name": "POKEMONTOWER7F_ROCKET3",
+   "mart": null
   },
   {
    "x": 10,
@@ -72,7 +75,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "POKEMONTOWER7F_MR_FUJI"
+   "name": "POKEMONTOWER7F_MR_FUJI",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

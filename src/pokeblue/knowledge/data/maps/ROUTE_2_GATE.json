@@ -45,7 +45,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE2GATE_OAKS_AIDE"
+   "name": "ROUTE2GATE_OAKS_AIDE",
+   "mart": null
   },
   {
    "x": 5,
@@ -57,7 +58,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "ROUTE2GATE_YOUNGSTER"
+   "name": "ROUTE2GATE_YOUNGSTER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

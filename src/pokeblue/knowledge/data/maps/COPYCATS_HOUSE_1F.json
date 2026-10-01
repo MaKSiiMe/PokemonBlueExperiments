@@ -39,7 +39,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "COPYCATSHOUSE1F_MIDDLE_AGED_WOMAN"
+   "name": "COPYCATSHOUSE1F_MIDDLE_AGED_WOMAN",
+   "mart": null
   },
   {
    "x": 5,
@@ -51,7 +52,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "COPYCATSHOUSE1F_MIDDLE_AGED_MAN"
+   "name": "COPYCATSHOUSE1F_MIDDLE_AGED_MAN",
+   "mart": null
   },
   {
    "x": 1,
@@ -63,7 +65,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "COPYCATSHOUSE1F_CHANSEY"
+   "name": "COPYCATSHOUSE1F_CHANSEY",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

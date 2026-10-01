@@ -54,7 +54,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROCKETHIDEOUTB2F_ROCKET"
+   "name": "ROCKETHIDEOUTB2F_ROCKET",
+   "mart": null
   },
   {
    "x": 1,
@@ -66,7 +67,8 @@
    "trainer": null,
    "item": "MOON_STONE",
    "index": 2,
-   "name": "ROCKETHIDEOUTB2F_MOON_STONE"
+   "name": "ROCKETHIDEOUTB2F_MOON_STONE",
+   "mart": null
   },
   {
    "x": 16,
@@ -78,7 +80,8 @@
    "trainer": null,
    "item": "NUGGET",
    "index": 3,
-   "name": "ROCKETHIDEOUTB2F_NUGGET"
+   "name": "ROCKETHIDEOUTB2F_NUGGET",
+   "mart": null
   },
   {
    "x": 6,
@@ -90,7 +93,8 @@
    "trainer": null,
    "item": "TM_HORN_DRILL",
    "index": 4,
-   "name": "ROCKETHIDEOUTB2F_TM_HORN_DRILL"
+   "name": "ROCKETHIDEOUTB2F_TM_HORN_DRILL",
+   "mart": null
   },
   {
    "x": 3,
@@ -102,7 +106,8 @@
    "trainer": null,
    "item": "SUPER_POTION",
    "index": 5,
-   "name": "ROCKETHIDEOUTB2F_SUPER_POTION"
+   "name": "ROCKETHIDEOUTB2F_SUPER_POTION",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "MTMOONPOKECENTER_NURSE"
+   "name": "MTMOONPOKECENTER_NURSE",
+   "mart": null
   },
   {
    "x": 4,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "MTMOONPOKECENTER_YOUNGSTER"
+   "name": "MTMOONPOKECENTER_YOUNGSTER",
+   "mart": null
   },
   {
    "x": 7,
@@ -57,7 +59,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "MTMOONPOKECENTER_GENTLEMAN"
+   "name": "MTMOONPOKECENTER_GENTLEMAN",
+   "mart": null
   },
   {
    "x": 10,
@@ -69,7 +72,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "MTMOONPOKECENTER_MAGIKARP_SALESMAN"
+   "name": "MTMOONPOKECENTER_MAGIKARP_SALESMAN",
+   "mart": null
   },
   {
    "x": 7,
@@ -81,7 +85,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "MTMOONPOKECENTER_CLIPBOARD"
+   "name": "MTMOONPOKECENTER_CLIPBOARD",
+   "mart": null
   },
   {
    "x": 11,
@@ -93,7 +98,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "MTMOONPOKECENTER_LINK_RECEPTIONIST"
+   "name": "MTMOONPOKECENTER_LINK_RECEPTIONIST",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

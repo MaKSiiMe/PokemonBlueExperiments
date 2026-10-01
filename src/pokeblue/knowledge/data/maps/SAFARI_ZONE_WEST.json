@@ -90,7 +90,8 @@
    "trainer": null,
    "item": "MAX_POTION",
    "index": 1,
-   "name": "SAFARIZONEWEST_MAX_POTION"
+   "name": "SAFARIZONEWEST_MAX_POTION",
+   "mart": null
   },
   {
    "x": 9,
@@ -102,7 +103,8 @@
    "trainer": null,
    "item": "TM_DOUBLE_TEAM",
    "index": 2,
-   "name": "SAFARIZONEWEST_TM_DOUBLE_TEAM"
+   "name": "SAFARIZONEWEST_TM_DOUBLE_TEAM",
+   "mart": null
   },
   {
    "x": 18,
@@ -114,7 +116,8 @@
    "trainer": null,
    "item": "MAX_REVIVE",
    "index": 3,
-   "name": "SAFARIZONEWEST_MAX_REVIVE"
+   "name": "SAFARIZONEWEST_MAX_REVIVE",
+   "mart": null
   },
   {
    "x": 19,
@@ -126,7 +129,8 @@
    "trainer": null,
    "item": "GOLD_TEETH",
    "index": 4,
-   "name": "SAFARIZONEWEST_GOLD_TEETH"
+   "name": "SAFARIZONEWEST_GOLD_TEETH",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

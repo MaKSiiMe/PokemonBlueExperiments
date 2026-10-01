@@ -48,7 +48,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "BRUNOSROOM_BRUNO"
+   "name": "BRUNOSROOM_BRUNO",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -75,7 +75,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SSANNE2F_WAITER"
+   "name": "SSANNE2F_WAITER",
+   "mart": null
   },
   {
    "x": 36,
@@ -90,7 +91,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "SSANNE2F_RIVAL"
+   "name": "SSANNE2F_RIVAL",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

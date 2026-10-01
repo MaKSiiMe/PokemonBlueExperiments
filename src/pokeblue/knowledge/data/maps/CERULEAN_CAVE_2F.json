@@ -57,7 +57,8 @@
    "trainer": null,
    "item": "PP_UP",
    "index": 1,
-   "name": "CERULEANCAVE2F_PP_UP"
+   "name": "CERULEANCAVE2F_PP_UP",
+   "mart": null
   },
   {
    "x": 4,
@@ -69,7 +70,8 @@
    "trainer": null,
    "item": "ULTRA_BALL",
    "index": 2,
-   "name": "CERULEANCAVE2F_ULTRA_BALL"
+   "name": "CERULEANCAVE2F_ULTRA_BALL",
+   "mart": null
   },
   {
    "x": 13,
@@ -81,7 +83,8 @@
    "trainer": null,
    "item": "FULL_RESTORE",
    "index": 3,
-   "name": "CERULEANCAVE2F_FULL_RESTORE"
+   "name": "CERULEANCAVE2F_FULL_RESTORE",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

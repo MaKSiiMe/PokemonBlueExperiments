@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "VIRIDIANNICKNAMEHOUSE_BALDING_GUY"
+   "name": "VIRIDIANNICKNAMEHOUSE_BALDING_GUY",
+   "mart": null
   },
   {
    "x": 1,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "VIRIDIANNICKNAMEHOUSE_LITTLE_GIRL"
+   "name": "VIRIDIANNICKNAMEHOUSE_LITTLE_GIRL",
+   "mart": null
   },
   {
    "x": 5,
@@ -57,7 +59,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "VIRIDIANNICKNAMEHOUSE_SPEAROW"
+   "name": "VIRIDIANNICKNAMEHOUSE_SPEAROW",
+   "mart": null
   },
   {
    "x": 4,
@@ -69,7 +72,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "VIRIDIANNICKNAMEHOUSE_SPEARY_SIGN"
+   "name": "VIRIDIANNICKNAMEHOUSE_SPEARY_SIGN",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

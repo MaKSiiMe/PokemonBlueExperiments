@@ -20,7 +20,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "TRADECENTER_OPPONENT"
+   "name": "TRADECENTER_OPPONENT",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

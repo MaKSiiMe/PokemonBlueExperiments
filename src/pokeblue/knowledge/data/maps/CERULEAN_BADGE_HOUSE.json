@@ -39,7 +39,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CERULEANBADGEHOUSE_MIDDLE_AGED_MAN"
+   "name": "CERULEANBADGEHOUSE_MIDDLE_AGED_MAN",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

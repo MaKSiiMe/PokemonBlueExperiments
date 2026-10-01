@@ -8,7 +8,7 @@ frame et validées sur le jeu de savestates étiquetés de `configs/states/modes
   TRANSITION  LCD éteint, ou palette de fond différente de la palette stable de la
               carte (fondus de porte, flash de début de combat), ou combat sans
               boîte de texte (spirale d'entrée en combat).
-  Combat      curseur ▶ et cadre « TYPE/ » → BATTLE_MOVE_MENU ; curseur ▶ →
+  Combat      curseur ▶ et cadre « TYPE/ » (ou « disabled! ») → BATTLE_MOVE_MENU ; curseur ▶ →
               BATTLE_MENU (menu principal, sac, équipe, oui/non) ; sinon BATTLE_ANIM
               (animations et messages de combat).
   Hors combat curseur ▶ → MENU ; tuiles d'interface (cadre, police) → DIALOG ;
@@ -28,7 +28,9 @@ from pokeblue.state.screen import Screen
 _NORMAL_FADE_INDEX = 3   # FadePal4
 _FADE_ENTRY_SIZE = 3
 
-MOVE_MENU_MARKER = "TYPE/"   # cadre d'information du menu des attaques
+# Cadre d'information du menu des attaques : type de l'attaque sous le curseur, ou
+# « disabled! » si elle est sous Entrave (DisabledText, engine/battle/core.asm).
+MOVE_MENU_MARKERS = ("TYPE/", "disabled!")
 
 
 class Mode(Enum):
@@ -62,7 +64,7 @@ def detect_mode(state: GameState) -> Mode:
 
     if state.battle is not None:
         if screen.has_cursor:
-            if screen.contains_text(MOVE_MENU_MARKER):
+            if any(screen.contains_text(marker) for marker in MOVE_MENU_MARKERS):
                 return Mode.BATTLE_MOVE_MENU
             return Mode.BATTLE_MENU
         if screen.has_text_box:

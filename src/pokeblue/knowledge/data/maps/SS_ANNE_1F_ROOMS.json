@@ -60,7 +60,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "SSANNE1FROOMS_GENTLEMAN1"
+   "name": "SSANNE1FROOMS_GENTLEMAN1",
+   "mart": null
   },
   {
    "x": 11,
@@ -75,7 +76,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "SSANNE1FROOMS_GENTLEMAN2"
+   "name": "SSANNE1FROOMS_GENTLEMAN2",
+   "mart": null
   },
   {
    "x": 11,
@@ -90,7 +92,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "SSANNE1FROOMS_YOUNGSTER"
+   "name": "SSANNE1FROOMS_YOUNGSTER",
+   "mart": null
   },
   {
    "x": 13,
@@ -105,7 +108,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "SSANNE1FROOMS_COOLTRAINER_F"
+   "name": "SSANNE1FROOMS_COOLTRAINER_F",
+   "mart": null
   },
   {
    "x": 22,
@@ -117,7 +121,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "SSANNE1FROOMS_GIRL1"
+   "name": "SSANNE1FROOMS_GIRL1",
+   "mart": null
   },
   {
    "x": 0,
@@ -129,7 +134,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "SSANNE1FROOMS_MIDDLE_AGED_MAN"
+   "name": "SSANNE1FROOMS_MIDDLE_AGED_MAN",
+   "mart": null
   },
   {
    "x": 2,
@@ -141,7 +147,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "SSANNE1FROOMS_LITTLE_GIRL"
+   "name": "SSANNE1FROOMS_LITTLE_GIRL",
+   "mart": null
   },
   {
    "x": 3,
@@ -153,7 +160,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "SSANNE1FROOMS_WIGGLYTUFF"
+   "name": "SSANNE1FROOMS_WIGGLYTUFF",
+   "mart": null
   },
   {
    "x": 10,
@@ -165,7 +173,8 @@
    "trainer": null,
    "item": null,
    "index": 9,
-   "name": "SSANNE1FROOMS_GIRL2"
+   "name": "SSANNE1FROOMS_GIRL2",
+   "mart": null
   },
   {
    "x": 12,
@@ -177,7 +186,8 @@
    "trainer": null,
    "item": "TM_BODY_SLAM",
    "index": 10,
-   "name": "SSANNE1FROOMS_TM_BODY_SLAM"
+   "name": "SSANNE1FROOMS_TM_BODY_SLAM",
+   "mart": null
   },
   {
    "x": 21,
@@ -189,7 +199,8 @@
    "trainer": null,
    "item": null,
    "index": 11,
-   "name": "SSANNE1FROOMS_GENTLEMAN3"
+   "name": "SSANNE1FROOMS_GENTLEMAN3",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

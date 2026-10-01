@@ -141,7 +141,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SAFFRONCITY_ROCKET1"
+   "name": "SAFFRONCITY_ROCKET1",
+   "mart": null
   },
   {
    "x": 20,
@@ -153,7 +154,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "SAFFRONCITY_ROCKET2"
+   "name": "SAFFRONCITY_ROCKET2",
+   "mart": null
   },
   {
    "x": 34,
@@ -165,7 +167,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "SAFFRONCITY_ROCKET3"
+   "name": "SAFFRONCITY_ROCKET3",
+   "mart": null
   },
   {
    "x": 13,
@@ -177,7 +180,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "SAFFRONCITY_ROCKET4"
+   "name": "SAFFRONCITY_ROCKET4",
+   "mart": null
   },
   {
    "x": 11,
@@ -189,7 +193,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "SAFFRONCITY_ROCKET5"
+   "name": "SAFFRONCITY_ROCKET5",
+   "mart": null
   },
   {
    "x": 32,
@@ -201,7 +206,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "SAFFRONCITY_ROCKET6"
+   "name": "SAFFRONCITY_ROCKET6",
+   "mart": null
   },
   {
    "x": 18,
@@ -213,7 +219,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "SAFFRONCITY_ROCKET7"
+   "name": "SAFFRONCITY_ROCKET7",
+   "mart": null
   },
   {
    "x": 8,
@@ -225,7 +232,8 @@
    "trainer": null,
    "item": null,
    "index": 8,
-   "name": "SAFFRONCITY_SCIENTIST"
+   "name": "SAFFRONCITY_SCIENTIST",
+   "mart": null
   },
   {
    "x": 23,
@@ -237,7 +245,8 @@
    "trainer": null,
    "item": null,
    "index": 9,
-   "name": "SAFFRONCITY_SILPH_WORKER_M"
+   "name": "SAFFRONCITY_SILPH_WORKER_M",
+   "mart": null
   },
   {
    "x": 17,
@@ -249,7 +258,8 @@
    "trainer": null,
    "item": null,
    "index": 10,
-   "name": "SAFFRONCITY_SILPH_WORKER_F"
+   "name": "SAFFRONCITY_SILPH_WORKER_F",
+   "mart": null
   },
   {
    "x": 30,
@@ -261,7 +271,8 @@
    "trainer": null,
    "item": null,
    "index": 11,
-   "name": "SAFFRONCITY_GENTLEMAN"
+   "name": "SAFFRONCITY_GENTLEMAN",
+   "mart": null
   },
   {
    "x": 31,
@@ -273,7 +284,8 @@
    "trainer": null,
    "item": null,
    "index": 12,
-   "name": "SAFFRONCITY_PIDGEOT"
+   "name": "SAFFRONCITY_PIDGEOT",
+   "mart": null
   },
   {
    "x": 18,
@@ -285,7 +297,8 @@
    "trainer": null,
    "item": null,
    "index": 13,
-   "name": "SAFFRONCITY_ROCKER"
+   "name": "SAFFRONCITY_ROCKER",
+   "mart": null
   },
   {
    "x": 18,
@@ -297,7 +310,8 @@
    "trainer": null,
    "item": null,
    "index": 14,
-   "name": "SAFFRONCITY_ROCKET8"
+   "name": "SAFFRONCITY_ROCKET8",
+   "mart": null
   },
   {
    "x": 19,
@@ -309,7 +323,8 @@
    "trainer": null,
    "item": null,
    "index": 15,
-   "name": "SAFFRONCITY_ROCKET9"
+   "name": "SAFFRONCITY_ROCKET9",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -54,7 +54,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROCKETHIDEOUTB1F_ROCKET1"
+   "name": "ROCKETHIDEOUTB1F_ROCKET1",
+   "mart": null
   },
   {
    "x": 12,
@@ -69,7 +70,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROCKETHIDEOUTB1F_ROCKET2"
+   "name": "ROCKETHIDEOUTB1F_ROCKET2",
+   "mart": null
   },
   {
    "x": 18,
@@ -84,7 +86,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROCKETHIDEOUTB1F_ROCKET3"
+   "name": "ROCKETHIDEOUTB1F_ROCKET3",
+   "mart": null
   },
   {
    "x": 15,
@@ -99,7 +102,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROCKETHIDEOUTB1F_ROCKET4"
+   "name": "ROCKETHIDEOUTB1F_ROCKET4",
+   "mart": null
   },
   {
    "x": 28,
@@ -114,7 +118,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROCKETHIDEOUTB1F_ROCKET5"
+   "name": "ROCKETHIDEOUTB1F_ROCKET5",
+   "mart": null
   },
   {
    "x": 11,
@@ -126,7 +131,8 @@
    "trainer": null,
    "item": "ESCAPE_ROPE",
    "index": 6,
-   "name": "ROCKETHIDEOUTB1F_ESCAPE_ROPE"
+   "name": "ROCKETHIDEOUTB1F_ESCAPE_ROPE",
+   "mart": null
   },
   {
    "x": 9,
@@ -138,7 +144,8 @@
    "trainer": null,
    "item": "HYPER_POTION",
    "index": 7,
-   "name": "ROCKETHIDEOUTB1F_HYPER_POTION"
+   "name": "ROCKETHIDEOUTB1F_HYPER_POTION",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SAFARIZONECENTERRESTHOUSE_GIRL"
+   "name": "SAFARIZONECENTERRESTHOUSE_GIRL",
+   "mart": null
   },
   {
    "x": 1,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "SAFARIZONECENTERRESTHOUSE_SCIENTIST"
+   "name": "SAFARIZONECENTERRESTHOUSE_SCIENTIST",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

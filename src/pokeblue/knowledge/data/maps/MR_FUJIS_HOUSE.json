@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "MRFUJISHOUSE_SUPER_NERD"
+   "name": "MRFUJISHOUSE_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 6,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "MRFUJISHOUSE_LITTLE_GIRL"
+   "name": "MRFUJISHOUSE_LITTLE_GIRL",
+   "mart": null
   },
   {
    "x": 6,
@@ -57,7 +59,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "MRFUJISHOUSE_PSYDUCK"
+   "name": "MRFUJISHOUSE_PSYDUCK",
+   "mart": null
   },
   {
    "x": 1,
@@ -69,7 +72,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "MRFUJISHOUSE_NIDORINO"
+   "name": "MRFUJISHOUSE_NIDORINO",
+   "mart": null
   },
   {
    "x": 3,
@@ -81,7 +85,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "MRFUJISHOUSE_MR_FUJI"
+   "name": "MRFUJISHOUSE_MR_FUJI",
+   "mart": null
   },
   {
    "x": 3,
@@ -93,7 +98,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "MRFUJISHOUSE_POKEDEX"
+   "name": "MRFUJISHOUSE_POKEDEX",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

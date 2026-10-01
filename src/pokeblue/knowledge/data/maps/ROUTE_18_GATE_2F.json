@@ -38,7 +38,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE18GATE2F_YOUNGSTER"
+   "name": "ROUTE18GATE2F_YOUNGSTER",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

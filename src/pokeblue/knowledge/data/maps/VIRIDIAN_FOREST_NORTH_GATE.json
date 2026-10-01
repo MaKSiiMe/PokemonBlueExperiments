@@ -45,7 +45,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "VIRIDIANFORESTNORTHGATE_SUPER_NERD"
+   "name": "VIRIDIANFORESTNORTHGATE_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 2,
@@ -57,7 +58,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "VIRIDIANFORESTNORTHGATE_GRAMPS"
+   "name": "VIRIDIANFORESTNORTHGATE_GRAMPS",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

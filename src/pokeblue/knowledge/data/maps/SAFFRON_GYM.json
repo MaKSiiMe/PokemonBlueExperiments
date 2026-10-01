@@ -216,7 +216,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "SAFFRONGYM_SABRINA"
+   "name": "SAFFRONGYM_SABRINA",
+   "mart": null
   },
   {
    "x": 10,
@@ -231,7 +232,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "SAFFRONGYM_CHANNELER1"
+   "name": "SAFFRONGYM_CHANNELER1",
+   "mart": null
   },
   {
    "x": 17,
@@ -246,7 +248,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "SAFFRONGYM_YOUNGSTER1"
+   "name": "SAFFRONGYM_YOUNGSTER1",
+   "mart": null
   },
   {
    "x": 3,
@@ -261,7 +264,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "SAFFRONGYM_CHANNELER2"
+   "name": "SAFFRONGYM_CHANNELER2",
+   "mart": null
   },
   {
    "x": 17,
@@ -276,7 +280,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "SAFFRONGYM_YOUNGSTER2"
+   "name": "SAFFRONGYM_YOUNGSTER2",
+   "mart": null
   },
   {
    "x": 3,
@@ -291,7 +296,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "SAFFRONGYM_CHANNELER3"
+   "name": "SAFFRONGYM_CHANNELER3",
+   "mart": null
   },
   {
    "x": 17,
@@ -306,7 +312,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "SAFFRONGYM_YOUNGSTER3"
+   "name": "SAFFRONGYM_YOUNGSTER3",
+   "mart": null
   },
   {
    "x": 3,
@@ -321,7 +328,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "SAFFRONGYM_YOUNGSTER4"
+   "name": "SAFFRONGYM_YOUNGSTER4",
+   "mart": null
   },
   {
    "x": 10,
@@ -333,7 +341,8 @@
    "trainer": null,
    "item": null,
    "index": 9,
-   "name": "SAFFRONGYM_GYM_GUIDE"
+   "name": "SAFFRONGYM_GYM_GUIDE",
+   "mart": null
   }
  ],
  "gym_leader_no": 6,

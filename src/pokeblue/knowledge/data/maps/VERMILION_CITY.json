@@ -122,7 +122,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "VERMILIONCITY_BEAUTY"
+   "name": "VERMILIONCITY_BEAUTY",
+   "mart": null
   },
   {
    "x": 14,
@@ -134,7 +135,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "VERMILIONCITY_GAMBLER1"
+   "name": "VERMILIONCITY_GAMBLER1",
+   "mart": null
   },
   {
    "x": 19,
@@ -146,7 +148,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "VERMILIONCITY_SAILOR1"
+   "name": "VERMILIONCITY_SAILOR1",
+   "mart": null
   },
   {
    "x": 30,
@@ -158,7 +161,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "VERMILIONCITY_GAMBLER2"
+   "name": "VERMILIONCITY_GAMBLER2",
+   "mart": null
   },
   {
    "x": 29,
@@ -170,7 +174,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "VERMILIONCITY_MACHOP"
+   "name": "VERMILIONCITY_MACHOP",
+   "mart": null
   },
   {
    "x": 25,
@@ -182,7 +187,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "VERMILIONCITY_SAILOR2"
+   "name": "VERMILIONCITY_SAILOR2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

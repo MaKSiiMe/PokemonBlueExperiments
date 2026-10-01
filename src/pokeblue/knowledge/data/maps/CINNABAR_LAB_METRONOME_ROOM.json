@@ -49,7 +49,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CINNABARLABMETRONOMEROOM_SCIENTIST1"
+   "name": "CINNABARLABMETRONOMEROOM_SCIENTIST1",
+   "mart": null
   },
   {
    "x": 2,
@@ -61,7 +62,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CINNABARLABMETRONOMEROOM_SCIENTIST2"
+   "name": "CINNABARLABMETRONOMEROOM_SCIENTIST2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

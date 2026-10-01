@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "VIRIDIANSCHOOLHOUSE_BRUNETTE_GIRL"
+   "name": "VIRIDIANSCHOOLHOUSE_BRUNETTE_GIRL",
+   "mart": null
   },
   {
    "x": 4,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "VIRIDIANSCHOOLHOUSE_COOLTRAINER_F"
+   "name": "VIRIDIANSCHOOLHOUSE_COOLTRAINER_F",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -40,7 +40,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROUTE19_COOLTRAINER_M1"
+   "name": "ROUTE19_COOLTRAINER_M1",
+   "mart": null
   },
   {
    "x": 13,
@@ -55,7 +56,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROUTE19_COOLTRAINER_M2"
+   "name": "ROUTE19_COOLTRAINER_M2",
+   "mart": null
   },
   {
    "x": 13,
@@ -70,7 +72,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROUTE19_SWIMMER1"
+   "name": "ROUTE19_SWIMMER1",
+   "mart": null
   },
   {
    "x": 4,
@@ -85,7 +88,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROUTE19_SWIMMER2"
+   "name": "ROUTE19_SWIMMER2",
+   "mart": null
   },
   {
    "x": 16,
@@ -100,7 +104,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROUTE19_SWIMMER3"
+   "name": "ROUTE19_SWIMMER3",
+   "mart": null
   },
   {
    "x": 9,
@@ -115,7 +120,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROUTE19_SWIMMER4"
+   "name": "ROUTE19_SWIMMER4",
+   "mart": null
   },
   {
    "x": 8,
@@ -130,7 +136,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "ROUTE19_SWIMMER5"
+   "name": "ROUTE19_SWIMMER5",
+   "mart": null
   },
   {
    "x": 11,
@@ -145,7 +152,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "ROUTE19_SWIMMER6"
+   "name": "ROUTE19_SWIMMER6",
+   "mart": null
   },
   {
    "x": 9,
@@ -160,7 +168,8 @@
    },
    "item": null,
    "index": 9,
-   "name": "ROUTE19_SWIMMER7"
+   "name": "ROUTE19_SWIMMER7",
+   "mart": null
   },
   {
    "x": 10,
@@ -175,7 +184,8 @@
    },
    "item": null,
    "index": 10,
-   "name": "ROUTE19_SWIMMER8"
+   "name": "ROUTE19_SWIMMER8",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

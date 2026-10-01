@@ -260,6 +260,30 @@ def _gym_leader_numbers(root: Path) -> dict[str, int]:
     return numbers
 
 
+def _marts(root: Path) -> dict[str, list[str]]:
+    """data/items/marts.asm : texte du vendeur → objets en vente (`script_mart`)."""
+    marts, label = {}, None
+    for line in logical_lines(root / "data/items/marts.asm"):
+        if line.endswith(":"):
+            label = line.rstrip(":")
+        elif line.startswith("script_mart") and label:
+            marts[label] = macro_args(line, "script_mart")
+    return marts
+
+
+def _text_labels(root: Path, label: str) -> dict[str, str]:
+    """scripts/<Carte>.asm : constante TEXT_… → label du texte (`dw_const`)."""
+    path = root / "scripts" / f"{label}.asm"
+    if not path.exists():
+        return {}
+    out = {}
+    for line in logical_lines(path):
+        if line.startswith("dw_const"):
+            text_label, const = macro_args(line, "dw_const")
+            out[const] = text_label
+    return out
+
+
 def render(root: Path) -> dict[str, str]:
     consts, enumerated = load_constants(root)
     tileset_names = enumerated["constants/tileset_constants.asm"]
@@ -268,6 +292,11 @@ def render(root: Path) -> dict[str, str]:
     blocks_paths = _blocks_paths(root)
     map_names = {consts[n]: n for n in enumerated["constants/map_constants.asm"]}
     gym_numbers = _gym_leader_numbers(root)
+    marts = _marts(root)
+    # Header de chaque n° de carte (MapHeaderPointers) : deux headers peuvent déclarer la
+    # même carte (UndergroundPathRoute7Copy → UNDERGROUND_PATH_ROUTE_7) ; seul celui que
+    # le jeu associe à l'identifiant de la carte fait foi.
+    header_of = re.findall(r"dw (\w+)_h", (root / "data/maps/map_header_pointers.asm").read_text())
 
     maps, object_index = {}, {}
     for header in sorted((root / "data/maps/headers").glob("*.asm")):
@@ -280,8 +309,13 @@ def render(root: Path) -> dict[str, str]:
             elif word == "connection":
                 connections.append({"direction": args[0], "map": args[2], "offset": consts.eval(args[3])})
         label, name = info["label"], info["name"]
+        if header_of[consts[name]] != label:
+            continue
         width, height = consts[f"{name}_WIDTH"], consts[f"{name}_HEIGHT"]
         objects = _parse_objects(root, label, consts)
+        texts = _text_labels(root, label)
+        for obj in objects["objects"]:
+            obj["mart"] = marts.get(texts.get(obj["text"], ""))   # inventaire d'un vendeur
         blk = (root / blocks_paths[f"{label}_Blocks"]).read_bytes()
         missing = width * height - len(blk)
         if not 0 <= missing <= width:

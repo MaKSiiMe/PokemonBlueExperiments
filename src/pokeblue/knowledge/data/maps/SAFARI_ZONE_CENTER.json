@@ -86,7 +86,8 @@
    "trainer": null,
    "item": "NUGGET",
    "index": 1,
-   "name": "SAFARIZONECENTER_NUGGET"
+   "name": "SAFARIZONECENTER_NUGGET",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

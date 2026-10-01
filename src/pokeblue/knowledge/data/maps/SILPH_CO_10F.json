@@ -60,7 +60,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "SILPHCO10F_ROCKET"
+   "name": "SILPHCO10F_ROCKET",
+   "mart": null
   },
   {
    "x": 10,
@@ -75,7 +76,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "SILPHCO10F_SCIENTIST"
+   "name": "SILPHCO10F_SCIENTIST",
+   "mart": null
   },
   {
    "x": 9,
@@ -87,7 +89,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "SILPHCO10F_SILPH_WORKER_F"
+   "name": "SILPHCO10F_SILPH_WORKER_F",
+   "mart": null
   },
   {
    "x": 2,
@@ -99,7 +102,8 @@
    "trainer": null,
    "item": "TM_EARTHQUAKE",
    "index": 4,
-   "name": "SILPHCO10F_TM_EARTHQUAKE"
+   "name": "SILPHCO10F_TM_EARTHQUAKE",
+   "mart": null
   },
   {
    "x": 4,
@@ -111,7 +115,8 @@
    "trainer": null,
    "item": "RARE_CANDY",
    "index": 5,
-   "name": "SILPHCO10F_RARE_CANDY"
+   "name": "SILPHCO10F_RARE_CANDY",
+   "mart": null
   },
   {
    "x": 5,
@@ -123,7 +128,8 @@
    "trainer": null,
    "item": "CARBOS",
    "index": 6,
-   "name": "SILPHCO10F_CARBOS"
+   "name": "SILPHCO10F_CARBOS",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

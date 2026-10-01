@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "LAVENDERPOKECENTER_NURSE"
+   "name": "LAVENDERPOKECENTER_NURSE",
+   "mart": null
   },
   {
    "x": 5,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "LAVENDERPOKECENTER_GENTLEMAN"
+   "name": "LAVENDERPOKECENTER_GENTLEMAN",
+   "mart": null
   },
   {
    "x": 2,
@@ -57,7 +59,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "LAVENDERPOKECENTER_LITTLE_GIRL"
+   "name": "LAVENDERPOKECENTER_LITTLE_GIRL",
+   "mart": null
   },
   {
    "x": 11,
@@ -69,7 +72,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "LAVENDERPOKECENTER_LINK_RECEPTIONIST"
+   "name": "LAVENDERPOKECENTER_LINK_RECEPTIONIST",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

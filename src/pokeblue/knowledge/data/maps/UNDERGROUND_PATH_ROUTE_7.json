@@ -1,7 +1,7 @@
 {
  "id": 77,
  "name": "UNDERGROUND_PATH_ROUTE_7",
- "label": "UndergroundPathRoute7Copy",
+ "label": "UndergroundPathRoute7",
  "tileset": "GATE",
  "width": 4,
  "height": 4,
@@ -12,13 +12,13 @@
    "x": 3,
    "y": 7,
    "map": "LAST_MAP",
-   "warp": 6
+   "warp": 5
   },
   {
    "x": 4,
    "y": 7,
    "map": "LAST_MAP",
-   "warp": 6
+   "warp": 5
   },
   {
    "x": 4,
@@ -30,28 +30,17 @@
  "signs": [],
  "objects": [
   {
-   "x": 3,
-   "y": 2,
-   "sprite": "SPRITE_GIRL",
-   "movement": "STAY",
-   "range_or_direction": "NONE",
-   "text": "TEXT_UNDERGROUNDPATHROUTE7COPY_UNUSED_GIRL",
-   "trainer": null,
-   "item": null,
-   "index": 1,
-   "name": "UNDERGROUNDPATHROUTE7COPY_UNUSED_GIRL"
-  },
-  {
    "x": 2,
    "y": 4,
    "sprite": "SPRITE_MIDDLE_AGED_MAN",
    "movement": "STAY",
    "range_or_direction": "NONE",
-   "text": "TEXT_UNDERGROUNDPATHROUTE7COPY_UNUSED_MIDDLE_AGED_MAN",
+   "text": "TEXT_UNDERGROUNDPATHROUTE7_MIDDLE_AGED_MAN",
    "trainer": null,
    "item": null,
-   "index": 2,
-   "name": "UNDERGROUNDPATHROUTE7COPY_UNUSED_MIDDLE_AGED_MAN"
+   "index": 1,
+   "name": "UNDERGROUNDPATHROUTE7_MIDDLE_AGED_MAN",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

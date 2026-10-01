@@ -45,7 +45,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CHAMPIONSROOM_RIVAL"
+   "name": "CHAMPIONSROOM_RIVAL",
+   "mart": null
   },
   {
    "x": 3,
@@ -57,7 +58,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CHAMPIONSROOM_OAK"
+   "name": "CHAMPIONSROOM_OAK",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

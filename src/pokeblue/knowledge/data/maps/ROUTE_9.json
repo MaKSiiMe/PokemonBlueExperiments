@@ -40,7 +40,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROUTE9_COOLTRAINER_F1"
+   "name": "ROUTE9_COOLTRAINER_F1",
+   "mart": null
   },
   {
    "x": 24,
@@ -55,7 +56,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROUTE9_COOLTRAINER_M1"
+   "name": "ROUTE9_COOLTRAINER_M1",
+   "mart": null
   },
   {
    "x": 31,
@@ -70,7 +72,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROUTE9_COOLTRAINER_M2"
+   "name": "ROUTE9_COOLTRAINER_M2",
+   "mart": null
   },
   {
    "x": 48,
@@ -85,7 +88,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROUTE9_COOLTRAINER_F2"
+   "name": "ROUTE9_COOLTRAINER_F2",
+   "mart": null
   },
   {
    "x": 16,
@@ -100,7 +104,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROUTE9_HIKER1"
+   "name": "ROUTE9_HIKER1",
+   "mart": null
   },
   {
    "x": 43,
@@ -115,7 +120,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROUTE9_HIKER2"
+   "name": "ROUTE9_HIKER2",
+   "mart": null
   },
   {
    "x": 22,
@@ -130,7 +136,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "ROUTE9_YOUNGSTER1"
+   "name": "ROUTE9_YOUNGSTER1",
+   "mart": null
   },
   {
    "x": 45,
@@ -145,7 +152,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "ROUTE9_HIKER3"
+   "name": "ROUTE9_HIKER3",
+   "mart": null
   },
   {
    "x": 40,
@@ -160,7 +168,8 @@
    },
    "item": null,
    "index": 9,
-   "name": "ROUTE9_YOUNGSTER2"
+   "name": "ROUTE9_YOUNGSTER2",
+   "mart": null
   },
   {
    "x": 10,
@@ -172,7 +181,8 @@
    "trainer": null,
    "item": "TM_TELEPORT",
    "index": 10,
-   "name": "ROUTE9_TM_TELEPORT"
+   "name": "ROUTE9_TM_TELEPORT",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

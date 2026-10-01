@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE2TRADEHOUSE_SCIENTIST"
+   "name": "ROUTE2TRADEHOUSE_SCIENTIST",
+   "mart": null
   },
   {
    "x": 4,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "ROUTE2TRADEHOUSE_GAMEBOY_KID"
+   "name": "ROUTE2TRADEHOUSE_GAMEBOY_KID",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

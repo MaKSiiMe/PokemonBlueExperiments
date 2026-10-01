@@ -45,7 +45,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE5GATE_GUARD"
+   "name": "ROUTE5GATE_GUARD",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

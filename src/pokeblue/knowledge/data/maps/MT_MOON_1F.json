@@ -60,7 +60,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "MTMOON1F_HIKER"
+   "name": "MTMOON1F_HIKER",
+   "mart": null
   },
   {
    "x": 12,
@@ -75,7 +76,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "MTMOON1F_YOUNGSTER1"
+   "name": "MTMOON1F_YOUNGSTER1",
+   "mart": null
   },
   {
    "x": 30,
@@ -90,7 +92,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "MTMOON1F_COOLTRAINER_F1"
+   "name": "MTMOON1F_COOLTRAINER_F1",
+   "mart": null
   },
   {
    "x": 24,
@@ -105,7 +108,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "MTMOON1F_SUPER_NERD"
+   "name": "MTMOON1F_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 16,
@@ -120,7 +124,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "MTMOON1F_COOLTRAINER_F2"
+   "name": "MTMOON1F_COOLTRAINER_F2",
+   "mart": null
   },
   {
    "x": 7,
@@ -135,7 +140,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "MTMOON1F_YOUNGSTER2"
+   "name": "MTMOON1F_YOUNGSTER2",
+   "mart": null
   },
   {
    "x": 30,
@@ -150,7 +156,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "MTMOON1F_YOUNGSTER3"
+   "name": "MTMOON1F_YOUNGSTER3",
+   "mart": null
   },
   {
    "x": 2,
@@ -162,7 +169,8 @@
    "trainer": null,
    "item": "POTION",
    "index": 8,
-   "name": "MTMOON1F_POTION1"
+   "name": "MTMOON1F_POTION1",
+   "mart": null
   },
   {
    "x": 2,
@@ -174,7 +182,8 @@
    "trainer": null,
    "item": "MOON_STONE",
    "index": 9,
-   "name": "MTMOON1F_MOON_STONE"
+   "name": "MTMOON1F_MOON_STONE",
+   "mart": null
   },
   {
    "x": 35,
@@ -186,7 +195,8 @@
    "trainer": null,
    "item": "RARE_CANDY",
    "index": 10,
-   "name": "MTMOON1F_RARE_CANDY"
+   "name": "MTMOON1F_RARE_CANDY",
+   "mart": null
   },
   {
    "x": 36,
@@ -198,7 +208,8 @@
    "trainer": null,
    "item": "ESCAPE_ROPE",
    "index": 11,
-   "name": "MTMOON1F_ESCAPE_ROPE"
+   "name": "MTMOON1F_ESCAPE_ROPE",
+   "mart": null
   },
   {
    "x": 20,
@@ -210,7 +221,8 @@
    "trainer": null,
    "item": "POTION",
    "index": 12,
-   "name": "MTMOON1F_POTION2"
+   "name": "MTMOON1F_POTION2",
+   "mart": null
   },
   {
    "x": 5,
@@ -222,7 +234,8 @@
    "trainer": null,
    "item": "TM_WATER_GUN",
    "index": 13,
-   "name": "MTMOON1F_TM_WATER_GUN"
+   "name": "MTMOON1F_TM_WATER_GUN",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

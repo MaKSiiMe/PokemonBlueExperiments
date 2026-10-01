@@ -48,7 +48,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "MTMOONB2F_SUPER_NERD"
+   "name": "MTMOONB2F_SUPER_NERD",
+   "mart": null
   },
   {
    "x": 11,
@@ -63,7 +64,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "MTMOONB2F_ROCKET1"
+   "name": "MTMOONB2F_ROCKET1",
+   "mart": null
   },
   {
    "x": 15,
@@ -78,7 +80,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "MTMOONB2F_ROCKET2"
+   "name": "MTMOONB2F_ROCKET2",
+   "mart": null
   },
   {
    "x": 29,
@@ -93,7 +96,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "MTMOONB2F_ROCKET3"
+   "name": "MTMOONB2F_ROCKET3",
+   "mart": null
   },
   {
    "x": 29,
@@ -108,7 +112,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "MTMOONB2F_ROCKET4"
+   "name": "MTMOONB2F_ROCKET4",
+   "mart": null
   },
   {
    "x": 12,
@@ -120,7 +125,8 @@
    "trainer": null,
    "item": null,
    "index": 6,
-   "name": "MTMOONB2F_DOME_FOSSIL"
+   "name": "MTMOONB2F_DOME_FOSSIL",
+   "mart": null
   },
   {
    "x": 13,
@@ -132,7 +138,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "MTMOONB2F_HELIX_FOSSIL"
+   "name": "MTMOONB2F_HELIX_FOSSIL",
+   "mart": null
   },
   {
    "x": 25,
@@ -144,7 +151,8 @@
    "trainer": null,
    "item": "HP_UP",
    "index": 8,
-   "name": "MTMOONB2F_HP_UP"
+   "name": "MTMOONB2F_HP_UP",
+   "mart": null
   },
   {
    "x": 29,
@@ -156,7 +164,8 @@
    "trainer": null,
    "item": "TM_MEGA_PUNCH",
    "index": 9,
-   "name": "MTMOONB2F_TM_MEGA_PUNCH"
+   "name": "MTMOONB2F_TM_MEGA_PUNCH",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

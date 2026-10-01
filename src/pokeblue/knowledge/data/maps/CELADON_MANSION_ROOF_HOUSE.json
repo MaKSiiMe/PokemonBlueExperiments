@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONMANSION_ROOF_HOUSE_HIKER"
+   "name": "CELADONMANSION_ROOF_HOUSE_HIKER",
+   "mart": null
   },
   {
    "x": 4,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CELADONMANSION_ROOF_HOUSE_EEVEE_POKEBALL"
+   "name": "CELADONMANSION_ROOF_HOUSE_EEVEE_POKEBALL",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

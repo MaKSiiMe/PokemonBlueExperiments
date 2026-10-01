@@ -45,7 +45,18 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONMART2F_CLERK1"
+   "name": "CELADONMART2F_CLERK1",
+   "mart": [
+    "GREAT_BALL",
+    "SUPER_POTION",
+    "REVIVE",
+    "SUPER_REPEL",
+    "ANTIDOTE",
+    "BURN_HEAL",
+    "ICE_HEAL",
+    "AWAKENING",
+    "PARLYZ_HEAL"
+   ]
   },
   {
    "x": 6,
@@ -57,7 +68,18 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CELADONMART2F_CLERK2"
+   "name": "CELADONMART2F_CLERK2",
+   "mart": [
+    "TM_DOUBLE_TEAM",
+    "TM_REFLECT",
+    "TM_RAZOR_WIND",
+    "TM_HORN_DRILL",
+    "TM_EGG_BOMB",
+    "TM_MEGA_PUNCH",
+    "TM_MEGA_KICK",
+    "TM_TAKE_DOWN",
+    "TM_SUBMISSION"
+   ]
   },
   {
    "x": 19,
@@ -69,7 +91,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "CELADONMART2F_MIDDLE_AGED_MAN"
+   "name": "CELADONMART2F_MIDDLE_AGED_MAN",
+   "mart": null
   },
   {
    "x": 14,
@@ -81,7 +104,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "CELADONMART2F_GIRL"
+   "name": "CELADONMART2F_GIRL",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

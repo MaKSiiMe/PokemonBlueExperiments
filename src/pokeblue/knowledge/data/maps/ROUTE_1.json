@@ -37,7 +37,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "ROUTE1_YOUNGSTER1"
+   "name": "ROUTE1_YOUNGSTER1",
+   "mart": null
   },
   {
    "x": 15,
@@ -49,7 +50,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "ROUTE1_YOUNGSTER2"
+   "name": "ROUTE1_YOUNGSTER2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

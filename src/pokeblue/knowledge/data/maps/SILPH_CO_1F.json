@@ -51,7 +51,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SILPHCO1F_LINK_RECEPTIONIST"
+   "name": "SILPHCO1F_LINK_RECEPTIONIST",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

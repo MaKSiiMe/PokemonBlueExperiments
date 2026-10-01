@@ -100,7 +100,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROUTE16_BIKER1"
+   "name": "ROUTE16_BIKER1",
+   "mart": null
   },
   {
    "x": 14,
@@ -115,7 +116,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROUTE16_BIKER2"
+   "name": "ROUTE16_BIKER2",
+   "mart": null
   },
   {
    "x": 11,
@@ -130,7 +132,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "ROUTE16_BIKER3"
+   "name": "ROUTE16_BIKER3",
+   "mart": null
   },
   {
    "x": 9,
@@ -145,7 +148,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "ROUTE16_BIKER4"
+   "name": "ROUTE16_BIKER4",
+   "mart": null
   },
   {
    "x": 6,
@@ -160,7 +164,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "ROUTE16_BIKER5"
+   "name": "ROUTE16_BIKER5",
+   "mart": null
   },
   {
    "x": 3,
@@ -175,7 +180,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "ROUTE16_BIKER6"
+   "name": "ROUTE16_BIKER6",
+   "mart": null
   },
   {
    "x": 26,
@@ -187,7 +193,8 @@
    "trainer": null,
    "item": null,
    "index": 7,
-   "name": "ROUTE16_SNORLAX"
+   "name": "ROUTE16_SNORLAX",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

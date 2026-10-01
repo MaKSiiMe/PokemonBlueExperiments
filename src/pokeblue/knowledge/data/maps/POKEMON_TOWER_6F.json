@@ -36,7 +36,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "POKEMONTOWER6F_CHANNELER1"
+   "name": "POKEMONTOWER6F_CHANNELER1",
+   "mart": null
   },
   {
    "x": 9,
@@ -51,7 +52,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "POKEMONTOWER6F_CHANNELER2"
+   "name": "POKEMONTOWER6F_CHANNELER2",
+   "mart": null
   },
   {
    "x": 16,
@@ -66,7 +68,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "POKEMONTOWER6F_CHANNELER3"
+   "name": "POKEMONTOWER6F_CHANNELER3",
+   "mart": null
   },
   {
    "x": 6,
@@ -78,7 +81,8 @@
    "trainer": null,
    "item": "RARE_CANDY",
    "index": 4,
-   "name": "POKEMONTOWER6F_RARE_CANDY"
+   "name": "POKEMONTOWER6F_RARE_CANDY",
+   "mart": null
   },
   {
    "x": 14,
@@ -90,7 +94,8 @@
    "trainer": null,
    "item": "X_ACCURACY",
    "index": 5,
-   "name": "POKEMONTOWER6F_X_ACCURACY"
+   "name": "POKEMONTOWER6F_X_ACCURACY",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

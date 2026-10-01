@@ -63,7 +63,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SILPHCO5F_SILPH_WORKER_M"
+   "name": "SILPHCO5F_SILPH_WORKER_M",
+   "mart": null
   },
   {
    "x": 8,
@@ -78,7 +79,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "SILPHCO5F_ROCKET1"
+   "name": "SILPHCO5F_ROCKET1",
+   "mart": null
   },
   {
    "x": 8,
@@ -93,7 +95,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "SILPHCO5F_SCIENTIST"
+   "name": "SILPHCO5F_SCIENTIST",
+   "mart": null
   },
   {
    "x": 18,
@@ -108,7 +111,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "SILPHCO5F_ROCKER"
+   "name": "SILPHCO5F_ROCKER",
+   "mart": null
   },
   {
    "x": 28,
@@ -123,7 +127,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "SILPHCO5F_ROCKET2"
+   "name": "SILPHCO5F_ROCKET2",
+   "mart": null
   },
   {
    "x": 2,
@@ -135,7 +140,8 @@
    "trainer": null,
    "item": "TM_TAKE_DOWN",
    "index": 6,
-   "name": "SILPHCO5F_TM_TAKE_DOWN"
+   "name": "SILPHCO5F_TM_TAKE_DOWN",
+   "mart": null
   },
   {
    "x": 4,
@@ -147,7 +153,8 @@
    "trainer": null,
    "item": "PROTEIN",
    "index": 7,
-   "name": "SILPHCO5F_PROTEIN"
+   "name": "SILPHCO5F_PROTEIN",
+   "mart": null
   },
   {
    "x": 21,
@@ -159,7 +166,8 @@
    "trainer": null,
    "item": "CARD_KEY",
    "index": 8,
-   "name": "SILPHCO5F_CARD_KEY"
+   "name": "SILPHCO5F_CARD_KEY",
+   "mart": null
   },
   {
    "x": 22,
@@ -171,7 +179,8 @@
    "trainer": null,
    "item": null,
    "index": 9,
-   "name": "SILPHCO5F_POKEMON_REPORT1"
+   "name": "SILPHCO5F_POKEMON_REPORT1",
+   "mart": null
   },
   {
    "x": 25,
@@ -183,7 +192,8 @@
    "trainer": null,
    "item": null,
    "index": 10,
-   "name": "SILPHCO5F_POKEMON_REPORT2"
+   "name": "SILPHCO5F_POKEMON_REPORT2",
+   "mart": null
   },
   {
    "x": 24,
@@ -195,7 +205,8 @@
    "trainer": null,
    "item": null,
    "index": 11,
-   "name": "SILPHCO5F_POKEMON_REPORT3"
+   "name": "SILPHCO5F_POKEMON_REPORT3",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

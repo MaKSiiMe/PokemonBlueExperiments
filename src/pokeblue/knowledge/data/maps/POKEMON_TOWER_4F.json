@@ -36,7 +36,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "POKEMONTOWER4F_CHANNELER1"
+   "name": "POKEMONTOWER4F_CHANNELER1",
+   "mart": null
   },
   {
    "x": 15,
@@ -51,7 +52,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "POKEMONTOWER4F_CHANNELER2"
+   "name": "POKEMONTOWER4F_CHANNELER2",
+   "mart": null
   },
   {
    "x": 14,
@@ -66,7 +68,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "POKEMONTOWER4F_CHANNELER3"
+   "name": "POKEMONTOWER4F_CHANNELER3",
+   "mart": null
   },
   {
    "x": 12,
@@ -78,7 +81,8 @@
    "trainer": null,
    "item": "ELIXER",
    "index": 4,
-   "name": "POKEMONTOWER4F_ELIXER"
+   "name": "POKEMONTOWER4F_ELIXER",
+   "mart": null
   },
   {
    "x": 9,
@@ -90,7 +94,8 @@
    "trainer": null,
    "item": "AWAKENING",
    "index": 5,
-   "name": "POKEMONTOWER4F_AWAKENING"
+   "name": "POKEMONTOWER4F_AWAKENING",
+   "mart": null
   },
   {
    "x": 12,
@@ -102,7 +107,8 @@
    "trainer": null,
    "item": "HP_UP",
    "index": 6,
-   "name": "POKEMONTOWER4F_HP_UP"
+   "name": "POKEMONTOWER4F_HP_UP",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -38,7 +38,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "COPYCATSHOUSE2F_COPYCAT"
+   "name": "COPYCATSHOUSE2F_COPYCAT",
+   "mart": null
   },
   {
    "x": 4,
@@ -50,7 +51,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "COPYCATSHOUSE2F_DODUO"
+   "name": "COPYCATSHOUSE2F_DODUO",
+   "mart": null
   },
   {
    "x": 5,
@@ -62,7 +64,8 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "COPYCATSHOUSE2F_MONSTER"
+   "name": "COPYCATSHOUSE2F_MONSTER",
+   "mart": null
   },
   {
    "x": 2,
@@ -74,7 +77,8 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "COPYCATSHOUSE2F_BIRD"
+   "name": "COPYCATSHOUSE2F_BIRD",
+   "mart": null
   },
   {
    "x": 1,
@@ -86,7 +90,8 @@
    "trainer": null,
    "item": null,
    "index": 5,
-   "name": "COPYCATSHOUSE2F_FAIRY"
+   "name": "COPYCATSHOUSE2F_FAIRY",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

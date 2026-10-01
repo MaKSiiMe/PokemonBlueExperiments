@@ -33,7 +33,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CINNABARLABFOSSILROOM_SCIENTIST1"
+   "name": "CINNABARLABFOSSILROOM_SCIENTIST1",
+   "mart": null
   },
   {
    "x": 7,
@@ -45,7 +46,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CINNABARLABFOSSILROOM_SCIENTIST2"
+   "name": "CINNABARLABFOSSILROOM_SCIENTIST2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

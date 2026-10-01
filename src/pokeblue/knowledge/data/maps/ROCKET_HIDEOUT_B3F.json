@@ -36,7 +36,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "ROCKETHIDEOUTB3F_ROCKET1"
+   "name": "ROCKETHIDEOUTB3F_ROCKET1",
+   "mart": null
   },
   {
    "x": 26,
@@ -51,7 +52,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "ROCKETHIDEOUTB3F_ROCKET2"
+   "name": "ROCKETHIDEOUTB3F_ROCKET2",
+   "mart": null
   },
   {
    "x": 26,
@@ -63,7 +65,8 @@
    "trainer": null,
    "item": "TM_DOUBLE_EDGE",
    "index": 3,
-   "name": "ROCKETHIDEOUTB3F_TM_DOUBLE_EDGE"
+   "name": "ROCKETHIDEOUTB3F_TM_DOUBLE_EDGE",
+   "mart": null
   },
   {
    "x": 20,
@@ -75,7 +78,8 @@
    "trainer": null,
    "item": "RARE_CANDY",
    "index": 4,
-   "name": "ROCKETHIDEOUTB3F_RARE_CANDY"
+   "name": "ROCKETHIDEOUTB3F_RARE_CANDY",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

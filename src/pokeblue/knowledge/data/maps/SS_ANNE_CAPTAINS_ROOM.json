@@ -38,7 +38,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SSANNECAPTAINSROOM_CAPTAIN"
+   "name": "SSANNECAPTAINSROOM_CAPTAIN",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

@@ -36,7 +36,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "VIRIDIANGYM_GIOVANNI"
+   "name": "VIRIDIANGYM_GIOVANNI",
+   "mart": null
   },
   {
    "x": 12,
@@ -51,7 +52,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "VIRIDIANGYM_COOLTRAINER_M1"
+   "name": "VIRIDIANGYM_COOLTRAINER_M1",
+   "mart": null
   },
   {
    "x": 11,
@@ -66,7 +68,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "VIRIDIANGYM_HIKER1"
+   "name": "VIRIDIANGYM_HIKER1",
+   "mart": null
   },
   {
    "x": 10,
@@ -81,7 +84,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "VIRIDIANGYM_ROCKER1"
+   "name": "VIRIDIANGYM_ROCKER1",
+   "mart": null
   },
   {
    "x": 3,
@@ -96,7 +100,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "VIRIDIANGYM_HIKER2"
+   "name": "VIRIDIANGYM_HIKER2",
+   "mart": null
   },
   {
    "x": 13,
@@ -111,7 +116,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "VIRIDIANGYM_COOLTRAINER_M2"
+   "name": "VIRIDIANGYM_COOLTRAINER_M2",
+   "mart": null
   },
   {
    "x": 10,
@@ -126,7 +132,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "VIRIDIANGYM_HIKER3"
+   "name": "VIRIDIANGYM_HIKER3",
+   "mart": null
   },
   {
    "x": 2,
@@ -141,7 +148,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "VIRIDIANGYM_ROCKER2"
+   "name": "VIRIDIANGYM_ROCKER2",
+   "mart": null
   },
   {
    "x": 6,
@@ -156,7 +164,8 @@
    },
    "item": null,
    "index": 9,
-   "name": "VIRIDIANGYM_COOLTRAINER_M3"
+   "name": "VIRIDIANGYM_COOLTRAINER_M3",
+   "mart": null
   },
   {
    "x": 16,
@@ -168,7 +177,8 @@
    "trainer": null,
    "item": null,
    "index": 10,
-   "name": "VIRIDIANGYM_GYM_GUIDE"
+   "name": "VIRIDIANGYM_GYM_GUIDE",
+   "mart": null
   },
   {
    "x": 16,
@@ -180,7 +190,8 @@
    "trainer": null,
    "item": "REVIVE",
    "index": 11,
-   "name": "VIRIDIANGYM_REVIVE"
+   "name": "VIRIDIANGYM_REVIVE",
+   "mart": null
   }
  ],
  "gym_leader_no": 8,

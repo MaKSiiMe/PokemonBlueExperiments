@@ -45,7 +45,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CELADONMART5F_GENTLEMAN"
+   "name": "CELADONMART5F_GENTLEMAN",
+   "mart": null
   },
   {
    "x": 2,
@@ -57,7 +58,8 @@
    "trainer": null,
    "item": null,
    "index": 2,
-   "name": "CELADONMART5F_SAILOR"
+   "name": "CELADONMART5F_SAILOR",
+   "mart": null
   },
   {
    "x": 5,
@@ -69,7 +71,16 @@
    "trainer": null,
    "item": null,
    "index": 3,
-   "name": "CELADONMART5F_CLERK1"
+   "name": "CELADONMART5F_CLERK1",
+   "mart": [
+    "X_ACCURACY",
+    "GUARD_SPEC",
+    "DIRE_HIT",
+    "X_ATTACK",
+    "X_DEFEND",
+    "X_SPEED",
+    "X_SPECIAL"
+   ]
   },
   {
    "x": 6,
@@ -81,7 +92,14 @@
    "trainer": null,
    "item": null,
    "index": 4,
-   "name": "CELADONMART5F_CLERK2"
+   "name": "CELADONMART5F_CLERK2",
+   "mart": [
+    "HP_UP",
+    "PROTEIN",
+    "IRON",
+    "CARBOS",
+    "CALCIUM"
+   ]
   }
  ],
  "gym_leader_no": null,

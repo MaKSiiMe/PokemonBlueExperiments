@@ -72,7 +72,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "CINNABARLAB_FISHING_GURU"
+   "name": "CINNABARLAB_FISHING_GURU",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

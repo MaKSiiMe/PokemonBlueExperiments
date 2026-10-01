@@ -42,7 +42,8 @@
    },
    "item": null,
    "index": 1,
-   "name": "POWERPLANT_VOLTORB1"
+   "name": "POWERPLANT_VOLTORB1",
+   "mart": null
   },
   {
    "x": 32,
@@ -57,7 +58,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "POWERPLANT_VOLTORB2"
+   "name": "POWERPLANT_VOLTORB2",
+   "mart": null
   },
   {
    "x": 21,
@@ -72,7 +74,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "POWERPLANT_VOLTORB3"
+   "name": "POWERPLANT_VOLTORB3",
+   "mart": null
   },
   {
    "x": 25,
@@ -87,7 +90,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "POWERPLANT_ELECTRODE1"
+   "name": "POWERPLANT_ELECTRODE1",
+   "mart": null
   },
   {
    "x": 23,
@@ -102,7 +106,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "POWERPLANT_VOLTORB4"
+   "name": "POWERPLANT_VOLTORB4",
+   "mart": null
   },
   {
    "x": 26,
@@ -117,7 +122,8 @@
    },
    "item": null,
    "index": 6,
-   "name": "POWERPLANT_VOLTORB5"
+   "name": "POWERPLANT_VOLTORB5",
+   "mart": null
   },
   {
    "x": 21,
@@ -132,7 +138,8 @@
    },
    "item": null,
    "index": 7,
-   "name": "POWERPLANT_ELECTRODE2"
+   "name": "POWERPLANT_ELECTRODE2",
+   "mart": null
   },
   {
    "x": 37,
@@ -147,7 +154,8 @@
    },
    "item": null,
    "index": 8,
-   "name": "POWERPLANT_VOLTORB6"
+   "name": "POWERPLANT_VOLTORB6",
+   "mart": null
   },
   {
    "x": 4,
@@ -162,7 +170,8 @@
    },
    "item": null,
    "index": 9,
-   "name": "POWERPLANT_ZAPDOS"
+   "name": "POWERPLANT_ZAPDOS",
+   "mart": null
   },
   {
    "x": 7,
@@ -174,7 +183,8 @@
    "trainer": null,
    "item": "CARBOS",
    "index": 10,
-   "name": "POWERPLANT_CARBOS"
+   "name": "POWERPLANT_CARBOS",
+   "mart": null
   },
   {
    "x": 28,
@@ -186,7 +196,8 @@
    "trainer": null,
    "item": "HP_UP",
    "index": 11,
-   "name": "POWERPLANT_HP_UP"
+   "name": "POWERPLANT_HP_UP",
+   "mart": null
   },
   {
    "x": 34,
@@ -198,7 +209,8 @@
    "trainer": null,
    "item": "RARE_CANDY",
    "index": 12,
-   "name": "POWERPLANT_RARE_CANDY"
+   "name": "POWERPLANT_RARE_CANDY",
+   "mart": null
   },
   {
    "x": 26,
@@ -210,7 +222,8 @@
    "trainer": null,
    "item": "TM_THUNDER",
    "index": 13,
-   "name": "POWERPLANT_TM_THUNDER"
+   "name": "POWERPLANT_TM_THUNDER",
+   "mart": null
   },
   {
    "x": 20,
@@ -222,7 +235,8 @@
    "trainer": null,
    "item": "TM_REFLECT",
    "index": 14,
-   "name": "POWERPLANT_TM_REFLECT"
+   "name": "POWERPLANT_TM_REFLECT",
+   "mart": null
   }
  ],
  "gym_leader_no": null,

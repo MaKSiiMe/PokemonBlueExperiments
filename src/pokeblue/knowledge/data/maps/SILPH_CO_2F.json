@@ -63,7 +63,8 @@
    "trainer": null,
    "item": null,
    "index": 1,
-   "name": "SILPHCO2F_SILPH_WORKER_F"
+   "name": "SILPHCO2F_SILPH_WORKER_F",
+   "mart": null
   },
   {
    "x": 5,
@@ -78,7 +79,8 @@
    },
    "item": null,
    "index": 2,
-   "name": "SILPHCO2F_SCIENTIST1"
+   "name": "SILPHCO2F_SCIENTIST1",
+   "mart": null
   },
   {
    "x": 24,
@@ -93,7 +95,8 @@
    },
    "item": null,
    "index": 3,
-   "name": "SILPHCO2F_SCIENTIST2"
+   "name": "SILPHCO2F_SCIENTIST2",
+   "mart": null
   },
   {
    "x": 16,
@@ -108,7 +111,8 @@
    },
    "item": null,
    "index": 4,
-   "name": "SILPHCO2F_ROCKET1"
+   "name": "SILPHCO2F_ROCKET1",
+   "mart": null
   },
   {
    "x": 24,
@@ -123,7 +127,8 @@
    },
    "item": null,
    "index": 5,
-   "name": "SILPHCO2F_ROCKET2"
+   "name": "SILPHCO2F_ROCKET2",
+   "mart": null
   }
  ],
  "gym_leader_no": null,
