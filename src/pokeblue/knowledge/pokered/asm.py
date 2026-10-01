@@ -1,7 +1,7 @@
 """Parsing minimal de l'assembleur RGBDS de pokered.
 
 Couvre le sous-ensemble utilisé par `constants/*.asm` (macros `const_*`, `map_const`,
-`add_tm`/`add_hm`,
+`add_tm`/`add_hm`, `trainer_const`,
 structures `rsreset`/`rb`/`rw`, `DEF ... EQU`) et les tables de données simples
 (`db`, macros à arguments). Tout ce qui n'est pas compris est ignoré, sauf les
 directives conditionnelles (`IF`, `REPT`…) : elles lèvent `AsmError`, car les ignorer
@@ -267,6 +267,13 @@ class AsmConstants:
             if word == "map_const":
                 self._set(f"{name}_WIDTH", self.eval(args[1]))
                 self._set(f"{name}_HEIGHT", self.eval(args[2]))
+            self._const_value += self._const_inc
+            return name
+        elif word == "trainer_const":
+            # constants/trainer_constants.asm : const <classe> + OPP_<classe>.
+            name = args[0]
+            self._set(name, self._const_value)
+            self._set(f"OPP_{name}", self.values["OPP_ID_OFFSET"] + self._const_value)
             self._const_value += self._const_inc
             return name
         elif word in ("add_tm", "add_hm"):

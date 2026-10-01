@@ -122,6 +122,17 @@ def test_tm_hm_item_macros(tmp_path):
     assert consts.require("HM_CUT", "TM_MEGA_PUNCH") == {"HM_CUT": 0xC4, "TM_MEGA_PUNCH": 0xC6}
 
 
+def test_trainer_const_macro(tmp_path):
+    consts, names = _load(tmp_path, """
+        DEF OPP_ID_OFFSET EQU 200
+        const_def
+        trainer_const NOBODY
+        trainer_const YOUNGSTER
+    """)
+    assert names == ["NOBODY", "YOUNGSTER"]
+    assert consts.require("YOUNGSTER", "OPP_YOUNGSTER") == {"YOUNGSTER": 1, "OPP_YOUNGSTER": 201}
+
+
 def test_unresolved_definition_is_absent_not_wrong(tmp_path):
     consts, _ = _load(tmp_path, "DEF A EQU UNKNOWN | 1\nDEF B EQU 2\n")
     assert "A" not in consts.values

@@ -75,6 +75,7 @@ LAYOUT_CONSTANTS = {
     "constants/sprite_data_constants.asm": (
         "SPRITE_FACING_DOWN", "SPRITE_FACING_UP", "SPRITE_FACING_LEFT", "SPRITE_FACING_RIGHT",
     ),
+    "constants/map_data_constants.asm": ("NORTH", "SOUTH", "WEST", "EAST"),  # wCurMapConnections
 }
 
 # Tailles des tableaux de bits : macro `flag_array` (macros/ram.asm) = (n + 7) / 8 octets.

@@ -3011,6 +3011,12 @@ SPRITE_FACING_UP = 4
 SPRITE_FACING_LEFT = 8
 SPRITE_FACING_RIGHT = 12
 
+# constants/map_data_constants.asm
+NORTH = 8
+SOUTH = 4
+WEST = 2
+EAST = 1
+
 # Tableaux de bits : macro `flag_array` (macros/ram.asm) = (n + 7) // 8 octets
 EVENT_FLAGS_SIZE = (NUM_EVENTS + 7) // 8  # wEventFlags
 BADGE_FLAGS_SIZE = (NUM_BADGES + 7) // 8  # wObtainedBadges

@@ -11,6 +11,9 @@ Tables produites (commit épinglé dans `pokeblue.knowledge.pokered.source`) :
   - EVENTS                           constants/event_constants.asm (indices de wEventFlags)
   - CHARMAP                          constants/charmap.asm (caractère → tuile)
   - FADE_PALETTES                    home/fade.asm (palettes rBGP/rOBP0/rOBP1 des fondus)
+  - EVOLUTIONS, LEARNSETS            data/pokemon/evos_moves.asm
+  - TRAINER_CLASSES, TRAINER_PARTIES data/trainers/parties.asm
+  - LONE_MOVES, TEAM_MOVES           data/trainers/special_moves.asm
 
 Usage :
     python scripts/gen_gen1_data.py           # télécharge (cache .cache/pokered) puis écrit
@@ -143,6 +146,93 @@ def fade_palettes(root: Path) -> list[tuple[int, int, int]]:
     return [palettes[i] for i in range(1, 9)]
 
 
+def _label_blocks(path: Path) -> tuple[dict[str, list[str]], list[str]]:
+    """Découpe un fichier en blocs par étiquette `Nom:` ; des étiquettes consécutives
+    partagent le même bloc. Retourne (étiquette → lignes, ordre des étiquettes)."""
+    blocks: dict[str, list[str]] = {}
+    order: list[str] = []
+    pending: list[str] = []
+    current: list[str] | None = None
+    for line in logical_lines(path):
+        if re.fullmatch(r"\w+::?", line):
+            if current is not None and current:
+                pending = []
+            pending.append(line.rstrip(":"))
+            current = []
+            blocks[pending[-1]] = current
+            order.append(pending[-1])
+            for label in pending[:-1]:
+                blocks[label] = current
+            continue
+        if current is not None:
+            current.append(line)
+    return blocks, order
+
+
+def _pointer_table(lines: list[str]) -> list[str]:
+    return [args[0] for line in lines if (args := macro_args(line, "dw")) is not None]
+
+
+def evolutions_and_learnsets(root: Path, consts: AsmConstants) -> tuple[dict, dict]:
+    """EvosMovesPointerTable : un bloc par ID interne (à partir de 1) — évolutions
+    terminées par `db 0`, puis attaques apprises (niveau, attaque) terminées par `db 0`."""
+    blocks, _ = _label_blocks(root / "data/pokemon/evos_moves.asm")
+    evolutions, learnsets = {}, {}
+    for internal, label in enumerate(_pointer_table(blocks["EvosMovesPointerTable"]), 1):
+        rows = [args for line in blocks[label] if (args := macro_args(line, "db")) is not None]
+        end = next(i for i, row in enumerate(rows) if row == ["0"])
+        evos = []
+        for row in rows[:end]:
+            method = row[0]
+            values = [consts.eval(a) for a in row[1:]]
+            if method == "EVOLVE_ITEM":           # objet, niveau minimal, espèce
+                evos.append((method, values[0], values[2]))
+            else:                                 # niveau, espèce
+                evos.append((method, values[0], values[1]))
+        moves = [(consts.eval(r[0]), consts.eval(r[1])) for r in rows[end + 1:] if r != ["0"]]
+        evolutions[internal], learnsets[internal] = tuple(evos), tuple(moves)
+    return evolutions, learnsets
+
+
+def trainer_tables(root: Path, consts: AsmConstants, class_names: list[str]):
+    """TrainerDataPointers : un bloc par classe (à partir de 1), une ligne `db` par
+    équipe. Premier octet $FF : paires (niveau, espèce) ; sinon niveau commun puis
+    espèces. Terminateur 0."""
+    blocks, _ = _label_blocks(root / "data/trainers/parties.asm")
+    parties = {}
+    for class_id, label in enumerate(_pointer_table(blocks["TrainerDataPointers"]), 1):
+        teams = []
+        for line in blocks[label]:
+            args = macro_args(line, "db")
+            if args is None:
+                continue
+            values = [consts.eval(a) for a in args]
+            if values[-1] != 0:
+                raise AsmError(f"{label} : équipe non terminée par 0 : {line!r}")
+            values = values[:-1]
+            if values[0] == 0xFF:
+                team = [(values[i + 1], values[i]) for i in range(1, len(values), 2)]
+            else:
+                team = [(species, values[0]) for species in values[1:]]
+            teams.append(tuple(team))
+        parties[class_names[class_id]] = tuple(teams)
+
+    special, _ = _label_blocks(root / "data/trainers/special_moves.asm")
+    lone = [tuple(consts.eval(a) for a in args) for line in special["LoneMoves"]
+            if (args := macro_args(line, "db")) is not None]
+    team_moves = {}
+    for line in special["TeamMoves"]:
+        args = macro_args(line, "db")
+        if args and args != ["-1"]:
+            team_moves[args[0]] = consts.eval(args[1])
+    return parties, tuple(lone), team_moves
+
+
+def _tup(parts: list[str]) -> str:
+    """Littéral de tuple Python (virgule finale seulement pour un élément)."""
+    return "(" + ", ".join(parts) + ("," if len(parts) == 1 else "") + ")"
+
+
 def _unique_values(consts: AsmConstants, names: list[str], label: str) -> dict[int, str]:
     table: dict[int, str] = {}
     for name in names:
@@ -165,6 +255,9 @@ def render(root: Path) -> str:
     events = _unique_values(consts, enumerated["constants/event_constants.asm"], "events")
     charmap = charmap_table(root)
     fades = fade_palettes(root)
+    evolutions, learnsets = evolutions_and_learnsets(root, consts)
+    class_names = enumerated["constants/trainer_constants.asm"]
+    parties, lone_moves, team_moves = trainer_tables(root, consts, class_names)
 
     out = [
         '"""Données Gen 1 de Pokémon Bleu — FICHIER GÉNÉRÉ, NE PAS MODIFIER.',
@@ -204,7 +297,7 @@ def render(root: Path) -> str:
     ]
     for sid, (name, dex, hp, atk, dfn, spd, spc, types, catch, exp, start, growth) in sorted(
             species.items()):
-        moves_src = "(" + ", ".join(f"0x{m:02X}" for m in start) + ("," if len(start) == 1 else "") + ")"
+        moves_src = _tup([f"0x{m:02X}" for m in start])
         out.append(
             f'    0x{sid:02X}: Species("{name}", {dex}, {hp}, {atk}, {dfn}, {spd}, {spc}, '
             f'(0x{types[0]:02X}, 0x{types[1]:02X}), {catch}, {exp}, {moves_src}, "{growth}"),'
@@ -237,6 +330,45 @@ def render(root: Path) -> str:
         "FADE_PALETTES: tuple[tuple[int, int, int], ...] = (",
         *(f"    (0x{b:02X}, 0x{o0:02X}, 0x{o1:02X}),  # FadePal{i}" for i, (b, o0, o1) in enumerate(fades, 1)),
         ")",
+        "",
+        "# data/pokemon/evos_moves.asm — ID interne → ((méthode, paramètre, espèce), ...)",
+        "# paramètre : niveau (EVOLVE_LEVEL), objet (EVOLVE_ITEM) ou 1 (EVOLVE_TRADE)",
+        "EVOLUTIONS: dict[int, tuple[tuple[str, int, int], ...]] = {",
+        *(f"    0x{sid:02X}: " + _tup([f'("{m}", {p}, 0x{t:02X})' for m, p, t in evos]) + ","
+          for sid, evos in sorted(evolutions.items()) if sid in species),
+        "}",
+        "",
+        "# data/pokemon/evos_moves.asm — ID interne → ((niveau, attaque), ...)",
+        "LEARNSETS: dict[int, tuple[tuple[int, int], ...]] = {",
+        *(f"    0x{sid:02X}: " + _tup([f"({lv}, 0x{mv:02X})" for lv, mv in moves]) + ","
+          for sid, moves in sorted(learnsets.items()) if sid in species),
+        "}",
+        "",
+        "# constants/trainer_constants.asm — classe de dresseur (OPP_<classe> = classe + 200)",
+        "TRAINER_CLASSES: dict[int, str] = {",
+        *(f'    {i}: "{n}",' for i, n in enumerate(class_names) if i),
+        "}",
+        "",
+        "# data/trainers/parties.asm — classe → équipes (indice d'équipe à partir de 1 dans",
+        "# les scripts) ; une équipe = ((espèce, niveau), ...)",
+        "TRAINER_PARTIES: dict[str, tuple[tuple[tuple[int, int], ...], ...]] = {",
+    ]
+    for name, teams in parties.items():
+        out.append(f'    "{name}": (')
+        out += [f"        {_tup([f'(0x{sp:02X}, {lv})' for sp, lv in team])}," for team in teams]
+        out.append("    ),")
+    out += [
+        "}",
+        "",
+        "# data/trainers/special_moves.asm — champion d'arène n° N (wGymLeaderNo) :",
+        "# LONE_MOVES[N - 1] = (indice du Pokémon, attaque) placée dans son 3e emplacement.",
+        "LONE_MOVES: tuple[tuple[int, int], ...] = (",
+        *(f"    ({i}, 0x{mv:02X})," for i, mv in lone_moves),
+        ")",
+        "# Conseil 4 : attaque placée dans le 3e emplacement du 5e Pokémon.",
+        "TEAM_MOVES: dict[str, int] = {",
+        *(f'    "{c}": 0x{mv:02X},' for c, mv in team_moves.items()),
+        "}",
         "# fmt: on",
         "",
     ]
