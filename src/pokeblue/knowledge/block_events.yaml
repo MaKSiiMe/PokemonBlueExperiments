@@ -19,10 +19,13 @@ block_events:
   - {map: VICTORY_ROAD_2F, block: [11, 7], event: EVENT_VICTORY_ROAD_2_BOULDER_ON_SWITCH2, when_set: true, solvable_with: STRENGTH, block_id: 0x1D, source: scripts/VictoryRoad2F.asm VictoryRoad2FCheckBoulderEventScript}
   - {map: VICTORY_ROAD_3F, block: [3, 5], event: EVENT_VICTORY_ROAD_3_BOULDER_ON_SWITCH1, when_set: true, solvable_with: STRENGTH, block_id: 0x1D, source: scripts/VictoryRoad3F.asm VictoryRoad3FCheckBoulderEventScript}
 
-  # ── Conseil 4 : sortie ouverte une fois le dresseur battu ───────────────────────
-  - {map: LORELEIS_ROOM, block: [2, 0], event: EVENT_BEAT_LORELEIS_ROOM_TRAINER_0, when_set: true, block_id: 0x24, source: scripts/LoreleisRoom.asm}
-  - {map: BRUNOS_ROOM, block: [2, 0], event: EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, when_set: true, block_id: 0x24, source: scripts/BrunosRoom.asm}
-  - {map: AGATHAS_ROOM, block: [2, 0], event: EVENT_BEAT_AGATHAS_ROOM_TRAINER_0, when_set: true, block_id: 0x3B, source: scripts/AgathasRoom.asm}
+  # ── Conseil 4 : sortie fermée tant que le dresseur n'est pas battu ─────────────
+  - {map: LORELEIS_ROOM, block: [2, 0], event: EVENT_BEAT_LORELEIS_ROOM_TRAINER_0, when_set: false, block_id: 0x24, source: scripts/LoreleisRoom.asm LoreleiShowOrHideExitBlock}
+  - {map: LORELEIS_ROOM, block: [2, 0], event: EVENT_BEAT_LORELEIS_ROOM_TRAINER_0, when_set: true, block_id: 0x05, source: scripts/LoreleisRoom.asm LoreleiShowOrHideExitBlock}
+  - {map: BRUNOS_ROOM, block: [2, 0], event: EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, when_set: false, block_id: 0x24, source: scripts/BrunosRoom.asm}
+  - {map: BRUNOS_ROOM, block: [2, 0], event: EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, when_set: true, block_id: 0x05, source: scripts/BrunosRoom.asm}
+  - {map: AGATHAS_ROOM, block: [2, 0], event: EVENT_BEAT_AGATHAS_ROOM_TRAINER_0, when_set: false, block_id: 0x3B, source: scripts/AgathasRoom.asm}
+  - {map: AGATHAS_ROOM, block: [2, 0], event: EVENT_BEAT_AGATHAS_ROOM_TRAINER_0, when_set: true, block_id: 0x0E, source: scripts/AgathasRoom.asm}
   - {map: LANCES_ROOM, block: [2, 6], event: EVENT_LANCES_ROOM_LOCK_DOOR, when_set: false, block_id: 0x31, source: scripts/LancesRoom.asm LanceShowOrHideEntranceBlocks}
   - {map: LANCES_ROOM, block: [3, 6], event: EVENT_LANCES_ROOM_LOCK_DOOR, when_set: false, block_id: 0x32, source: scripts/LancesRoom.asm LanceShowOrHideEntranceBlocks}
   - {map: LANCES_ROOM, block: [2, 6], event: EVENT_LANCES_ROOM_LOCK_DOOR, when_set: true, block_id: 0x72, source: scripts/LancesRoom.asm LanceShowOrHideEntranceBlocks}
@@ -35,10 +38,14 @@ block_events:
   # ── Repaire Rocket ──────────────────────────────────────────────────────────────
   - {map: ROCKET_HIDEOUT_B1F, block: [12, 8], event: EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_4, when_set: false, block_id: 0x54, source: scripts/RocketHideoutB1F.asm}
   - {map: ROCKET_HIDEOUT_B1F, block: [12, 8], event: EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_4, when_set: true, block_id: 0x0E, source: scripts/RocketHideoutB1F.asm}
+  # Porte fermée tant qu'elle n'est pas déverrouillée (les deux dresseurs battus la
+  # déverrouillent au chargement suivant de la carte).
   - {map: ROCKET_HIDEOUT_B4F, block: [12, 5], event: EVENT_ROCKET_HIDEOUT_4_DOOR_UNLOCKED, when_set: false, block_id: 0x2D, source: scripts/RocketHideoutB4F.asm}
+  - {map: ROCKET_HIDEOUT_B4F, block: [12, 5], event: EVENT_ROCKET_HIDEOUT_4_DOOR_UNLOCKED, when_set: true, block_id: 0x0E, source: scripts/RocketHideoutB4F.asm}
 
   # ── Arène de Carmin : porte fermée tant que la 2e serrure n'est pas ouverte ─────
   - {map: VERMILION_GYM, block: [2, 2], event: EVENT_2ND_LOCK_OPENED, when_set: false, block_id: 0x24, source: scripts/VermilionGym.asm}
+  - {map: VERMILION_GYM, block: [2, 2], event: EVENT_2ND_LOCK_OPENED, when_set: true, block_id: 0x05, source: scripts/VermilionGym.asm}
 
   # ── Sylphe SARL : portes verrouillées tant que la Carte Magnétique n'a pas servi ─
   - {map: SILPH_CO_2F, block: [2, 2], event: EVENT_SILPH_CO_2_UNLOCKED_DOOR1, when_set: false, block_id: 0x54, source: scripts/SilphCo2F.asm}

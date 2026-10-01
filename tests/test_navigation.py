@@ -107,21 +107,26 @@ def _extract_simple_block_events(scripts: Path) -> dict[str, set]:
     from pokeblue.knowledge.pokered.asm import logical_lines
     found: dict[str, set] = {}
     for script in scripts.glob("*.asm"):
-        event = when = block = coords = pending = None
+        event = when = block = coords = pending = skip_label = None
         expect = False
         for line in logical_lines(script):
             if re.fullmatch(r"[A-Za-z]\w*::?", line):   # nouvelle routine : contexte remis à zéro
-                event = when = block = coords = None
+                event = when = block = coords = skip_label = None
                 continue
             if m := re.match(r"^CheckEvent\w*\s+(EVENT_\w+)", line):
                 event, when, expect = m.group(1), None, True
                 continue
             if expect:
+                # `ret cc` ou `jr cc, .label` qui saute PAR-DESSUS le remplacement :
+                # z = on saute si l'événement est inactif → remplacement s'il est actif.
                 expect = False
-                if re.match(r"^(ret|jr|jp) z\b", line):
-                    when = True
-                elif re.match(r"^(ret|jr|jp) nz\b", line):
-                    when = False
+                if m := re.match(r"^(ret|jr|jp) (n?z)\b(?:, (\.?\w+))?", line):
+                    when = m.group(2) == "z"
+                    skip_label = m.group(3)
+                continue
+            if skip_label and line.rstrip(":") == skip_label:
+                when = None   # la cible du saut précède le remplacement : forme non simple
+                skip_label = None
             if line == "ld [wNewTileBlockID], a":
                 block = pending
             pending = None
