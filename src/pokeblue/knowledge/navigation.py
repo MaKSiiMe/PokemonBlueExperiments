@@ -34,7 +34,7 @@ from pathlib import Path
 
 import yaml
 
-from pokeblue.knowledge.gen1_data import EVENT_IDS, ITEM_IDS, MOVE_IDS
+from pokeblue.knowledge.gen1_data import EVENT_IDS, ITEM_IDS, MOVE_IDS, TOGGLE_IDS
 from pokeblue.knowledge.maps import LAST_MAP, MapData, load_map, map_names, world_rules
 from pokeblue.state import ram_symbols as sym
 
@@ -122,6 +122,8 @@ class Progress:
             *(ITEM_IDS[i] in self.items for i in condition.get("items", ())),
             *(bool(self.status_flags1 >> getattr(sym, f) & 1)
               for f in condition.get("status_flags1", ())),
+            *(self.hidden_objects is not None and self.hidden_objects >> TOGGLE_IDS[t] & 1 == 1
+              for t in condition.get("objects_hidden", ())),
             self.money >= condition.get("money", 0),
         ]
         return all(checks)

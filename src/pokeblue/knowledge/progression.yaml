@@ -1,0 +1,314 @@
+# Graphe de progression de Pokémon Bleu, du départ au Champion.
+#
+# Jalons ordonnés selon un parcours standard. Chaque jalon :
+#   id, description
+#   requires        : jalons préalables et, au besoin, capacités de terrain
+#                     (CUT/SURF/STRENGTH), objets ou badges
+#   target          : carte où l'action a lieu (et dresseur à battre, le cas échéant :
+#                     classe + n° d'équipe, ou `rival_base` pour le rival dont l'équipe
+#                     dépend du starter — voir pokeblue.knowledge.trainers)
+#   completes_when  : condition vérifiable en RAM (drapeaux, badges, objets,
+#                     wStatusFlags1, objets masqués) ; `completes_when_any` : une suffit
+#   recommended_level : niveau conseillé ; si absent et qu'un dresseur est ciblé,
+#                     c'est le niveau maximal de son équipe ; sinon hérité du jalon
+#                     précédent
+#   optional        : jalon utile mais non bloquant
+#
+# Les noms (événements, objets, badges, cartes, classes) sont ceux de pokered et sont
+# vérifiés par tests/test_progression.py.
+
+milestones:
+  # ── Bourg Palette, Jadielle ──────────────────────────────────────────────────
+  - id: get_starter
+    description: Choisir un Pokémon au labo du Prof. Chen
+    target: {map: OAKS_LAB}
+    completes_when: {events: [EVENT_GOT_STARTER]}
+    recommended_level: 5
+
+  - id: rival_oaks_lab
+    description: Premier combat contre le rival au labo
+    requires: {milestones: [get_starter]}
+    target: {map: OAKS_LAB, trainer: {class: RIVAL1, rival_base: 1}}
+    completes_when: {events: [EVENT_BATTLED_RIVAL_IN_OAKS_LAB]}
+
+  - id: get_oaks_parcel
+    description: Récupérer le colis du Prof. Chen à la boutique de Jadielle
+    requires: {milestones: [rival_oaks_lab]}
+    target: {map: VIRIDIAN_MART}
+    completes_when: {events: [EVENT_GOT_OAKS_PARCEL]}
+
+  - id: get_pokedex
+    description: Livrer le colis et recevoir le Pokédex
+    requires: {milestones: [get_oaks_parcel]}
+    target: {map: OAKS_LAB}
+    completes_when: {events: [EVENT_GOT_POKEDEX]}
+
+  # ── Argenta, Mont Sélénite, Azuria ───────────────────────────────────────────
+  - id: beat_brock
+    description: Battre Pierre (Badge Roche)
+    requires: {milestones: [get_pokedex]}
+    target: {map: PEWTER_GYM, trainer: {class: BROCK, party: 1}}
+    completes_when: {events: [EVENT_BEAT_BROCK], badges: [BOULDERBADGE]}
+
+  - id: cross_mt_moon
+    description: Traverser le Mont Sélénite (fossile obtenu après le Super Nerd)
+    requires: {milestones: [beat_brock]}
+    target: {map: MT_MOON_B2F}
+    completes_when_any:
+      - {events: [EVENT_GOT_DOME_FOSSIL]}
+      - {events: [EVENT_GOT_HELIX_FOSSIL]}
+    recommended_level: 14
+
+  - id: beat_cerulean_rival
+    description: Battre le rival sur le pont au nord d'Azuria
+    requires: {milestones: [cross_mt_moon]}
+    target: {map: CERULEAN_CITY, trainer: {class: RIVAL1, rival_base: 7}}
+    completes_when: {events: [EVENT_BEAT_CERULEAN_RIVAL]}
+
+  - id: beat_misty
+    description: Battre Ondine (Badge Cascade, Coupe utilisable)
+    requires: {milestones: [cross_mt_moon]}
+    target: {map: CERULEAN_GYM, trainer: {class: MISTY, party: 1}}
+    completes_when: {events: [EVENT_BEAT_MISTY], badges: [CASCADEBADGE]}
+
+  - id: get_ss_ticket
+    description: Aider Léo (Route 25) et recevoir le Passe Bateau
+    requires: {milestones: [beat_cerulean_rival]}
+    target: {map: BILLS_HOUSE}
+    completes_when: {events: [EVENT_GOT_SS_TICKET]}
+
+  - id: beat_cerulean_rocket
+    description: Battre le voleur Rocket de la maison cambriolée
+    optional: true
+    requires: {milestones: [beat_misty]}
+    target: {map: CERULEAN_CITY}
+    completes_when: {events: [EVENT_BEAT_CERULEAN_ROCKET_THIEF]}
+
+  # ── Carmin ───────────────────────────────────────────────────────────────────
+  # Ce combat ne laisse pas de drapeau persistant (l'objet du rival est masqué avant
+  # et après) : il est réputé fait une fois la CS01 obtenue, plus loin sur le navire.
+  - id: ss_anne_rival
+    description: Battre le rival sur l'Océane, sur le chemin du capitaine
+    optional: true
+    requires: {milestones: [get_ss_ticket]}
+    target: {map: SS_ANNE_2F, trainer: {class: RIVAL2, rival_base: 1}}
+    completes_when: {events: [EVENT_GOT_HM01]}
+
+  - id: get_hm01_cut
+    description: Recevoir la CS01 Coupe du capitaine de l'Océane
+    requires: {milestones: [get_ss_ticket]}
+    target: {map: SS_ANNE_CAPTAINS_ROOM}
+    completes_when: {events: [EVENT_GOT_HM01]}
+
+  - id: beat_lt_surge
+    description: "Battre le Major Bob (Badge Foudre) — arbre à couper devant l'arène"
+    requires: {milestones: [get_hm01_cut, beat_misty], abilities: [CUT]}
+    target: {map: VERMILION_GYM, trainer: {class: LT_SURGE, party: 1}}
+    completes_when: {events: [EVENT_BEAT_LT_SURGE], badges: [THUNDERBADGE]}
+
+  - id: get_bike_voucher
+    description: Bon pour le vélo au Fan Club Pokémon
+    optional: true
+    requires: {milestones: [get_ss_ticket]}
+    target: {map: POKEMON_FAN_CLUB}
+    completes_when: {events: [EVENT_GOT_BIKE_VOUCHER]}
+
+  - id: get_bicycle
+    description: Échanger le bon contre un vélo (Piste Cyclable)
+    optional: true
+    requires: {milestones: [get_bike_voucher]}
+    target: {map: BIKE_SHOP}
+    completes_when: {events: [EVENT_GOT_BICYCLE]}
+
+  - id: get_hm05_flash
+    description: CS05 Flash de l'assistant du Prof. Chen (10 espèces capturées)
+    optional: true
+    requires: {milestones: [beat_brock]}
+    target: {map: ROUTE_2_GATE}
+    completes_when: {events: [EVENT_GOT_HM05]}
+
+  # ── Lavanville, Céladopole ───────────────────────────────────────────────────
+  - id: pokemon_tower_rival
+    description: Battre le rival à la Tour Pokémon (Grotte, puis Lavanville)
+    requires: {milestones: [beat_lt_surge], abilities: [CUT]}
+    target: {map: POKEMON_TOWER_2F, trainer: {class: RIVAL2, rival_base: 4}}
+    completes_when: {events: [EVENT_BEAT_POKEMON_TOWER_RIVAL]}
+
+  - id: beat_erika
+    description: Battre Erika (Badge Prisme, Force utilisable)
+    requires: {milestones: [beat_lt_surge], abilities: [CUT]}
+    target: {map: CELADON_GYM, trainer: {class: ERIKA, party: 1}}
+    completes_when: {events: [EVENT_BEAT_ERIKA], badges: [RAINBOWBADGE]}
+
+  - id: get_drink
+    description: Acheter une boisson au distributeur du toit du Centre Commercial
+    requires: {milestones: [beat_lt_surge]}
+    target: {map: CELADON_MART_ROOF}
+    completes_when_any:
+      - {items: [FRESH_WATER]}
+      - {items: [SODA_POP]}
+      - {items: [LEMONADE]}
+      - {status_flags1: [BIT_GAVE_SAFFRON_GUARDS_DRINK]}
+
+  - id: find_rocket_hideout
+    description: Trouver l'interrupteur derrière l'affiche du Casino
+    requires: {milestones: [beat_lt_surge]}
+    target: {map: GAME_CORNER}
+    completes_when: {events: [EVENT_FOUND_ROCKET_HIDEOUT]}
+
+  - id: get_lift_key
+    description: Récupérer la Clé Ascenseur au Repaire Rocket
+    requires: {milestones: [find_rocket_hideout]}
+    target: {map: ROCKET_HIDEOUT_B4F}
+    completes_when: {events: [EVENT_ROCKET_DROPPED_LIFT_KEY]}
+
+  - id: beat_hideout_giovanni
+    description: Battre Giovanni au Repaire Rocket (Scope Sylphe)
+    requires: {milestones: [get_lift_key]}
+    target: {map: ROCKET_HIDEOUT_B4F, trainer: {class: GIOVANNI, party: 1}}
+    completes_when: {events: [EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI]}
+
+  - id: beat_ghost_marowak
+    description: Démasquer et battre l'Ossatueur spectral (Tour Pokémon 6F)
+    requires: {milestones: [beat_hideout_giovanni, pokemon_tower_rival], items: [SILPH_SCOPE]}
+    target: {map: POKEMON_TOWER_6F}
+    completes_when: {events: [EVENT_BEAT_GHOST_MAROWAK]}
+    recommended_level: 30
+
+  - id: rescue_mr_fuji
+    description: Délivrer M. Fuji au sommet de la Tour Pokémon
+    requires: {milestones: [beat_ghost_marowak]}
+    target: {map: POKEMON_TOWER_7F}
+    completes_when: {events: [EVENT_RESCUED_MR_FUJI]}
+
+  - id: get_poke_flute
+    description: Recevoir la Pokéflûte de M. Fuji
+    requires: {milestones: [rescue_mr_fuji]}
+    target: {map: MR_FUJIS_HOUSE}
+    completes_when: {events: [EVENT_GOT_POKE_FLUTE]}
+
+  - id: wake_snorlax
+    description: Réveiller un Ronflex (Route 12 ou 16) pour atteindre Parmanie
+    requires: {milestones: [get_poke_flute], items: [POKE_FLUTE]}
+    target: {map: ROUTE_12}
+    completes_when_any:
+      - {events: [EVENT_BEAT_ROUTE12_SNORLAX]}
+      - {events: [EVENT_BEAT_ROUTE16_SNORLAX]}
+    recommended_level: 30
+
+  # ── Parmanie, Parc Safari ────────────────────────────────────────────────────
+  - id: beat_koga
+    description: Battre Koga (Badge Âme, Surf utilisable)
+    requires: {milestones: [wake_snorlax]}
+    target: {map: FUCHSIA_GYM, trainer: {class: KOGA, party: 1}}
+    completes_when: {events: [EVENT_BEAT_KOGA], badges: [SOULBADGE]}
+
+  - id: get_hm03_surf
+    description: Trouver la CS03 Surf au fond du Parc Safari (entrée ¥500)
+    requires: {milestones: [wake_snorlax]}
+    target: {map: SAFARI_ZONE_SECRET_HOUSE}
+    completes_when: {events: [EVENT_GOT_HM03]}
+
+  - id: get_gold_teeth
+    description: Ramasser les Dents d'Or du gardien dans le Parc Safari
+    requires: {milestones: [wake_snorlax]}
+    target: {map: SAFARI_ZONE_WEST}
+    completes_when_any:
+      - {items: [GOLD_TEETH]}
+      - {events: [EVENT_GAVE_GOLD_TEETH]}
+
+  - id: get_hm04_strength
+    description: Rendre les Dents d'Or au gardien et recevoir la CS04 Force
+    requires: {milestones: [get_gold_teeth]}
+    target: {map: WARDENS_HOUSE}
+    completes_when: {events: [EVENT_GOT_HM04]}
+
+  # ── Safrania, Sylphe SARL ────────────────────────────────────────────────────
+  - id: give_drink_to_guards
+    description: Donner une boisson aux gardes des portes de Safrania
+    requires: {milestones: [get_drink]}
+    target: {map: ROUTE_5_GATE}
+    completes_when: {status_flags1: [BIT_GAVE_SAFFRON_GUARDS_DRINK]}
+
+  - id: get_card_key
+    description: Trouver la Carte Magnétique de Sylphe SARL (5F)
+    requires: {milestones: [give_drink_to_guards]}
+    target: {map: SILPH_CO_5F}
+    completes_when: {items: [CARD_KEY]}
+    recommended_level: 40
+
+  - id: silph_co_rival
+    description: Battre le rival à Sylphe SARL (7F)
+    requires: {milestones: [get_card_key]}
+    target: {map: SILPH_CO_7F, trainer: {class: RIVAL2, rival_base: 7}}
+    completes_when: {events: [EVENT_BEAT_SILPH_CO_RIVAL]}
+
+  - id: beat_silph_giovanni
+    description: Battre Giovanni à Sylphe SARL (11F)
+    requires: {milestones: [silph_co_rival]}
+    target: {map: SILPH_CO_11F, trainer: {class: GIOVANNI, party: 2}}
+    completes_when: {events: [EVENT_BEAT_SILPH_CO_GIOVANNI]}
+
+  - id: beat_sabrina
+    description: Battre Morgane (Badge Marais)
+    requires: {milestones: [give_drink_to_guards]}
+    target: {map: SAFFRON_GYM, trainer: {class: SABRINA, party: 1}}
+    completes_when: {events: [EVENT_BEAT_SABRINA], badges: [MARSHBADGE]}
+
+  # ── Cramois'Île, Jadielle ────────────────────────────────────────────────────
+  - id: get_secret_key
+    description: Trouver la Clé Secrète au sous-sol du Manoir Pokémon
+    requires: {milestones: [beat_koga, get_hm03_surf], abilities: [SURF]}
+    target: {map: POKEMON_MANSION_B1F}
+    completes_when: {items: [SECRET_KEY]}
+    recommended_level: 42
+
+  - id: beat_blaine
+    description: Battre Auguste (Badge Volcan)
+    requires: {milestones: [get_secret_key]}
+    target: {map: CINNABAR_GYM, trainer: {class: BLAINE, party: 1}}
+    completes_when: {events: [EVENT_BEAT_BLAINE], badges: [VOLCANOBADGE]}
+
+  - id: beat_viridian_giovanni
+    description: Battre Giovanni à l'arène de Jadielle (Badge Terre)
+    requires: {milestones: [beat_brock, beat_misty, beat_lt_surge, beat_erika, beat_koga, beat_sabrina, beat_blaine]}
+    target: {map: VIRIDIAN_GYM, trainer: {class: GIOVANNI, party: 3}}
+    completes_when: {events: [EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI], badges: [EARTHBADGE]}
+
+  - id: route22_rival_2
+    description: Second combat contre le rival sur la Route 22
+    optional: true
+    requires: {milestones: [beat_viridian_giovanni]}
+    target: {map: ROUTE_22, trainer: {class: RIVAL2, rival_base: 10}}
+    completes_when: {events: [EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE]}
+
+  # ── Route Victoire, Ligue Pokémon ────────────────────────────────────────────
+  - id: beat_lorelei
+    description: "Battre Olga (Route 23 et Route Victoire : Surf et Force)"
+    requires: {milestones: [beat_viridian_giovanni, get_hm04_strength], abilities: [SURF, STRENGTH]}
+    target: {map: LORELEIS_ROOM, trainer: {class: LORELEI, party: 1}}
+    completes_when: {events: [EVENT_BEAT_LORELEIS_ROOM_TRAINER_0]}
+
+  - id: beat_bruno
+    description: Battre Aldo
+    requires: {milestones: [beat_lorelei]}
+    target: {map: BRUNOS_ROOM, trainer: {class: BRUNO, party: 1}}
+    completes_when: {events: [EVENT_BEAT_BRUNOS_ROOM_TRAINER_0]}
+
+  - id: beat_agatha
+    description: Battre Agatha
+    requires: {milestones: [beat_bruno]}
+    target: {map: AGATHAS_ROOM, trainer: {class: AGATHA, party: 1}}
+    completes_when: {events: [EVENT_BEAT_AGATHAS_ROOM_TRAINER_0]}
+
+  - id: beat_lance
+    description: Battre Peter
+    requires: {milestones: [beat_agatha]}
+    target: {map: LANCES_ROOM, trainer: {class: LANCE, party: 1}}
+    completes_when: {events: [EVENT_BEAT_LANCES_ROOM_TRAINER_0]}
+
+  - id: beat_champion
+    description: Battre le Champion (le rival)
+    requires: {milestones: [beat_lance]}
+    target: {map: CHAMPIONS_ROOM, trainer: {class: RIVAL3, rival_base: 1}}
+    completes_when: {events: [EVENT_BEAT_CHAMPION_RIVAL]}

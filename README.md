@@ -169,9 +169,10 @@ python scripts/gen_gen1_data.py     # src/pokeblue/knowledge/gen1_data/tables.py
 pytest                              # ROM-dependent tests are skipped if the ROM is absent
 ```
 
-Game state, mode detection and debug tools (see [docs/state.md](docs/state.md)):
+Game state, mode detection, knowledge layer and debug tools (see [docs/state.md](docs/state.md), [docs/knowledge.md](docs/knowledge.md)):
 
 ```bash
+pokeblue build-knowledge            # regenerate pokered-derived data (--check to verify)
 pokeblue make-states                # labelled savestates from configs/states/modes.yaml
 pokeblue overlay --state states/37_pewter_city.state   # live GameState + detected mode
 ```
@@ -240,7 +241,7 @@ PokemonBlueExperiments/
 │   ├── pokeblue/                 # New modular package (refactor in progress)
 │   │   ├── emulator/             # PyBoy wrapper, input recipes
 │   │   ├── state/                # GameState, mode detector, ram_symbols.py (GENERATED)
-│   │   ├── knowledge/gen1_data/  # GENERATED Gen 1 types, moves, species, maps, items, events
+│   │   ├── knowledge/            # Gen 1 data, 222 maps, navigation, progression (GENERATED + curated YAML)
 │   │   ├── tools/                # make-states, overlay
 │   │   └── cli.py                # `pokeblue` command
 │   ├── emulator/
@@ -267,6 +268,7 @@ PokemonBlueExperiments/
 ├── configs/states/modes.yaml     # Labelled savestate recipes (mode detection)
 └── docs/
     ├── state.md                  # GameState and mode detection
+    ├── knowledge.md              # Knowledge layer: maps, navigation, progression
     └── archive/                  # First-version docs (obsolete, kept for history)
 ```
 

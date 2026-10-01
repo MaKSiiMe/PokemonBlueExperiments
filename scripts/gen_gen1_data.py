@@ -14,6 +14,7 @@ Tables produites (commit épinglé dans `pokeblue.knowledge.pokered.source`) :
   - EVOLUTIONS, LEARNSETS            data/pokemon/evos_moves.asm
   - TRAINER_CLASSES, TRAINER_PARTIES data/trainers/parties.asm
   - LONE_MOVES, TEAM_MOVES           data/trainers/special_moves.asm
+  - TOGGLE_NAMES                     constants/toggle_constants.asm
 
 Usage :
     python scripts/gen_gen1_data.py           # télécharge (cache .cache/pokered) puis écrit
@@ -369,6 +370,11 @@ def render(root: Path) -> str:
         "TEAM_MOVES: dict[str, int] = {",
         *(f'    "{c}": 0x{mv:02X},' for c, mv in team_moves.items()),
         "}",
+        "",
+        "# constants/toggle_constants.asm — objets activables : indice = bit de wToggleableObjectFlags",
+        "TOGGLE_NAMES: tuple[str, ...] = (",
+        *(f'    "{n}",' for n in enumerated["constants/toggle_constants.asm"]),
+        ")",
         "# fmt: on",
         "",
     ]

@@ -14,13 +14,20 @@ from pokeblue.knowledge.gen1_data.models import MapInfo, Move, Species
 from pokeblue.knowledge.gen1_data.tables import (
     CHARMAP,
     EVENTS,
+    EVOLUTIONS,
     FADE_PALETTES,
     ITEMS,
+    LEARNSETS,
+    LONE_MOVES,
     MAPS,
     MOVES,
     SOURCE_COMMIT,
     SPECIAL_TYPES_START,
     SPECIES,
+    TEAM_MOVES,
+    TOGGLE_NAMES,
+    TRAINER_CLASSES,
+    TRAINER_PARTIES,
     TYPE_EFFECTS,
     TYPE_NAMES,
 )
@@ -32,6 +39,7 @@ MAP_IDS: dict[str, int] = {m.name: mid for mid, m in MAPS.items()}
 DEX_TO_SPECIES: dict[int, int] = {s.dex: sid for sid, s in SPECIES.items()}
 ITEM_IDS: dict[str, int] = {name: iid for iid, name in ITEMS.items()}
 EVENT_IDS: dict[str, int] = {name: eid for eid, name in EVENTS.items()}
+TOGGLE_IDS: dict[str, int] = {name: i for i, name in enumerate(TOGGLE_NAMES)}
 
 # Tuile de police (>= 0x60) → caractère affiché par la version US. Plusieurs caractères
 # partagent une tuile selon le graphisme chargé (▲ de la carte et ▶, kana japonais du
@@ -88,9 +96,12 @@ __all__ = [
     "DEX_TO_SPECIES",
     "EVENTS",
     "EVENT_IDS",
+    "EVOLUTIONS",
     "FADE_PALETTES",
     "ITEMS",
     "ITEM_IDS",
+    "LEARNSETS",
+    "LONE_MOVES",
     "MAPS",
     "MAP_IDS",
     "MOVES",
@@ -102,7 +113,12 @@ __all__ = [
     "SPECIES_IDS",
     "TYPE_EFFECTS",
     "TYPE_IDS",
+    "TEAM_MOVES",
     "TILE_CHARS",
+    "TOGGLE_IDS",
+    "TOGGLE_NAMES",
+    "TRAINER_CLASSES",
+    "TRAINER_PARTIES",
     "TYPE_NAMES",
     "MapInfo",
     "Move",
