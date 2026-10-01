@@ -1,6 +1,7 @@
 """Point d'entrée unique : `pokeblue <commande>`.
 
     pokeblue make-states   régénère les savestates d'un manifeste (configs/states/*.yaml)
+    pokeblue overlay       fenêtre de debug : écran + GameState + mode détecté
 """
 
 from __future__ import annotations
@@ -8,10 +9,11 @@ from __future__ import annotations
 import argparse
 import sys
 
-from pokeblue.tools import make_states
+from pokeblue.tools import make_states, overlay
 
 COMMANDS = {
     "make-states": (make_states, "régénère des savestates à partir d'un manifeste de recettes"),
+    "overlay": (overlay, "affiche l'écran, le GameState et le mode détecté"),
 }
 
 
