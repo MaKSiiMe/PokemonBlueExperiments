@@ -1,0 +1,26 @@
+# Évaluation de la baseline scriptée (Phase 3) : `pokeblue eval --config configs/eval/baseline.yaml`
+#
+# Chaque run part de la nouvelle partie (`start_state`, joueur à Bourg Palette, aucun
+# Pokémon) et attend un nombre de frames tiré de sa graine avant de jouer : le
+# générateur aléatoire du jeu avance à chaque frame, rencontres et dégâts diffèrent.
+
+runs: 8
+first_seed: 0
+workers: 4            # instances PyBoy en parallèle (≤ 12 sur la machine cible)
+
+run:
+  rom: ROMs/PokemonBlue.gb
+  start_state: states/PokemonBlue.gb.state
+  max_steps: 80000          # actions de 24 frames (~9 h de jeu)
+  max_initial_wait: 600     # frames
+  stall_steps: 20000        # arrêt si aucun jalon nouveau pendant N actions
+
+strategy:
+  heal_below: 0.5
+  train_margin: 0
+  battle_heal_below: 0.25
+  flee_below: 0.25
+  flee_when_ready: true
+  min_potions: 3
+  buy_potions: 5
+  shop_money: 1500

@@ -177,6 +177,14 @@ pokeblue make-states                # labelled savestates from configs/states/mo
 pokeblue overlay --state states/37_pewter_city.state   # live GameState + detected mode
 ```
 
+Scripted end-to-end baseline (skills + orchestrator, see [docs/baseline.md](docs/baseline.md)) — 8/8 runs reach 4 badges (Erika) from a new game:
+
+```bash
+pokeblue run --seed 0                     # one game from the new-game savestate, live progress
+pokeblue run --start-state logs/eval/<run>/seed_000/failures/<step>_<skill>.state   # replay a failure
+pokeblue eval --runs 8 --workers 8        # N games → logs/eval/<date>/report.{md,json}
+```
+
 ### Train
 
 ```bash
@@ -242,7 +250,10 @@ PokemonBlueExperiments/
 │   │   ├── emulator/             # PyBoy wrapper, input recipes
 │   │   ├── state/                # GameState, mode detector, ram_symbols.py (GENERATED)
 │   │   ├── knowledge/            # Gen 1 data, 222 maps, navigation, progression (GENERATED + curated YAML)
-│   │   ├── tools/                # make-states, overlay
+│   │   ├── skills/               # Skill contract + scripted skills (navigation, battle, dialog, menus, puzzles)
+│   │   ├── orchestrator/         # Strategy rules, orchestrator loop, episode runner + metrics
+│   │   ├── eval/                 # Evaluation harness (N runs → report)
+│   │   ├── tools/                # make-states, overlay, run, eval
 │   │   └── cli.py                # `pokeblue` command
 │   ├── emulator/
 │   │   ├── pokemon_env.py        # Gymnasium Dict environment
@@ -262,9 +273,11 @@ PokemonBlueExperiments/
 ├── tests/
 │   └── manual/battle_manual.py   # Interactive battle agent test (not run by pytest)
 ├── configs/states/modes.yaml     # Labelled savestate recipes (mode detection)
+├── configs/eval/baseline.yaml    # Evaluation of the scripted baseline
 └── docs/
     ├── state.md                  # GameState and mode detection
     ├── knowledge.md              # Knowledge layer: maps, navigation, progression
+    ├── baseline.md               # Scripted baseline: skills, orchestrator, evaluation
     └── archive/                  # First-version docs (obsolete, kept for history)
 ```
 
