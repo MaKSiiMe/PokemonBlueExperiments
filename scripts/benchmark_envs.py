@@ -241,10 +241,10 @@ def print_results_table(
             print(f"  Gagnant : PufferLib +{gain:.0f}% vs SubprocVecEnv")
             print(f"    → Utilisez : --n-envs {best_puf_n} --backend pufferlib")
         elif best_sub > best_puf:
-            print(f"  Gagnant : SubprocVecEnv")
+            print("  Gagnant : SubprocVecEnv")
             print(f"    → Utilisez : --n-envs {best_sub_n} --backend subproc")
         else:
-            print(f"  Égalité SubprocVecEnv / PufferLib")
+            print("  Égalité SubprocVecEnv / PufferLib")
 
     print()
     print("  Commande d'entraînement recommandée :")
@@ -272,11 +272,9 @@ def run_benchmark(args):
     if rom_available:
         print(f"  ROM trouvée : {args.rom} → benchmark réel PyBoy")
         env_fn = make_pokemon_env
-        mode   = 'PyBoy'
     else:
-        print(f"  ROM absente → benchmark synthétique (proxy de timing IPC)")
+        print("  ROM absente → benchmark synthétique (proxy de timing IPC)")
         env_fn = make_synthetic_env
-        mode   = 'Synthétique'
     print()
 
     do_subproc    = args.backend in ('subproc', 'both')

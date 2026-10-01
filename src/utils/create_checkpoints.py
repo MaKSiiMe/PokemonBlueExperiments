@@ -16,6 +16,7 @@ import os
 import threading
 
 from pyboy import PyBoy
+
 from pokeblue.state import ram_symbols as sym
 
 ROM_PATH   = 'ROMs/PokemonBlue.gb'

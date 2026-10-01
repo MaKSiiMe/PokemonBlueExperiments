@@ -12,14 +12,16 @@ Usage :
 """
 
 from __future__ import annotations
+
 import os
+
 import numpy as np
 from sb3_contrib import MaskablePPO
 from stable_baselines3.common.callbacks import CheckpointCallback
 
 from src.agent.custom_policy import PokemonGRUPolicy
-from src.agent.vectorization import VecBackend, make_vec_env
 from src.agent.monitoring import GameMetricsCallback
+from src.agent.vectorization import VecBackend, make_vec_env
 from src.agent.video_callback import VideoRecorderCallback
 
 
@@ -101,7 +103,7 @@ class ExplorationAgent:
                 print(f"[Exploration] torch.compile échoué (ignoré) : {exc}")
 
     @classmethod
-    def from_model(cls, ppo_model, env=None) -> 'ExplorationAgent':
+    def from_model(cls, ppo_model, env=None) -> ExplorationAgent:
         """Crée un agent inférence-only depuis un modèle déjà chargé."""
         agent = object.__new__(cls)
         agent.model   = ppo_model

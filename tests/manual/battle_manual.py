@@ -20,12 +20,13 @@ Usage (depuis la racine du repo) :
 import argparse
 import threading
 import time
+
 from pyboy import PyBoy
 from pynput import keyboard as kb
 
+from pokeblue.state import ram_symbols as sym
 from src.agent.battle_agent import BattleAgent
 from src.emulator.pokemon_env import TICKS_PER_ACTION
-from pokeblue.state import ram_symbols as sym
 from src.emulator.ram_map import RAM_BADGES, RAM_BATTLE
 
 ROM_PATH = 'ROMs/PokemonBlue.gb'

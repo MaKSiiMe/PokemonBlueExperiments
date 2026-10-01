@@ -17,6 +17,7 @@ import numpy as np
 
 os.environ.setdefault('SDL_AUDIODRIVER', 'dummy')
 from pyboy import PyBoy
+
 from pokeblue.state import ram_symbols as sym
 
 # ---------------------------------------------------------------------------
@@ -164,7 +165,7 @@ def scan_tiles(dashboard, pyboy, tile_lookup):
                 elif hex_id == '0x27':
                     if col < 19 and pyboy.memory[sym.W_TILE_MAP + row * 20 + (col + 1)] in OVERWORLD_BLOCK_TILES:
                         continue
-                elif hex_id in {'0x0D', '0x1D'}:
+                elif hex_id in {'0x0D', '0x1D'}:  # noqa: SIM102 — symétrie avec les branches ci-dessus
                     if col > 0 and pyboy.memory[sym.W_TILE_MAP + row * 20 + (col - 1)] in OVERWORLD_BLOCK_TILES:
                         continue
 
@@ -265,9 +266,8 @@ def main():
 
     try:
         while True:
-            if not paused:
-                if not pyboy.tick():
-                    break
+            if not paused and not pyboy.tick():
+                break
 
             screen = pyboy.screen.image
             if getattr(screen, 'mode', None) == 'RGBA':
@@ -335,7 +335,7 @@ def main():
                     json.dump(dump, f, indent=2)
                 print(f"Dump RAM : {path}")
 
-    except Exception as e:
+    except Exception:
         import traceback
         traceback.print_exc()
     finally:

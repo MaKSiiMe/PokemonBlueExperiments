@@ -35,10 +35,15 @@ from pyboy import PyBoy
 
 from pokeblue.knowledge.gen1_data import MOVE_IDS
 from src.emulator.ram_map import (
-    RAM_ENEMY_HP_H, RAM_ENEMY_HP_L,
-    RAM_ENEMY_MHP_H, RAM_ENEMY_MHP_L,
-    RAM_ENEMY_TYPE1, RAM_ENEMY_TYPE2,
-    RAM_MOVE_IDS, RAM_MOVE_PP, RAM_PP_MASK,
+    RAM_ENEMY_HP_H,
+    RAM_ENEMY_HP_L,
+    RAM_ENEMY_MHP_H,
+    RAM_ENEMY_MHP_L,
+    RAM_ENEMY_TYPE1,
+    RAM_ENEMY_TYPE2,
+    RAM_MOVE_IDS,
+    RAM_MOVE_PP,
+    RAM_PP_MASK,
 )
 from src.knowledge import PokemonKnowledgeGraph
 from src.knowledge.gen1_data import MOVE_TYPES, STATUS_MOVES

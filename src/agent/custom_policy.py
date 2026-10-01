@@ -27,16 +27,13 @@ Notes d'intégration SB3 :
 
 from __future__ import annotations
 
-from typing import Dict, List, Optional, Tuple, Type, Union
-
 import numpy as np
 import torch
 import torch.nn as nn
 from gymnasium import spaces
+from sb3_contrib.common.maskable.policies import MaskableActorCriticPolicy
 from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
 from stable_baselines3.common.type_aliases import Schedule
-from sb3_contrib.common.maskable.policies import MaskableActorCriticPolicy
-
 
 # ── Dimensions cibles ─────────────────────────────────────────────────────────
 _SCREEN_EMB  = 512   # sortie du CNN écran
@@ -165,7 +162,7 @@ class PokemonFeaturesExtractor(BaseFeaturesExtractor):
             nn.Linear(256, _RAM_EMB), nn.ReLU(),
         )
 
-    def forward(self, obs: Dict[str, torch.Tensor]) -> torch.Tensor:
+    def forward(self, obs: dict[str, torch.Tensor]) -> torch.Tensor:
         screen_emb = self.screen_cnn(obs['screen'])
         mask_emb   = self.mask_cnn(obs['visited_mask'])
         ram_emb    = self.ram_mlp(obs['ram'])
@@ -227,7 +224,7 @@ class PokemonGRUPolicy(MaskableActorCriticPolicy):
 
         # ── État caché GRU — buffer interne (1, n_envs, GRU_HIDDEN) ──────────
         # Initialisé lors du premier appel à _reset_hidden().
-        self._gru_hidden: Optional[torch.Tensor] = None
+        self._gru_hidden: torch.Tensor | None = None
         self._n_envs: int = 1
 
         # Ré-initialise tous les poids (action_net/value_net écrasent ceux de SB3)
@@ -257,7 +254,7 @@ class PokemonGRUPolicy(MaskableActorCriticPolicy):
             1, n_envs, GRU_HIDDEN, device=self.device
         )
 
-    def reset_hidden_for_envs(self, env_indices: List[int]):
+    def reset_hidden_for_envs(self, env_indices: list[int]):
         """Réinitialise le hidden state pour les envs dont l'épisode vient de finir."""
         if self._gru_hidden is None:
             return
@@ -269,8 +266,8 @@ class PokemonGRUPolicy(MaskableActorCriticPolicy):
     def _gru_step(
         self,
         features: torch.Tensor,
-        hidden: Optional[torch.Tensor] = None,
-    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        hidden: torch.Tensor | None = None,
+    ) -> tuple[torch.Tensor, torch.Tensor]:
         """Un pas GRU sur un batch de features.
 
         Args:
@@ -290,8 +287,8 @@ class PokemonGRUPolicy(MaskableActorCriticPolicy):
         self,
         obs: torch.Tensor,
         deterministic: bool = False,
-        action_masks: Optional[np.ndarray] = None,
-    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        action_masks: np.ndarray | None = None,
+    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         """Forward complet : obs → (actions, values, log_probs).
 
         Utilisé pendant collect_rollouts (pas-à-pas par env).
@@ -321,8 +318,8 @@ class PokemonGRUPolicy(MaskableActorCriticPolicy):
         self,
         obs: torch.Tensor,
         actions: torch.Tensor,
-        action_masks: Optional[np.ndarray] = None,
-    ) -> Tuple[torch.Tensor, torch.Tensor, Optional[torch.Tensor]]:
+        action_masks: np.ndarray | None = None,
+    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor | None]:
         """Évalue un batch de transitions pour le calcul de la perte PPO.
 
         Pendant l'entraînement, le hidden state est ré-initialisé à zéro
@@ -362,7 +359,7 @@ class PokemonGRUPolicy(MaskableActorCriticPolicy):
         self,
         observation: torch.Tensor,
         deterministic: bool = False,
-        action_masks: Optional[np.ndarray] = None,
+        action_masks: np.ndarray | None = None,
     ) -> torch.Tensor:
         """Override : force le passage par forward() (GRU) au lieu du chemin SB3 par défaut.
 

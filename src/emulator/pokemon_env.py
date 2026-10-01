@@ -41,30 +41,49 @@ import os
 from collections import deque
 
 import gymnasium as gym
-from gymnasium import spaces
 import numpy as np
+from gymnasium import spaces
 from pyboy import PyBoy
 
 from pokeblue.knowledge.gen1_data import MAP_IDS, type_multiplier
 from pokeblue.state import ram_symbols as sym
 from src.emulator.ram_map import (
-    RAM_PLAYER_X, RAM_PLAYER_Y, RAM_MAP_ID, RAM_DIRECTION,
+    RAM_BADGES,
     RAM_BATTLE,
-    RAM_PLAYER_HP_H, RAM_PLAYER_MHP_H,
-    RAM_BADGES, RAM_EVENT_FLAGS, RAM_EVENT_LEN,
-    RAM_ENEMY_TYPE1, RAM_ENEMY_TYPE2, RAM_ENEMY_SPECIES,
-    RAM_MOVE_IDS, RAM_MOVE_PP, RAM_PP_MASK,
-    RAM_PARTY_COUNT, RAM_PARTY_LEVELS, RAM_PARTY_HP, RAM_PARTY_MAX_HP,
-    RAM_BATTLE_MON_HP_H, RAM_BATTLE_MON_MAX_HP_H,
+    RAM_BATTLE_MON_HP_H,
+    RAM_BATTLE_MON_MAX_HP_H,
+    RAM_DIRECTION,
     RAM_ENEMY_HP_H,
-    RAM_ITEM_COUNT, RAM_ITEM_CAPACITY,
+    RAM_ENEMY_SPECIES,
+    RAM_ENEMY_TYPE1,
+    RAM_ENEMY_TYPE2,
+    RAM_EVENT_FLAGS,
+    RAM_EVENT_LEN,
+    RAM_ITEM_CAPACITY,
+    RAM_ITEM_COUNT,
+    RAM_MAP_ID,
     RAM_MONEY,
-    RAM_POKEDEX_OWNED, RAM_POKEDEX_LEN, RAM_POKEDEX_MAX,
-)
-from src.knowledge.gen1_data import (
-    GEN1_INTERNAL_TO_DEX, MOVE_TYPES, STATUS_MOVES,
+    RAM_MOVE_IDS,
+    RAM_MOVE_PP,
+    RAM_PARTY_COUNT,
+    RAM_PARTY_HP,
+    RAM_PARTY_LEVELS,
+    RAM_PARTY_MAX_HP,
+    RAM_PLAYER_HP_H,
+    RAM_PLAYER_MHP_H,
+    RAM_PLAYER_X,
+    RAM_PLAYER_Y,
+    RAM_POKEDEX_LEN,
+    RAM_POKEDEX_MAX,
+    RAM_POKEDEX_OWNED,
+    RAM_PP_MASK,
 )
 from src.knowledge import PokemonKnowledgeGraph
+from src.knowledge.gen1_data import (
+    GEN1_INTERNAL_TO_DEX,
+    MOVE_TYPES,
+    STATUS_MOVES,
+)
 
 # ── Constantes d'observation ──────────────────────────────────────────────────
 SCREEN_H     = 72    # hauteur après sous-échantillonnage ×2 (144 → 72)
@@ -266,10 +285,8 @@ class PokemonBlueEnv(gym.Env):
 
         reward = self._reward(x, y, mid)
 
-        if self._blacked_out():
-            terminated = True
-        else:
-            terminated = self._r(RAM_BADGES) & _BOULDER_BADGE > 0   # Badge Roche obtenu
+        # Fin d'épisode : blackout ou Badge Roche obtenu
+        terminated = self._blacked_out() or self._r(RAM_BADGES) & _BOULDER_BADGE > 0
 
         moved = x != self._prev_x or y != self._prev_y
         self._steps_stuck = 0 if moved else self._steps_stuck + 1

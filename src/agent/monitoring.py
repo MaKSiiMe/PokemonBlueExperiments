@@ -52,11 +52,9 @@ from __future__ import annotations
 
 import time
 from collections import Counter, deque
-from typing import Optional
 
 import numpy as np
 from stable_baselines3.common.callbacks import BaseCallback
-
 
 # Noms des jalons narratifs (dans l'ordre chronologique du jeu)
 MILESTONE_KEYS = ['ms_viridian', 'ms_forest', 'ms_pewter', 'ms_badge1', 'ms_mt_moon']
@@ -255,7 +253,7 @@ class GameMetricsCallback(BaseCallback):
         if val is not None:
             self.logger.record(tag, val)
 
-    def _window_stat(self, key: str, stat: str) -> Optional[float]:
+    def _window_stat(self, key: str, stat: str) -> float | None:
         buf = self._windows.get(key)
         if not buf:
             return None

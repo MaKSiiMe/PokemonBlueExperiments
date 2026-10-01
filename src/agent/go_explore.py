@@ -23,12 +23,10 @@ Stratégie de score pour l'échantillonnage :
 from __future__ import annotations
 
 import random
-from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple
+from dataclasses import dataclass
 
 import gymnasium as gym
 import numpy as np
-
 
 # ── Entrée d'archive ──────────────────────────────────────────────────────────
 
@@ -43,7 +41,7 @@ class CellEntry:
         discovery_step : numéro de step global auquel la cellule a été vue
                          pour la première fois.
     """
-    key:            Tuple[int, int, int]
+    key:            tuple[int, int, int]
     savestate:      bytes
     visit_count:    int  = 0
     discovery_step: int  = 0
@@ -70,7 +68,7 @@ class CellArchive:
     """
 
     def __init__(self, max_cells: int = 50_000, recency_window: int = 10_000):
-        self._cells: Dict[Tuple[int, int, int], CellEntry] = {}
+        self._cells: dict[tuple[int, int, int], CellEntry] = {}
         self._max_cells     = max_cells
         self._recency_window = recency_window
         self._global_step   = 0
@@ -119,7 +117,7 @@ class CellArchive:
 
     # ── Échantillonnage ───────────────────────────────────────────────────────
 
-    def sample(self) -> Tuple[Tuple[int, int, int], bytes]:
+    def sample(self) -> tuple[tuple[int, int, int], bytes]:
         """Sélectionne une cellule de l'archive selon le score de probabilité.
 
         Score = 1/(visits+1) × recency_weight
@@ -141,7 +139,7 @@ class CellArchive:
         entry = self._cells[selected_key]
         return selected_key, entry.savestate
 
-    def sample_frontier(self, n: int = 10) -> Tuple[Tuple[int, int, int], bytes]:
+    def sample_frontier(self, n: int = 10) -> tuple[tuple[int, int, int], bytes]:
         """Sélectionne la cellule la moins visitée parmi n cellules récentes.
 
         Variante plus agressive pour forcer l'exploration des frontières.
@@ -252,7 +250,7 @@ class GoExploreWrapper(gym.Wrapper):
 
     # ── Gymnasium API ─────────────────────────────────────────────────────────
 
-    def reset(self, seed=None, options=None) -> Tuple:
+    def reset(self, seed=None, options=None) -> tuple:
         """Reset avec téléportation Go-Explore si l'archive n'est pas vide.
 
         Stratégie mixte :
@@ -272,7 +270,7 @@ class GoExploreWrapper(gym.Wrapper):
         self._prev_map_id = info.get('map_id', -1)
         return obs, info
 
-    def step(self, action) -> Tuple:
+    def step(self, action) -> tuple:
         obs, reward, terminated, truncated, info = self.env.step(action)
 
         map_id     = info['map_id']

@@ -1,9 +1,11 @@
-import sys
-import os
 import glob
+import os
+import sys
+
 import cv2
 import numpy as np
 from pyboy import PyBoy
+
 from pokeblue.state import ram_symbols as sym
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))

@@ -8,9 +8,11 @@ Usage :
     python src/utils/extract_map_data.py
 """
 
-import os
 import glob
+import os
+
 from pyboy import PyBoy
+
 from pokeblue.state import ram_symbols as sym
 
 ROM_PATH  = 'ROMs/PokemonBlue.gb'

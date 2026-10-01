@@ -21,13 +21,10 @@ Usage rapide :
 from __future__ import annotations
 
 import logging
-from functools import lru_cache
 from pathlib import Path
-from typing import Optional
-
-from pyvis.network import Network
 
 import networkx as nx
+from pyvis.network import Network
 
 from src.knowledge.builder import GRAPH_PATH, KnowledgeGraphBuilder
 from src.knowledge.gen1_data import (
@@ -141,8 +138,8 @@ class PokemonKnowledgeGraph:
             # Les moves de statut sont inutiles si l'ennemi est presque KO
             return -1.0 if enemy_hp_pct < 0.25 else 0.0
 
-        type_name: Optional[str] = data.get("type_name")
-        base_power: Optional[int] = data.get("base_power") or 0
+        type_name: str | None = data.get("type_name")
+        base_power: int | None = data.get("base_power") or 0
         priority: int = data.get("priority", 0)
 
         # Score de base : multiplicateur de type × puissance normalisée
@@ -157,7 +154,7 @@ class PokemonKnowledgeGraph:
 
     def best_move_index(
         self,
-        move_names: list[Optional[str]],
+        move_names: list[str | None],
         enemy_type_bytes: list[int],
         enemy_hp_pct: float = 1.0,
     ) -> int:
