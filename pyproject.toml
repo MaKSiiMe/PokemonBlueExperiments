@@ -38,6 +38,9 @@ dependencies = [
     "pyyaml>=6.0",           # configs et manifestes de savestates
 ]
 
+[project.scripts]
+pokeblue = "pokeblue.cli:main"
+
 [project.optional-dependencies]
 dev = [
     "ruff>=0.6",

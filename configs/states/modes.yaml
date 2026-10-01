@@ -1,0 +1,219 @@
+# Savestates étiquetés pour la détection de mode (Phase 1).
+#
+# Chaque entrée part d'un savestate de base de `states/` (non versionné) et rejoue une
+# recette d'inputs (syntaxe : pokeblue.emulator.parse_recipe). La génération est
+# déterministe : `pokeblue make-states` reproduit les mêmes savestates et captures.
+#
+# L'étiquette `mode` est attribuée à la main, d'après la capture d'écran de chaque
+# état (planche : states/modes/sheet.png), indépendamment du détecteur.
+
+defaults:
+  # Rencontre d'un Chrysacier dans la Forêt de Jade. Chronologie mesurée ensuite
+  # (frames) : spirale 0–61, écran noir 62–125, texte d'intro complet à 342,
+  # « Go! CHARMANDER! » après A, menu de combat seul à 588.
+  battle_forest: &battle_forest "wait:30 up up down down up up down"
+  battle_menu: &battle_menu "wait:30 up up down down up up down wait:345 a wait:240"
+
+states:
+  # ── Overworld ────────────────────────────────────────────────────────────────
+  - name: overworld_pewter
+    base: 37_pewter_city.state
+    recipe: "wait:30"
+    mode: overworld
+    note: Argenta, joueur immobile
+
+  - name: overworld_route1
+    base: 07_route1_grass.state
+    recipe: "wait:30"
+    mode: overworld
+    note: Route 1, dans l'herbe
+
+  - name: overworld_forest
+    base: 24_viridian_forest_down.state
+    recipe: "wait:30"
+    mode: overworld
+    note: Forêt de Jade
+
+  - name: overworld_pokecenter
+    base: 11_viridian_center.state
+    recipe: "wait:30"
+    mode: overworld
+    note: intérieur du Centre Pokémon de Jadielle
+
+  - name: overworld_walking
+    base: 37_pewter_city.state
+    recipe: "wait:30 hold:left:8"
+    mode: overworld
+    note: au milieu d'un pas
+
+  - name: overworld_menu_closed
+    base: 37_pewter_city.state
+    recipe: "wait:30 start wait:30 b wait:30"
+    mode: overworld
+    note: menu Start ouvert puis refermé
+
+  - name: overworld_after_door
+    base: 35_pewter_center_front.state
+    recipe: "wait:30 down down left left left up wait:80"
+    mode: overworld
+    note: dans le Centre Pokémon d'Argenta, fondu terminé
+
+  # ── Dialogues ────────────────────────────────────────────────────────────────
+  - name: dialog_npc_route1
+    base: 08_route1_pnj1.state
+    recipe: "wait:30 left left up wait:30 a wait:90"
+    mode: dialog
+    note: PNJ de la Route 1 (« Hi! I work at a POKéMON MART. »)
+
+  - name: dialog_text_printing
+    base: 08_route1_pnj1.state
+    recipe: "wait:30 left left up wait:30 a wait:10"
+    mode: dialog
+    note: même PNJ, texte en cours d'affichage
+
+  - name: dialog_nurse
+    base: 11_viridian_center.state
+    recipe: "wait:30 left left left up wait:30 a wait:90"
+    mode: dialog
+    note: infirmière (« Welcome to our POKéMON CENTER! »)
+
+  - name: dialog_sign
+    base: 35_pewter_center_front.state
+    recipe: "wait:30 down down left left up wait:30 a wait:90"
+    mode: dialog
+    note: panneau du Centre Pokémon d'Argenta, lu depuis (14,26)
+
+  - name: dialog_nurse_scroll
+    base: 11_viridian_center.state
+    recipe: "wait:30 left left left up wait:30 a wait:90 a wait:90"
+    mode: dialog
+    note: infirmière, « We heal your POKéMON back to ▼ »
+
+  # ── Menus ────────────────────────────────────────────────────────────────────
+  - name: menu_start
+    base: 37_pewter_city.state
+    recipe: "wait:30 start wait:30"
+    mode: menu
+    note: menu Start
+
+  - name: menu_bag
+    base: 37_pewter_city.state
+    recipe: "wait:30 start down down a wait:30"
+    mode: menu
+    note: sac (ITEM) depuis le menu Start
+
+  - name: menu_party
+    base: 37_pewter_city.state
+    recipe: "wait:30 start down a wait:60"
+    mode: menu
+    note: écran d'équipe depuis le menu Start
+
+  - name: menu_pokedex
+    base: 37_pewter_city.state
+    recipe: "wait:30 start a wait:60"
+    mode: menu
+    note: liste du Pokédex
+
+  - name: menu_nurse_yes_no
+    base: 11_viridian_center.state
+    recipe: "wait:30 left left left up wait:30 a wait:90 a wait:90 a wait:50 a wait:110"
+    mode: menu
+    note: infirmière, « Shall we heal your POKéMON? » OUI/NON
+
+  - name: dialog_parcel_clerk
+    base: 12_viridian_mart.state
+    recipe: "wait:30 down left left wait:30 a wait:90"
+    mode: dialog
+    note: vendeur de Jadielle, remise du colis du Prof. Chen (pas de boutique à ce stade)
+
+  - name: menu_shop
+    base: 40_pewter_mart.state
+    recipe: "wait:30 down left wait:30 a wait:90"
+    mode: menu
+    note: vendeur d'Argenta, menu BUY/SELL/QUIT
+
+  - name: menu_shop_buy
+    base: 40_pewter_mart.state
+    recipe: "wait:30 down left wait:30 a wait:90 a wait:60"
+    mode: menu
+    note: liste d'achat de la boutique d'Argenta
+
+  - name: menu_pc
+    base: 11_viridian_center.state
+    recipe: "wait:30 right*7 up wait:30 a wait:90 a wait:60"
+    mode: menu
+    note: PC du Centre Pokémon
+
+  # ── Combat ───────────────────────────────────────────────────────────────────
+  - name: battle_intro_text
+    base: 30_viridian_forest_grass2.state
+    recipe: [*battle_forest, "wait:300"]
+    mode: battle_anim
+    note: « Wild METAPOD appeared! » en cours d'affichage
+
+  - name: battle_send_out
+    base: 30_viridian_forest_grass2.state
+    recipe: [*battle_forest, "wait:345 a wait:60"]
+    mode: battle_anim
+    note: « Go! CHARMANDER! », animation d'envoi
+
+  - name: battle_main_menu
+    base: 30_viridian_forest_grass2.state
+    recipe: [*battle_menu]
+    mode: battle_menu
+    note: menu principal (FIGHT / PKMN / ITEM / RUN)
+
+  - name: battle_move_menu
+    base: 30_viridian_forest_grass2.state
+    recipe: [*battle_menu, "a wait:30"]
+    mode: battle_move_menu
+    note: choix de l'attaque
+
+  - name: battle_move_anim
+    base: 30_viridian_forest_grass2.state
+    recipe: [*battle_menu, "a wait:30 a wait:40"]
+    mode: battle_anim
+    note: animation de l'attaque choisie
+
+  - name: battle_bag
+    base: 30_viridian_forest_grass2.state
+    recipe: [*battle_menu, "down a wait:40"]
+    mode: battle_menu
+    note: sac en combat (ITEM)
+
+  - name: battle_party
+    base: 30_viridian_forest_grass2.state
+    recipe: [*battle_menu, "right a wait:60"]
+    mode: battle_menu
+    note: écran d'équipe en combat (PKMN)
+
+  # ── Transitions ──────────────────────────────────────────────────────────────
+  - name: transition_battle_spiral
+    base: 30_viridian_forest_grass2.state
+    recipe: [*battle_forest, "wait:20"]
+    mode: transition
+    note: animation d'entrée en combat
+
+  - name: transition_battle_flash
+    base: 30_viridian_forest_grass2.state
+    recipe: [*battle_forest, "wait:70"]
+    mode: transition
+    note: écran noir avant l'apparition de l'ennemi
+
+  - name: transition_door_fade
+    base: 35_pewter_center_front.state
+    recipe: "wait:30 down down left left left up wait:10"
+    mode: transition
+    note: fondu en entrant dans le Centre Pokémon d'Argenta
+
+  - name: transition_door_lcd_off
+    base: 35_pewter_center_front.state
+    recipe: "wait:30 down down left left left up wait:28"
+    mode: transition
+    note: chargement de la carte (écran éteint)
+
+  - name: transition_door_fade_in
+    base: 35_pewter_center_front.state
+    recipe: "wait:30 down down left left left up wait:36"
+    mode: transition
+    note: nouvelle carte chargée, écran encore noir
